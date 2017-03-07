@@ -1,0 +1,66 @@
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe.config
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.pdb
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.Properties.Resources.resources
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csproj.GenerateResource.Cache
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.exe
+c:\users\kowsar\documents\visual studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.pdb
+C:\Users\Kowsar\Documents\Visual Studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmCategory.resources
+C:\Users\Kowsar\Documents\Visual Studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.frm1.resources
+C:\Users\Kowsar\Documents\Visual Studio 2013\Projects\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csprojResolveAssemblyReference.cache
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe.config
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csprojResolveAssemblyReference.cache
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmCategory.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.frm1.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.Properties.Resources.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csproj.GenerateResource.Cache
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmLogin.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmRegistration.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.MainUI.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.PersonDetail.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmPersonUpdate.resources
+G:\ProjectUpdate 23-06-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.ChangePassword.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe.config
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csprojResolveAssemblyReference.cache
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.ChangePassword.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmLogin.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmRegistration.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmCategory.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.frm1.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.Properties.Resources.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmPersonUpdate.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.MainUI.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.PersonDetail.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -10-12-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csproj.GenerateResource.Cache
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe.config
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.exe
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\bin\Debug\PhonebookApp.pdb
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csprojResolveAssemblyReference.cache
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.ChangePassword.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmLogin.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.frmRegistration.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmCategory.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.frm1.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.Properties.Resources.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmPersonUpdate.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.MainUI.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.PersonDetail.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.csproj.GenerateResource.Cache
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.LogInUI.UserManagementUI.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmCompany.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.AgeGroup.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.EducationLevel.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.Profession.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.Specialization.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmJobTitle.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.PersonUpdateForm.resources

@@ -64,3 +64,4 @@ G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp
 G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.Specialization.resources
 G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmJobTitle.resources
 G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.PersonUpdateForm.resources
+G:\ProjectUpdate 23-06-2016\Phone Book App -04-03-2016\PhonebookApp\PhonebookApp\obj\Debug\PhonebookApp.UI.frmRelationShip.resources

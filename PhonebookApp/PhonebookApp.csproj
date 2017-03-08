@@ -116,6 +116,12 @@
     <Compile Include="UI\frmPersonUpdate.Designer.cs">
       <DependentUpon>frmPersonUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmRelationShip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmRelationShip.Designer.cs">
+      <DependentUpon>frmRelationShip.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPersonUpdate.resx">
       <DependentUpon>frmPersonUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmRelationShip.resx">
+      <DependentUpon>frmRelationShip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>

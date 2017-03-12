@@ -35,6 +35,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.unKnownRA = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtRABlock = new wmgCMS.WaterMarkTextBox();
             this.cmbRAPost = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             this.sameAsRACheckBox = new System.Windows.Forms.CheckBox();
             this.unKnownCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtWABlock = new wmgCMS.WaterMarkTextBox();
             this.cmbWAPost = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -126,8 +128,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.txtRABlock = new wmgCMS.WaterMarkTextBox();
-            this.txtWABlock = new wmgCMS.WaterMarkTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -277,6 +277,16 @@
             this.groupBox5.TabIndex = 85;
             this.groupBox5.TabStop = false;
             // 
+            // txtRABlock
+            // 
+            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtRABlock.Name = "txtRABlock";
+            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtRABlock.TabIndex = 83;
+            this.txtRABlock.WaterMarkColor = System.Drawing.Color.Gray;
+            this.txtRABlock.WaterMarkText = "if Any";
+            // 
             // cmbRAPost
             // 
             this.cmbRAPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -285,6 +295,7 @@
             this.cmbRAPost.Name = "cmbRAPost";
             this.cmbRAPost.Size = new System.Drawing.Size(196, 30);
             this.cmbRAPost.TabIndex = 82;
+            this.cmbRAPost.SelectedIndexChanged += new System.EventHandler(this.cmbRAPost_SelectedIndexChanged_1);
             // 
             // label44
             // 
@@ -323,6 +334,7 @@
             this.cmbRADivision.Name = "cmbRADivision";
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
             this.cmbRADivision.TabIndex = 78;
+            this.cmbRADivision.SelectedIndexChanged += new System.EventHandler(this.cmbRADivision_SelectedIndexChanged_1);
             // 
             // label41
             // 
@@ -371,6 +383,7 @@
             this.cmbRAThana.Name = "cmbRAThana";
             this.cmbRAThana.Size = new System.Drawing.Size(197, 30);
             this.cmbRAThana.TabIndex = 42;
+            this.cmbRAThana.SelectedIndexChanged += new System.EventHandler(this.cmbRAThana_SelectedIndexChanged_1);
             // 
             // txtRAContactNo
             // 
@@ -400,6 +413,7 @@
             this.cmbRADistrict.Name = "cmbRADistrict";
             this.cmbRADistrict.Size = new System.Drawing.Size(198, 27);
             this.cmbRADistrict.TabIndex = 19;
+            this.cmbRADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbRADistrict_SelectedIndexChanged_1);
             // 
             // label21
             // 
@@ -594,6 +608,16 @@
             this.groupBox4.TabIndex = 86;
             this.groupBox4.TabStop = false;
             // 
+            // txtWABlock
+            // 
+            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtWABlock.Name = "txtWABlock";
+            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtWABlock.TabIndex = 83;
+            this.txtWABlock.WaterMarkColor = System.Drawing.Color.Gray;
+            this.txtWABlock.WaterMarkText = "if Any";
+            // 
             // cmbWAPost
             // 
             this.cmbWAPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -602,6 +626,7 @@
             this.cmbWAPost.Name = "cmbWAPost";
             this.cmbWAPost.Size = new System.Drawing.Size(198, 30);
             this.cmbWAPost.TabIndex = 82;
+            this.cmbWAPost.SelectedIndexChanged += new System.EventHandler(this.cmbWAPost_SelectedIndexChanged_1);
             // 
             // label35
             // 
@@ -640,6 +665,7 @@
             this.cmbWADivision.Name = "cmbWADivision";
             this.cmbWADivision.Size = new System.Drawing.Size(198, 30);
             this.cmbWADivision.TabIndex = 78;
+            this.cmbWADivision.SelectedIndexChanged += new System.EventHandler(this.cmbWADivision_SelectedIndexChanged_1);
             // 
             // label38
             // 
@@ -688,6 +714,7 @@
             this.cmbWAThana.Name = "cmbWAThana";
             this.cmbWAThana.Size = new System.Drawing.Size(198, 30);
             this.cmbWAThana.TabIndex = 42;
+            this.cmbWAThana.SelectedIndexChanged += new System.EventHandler(this.cmbWAThana_SelectedIndexChanged_1);
             // 
             // txtWAContactNo
             // 
@@ -717,6 +744,7 @@
             this.cmbWADistrict.Name = "cmbWADistrict";
             this.cmbWADistrict.Size = new System.Drawing.Size(199, 27);
             this.cmbWADistrict.TabIndex = 19;
+            this.cmbWADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbWADistrict_SelectedIndexChanged_1);
             // 
             // label47
             // 
@@ -1186,26 +1214,6 @@
             this.label1.Size = new System.Drawing.Size(125, 22);
             this.label1.TabIndex = 42;
             this.label1.Text = "Person Name:";
-            // 
-            // txtRABlock
-            // 
-            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRABlock.Location = new System.Drawing.Point(158, 108);
-            this.txtRABlock.Name = "txtRABlock";
-            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtRABlock.TabIndex = 83;
-            this.txtRABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtRABlock.WaterMarkText = "if Any";
-            // 
-            // txtWABlock
-            // 
-            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
-            this.txtWABlock.Name = "txtWABlock";
-            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtWABlock.TabIndex = 83;
-            this.txtWABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtWABlock.WaterMarkText = "if Any";
             // 
             // frm1
             // 

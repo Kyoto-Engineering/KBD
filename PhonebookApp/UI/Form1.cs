@@ -1962,6 +1962,426 @@ namespace PhonebookApp
             }
         }
 
+        private void cmbRADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
+
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
+                cmd.Parameters["@find"].Value = cmbRADistrict.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    districtIdRA = (rdr.GetString(0));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+                cmbRADistrict.Text = cmbRADistrict.Text.Trim();                
+                cmbRAThana.SelectedIndex = -1;
+                cmbRAThana.Items.Clear();
+                cmbRAPost.SelectedIndex = -1;
+                cmbRAPost.Items.Clear();
+                txtRAPostCode.Clear();
+                cmbRAThana.Enabled = true;
+                cmbRAThana.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA + "' order by Thanas.D_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbRAThana.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbRAThana_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
+                cmd.Parameters["@find"].Value = cmbRAThana.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    thanaIdRA = (rdr.GetString(0));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+                cmbRAThana.Text = cmbRAThana.Text.Trim();               
+                cmbRAPost.SelectedIndex=-1;
+                cmbRAPost.Items.Clear();
+                txtRAPostCode.Clear();
+                cmbRAPost.Enabled = true;
+                cmbRAPost.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.T_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbRAPost.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbRAPost_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
+                cmd.Parameters["@find"].Value = cmbRAPost.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    postofficeIdRA = (rdr.GetString(0));
+                    txtRAPostCode.Text = (rdr.GetString(1));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbWADivision_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Divisions.Division_ID)  from Divisions WHERE Divisions.Division=@find";
+
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Division"));
+                cmd.Parameters["@find"].Value = cmbWADivision.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    divisionIdWA = (rdr.GetString(0));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+                cmbWADivision.Text = cmbWADivision.Text.Trim();                
+                cmbWADistrict.SelectedIndex=-1;
+                cmbWADistrict.Items.Clear();
+                cmbWAThana.SelectedIndex = -1;
+                cmbWAThana.Items.Clear();
+                cmbWAPost.SelectedIndex = -1;
+                cmbWAPost.Items.Clear();
+                txtWAPostCode.Clear();
+                cmbWADistrict.Enabled = true;
+                cmbWADistrict.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdWA + "' order by Districts.Division_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbWADistrict.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbRADivision_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Divisions.Division_ID)  from Divisions WHERE Divisions.Division=@find";
+
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Division"));
+                cmd.Parameters["@find"].Value = cmbRADivision.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    divisionIdRA = (rdr.GetString(0));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+                cmbRADivision.Text = cmbRADivision.Text.Trim();              
+                cmbRADistrict.SelectedIndex=-1;
+                cmbRADistrict.Items.Clear();
+                cmbRAThana.SelectedIndex = -1;
+                cmbWAThana.Items.Clear();
+                cmbRAPost.SelectedIndex = -1;
+                cmbRAPost.Items.Clear();
+                txtRAPostCode.Clear();
+                cmbRADistrict.Enabled = true;
+                cmbRADistrict.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdRA + "' order by Districts.Division_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbRADistrict.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbWADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
+                cmd.Parameters["@find"].Value = cmbWADistrict.Text;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    districtIdWA = (rdr.GetString(0));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                cmbWADistrict.Text = cmbWADistrict.Text.Trim();               
+                cmbWAThana.SelectedIndex=-1;
+                cmbWAThana.Items.Clear();
+                cmbWAPost.SelectedIndex = -1;
+                cmbWAPost.Items.Clear();
+                txtWAPostCode.Clear();
+                cmbWAThana.Enabled = true;
+                cmbWAThana.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdWA + "' order by Thanas.D_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbWAThana.Items.Add(rdr[0]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbWAThana_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
+                cmd.Parameters["@find"].Value = cmbWAThana.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    thanaIdWA = (rdr.GetString(0));
+
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                cmbWAThana.Text = cmbWAThana.Text.Trim();                                
+                cmbWAPost.Items.Clear();
+                cmbWAPost.SelectedIndex = -1;
+                txtWAPostCode.Clear();
+                cmbWAPost.Enabled = true;
+                cmbWAPost.Focus();
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdWA + "' order by PostOffice.T_ID desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbWAPost.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbWAPost_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
+                cmd.Parameters["@find"].Value = cmbWAPost.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    postofficeIdWA = (rdr.GetString(0));
+                    txtWAPostCode.Text = (rdr.GetString(1));
+
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
        
            
        

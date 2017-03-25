@@ -41,6 +41,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.buttonJobTitle);
             this.groupBox1.Controls.Add(this.buttonAgeGroup);
             this.groupBox1.Controls.Add(this.buttonEducationLevel);
@@ -78,7 +80,7 @@
             // 
             this.buttonJobTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonJobTitle.ForeColor = System.Drawing.Color.Blue;
-            this.buttonJobTitle.Location = new System.Drawing.Point(10, 508);
+            this.buttonJobTitle.Location = new System.Drawing.Point(10, 452);
             this.buttonJobTitle.Name = "buttonJobTitle";
             this.buttonJobTitle.Size = new System.Drawing.Size(134, 58);
             this.buttonJobTitle.TabIndex = 41;
@@ -90,7 +92,7 @@
             // 
             this.buttonAgeGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonAgeGroup.ForeColor = System.Drawing.Color.Blue;
-            this.buttonAgeGroup.Location = new System.Drawing.Point(9, 582);
+            this.buttonAgeGroup.Location = new System.Drawing.Point(9, 518);
             this.buttonAgeGroup.Name = "buttonAgeGroup";
             this.buttonAgeGroup.Size = new System.Drawing.Size(135, 56);
             this.buttonAgeGroup.TabIndex = 40;
@@ -102,7 +104,7 @@
             // 
             this.buttonEducationLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonEducationLevel.ForeColor = System.Drawing.Color.Blue;
-            this.buttonEducationLevel.Location = new System.Drawing.Point(10, 355);
+            this.buttonEducationLevel.Location = new System.Drawing.Point(10, 316);
             this.buttonEducationLevel.Name = "buttonEducationLevel";
             this.buttonEducationLevel.Size = new System.Drawing.Size(131, 55);
             this.buttonEducationLevel.TabIndex = 39;
@@ -114,7 +116,7 @@
             // 
             this.buttonProfession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonProfession.ForeColor = System.Drawing.Color.Blue;
-            this.buttonProfession.Location = new System.Drawing.Point(9, 425);
+            this.buttonProfession.Location = new System.Drawing.Point(9, 379);
             this.buttonProfession.Name = "buttonProfession";
             this.buttonProfession.Size = new System.Drawing.Size(135, 62);
             this.buttonProfession.TabIndex = 38;
@@ -126,7 +128,7 @@
             // 
             this.buttonSpecialization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonSpecialization.ForeColor = System.Drawing.Color.Blue;
-            this.buttonSpecialization.Location = new System.Drawing.Point(9, 287);
+            this.buttonSpecialization.Location = new System.Drawing.Point(9, 260);
             this.buttonSpecialization.Name = "buttonSpecialization";
             this.buttonSpecialization.Size = new System.Drawing.Size(133, 52);
             this.buttonSpecialization.TabIndex = 37;
@@ -138,7 +140,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button4.ForeColor = System.Drawing.Color.Blue;
-            this.button4.Location = new System.Drawing.Point(9, 144);
+            this.button4.Location = new System.Drawing.Point(9, 135);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 57);
             this.button4.TabIndex = 36;
@@ -151,7 +153,7 @@
             this.personDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.personDetailsButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personDetailsButton.ForeColor = System.Drawing.Color.Blue;
-            this.personDetailsButton.Location = new System.Drawing.Point(10, 212);
+            this.personDetailsButton.Location = new System.Drawing.Point(10, 192);
             this.personDetailsButton.Name = "personDetailsButton";
             this.personDetailsButton.Size = new System.Drawing.Size(134, 65);
             this.personDetailsButton.TabIndex = 35;
@@ -175,7 +177,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(6, 78);
+            this.button2.Location = new System.Drawing.Point(6, 73);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 60);
             this.button2.TabIndex = 1;
@@ -209,12 +211,24 @@
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button5.ForeColor = System.Drawing.Color.Blue;
+            this.button5.Location = new System.Drawing.Point(10, 580);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(131, 58);
+            this.button5.TabIndex = 42;
+            this.button5.Text = "Group Creation";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1023, 734);
+            this.ClientSize = new System.Drawing.Size(1023, 733);
             this.ControlBox = false;
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.groupBox1);
@@ -243,5 +257,6 @@
         private System.Windows.Forms.Button buttonProfession;
         private System.Windows.Forms.Button buttonSpecialization;
         private System.Windows.Forms.Button buttonJobTitle;
+        private System.Windows.Forms.Button button5;
     }
 }

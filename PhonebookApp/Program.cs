@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.LogInUI;
+using PhonebookApp.UI;
 
 namespace PhonebookApp
 {
@@ -18,6 +19,10 @@ namespace PhonebookApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
+            //Application.Run(new Group());
+            //Application.Run(new GroupCreation());
+            //Application.Run(new frmCategory());
+            //Application.Run(new MainUI());
         }
     }
 }

@@ -94,5 +94,12 @@ namespace PhonebookApp.UI
             frmJobTitle frm = new frmJobTitle();
             frm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GroupCreation frm = new GroupCreation();
+            frm.Show();
+        }
     }
 }

@@ -39,11 +39,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupNametextBox = new System.Windows.Forms.TextBox();
             this.listView = new System.Windows.Forms.ListView();
-            this.groupNamelabel = new System.Windows.Forms.Label();
-            this.addbutton = new System.Windows.Forms.Button();
-            this.submitbutton = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,6 +50,10 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupNamelabel = new System.Windows.Forms.Label();
+            this.addbutton = new System.Windows.Forms.Button();
+            this.submitbutton = new System.Windows.Forms.Button();
+            this.GroupNamecomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,14 +140,6 @@
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
-            // groupNametextBox
-            // 
-            this.groupNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupNametextBox.Location = new System.Drawing.Point(32, 206);
-            this.groupNametextBox.Name = "groupNametextBox";
-            this.groupNametextBox.Size = new System.Drawing.Size(257, 26);
-            this.groupNametextBox.TabIndex = 3;
-            // 
             // listView
             // 
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -168,38 +160,6 @@
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            // 
-            // groupNamelabel
-            // 
-            this.groupNamelabel.AutoSize = true;
-            this.groupNamelabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupNamelabel.Location = new System.Drawing.Point(28, 169);
-            this.groupNamelabel.Name = "groupNamelabel";
-            this.groupNamelabel.Size = new System.Drawing.Size(116, 22);
-            this.groupNamelabel.TabIndex = 5;
-            this.groupNamelabel.Text = "Group Name";
-            // 
-            // addbutton
-            // 
-            this.addbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addbutton.Location = new System.Drawing.Point(201, 91);
-            this.addbutton.Name = "addbutton";
-            this.addbutton.Size = new System.Drawing.Size(88, 49);
-            this.addbutton.TabIndex = 6;
-            this.addbutton.Text = "Add";
-            this.addbutton.UseVisualStyleBackColor = true;
-            this.addbutton.Click += new System.EventHandler(this.addbutton_Click);
-            // 
-            // submitbutton
-            // 
-            this.submitbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitbutton.Location = new System.Drawing.Point(201, 255);
-            this.submitbutton.Name = "submitbutton";
-            this.submitbutton.Size = new System.Drawing.Size(88, 49);
-            this.submitbutton.TabIndex = 7;
-            this.submitbutton.Text = "Submit";
-            this.submitbutton.UseVisualStyleBackColor = true;
-            this.submitbutton.Click += new System.EventHandler(this.submitbutton_Click);
             // 
             // columnHeader1
             // 
@@ -251,19 +211,62 @@
             this.columnHeader10.Text = "Age Group Level";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // groupNamelabel
+            // 
+            this.groupNamelabel.AutoSize = true;
+            this.groupNamelabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupNamelabel.Location = new System.Drawing.Point(28, 157);
+            this.groupNamelabel.Name = "groupNamelabel";
+            this.groupNamelabel.Size = new System.Drawing.Size(116, 22);
+            this.groupNamelabel.TabIndex = 5;
+            this.groupNamelabel.Text = "Group Name";
+            // 
+            // addbutton
+            // 
+            this.addbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbutton.Location = new System.Drawing.Point(201, 91);
+            this.addbutton.Name = "addbutton";
+            this.addbutton.Size = new System.Drawing.Size(88, 49);
+            this.addbutton.TabIndex = 6;
+            this.addbutton.Text = "Add";
+            this.addbutton.UseVisualStyleBackColor = true;
+            this.addbutton.Click += new System.EventHandler(this.addbutton_Click);
+            // 
+            // submitbutton
+            // 
+            this.submitbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitbutton.Location = new System.Drawing.Point(201, 255);
+            this.submitbutton.Name = "submitbutton";
+            this.submitbutton.Size = new System.Drawing.Size(88, 49);
+            this.submitbutton.TabIndex = 7;
+            this.submitbutton.Text = "Submit";
+            this.submitbutton.UseVisualStyleBackColor = true;
+            this.submitbutton.Click += new System.EventHandler(this.submitbutton_Click);
+            // 
+            // GroupNamecomboBox
+            // 
+            this.GroupNamecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupNamecomboBox.FormattingEnabled = true;
+            this.GroupNamecomboBox.Location = new System.Drawing.Point(32, 187);
+            this.GroupNamecomboBox.Name = "GroupNamecomboBox";
+            this.GroupNamecomboBox.Size = new System.Drawing.Size(257, 27);
+            this.GroupNamecomboBox.TabIndex = 8;
+            // 
             // Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 579);
+            this.Controls.Add(this.GroupNamecomboBox);
             this.Controls.Add(this.submitbutton);
             this.Controls.Add(this.addbutton);
             this.Controls.Add(this.groupNamelabel);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.groupNametextBox);
             this.Controls.Add(this.dataGridView);
             this.Name = "Group";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Group";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Group_FormClosed);
             this.Load += new System.EventHandler(this.Group_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -274,7 +277,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.TextBox groupNametextBox;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Label groupNamelabel;
         private System.Windows.Forms.Button addbutton;
@@ -299,5 +301,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ComboBox GroupNamecomboBox;
     }
 }

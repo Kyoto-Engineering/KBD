@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
+using PhonebookApp.LogInUI;
 
 namespace PhonebookApp.UI
 {
@@ -19,12 +20,70 @@ namespace PhonebookApp.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         private SqlDataAdapter sda;
-        public int groupId, personid;
-        
+        public int groupid, personid;
+        public string user_id;
+
         public Group()
         {
             InitializeComponent();
         }
+
+        public void FillGroupName()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                //string ct = "select RTRIM(Group.GroupName) from [dbo].[Group]  order by Group.GroupId";
+                string ct = "select RTRIM(GroupName) from [dbo].[Group]  order by GroupId";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    GroupNamecomboBox.Items.Add(rdr[0]);
+                }
+               
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadGroupId()
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+
+                cmd.CommandText = "SELECT GroupId from [dbo].[Group] WHERE GroupName= '" + GroupNamecomboBox.Text + "'";
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    groupid = rdr.GetInt32(0);
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void FillPersonDetailsGrid()
         {
@@ -60,23 +119,24 @@ namespace PhonebookApp.UI
         }
         private void Group_Load(object sender, EventArgs e)
         {
+            user_id = frmLogin.uId.ToString();
             FillPersonDetailsGrid();
+            FillGroupName();
         }
 
         private void addbutton_Click(object sender, EventArgs e)
         {
 
-
             if (dataGridView.SelectedRows.Count > 0)
-            {                
+            {
                 try
                 {
                     DataGridViewRow dr = dataGridView.SelectedRows[0];
-                    int personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+                    personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
                     if (listView.Items.Count == 0)
                     {
-                        ListViewItem lst = new ListViewItem();                        
-                        lst.Text=dr.Cells[0].Value.ToString();
+                        ListViewItem lst = new ListViewItem();
+                        lst.Text = dr.Cells[0].Value.ToString();
                         lst.SubItems.Add(dr.Cells[1].Value.ToString());
                         lst.SubItems.Add(dr.Cells[2].Value.ToString());
                         lst.SubItems.Add(dr.Cells[3].Value.ToString());
@@ -92,8 +152,8 @@ namespace PhonebookApp.UI
 
                     else if (listView.FindItemWithText(personid.ToString()) == null)
                     {
-                        ListViewItem lst1 = new ListViewItem();                       
-                        lst1.Text=dr.Cells[0].Value.ToString();
+                        ListViewItem lst1 = new ListViewItem();
+                        lst1.Text = dr.Cells[0].Value.ToString();
                         lst1.SubItems.Add(dr.Cells[1].Value.ToString());
                         lst1.SubItems.Add(dr.Cells[2].Value.ToString());
                         lst1.SubItems.Add(dr.Cells[3].Value.ToString());
@@ -121,21 +181,51 @@ namespace PhonebookApp.UI
             {
                 MessageBox.Show("There is not any row selected, please select row and Click Add Button!");
             }
-            
+
         }
 
-        private void SaveGroup()
+        private void submitbutton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+            {
+                MessageBox.Show("Please select Group Name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            LoadGroupId();
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string query = "insert into [Group] (GroupName) values (@d1)";
+                string ct = "select PersonsId from GroupMember where GroupId='" + groupid +
+                            "' AND PersonsId='" + personid + "'";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                
+                if (rdr.Read())
+                {
+                    
+                  MessageBox.Show("This Group Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    GroupNamecomboBox.SelectedIndex = -1;
+
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    return;
+                }
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", groupNametextBox.Text);
+                cmd.Parameters.AddWithValue("@d1", groupid);
+                cmd.Parameters.AddWithValue("@d2", personid);
+                cmd.Parameters.AddWithValue("@d3", user_id);
                 cmd.ExecuteNonQuery();
-                con.Close();
-                //MessageBox.Show("Submitted successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Submitted Successfully", "Information", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                GroupNamecomboBox.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -143,32 +233,11 @@ namespace PhonebookApp.UI
             }
         }
 
-        private void submitbutton_Click(object sender, EventArgs e)
+        private void Group_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(groupNametextBox.Text))
-            {
-                MessageBox.Show("Please enter Group Name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                SaveGroup();
-                try
-                { 
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string query = "insert into [GroupMember] (GroupId,PersonsId) values (@d1,@d2)" + "SELECT CONVERT(int,SCOPE_IDENTITY())";
-                    cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@d1", groupId);
-                    cmd.Parameters.AddWithValue("@d2", personid);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Submitted successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            this.Hide();
+            MainUI frm=new MainUI();
+            frm.Show();
         }
     }
 }

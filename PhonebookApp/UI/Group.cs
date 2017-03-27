@@ -32,10 +32,8 @@ namespace PhonebookApp.UI
         {
             try
             {
-
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                //string ct = "select RTRIM(Group.GroupName) from [dbo].[Group]  order by Group.GroupId";
                 string ct = "select RTRIM(GroupName) from [dbo].[Group]  order by GroupId";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
@@ -45,7 +43,7 @@ namespace PhonebookApp.UI
                 {
                     GroupNamecomboBox.Items.Add(rdr[0]);
                 }
-               
+
                 con.Close();
             }
             catch (Exception ex)
@@ -107,15 +105,12 @@ namespace PhonebookApp.UI
                     dataGridView.Rows[n].Cells[7].Value = item[7].ToString();
                     dataGridView.Rows[n].Cells[8].Value = item[8].ToString();
                     dataGridView.Rows[n].Cells[9].Value = item[9].ToString();
-
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void Group_Load(object sender, EventArgs e)
         {
@@ -126,50 +121,54 @@ namespace PhonebookApp.UI
 
         private void addbutton_Click(object sender, EventArgs e)
         {
-
             if (dataGridView.SelectedRows.Count > 0)
             {
                 try
                 {
-                    DataGridViewRow dr = dataGridView.SelectedRows[0];
-                    personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
-                    if (listView.Items.Count == 0)
+                    for (int i = 0; i <= dataGridView.SelectedRows.Count - 1; i++)
                     {
-                        ListViewItem lst = new ListViewItem();
-                        lst.Text = dr.Cells[0].Value.ToString();
-                        lst.SubItems.Add(dr.Cells[1].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[2].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[3].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[4].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[5].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[6].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[7].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[8].Value.ToString());
-                        lst.SubItems.Add(dr.Cells[9].Value.ToString());
-                        listView.Items.Add(lst);
-                    }
-                    //String csVal = txtProductId.Text;
+                        DataGridViewRow dr = dataGridView.SelectedRows[0];
+                        personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+                        if (listView.Items.Count == 0)
+                        {
+                            ListViewItem lst = new ListViewItem();
+                            lst.Text = dr.Cells[0].Value.ToString();
+                            lst.SubItems.Add(dr.Cells[1].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[2].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[3].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[4].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[5].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[6].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[7].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[8].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[9].Value.ToString());
+                            listView.Items.Add(lst);
+                        }
 
-                    else if (listView.FindItemWithText(personid.ToString()) == null)
-                    {
-                        ListViewItem lst1 = new ListViewItem();
-                        lst1.Text = dr.Cells[0].Value.ToString();
-                        lst1.SubItems.Add(dr.Cells[1].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[2].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[3].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[4].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[5].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[6].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[7].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[8].Value.ToString());
-                        lst1.SubItems.Add(dr.Cells[9].Value.ToString());
-                        listView.Items.Add(lst1);
-                    }
-                    else
-                    {
-                        MessageBox.Show("You Can Not Add Same Item More than one times", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
 
+                        else if (listView.FindItemWithText(personid.ToString()) == null)
+                        {
+                            ListViewItem lst1 = new ListViewItem();
+                            lst1.Text = dr.Cells[0].Value.ToString();
+                            lst1.SubItems.Add(dr.Cells[1].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[2].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[3].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[4].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[5].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[6].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[7].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[8].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[9].Value.ToString());
+                            listView.Items.Add(lst1);
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("You Can Not Add Same Item More than one times", "error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -184,60 +183,90 @@ namespace PhonebookApp.UI
 
         }
 
+        private void SaveInfo()
+        {
+            try
+            {
+                for (int i = 0; i <= listView.Items.Count - 1; i++)
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@d1", groupid);
+                    cmd.Parameters.AddWithValue("@d2", listView.Items[i].SubItems[0].Text);
+                    cmd.Parameters.AddWithValue("@d3", user_id);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void submitbutton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
             {
-                MessageBox.Show("Please select Group Name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select Group Name!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            LoadGroupId();
-            try
+            
+            else if ( listView.Items.Count == 0)
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select PersonsId from GroupMember where GroupId='" + groupid +
-                            "' AND PersonsId='" + personid + "'";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                
-                if (rdr.Read())
+                MessageBox.Show("Please Added to List First!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                LoadGroupId();
+                try
                 {
-                    
-                  MessageBox.Show("This Group Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    GroupNamecomboBox.SelectedIndex = -1;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select PersonsId from GroupMember where GroupId='" + groupid +
+                                "' AND PersonsId='" + personid + "'";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
 
-                    if ((rdr != null))
+                    if (rdr.Read())
                     {
-                        rdr.Close();
+
+                        MessageBox.Show("This Group Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+                        GroupNamecomboBox.SelectedIndex = -1;
+
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        return;
                     }
-                    return;
+
+                    SaveInfo();
+
+                    MessageBox.Show("Submitted Successfully", "Information", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    GroupNamecomboBox.SelectedIndex = -1;
+                    listView.Items.Clear();
                 }
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", groupid);
-                cmd.Parameters.AddWithValue("@d2", personid);
-                cmd.Parameters.AddWithValue("@d3", user_id);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Submitted Successfully", "Information", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                GroupNamecomboBox.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
         private void Group_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm=new MainUI();
+            MainUI frm = new MainUI();
             frm.Show();
+        }
+
+        private void GroupNamecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

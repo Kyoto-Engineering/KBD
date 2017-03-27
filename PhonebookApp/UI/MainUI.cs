@@ -95,11 +95,21 @@ namespace PhonebookApp.UI
             frm.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void GroupCreationbutton_Click(object sender, EventArgs e)
         {
             this.Hide();
             GroupCreation frm = new GroupCreation();
             frm.Show();
         }
+
+        private void MemberAddedToGroupbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Group frm = new Group();
+            frm.Show();
+        }
+
+       
+       
     }
 }

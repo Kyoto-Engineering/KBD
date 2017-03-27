@@ -18,9 +18,9 @@ namespace PhonebookApp.UI
         private SqlConnection con;
         private SqlCommand cmd;
         private SqlDataReader rdr;
-        ConnectionString cs=new ConnectionString();
+        ConnectionString cs = new ConnectionString();
         public string user_id;
-        
+
         public GroupCreation()
         {
             InitializeComponent();
@@ -31,56 +31,65 @@ namespace PhonebookApp.UI
             if (string.IsNullOrWhiteSpace(groupNametextBox.Text))
             {
                 MessageBox.Show("Please enter Group Name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                groupNametextBox.Focus();
             }
             else if (string.IsNullOrWhiteSpace(definitionrichTextBox.Text))
             {
                 MessageBox.Show("Please enter Definition", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                definitionrichTextBox.Focus();
             }
             else if (string.IsNullOrWhiteSpace(purposetextBox.Text))
             {
                 MessageBox.Show("Please enter Purpose", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                purposetextBox.Focus();
             }
-            try
-            {
-               con=new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select GroupName from [dbo].[Group] where GroupName='" + groupNametextBox.Text + "'";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                
-                
 
-                if (rdr.Read())
+            else
+            {
+
+
+                try
                 {
-                    MessageBox.Show("This Group Name Already Exists in the List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    groupNametextBox.Clear();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select GroupName from [dbo].[Group] where GroupName='" + groupNametextBox.Text + "'";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
 
-                    if ((rdr != null))
+                    if (rdr.Read())
                     {
-                        rdr.Close();
-                    }
-                    return;
-                }
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string query = "insert into [dbo].[Group] (GroupName,Definition,Purpose,UserId) values(@d1,@d2,@d3,@d4)";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", groupNametextBox.Text);
-                cmd.Parameters.AddWithValue("@d2", definitionrichTextBox.Text);
-                cmd.Parameters.AddWithValue("@d3", purposetextBox.Text);
-                cmd.Parameters.AddWithValue("@d4", user_id);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clear();
+                        MessageBox.Show("This Group Name Already Exists in the List", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        groupNametextBox.Clear();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        return;
+                    }
+                    
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string query =
+                            "insert into [dbo].[Group] (GroupName,Definition,Purpose,UserId) values(@d1,@d2,@d3,@d4)";
+                        cmd = new SqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@d1", groupNametextBox.Text);
+                        cmd.Parameters.AddWithValue("@d2", definitionrichTextBox.Text);
+                        cmd.Parameters.AddWithValue("@d3", purposetextBox.Text);
+                        cmd.Parameters.AddWithValue("@d4", user_id);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Clear();
+                    }
+
+              
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -95,7 +104,7 @@ namespace PhonebookApp.UI
         private void GroupCreation_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            Group frmm = new Group();
+            MainUI frmm = new MainUI();
             frmm.Show();
         }
 

@@ -154,9 +154,9 @@
             this.columnHeader9,
             this.columnHeader10});
             this.listView.GridLines = true;
-            this.listView.Location = new System.Drawing.Point(32, 328);
+            this.listView.Location = new System.Drawing.Point(306, 382);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(1123, 147);
+            this.listView.Size = new System.Drawing.Size(849, 147);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -215,7 +215,7 @@
             // 
             this.groupNamelabel.AutoSize = true;
             this.groupNamelabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupNamelabel.Location = new System.Drawing.Point(28, 157);
+            this.groupNamelabel.Location = new System.Drawing.Point(28, 343);
             this.groupNamelabel.Name = "groupNamelabel";
             this.groupNamelabel.Size = new System.Drawing.Size(116, 22);
             this.groupNamelabel.TabIndex = 5;
@@ -224,7 +224,7 @@
             // addbutton
             // 
             this.addbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addbutton.Location = new System.Drawing.Point(201, 91);
+            this.addbutton.Location = new System.Drawing.Point(201, 184);
             this.addbutton.Name = "addbutton";
             this.addbutton.Size = new System.Drawing.Size(88, 49);
             this.addbutton.TabIndex = 6;
@@ -235,7 +235,7 @@
             // submitbutton
             // 
             this.submitbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitbutton.Location = new System.Drawing.Point(201, 255);
+            this.submitbutton.Location = new System.Drawing.Point(201, 451);
             this.submitbutton.Name = "submitbutton";
             this.submitbutton.Size = new System.Drawing.Size(88, 49);
             this.submitbutton.TabIndex = 7;
@@ -247,10 +247,11 @@
             // 
             this.GroupNamecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupNamecomboBox.FormattingEnabled = true;
-            this.GroupNamecomboBox.Location = new System.Drawing.Point(32, 187);
+            this.GroupNamecomboBox.Location = new System.Drawing.Point(32, 382);
             this.GroupNamecomboBox.Name = "GroupNamecomboBox";
             this.GroupNamecomboBox.Size = new System.Drawing.Size(257, 27);
             this.GroupNamecomboBox.TabIndex = 8;
+            this.GroupNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.GroupNamecomboBox_SelectedIndexChanged);
             // 
             // Group
             // 

@@ -22,39 +22,91 @@ namespace PhonebookApp
         private SqlConnection con;
         private SqlCommand cmd;
         private SqlDataReader rdr;
-        ConnectionString cs=new ConnectionString();
-        public string categoryId,jobTitleId,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId,relationshipId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
-        public int currentPersonId, affectedRows1,affectedRows2, bankEmailId;
-        public string  nUserId;
+        ConnectionString cs = new ConnectionString();
+
+        public string categoryId,
+            jobTitleId,
+            countryid,
+            companyId,
+            specializationId,
+            professionId,
+            ageGroupId,
+            educationLevelId,
+            highestDegreeId,
+            relationshipId,
+            postofficeIdWA,
+            postofficeIdRA,
+            divisionIdWA,
+            divisionIdRA,
+            districtIdRA,
+            districtIdWA,
+            thanaIdRA,
+            thanaIdWA;
+
+        public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
+        public string nUserId;
+
         public frm1()
         {
             InitializeComponent();
         }
 
-       
 
-       // Regex emailValidation = new Regex((@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$"));
 
-       // Regex mobileNoValidation = new Regex(@"^(?:\+88|01)?\d{11}$");
+        // Regex emailValidation = new Regex((@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$"));
+
+        // Regex mobileNoValidation = new Regex(@"^(?:\+88|01)?\d{11}$");
+
+        private void ForeignAddresses(string tblName1)
+        {
+            string tableName = tblName1;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string Qury = "insert into " + tableName + "(PersonsId,Street,State,PostalCode) Values(@d1,@d2,@d3,@d4)" +
+                          "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            cmd = new SqlCommand(Qury);
+            cmd.Connection = con;
+            cmd.Parameters.AddWithValue("@d1", currentPersonId);
+            cmd.Parameters.Add(new SqlParameter("@d2",
+                string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d3",
+                string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d4",
+                string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text));
+            affectedRows3 = (int)cmd.ExecuteScalar();
+            con.Close();
+        }
+
+
         private void WASameAsRA(string tblName1)
         {
             string tableName = tblName1;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qry = "insert into " + tableName + "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string Qry = "insert into " + tableName +
+                         "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
+                         "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(Qry);
             cmd.Connection = con;
             cmd.Parameters.AddWithValue("@d1", currentPersonId);
-            cmd.Parameters.Add(new SqlParameter("@d2", string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
-            cmd.Parameters.Add(new SqlParameter("@d3", string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
-            cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
-            cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
-            cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
-            cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
-            cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));                           
+            cmd.Parameters.Add(new SqlParameter("@d2",
+                string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
+            cmd.Parameters.Add(new SqlParameter("@d3",
+                string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
+            cmd.Parameters.Add(new SqlParameter("@d4",
+                string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
+            cmd.Parameters.Add(new SqlParameter("@d5",
+                string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
+            cmd.Parameters.Add(new SqlParameter("@d6",
+                string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
+            cmd.Parameters.Add(new SqlParameter("@d7",
+                string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
+            cmd.Parameters.Add(new SqlParameter("@d8",
+                string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));
             affectedRows2 = (int)cmd.ExecuteScalar();
             con.Close();
         }
+
         private void SaveWorkingAddress(string tblName1)
         {
             string tableName = tblName1;
@@ -63,17 +115,26 @@ namespace PhonebookApp
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string insertQ = "insert into " + tableName + "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                string insertQ = "insert into " + tableName +
+                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
+                                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
                 cmd.Parameters.AddWithValue("@d1", currentPersonId);
-                cmd.Parameters.Add(new SqlParameter("@d2", string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
-                cmd.Parameters.Add(new SqlParameter("@d3", string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
-                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
-                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));                
+                cmd.Parameters.Add(new SqlParameter("@d2",
+                    string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
+                cmd.Parameters.Add(new SqlParameter("@d3",
+                    string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
+                cmd.Parameters.Add(new SqlParameter("@d4",
+                    string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
+                cmd.Parameters.Add(new SqlParameter("@d5",
+                    string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
+                cmd.Parameters.Add(new SqlParameter("@d6",
+                    string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
+                cmd.Parameters.Add(new SqlParameter("@d7",
+                    string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8",
+                    string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));
                 affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
             }
@@ -81,23 +142,59 @@ namespace PhonebookApp
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string insertQ = "insert into " + tableName + "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                string insertQ = "insert into " + tableName +
+                                 "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
+                                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
                 cmd.Parameters.AddWithValue("@d1", currentPersonId);
-                cmd.Parameters.Add(new SqlParameter("@d2",string.IsNullOrEmpty(postofficeIdWA) ? (object)DBNull.Value : postofficeIdWA));
-                cmd.Parameters.Add(new SqlParameter("@d3",string.IsNullOrEmpty(txtWAFlatName.Text) ? (object)DBNull.Value : txtWAFlatName.Text));
-                cmd.Parameters.Add(new SqlParameter("@d4",string.IsNullOrEmpty(txtWAHouseName.Text) ? (object)DBNull.Value : txtWAHouseName.Text));
-                cmd.Parameters.Add(new SqlParameter("@d5",string.IsNullOrEmpty(txtWARoadNo.Text) ? (object)DBNull.Value : txtWARoadNo.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6",string.IsNullOrEmpty(txtWABlock.Text) ? (object)DBNull.Value : txtWABlock.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7",string.IsNullOrEmpty(txtWAArea.Text) ? (object)DBNull.Value : txtWAArea.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8",string.IsNullOrEmpty(txtWAContactNo.Text) ? (object)DBNull.Value : txtWAContactNo.Text));               
+                cmd.Parameters.Add(new SqlParameter("@d2",
+                    string.IsNullOrEmpty(postofficeIdWA) ? (object)DBNull.Value : postofficeIdWA));
+                cmd.Parameters.Add(new SqlParameter("@d3",
+                    string.IsNullOrEmpty(txtWAFlatName.Text) ? (object)DBNull.Value : txtWAFlatName.Text));
+                cmd.Parameters.Add(new SqlParameter("@d4",
+                    string.IsNullOrEmpty(txtWAHouseName.Text) ? (object)DBNull.Value : txtWAHouseName.Text));
+                cmd.Parameters.Add(new SqlParameter("@d5",
+                    string.IsNullOrEmpty(txtWARoadNo.Text) ? (object)DBNull.Value : txtWARoadNo.Text));
+                cmd.Parameters.Add(new SqlParameter("@d6",
+                    string.IsNullOrEmpty(txtWABlock.Text) ? (object)DBNull.Value : txtWABlock.Text));
+                cmd.Parameters.Add(new SqlParameter("@d7",
+                    string.IsNullOrEmpty(txtWAArea.Text) ? (object)DBNull.Value : txtWAArea.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8",
+                    string.IsNullOrEmpty(txtWAContactNo.Text) ? (object)DBNull.Value : txtWAContactNo.Text));
                 affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
             }
-           
-           
+
+            else if (tableName == "ForeignAddress")
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string Qury = "insert into " + tableName +
+                              "(PersonsId,Street,State,PostalCode) Values(@d1,@d2,@d3,@d4)" +
+                              "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                cmd = new SqlCommand(Qury);
+                cmd.Connection = con;
+                cmd.Parameters.AddWithValue("@d1", currentPersonId);
+                cmd.Parameters.Add(new SqlParameter("@d2",
+                    string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d3",
+                    string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d4",
+                    string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text));
+                affectedRows3 = (int)cmd.ExecuteScalar();
+                con.Close();
+            }
+
         }
+
+        public void ResetForeignAddress()
+        {
+            StreettextBox.Clear();
+            StatetextBox.Clear();
+            PostalCodetextBox.Clear();
+        }
+
         public void ResetResidentialAddress()
         {
             txtRAFlatNo.Clear();
@@ -114,6 +211,7 @@ namespace PhonebookApp
 
 
         }
+
         public void ResetWorkingAddress()
         {
             txtWAFlatName.Clear();
@@ -129,8 +227,10 @@ namespace PhonebookApp
             cmbWADivision.SelectedIndex = -1;
 
         }
-        private void Reset()
+
+        private void Reset1()
         {
+            CountrycomboBox.SelectedIndex = -1;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
@@ -146,9 +246,36 @@ namespace PhonebookApp
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
+            txtWhatsApp.Clear();
+            txtImmo.Clear();
 
             ResetResidentialAddress();
             ResetWorkingAddress();
+
+        }
+
+        private void Reset2()
+        {
+            CountrycomboBox.SelectedIndex = -1;
+            txtPersonName.Clear();
+            textNickName.Clear();
+            txtFatherName.Clear();
+            cmbEmailAddress.SelectedIndex = -1;
+            cmbCompanyName.SelectedIndex = -1;
+            cmbCategoryName.SelectedIndex = -1;
+            cmbAgeGroup.SelectedIndex = -1;
+            cmbProfession.SelectedIndex = -1;
+            cmbEducationalLevel.SelectedIndex = -1;
+            cmbHighestDegree.SelectedIndex = -1;
+            cmbJobTitle.SelectedIndex = -1;
+            cmbSpecialization.SelectedIndex = -1;
+            cmbRelationShip.SelectedIndex = -1;
+            txtWebsite.Clear();
+            txtSkypeId.Clear();
+            txtWhatsApp.Clear();
+            txtImmo.Clear();
+
+            ResetForeignAddress();
 
         }
 
@@ -156,11 +283,15 @@ namespace PhonebookApp
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            String query = "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeOfELId,AgeGroupId,RelationShip,Website,InternetCall) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            String query =
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeOfELId,AgeGroupId,RelationShip,Website,SkypeId,WhatsAppId,ImmoNumber,CountryId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)" +
+                "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
-            cmd.Parameters.Add(new SqlParameter("@d2", string.IsNullOrEmpty(textNickName.Text) ? (object)DBNull.Value : textNickName.Text));
-            cmd.Parameters.Add(new SqlParameter("@d3", string.IsNullOrEmpty(txtFatherName.Text) ? (object)DBNull.Value : txtFatherName.Text));
+            cmd.Parameters.Add(new SqlParameter("@d2",
+                string.IsNullOrEmpty(textNickName.Text) ? (object)DBNull.Value : textNickName.Text));
+            cmd.Parameters.Add(new SqlParameter("@d3",
+                string.IsNullOrEmpty(txtFatherName.Text) ? (object)DBNull.Value : txtFatherName.Text));
             cmd.Parameters.AddWithValue("@d4", bankEmailId);
             cmd.Parameters.AddWithValue("@d5", Convert.ToInt32(companyId));
             cmd.Parameters.AddWithValue("@d6", Convert.ToInt32(jobTitleId));
@@ -171,120 +302,160 @@ namespace PhonebookApp
             cmd.Parameters.AddWithValue("@d11", Convert.ToInt32(highestDegreeId));
             cmd.Parameters.AddWithValue("@d12", Convert.ToInt32(ageGroupId));
             cmd.Parameters.AddWithValue("@d13", Convert.ToInt32(relationshipId));
-            cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
-            cmd.Parameters.Add(new SqlParameter("@d15", string.IsNullOrEmpty(txtSkypeId.Text) ? (object)DBNull.Value : txtSkypeId.Text));
+            cmd.Parameters.Add(new SqlParameter("@d14",
+                string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
+            cmd.Parameters.Add(new SqlParameter("@d15",
+                string.IsNullOrEmpty(txtSkypeId.Text) ? (object)DBNull.Value : txtSkypeId.Text));
+            cmd.Parameters.Add(new SqlParameter("@d16",
+                string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
+            cmd.Parameters.Add(new SqlParameter("@d17",
+                string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
+            
+            cmd.Parameters.AddWithValue("@d18", Convert.ToInt32(countryid));
             currentPersonId = (int)cmd.ExecuteScalar();
-            con.Close();             
-                       
+            con.Close();
+
         }
+
         private void btnInsert_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(CountrycomboBox.Text))
+            {
+                MessageBox.Show("Please Enter Country Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtPersonName.Text))
             {
                 MessageBox.Show("Please Enter Person Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (unKnownRA.Checked == false)
+            if (CountrycomboBox.Text == "Bangladesh")
             {
-                if (string.IsNullOrWhiteSpace(cmbRADivision.Text))
+
+                if (unKnownRA.Checked == false)
                 {
-                    MessageBox.Show("Please select Residential Address division", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (string.IsNullOrWhiteSpace(cmbRADivision.Text))
+                    {
+                        MessageBox.Show("Please select Residential Address division", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
+                    {
+                        MessageBox.Show("Please Select Residential Address district", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
+                    {
+                        MessageBox.Show("Please select Residential Address Thana", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
+                    {
+                        MessageBox.Show("Please Select Residential Address Post Name", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtRAPostCode.Text))
+                    {
+                        MessageBox.Show("Please select Residential Address Post Code", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
+                if (unKnownCheckBox.Checked == false && sameAsRACheckBox.Checked == false)
                 {
-                    MessageBox.Show("Please Select Residential Address district", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (string.IsNullOrWhiteSpace(cmbWADivision.Text))
+                    {
+                        MessageBox.Show("Please select Working Address division", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbWADistrict.Text))
+                    {
+                        MessageBox.Show("Please Select Working Address district", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbWAThana.Text))
+                    {
+                        MessageBox.Show("Please select Working Address Thana", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(cmbWAPost.Text))
+                    {
+                        MessageBox.Show("Please Select Working Address Post Name", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtWAPostCode.Text))
+                    {
+                        MessageBox.Show("Please select Working Address Post Code", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
+
+                try
                 {
-                    MessageBox.Show("Please select Residential Address Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    //1.Residential Address Applicable  & Working Address not Applicable
+                    if (unKnownCheckBox.Checked)
+                    {
+                        SavePersonDetails();
+                        SaveWorkingAddress("ResidentialAddresses");
+                    }
+                    //2.Residential Address Applicable  & Working Address Same as  Corporate Address                                        
+                    if (sameAsRACheckBox.Checked)
+                    {
+                        SavePersonDetails();
+                        SaveWorkingAddress("ResidentialAddresses");
+                        WASameAsRA("WorkingAddresses");
+
+                    }
+                    //3.Residential Address Applicable  & Working Address  Applicable
+                    if (sameAsRACheckBox.Checked == false && unKnownCheckBox.Checked == false)
+                    {
+                        SavePersonDetails();
+                        SaveWorkingAddress("ResidentialAddresses");
+                        SaveWorkingAddress("WorkingAddresses");
+                    }
+
+
+                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset1();
                 }
-                if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Please Select Residential Address Post Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (string.IsNullOrWhiteSpace(txtRAPostCode.Text))
-                {
-                    MessageBox.Show("Please select Residential Address Post Code", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }           
             }
-            if (unKnownCheckBox.Checked == false && sameAsRACheckBox.Checked == false)
+            else
             {
-                if (string.IsNullOrWhiteSpace(cmbWADivision.Text))
-                {
-                    MessageBox.Show("Please select Working Address division", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(cmbWADistrict.Text))
-                {
-                    MessageBox.Show("Please Select Working Address district", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(cmbWAThana.Text))
-                {
-                    MessageBox.Show("Please select Working Address Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(cmbWAPost.Text))
-                {
-                    MessageBox.Show("Please Select Working Address Post Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtWAPostCode.Text))
-                {
-                    MessageBox.Show("Please select Working Address Post Code", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-             }
-           
-                    try
-                    {
-                        //1.Residential Address Applicable  & Working Address not Applicable
-                        if (unKnownCheckBox.Checked)
-                        {
-                            SavePersonDetails();
-                            SaveWorkingAddress("ResidentialAddresses");
-                        }
-                        //2.Residential Address Applicable  & Working Address Same as  Corporate Address                                        
-                        if (sameAsRACheckBox.Checked)
-                        {
-                            SavePersonDetails();
-                            SaveWorkingAddress("ResidentialAddresses");
-                            WASameAsRA("WorkingAddresses");
+                SavePersonDetails();
+                SaveWorkingAddress("ForeignAddress");
+                //ForeignAddresses();
+                MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reset2();
+            }
 
-                        }
-                        //3.Residential Address Applicable  & Working Address  Applicable
-                        if (sameAsRACheckBox.Checked == false && unKnownCheckBox.Checked == false)
-                        {
-                            SavePersonDetails();
-                            SaveWorkingAddress("ResidentialAddresses");
-                            SaveWorkingAddress("WorkingAddresses");
-                        }                      
-                        MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Reset();
-                       
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message,"error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    }
-               
-          
-
-           
 
         }
 
-      
-       
+
+
+
+
+
+
+
 
         private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void cmbSpecialization_KeyDown(object sender, KeyEventArgs e)
@@ -313,15 +484,15 @@ namespace PhonebookApp
         }
 
         private void btnAddC_Click(object sender, EventArgs e)
-        {            
+        {
             this.Hide();
-            frmCategory frm=new frmCategory();
-             frm.Show();
+            frmCategory frm = new frmCategory();
+            frm.Show();
         }
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void cmbCategoryName_KeyDown(object sender, KeyEventArgs e)
@@ -331,18 +502,45 @@ namespace PhonebookApp
 
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void txtMobile_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+
+        public void FillCountry()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Country.CountryName) from Country  order by Country.CountryId";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    CountrycomboBox.Items.Add(rdr[0]);
+                }
+                CountrycomboBox.Items.Add("Not In The List");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void FillJobTitle()
         {
             try
@@ -602,6 +800,7 @@ namespace PhonebookApp
         }
         private void frm1_Load(object sender, EventArgs e)
         {
+            FillCountry();
             FillRelationShip();
             FillJobTitle();
             FillAgeGroup();
@@ -615,22 +814,28 @@ namespace PhonebookApp
             FillCategory();
             FillWADivisionCombo();
             FillRADivisionCombo();
+            disableAll();
+            groupBox2.Hide();
+            groupBox3.Hide();
+            groupBox6.Hide();
+            btnInsert.Location = new Point(651, 158);
+            //btnInsert.Hide();
         }
 
         private void cmbCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void personDetailsButton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainUI  frm=new MainUI();
+            MainUI frm = new MainUI();
             frm.Show();
         }
 
@@ -643,7 +848,7 @@ namespace PhonebookApp
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cmbCategoryName_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -752,7 +957,7 @@ namespace PhonebookApp
 
                 cmbRADistrict.Text = cmbRADistrict.Text.Trim();
                 cmbRAThana.SelectedIndex = -1;
-                cmbRAThana.Items.Clear();                
+                cmbRAThana.Items.Clear();
                 cmbRAPost.SelectedIndex = -1;
                 cmbRAPost.Items.Clear();
                 cmbRAThana.Enabled = true;
@@ -808,8 +1013,8 @@ namespace PhonebookApp
                 }
 
 
-                cmbRADivision.Text = cmbRADivision.Text.Trim();                
-                cmbRADistrict.SelectedIndex=-1;
+                cmbRADivision.Text = cmbRADivision.Text.Trim();
+                cmbRADistrict.SelectedIndex = -1;
                 cmbRADistrict.Items.Clear();
                 cmbRAThana.SelectedIndex = -1;
                 cmbRAThana.Items.Clear();
@@ -870,7 +1075,7 @@ namespace PhonebookApp
 
                 cmbRAThana.Text = cmbRAThana.Text.Trim();
                 cmbRAPost.Items.Clear();
-                cmbRAPost.SelectedIndex=-1;
+                cmbRAPost.SelectedIndex = -1;
                 cmbRAPost.Items.Clear();
                 cmbRAPost.Enabled = true;
                 cmbRAPost.Focus();
@@ -962,13 +1167,13 @@ namespace PhonebookApp
                 }
 
 
-                cmbWADivision.Text = cmbWADivision.Text.Trim();                
-                cmbWADistrict.SelectedIndex=-1;
+                cmbWADivision.Text = cmbWADivision.Text.Trim();
+                cmbWADistrict.SelectedIndex = -1;
                 cmbWADistrict.Items.Clear();
                 cmbWAThana.SelectedIndex = -1;
                 cmbWAThana.Items.Clear();
                 cmbWAPost.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;               
+                cmbWAPost.SelectedIndex = -1;
                 txtWAPostCode.Clear();
                 cmbWADistrict.Enabled = true;
                 cmbWADistrict.Focus();
@@ -1025,9 +1230,9 @@ namespace PhonebookApp
 
                 cmbWADistrict.Text = cmbWADistrict.Text.Trim();
                 cmbWAThana.SelectedIndex = -1;
-                cmbWAThana.Items.Clear();                
+                cmbWAThana.Items.Clear();
                 cmbWAPost.SelectedIndex = -1;
-                cmbWAPost.Items.Clear();  
+                cmbWAPost.Items.Clear();
                 txtWAPostCode.Clear();
                 cmbWAThana.Enabled = true;
                 cmbWAThana.Focus();
@@ -1083,7 +1288,7 @@ namespace PhonebookApp
 
                 cmbWAThana.Text = cmbWAThana.Text.Trim();
                 cmbWAPost.SelectedIndex = -1;
-                cmbWAPost.Items.Clear();               
+                cmbWAPost.Items.Clear();
                 txtWAPostCode.Clear();
                 cmbWAPost.Enabled = true;
                 cmbWAPost.Focus();
@@ -1247,7 +1452,7 @@ namespace PhonebookApp
                             cmbEmailAddress.Items.Clear();
                             EmailAddress();
                             cmbEmailAddress.SelectedText = input;
- 
+
                         }
                         catch (Exception ex)
                         {
@@ -1293,7 +1498,7 @@ namespace PhonebookApp
 
         private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             if (cmbCompanyName.Text == "Not In The List")
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Company Name  Here", "Input Here", "", -1, -1);
@@ -1324,7 +1529,7 @@ namespace PhonebookApp
                             con.Open();
                             string query1 = "insert into Company (CompanyName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);                           
+                            cmd.Parameters.AddWithValue("@d1", input);
                             cmd.ExecuteNonQuery();
 
                             con.Close();
@@ -1441,7 +1646,7 @@ namespace PhonebookApp
 
         private void cmbProfession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cmbProfession.Text == "Not In The List")
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
@@ -1515,7 +1720,7 @@ namespace PhonebookApp
 
         private void cmbEducationalLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             if (cmbEducationalLevel.Text == "Not In The List")
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
@@ -1613,7 +1818,7 @@ namespace PhonebookApp
 
         private void cmbAgeGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cmbAgeGroup.Text == "Not In The List")
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
@@ -1773,7 +1978,7 @@ namespace PhonebookApp
 
         private void cmbRelationShip_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             if (cmbRelationShip.Text == "Not In The List")
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
@@ -1922,7 +2127,7 @@ namespace PhonebookApp
 
                     groupBox4.Enabled = true;
                     ResetWorkingAddress();
-                   FilStar();
+                    FilStar();
                 }
             }
         }
@@ -1992,7 +2197,7 @@ namespace PhonebookApp
                 }
 
 
-                cmbRADistrict.Text = cmbRADistrict.Text.Trim();                
+                cmbRADistrict.Text = cmbRADistrict.Text.Trim();
                 cmbRAThana.SelectedIndex = -1;
                 cmbRAThana.Items.Clear();
                 cmbRAPost.SelectedIndex = -1;
@@ -2050,8 +2255,8 @@ namespace PhonebookApp
                 }
 
 
-                cmbRAThana.Text = cmbRAThana.Text.Trim();               
-                cmbRAPost.SelectedIndex=-1;
+                cmbRAThana.Text = cmbRAThana.Text.Trim();
+                cmbRAPost.SelectedIndex = -1;
                 cmbRAPost.Items.Clear();
                 txtRAPostCode.Clear();
                 cmbRAPost.Enabled = true;
@@ -2144,8 +2349,8 @@ namespace PhonebookApp
                 }
 
 
-                cmbWADivision.Text = cmbWADivision.Text.Trim();                
-                cmbWADistrict.SelectedIndex=-1;
+                cmbWADivision.Text = cmbWADivision.Text.Trim();
+                cmbWADistrict.SelectedIndex = -1;
                 cmbWADistrict.Items.Clear();
                 cmbWAThana.SelectedIndex = -1;
                 cmbWAThana.Items.Clear();
@@ -2205,8 +2410,8 @@ namespace PhonebookApp
                 }
 
 
-                cmbRADivision.Text = cmbRADivision.Text.Trim();              
-                cmbRADistrict.SelectedIndex=-1;
+                cmbRADivision.Text = cmbRADivision.Text.Trim();
+                cmbRADistrict.SelectedIndex = -1;
                 cmbRADistrict.Items.Clear();
                 cmbRAThana.SelectedIndex = -1;
                 cmbWAThana.Items.Clear();
@@ -2264,8 +2469,8 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
-                cmbWADistrict.Text = cmbWADistrict.Text.Trim();               
-                cmbWAThana.SelectedIndex=-1;
+                cmbWADistrict.Text = cmbWADistrict.Text.Trim();
+                cmbWAThana.SelectedIndex = -1;
                 cmbWAThana.Items.Clear();
                 cmbWAPost.SelectedIndex = -1;
                 cmbWAPost.Items.Clear();
@@ -2317,7 +2522,7 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
-                cmbWAThana.Text = cmbWAThana.Text.Trim();                                
+                cmbWAThana.Text = cmbWAThana.Text.Trim();
                 cmbWAPost.Items.Clear();
                 cmbWAPost.SelectedIndex = -1;
                 txtWAPostCode.Clear();
@@ -2382,15 +2587,165 @@ namespace PhonebookApp
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+
+        private void CountrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            if (CountrycomboBox.Text == "Not In The List")
+            {
+                string inputt = Microsoft.VisualBasic.Interaction.InputBox("Please Input Country  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputt))
+                {
+                    CountrycomboBox.SelectedIndex = -1;
+                    disableAll();
+                    groupBox2.Hide();
+                    groupBox3.Hide();
+                    groupBox6.Hide();
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select CountryName from Country where CountryName='" + inputt + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Country Name  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        CountrycomboBox.SelectedIndex = -1;
+                        disableAll();
+                        groupBox2.Hide();
+                        groupBox3.Hide();
+                        groupBox6.Hide();
+
+                    }
+                    else
+                    {
+                        try
+                        {
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into Country(CountryName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputt);
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            CountrycomboBox.Items.Clear();
+                            FillCountry();
+                            CountrycomboBox.SelectedText = inputt;
+                            if (CountrycomboBox.Text == "Bangladesh")
+                            {
+                                enableAll();
+                                groupBox6.Hide();
+                                groupBox2.Show();
+                                groupBox3.Show();
+                                btnInsert.Location = new Point(1045, 549);
+                            }
+                            else
+                            {
+
+
+                                enableAll();
+                                groupBox2.Hide();
+                                groupBox3.Hide();
+                                groupBox6.Show();
+                                groupBox6.Location = new Point(466, 18);
+                                btnInsert.Location = new Point(650, 157);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (CountrycomboBox.Text == "Bangladesh")
+                {
+                    enableAll();
+                    groupBox6.Hide();
+                    groupBox2.Show();
+                    groupBox3.Show();
+                    btnInsert.Location = new Point(1045, 549);
+                }
+                else
+                {
+                    try
+                    {
+                        enableAll();
+                        groupBox2.Hide();
+                        groupBox3.Hide();
+                        groupBox6.Show();
+                        groupBox6.Location = new Point(466, 18);
+                        btnInsert.Location = new Point(650, 157);
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string ct = "select RTRIM(CountryId) from Country  where  Country.CountryName='" +
+                                    CountrycomboBox.Text + "' ";
+                        cmd = new SqlCommand(ct);
+                        cmd.Connection = con;
+                        rdr = cmd.ExecuteReader();
+
+                        if (rdr.Read())
+                        {
+                            countryid = (rdr.GetString(0));
+                        }
+                        con.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-       
-           
-       
+        private void disableAll()
+        {
 
+            txtPersonName.Enabled = false;
+            textNickName.Enabled = false;
+            txtFatherName.Enabled = false;
+            cmbEmailAddress.Enabled = false;
+            cmbCompanyName.Enabled = false;
+            cmbCategoryName.Enabled = false;
+            cmbAgeGroup.Enabled = false;
+            cmbProfession.Enabled = false;
+            cmbEducationalLevel.Enabled = false;
+            cmbHighestDegree.Enabled = false;
+            cmbJobTitle.Enabled = false;
+            cmbSpecialization.Enabled = false;
+            cmbRelationShip.Enabled = false;
+            txtWebsite.Enabled = false;
+            txtSkypeId.Enabled = false;
+            txtImmo.Enabled = false;
+        }
+
+        private void enableAll()
+        {
+
+            txtPersonName.Enabled = true;
+            textNickName.Enabled = true;
+            txtFatherName.Enabled = true;
+            cmbEmailAddress.Enabled = true;
+            cmbCompanyName.Enabled = true;
+            cmbCategoryName.Enabled = true;
+            cmbAgeGroup.Enabled = true;
+            cmbProfession.Enabled = true;
+            cmbEducationalLevel.Enabled = true;
+            cmbHighestDegree.Enabled = true;
+            cmbJobTitle.Enabled = true;
+            cmbSpecialization.Enabled = true;
+            cmbRelationShip.Enabled = true;
+            txtWebsite.Enabled = true;
+            txtSkypeId.Enabled = true;
+            txtImmo.Enabled = true;
+        }
     }
 }
 

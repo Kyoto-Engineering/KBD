@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
+using PhonebookApp.LogInUI;
 
 namespace PhonebookApp.UI
 {
@@ -19,6 +20,7 @@ namespace PhonebookApp.UI
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs=new ConnectionString();
+        public string user_id;
         public frmCategory()
         {
             InitializeComponent();
@@ -94,9 +96,11 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string query = "insert into Category(CategoryName) values(@d1)";
+                string query = "insert into Category(CategoryName, UserId, DateAndTime) values(@d1,@d2,@d3)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", txtCategoryName.Text);
+                cmd.Parameters.AddWithValue("@d2", user_id);
+                cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtCategoryName.Clear();
@@ -116,7 +120,7 @@ namespace PhonebookApp.UI
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
-
+            user_id = frmLogin.uId.ToString();
         }
 
         private void frmCategory_FormClosed(object sender, FormClosedEventArgs e)

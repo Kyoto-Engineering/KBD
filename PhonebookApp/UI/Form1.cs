@@ -24,25 +24,7 @@ namespace PhonebookApp
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
 
-        public string categoryId,
-            jobTitleId,
-            countryid,
-            companyId,
-            specializationId,
-            professionId,
-            ageGroupId,
-            educationLevelId,
-            highestDegreeId,
-            relationshipId,
-            postofficeIdWA,
-            postofficeIdRA,
-            divisionIdWA,
-            divisionIdRA,
-            districtIdRA,
-            districtIdWA,
-            thanaIdRA,
-            thanaIdWA;
-
+        public string categoryId,jobTitleId,countryid,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId,relationshipId,postofficeIdWA,postofficeIdRA,divisionIdWA,divisionIdRA,districtIdRA,districtIdWA,thanaIdRA,thanaIdWA;
         public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
         public string nUserId;
 
@@ -2746,6 +2728,7 @@ namespace PhonebookApp
             txtSkypeId.Enabled = true;
             txtImmo.Enabled = true;
         }
+        
     }
 }
 

@@ -178,7 +178,7 @@ namespace PhonebookApp.UI
             }
             else
             {
-                MessageBox.Show("There is not any row selected, please select row and Click Add Button!");
+                MessageBox.Show("There is no row selected, please select row and Click Add Button!");
             }
 
         }

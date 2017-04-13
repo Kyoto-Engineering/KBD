@@ -73,12 +73,13 @@ namespace PhonebookApp.UI
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string query =
-                            "insert into [dbo].[Group] (GroupName,Definition,Purpose,UserId) values(@d1,@d2,@d3,@d4)";
+                            "insert into [dbo].[Group] (GroupName,Definition,Purpose, UserId, DateAndTime) values(@d1,@d2,@d3,@d4,@d5)";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.AddWithValue("@d1", groupNametextBox.Text);
                         cmd.Parameters.AddWithValue("@d2", definitionrichTextBox.Text);
                         cmd.Parameters.AddWithValue("@d3", purposetextBox.Text);
                         cmd.Parameters.AddWithValue("@d4", user_id);
+                        cmd.Parameters.AddWithValue("@d5", DateTime.UtcNow.ToLocalTime());
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);

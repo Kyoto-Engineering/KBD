@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
+using PhonebookApp.LogInUI;
 
 namespace PhonebookApp.UI
 {
@@ -18,6 +19,7 @@ namespace PhonebookApp.UI
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
+        public string user_id;
         public frmCompany()
         {
             InitializeComponent();
@@ -56,9 +58,11 @@ namespace PhonebookApp.UI
                 }
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string query = "insert into Company(CompanyName) values(@d1)";
+                string query = "insert into Company(CompanyName, UserId, DateAndTime) values(@d1,@d2,@d3)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", txtCompanyName.Text);
+                cmd.Parameters.AddWithValue("@d2", user_id);
+                cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                txtCompanyName.Clear();
@@ -74,6 +78,11 @@ namespace PhonebookApp.UI
             this.Hide();
             MainUI frm = new MainUI();
             frm.Show();
+        }
+
+        private void frmCompany_Load(object sender, EventArgs e)
+        {
+            user_id = frmLogin.uId.ToString();
         }
     }
 }

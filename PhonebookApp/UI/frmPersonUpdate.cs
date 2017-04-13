@@ -28,8 +28,8 @@ namespace PhonebookApp.UI
         }
         private void ClearData()
         {
-            txtPersonName.Text = string.Empty;
-            txtMobile.Text = string.Empty;
+            txtFatherName.Text = string.Empty;
+            //txtMobile.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtCompany.Text = string.Empty;
             cmbCategoryName.Text = string.Empty;
@@ -50,10 +50,10 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "Update Person set PersonName=@d1,Email=@d2,Specialization= @d3,Profession=@d4,EducationalLevel=@d5,HighestDegree=@d6,AgeGroup=@d7,Company=@d8,CategoryId=@d9  Where PersonId='" + txtPersonId.Text + "'";
+                string cb = "Update Person set PersonName=@d1,Email=@d2,Specialization= @d3,Profession=@d4,EducationalLevel=@d5,HighestDegree=@d6,AgeGroup=@d7,Company=@d8,CategoryId=@d9  Where PersonId='" + txtPersonName.Text + "'";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
-                cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
+                cmd.Parameters.AddWithValue("@d1", txtFatherName.Text);
                 cmd.Parameters.AddWithValue("@d2", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@d3", cmbSpecialization.Text);
                 cmd.Parameters.AddWithValue("@d4", cmbProfession.Text);

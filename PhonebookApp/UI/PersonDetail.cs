@@ -89,10 +89,11 @@ namespace PhonebookApp.UI
                 frmPersonUpdate frm = new frmPersonUpdate();
                 frm.Show();
 
-                frm.txtPersonId.Text = dr.Cells[0].Value.ToString();
-                frm.txtPersonName.Text = dr.Cells[1].Value.ToString();
+                //frm.txtPersonId.Text = dr.Cells[0].Value.ToString();
+                frm.txtFatherName.Text = dr.Cells[0].Value.ToString();
+
                 frm.txtEmail.Text = dr.Cells[2].Value.ToString();
-                frm.txtMobile.Text = dr.Cells[3].Value.ToString();
+                //frm.txtMobile.Text = dr.Cells[3].Value.ToString();
                 frm.cmbSpecialization.Text = dr.Cells[4].Value.ToString();
 
                 frm.cmbProfession.Text = dr.Cells[5].Value.ToString();
@@ -105,7 +106,7 @@ namespace PhonebookApp.UI
                 frm.cmbCategoryName.Text = dr.Cells[9].Value.ToString();
                 frm.cmbAgeGroup.Text = dr.Cells[10].Value.ToString();
 
-                frm.h.Text = lk.Text;
+               
 
             }
             catch (Exception ex)

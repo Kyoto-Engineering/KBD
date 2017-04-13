@@ -90,6 +90,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmJobTitle";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmJobTitle_FormClosed);
+            this.Load += new System.EventHandler(this.frmJobTitle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

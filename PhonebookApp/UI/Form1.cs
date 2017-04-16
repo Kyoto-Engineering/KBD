@@ -1781,7 +1781,7 @@ namespace PhonebookApp
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(EducationLevelId) from EducationLevel  where  EducationLevel.EducationLevelName='" + cmbHighestDegree.Text + "' ";
+                string ct = "select RTRIM(HighestDegree) from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();

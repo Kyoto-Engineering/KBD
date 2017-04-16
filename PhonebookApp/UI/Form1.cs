@@ -24,7 +24,30 @@ namespace PhonebookApp
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
 
-        public string categoryId,jobTitleId,countryid,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId,relationshipId,postofficeIdWA,postofficeIdRA,divisionIdWA,divisionIdRA,districtIdRA,districtIdWA,thanaIdRA,thanaIdWA;
+        //public string categoryId,
+        //               jobTitleId,
+        //            countryid,
+        //           companyId,
+        //            specializationId,
+        //            professionId,
+        //            ageGroupId,
+        //            educationLevelId,
+        //           highestDegreeId,
+        //          relationshipId,
+        //            postofficeIdWA,
+        //            postofficeIdRA,
+        //            divisionIdWA,
+        //            divisionIdRA,
+        //            districtIdRA,
+        //            districtIdWA,
+        //            thanaIdRA,
+        //            thanaIdWA;
+        
+        //       public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
+        //            public string nUserId;
+
+
+        public string relationshipId,postofficeIdWA,postofficeIdRA,divisionIdWA,divisionIdRA,districtIdRA,districtIdWA,thanaIdRA,thanaIdWA,categoryId,jobTitleId,countryid,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId;
         public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
         public string nUserId;
 
@@ -266,7 +289,7 @@ namespace PhonebookApp
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeOfELId,AgeGroupId,RelationShip,Website,SkypeId,WhatsAppId,ImmoNumber,CountryId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -274,7 +297,7 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(textNickName.Text) ? (object)DBNull.Value : textNickName.Text));
             cmd.Parameters.Add(new SqlParameter("@d3",
                 string.IsNullOrEmpty(txtFatherName.Text) ? (object)DBNull.Value : txtFatherName.Text));
-            cmd.Parameters.AddWithValue("@d4", bankEmailId);
+            cmd.Parameters.AddWithValue("@d4", Convert.ToInt32(bankEmailId));
             cmd.Parameters.AddWithValue("@d5", Convert.ToInt32(companyId));
             cmd.Parameters.AddWithValue("@d6", Convert.ToInt32(jobTitleId));
             cmd.Parameters.AddWithValue("@d7", Convert.ToInt32(categoryId));
@@ -294,7 +317,7 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
             
             cmd.Parameters.AddWithValue("@d18", Convert.ToInt32(countryid));
-            currentPersonId = (int)cmd.ExecuteScalar();
+            currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
 
         }
@@ -602,7 +625,7 @@ namespace PhonebookApp
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(EducationLevel.EducationLevelName) from EducationLevel  order by EducationLevel.EducationLevelId";
+                string ct = "select RTRIM(HighestDegrees.HighestDegree) from HighestDegrees  order by HighestDegrees.HighestDegreeId";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -1776,25 +1799,75 @@ namespace PhonebookApp
 
         private void cmbHighestDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+
+            if (cmbHighestDegree.Text == "Not In The List")
             {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(HighestDegree) from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                if (rdr.Read())
+                string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputx))
                 {
-                    highestDegreeId = (rdr.GetString(0));
+                    cmbHighestDegree.SelectedIndex = -1;
                 }
-                con.Close();
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select HighestDegree from HighestDegrees where HighestDegree='" + inputx + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This EducationLevel  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbHighestDegree.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into HighestDegrees(HighestDegree) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputx);
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbHighestDegree.Items.Clear();
+                            FillHighestDegree();
+                            cmbHighestDegree.SelectedText = inputx;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select RTRIM(HighestDegreeId) from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        highestDegreeId = (rdr.GetString(0));
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

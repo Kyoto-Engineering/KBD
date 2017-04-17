@@ -28,18 +28,18 @@ namespace PhonebookApp.UI
         }
         private void ClearData()
         {
-            txtFatherName.Text = string.Empty;
-            //txtMobile.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            txtCompany.Text = string.Empty;
-            cmbCategoryName.Text = string.Empty;
-            cmbSpecialization.Text = string.Empty;
-            cmbProfession.Text = string.Empty;
-            cmbEducationalLevel.Text = string.Empty;
-            cmbHighestDegree.Text = string.Empty;
-            cmbAgeGroup.Text = string.Empty;
-            cmbCategoryName.SelectedIndex = -1;
-            categoryId = "";
+            //txtFatherName.Text = string.Empty;
+            ////txtMobile.Text = string.Empty;
+            //txtEmail.Text = string.Empty;
+            //txtCompany.Text = string.Empty;
+            //cmbCategoryName.Text = string.Empty;
+            //cmbSpecialization.Text = string.Empty;
+            //cmbProfession.Text = string.Empty;
+            //cmbEducationalLevel.Text = string.Empty;
+            //cmbHighestDegree.Text = string.Empty;
+            //cmbAgeGroup.Text = string.Empty;
+            //cmbCategoryName.SelectedIndex = -1;
+            //categoryId = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,13 +54,13 @@ namespace PhonebookApp.UI
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.AddWithValue("@d1", txtFatherName.Text);
-                cmd.Parameters.AddWithValue("@d2", txtEmail.Text);
+                //cmd.Parameters.AddWithValue("@d2", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@d3", cmbSpecialization.Text);
                 cmd.Parameters.AddWithValue("@d4", cmbProfession.Text);
                 cmd.Parameters.AddWithValue("@d5", cmbEducationalLevel.Text);
                 cmd.Parameters.AddWithValue("@d6", cmbHighestDegree.Text);
                 cmd.Parameters.AddWithValue("@d7", cmbAgeGroup.Text);
-                cmd.Parameters.AddWithValue("@d8", txtCompany.Text);
+                //cmd.Parameters.AddWithValue("@d8", txtCompany.Text);
                 cmd.Parameters.AddWithValue("@d9",categoryId);
                
                 rdr = cmd.ExecuteReader();
@@ -147,6 +147,16 @@ namespace PhonebookApp.UI
             this.Hide();
             MainUI frm = new MainUI();
             frm.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCategoryName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

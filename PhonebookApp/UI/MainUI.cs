@@ -46,13 +46,7 @@ namespace PhonebookApp.UI
              frm.Show();
         }
 
-        private void personDetailsButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            PersonDetail frm = new PersonDetail();
-            frm.Show();
-        }
-
+       
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -109,7 +103,11 @@ namespace PhonebookApp.UI
             frm.Show();
         }
 
-       
-       
+        private void personDetailsButton_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            PersonDetail frm = new PersonDetail();
+            frm.Show();
+        }       
     }
 }

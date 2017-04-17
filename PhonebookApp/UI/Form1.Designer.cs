@@ -135,8 +135,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.txtRABlock = new wmgCMS.WaterMarkTextBox();
-            this.txtWABlock = new wmgCMS.WaterMarkTextBox();
+            this.txtRABlock = new System.Windows.Forms.TextBox();
+            this.txtWABlock = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -486,6 +486,7 @@
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
             this.txtRAContactNo.TabIndex = 41;
+            this.txtRAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRAContactNo_KeyPress_1);
             // 
             // label26
             // 
@@ -807,6 +808,7 @@
             this.txtWAContactNo.Name = "txtWAContactNo";
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 26);
             this.txtWAContactNo.TabIndex = 41;
+            this.txtWAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWAContactNo_KeyPress_1);
             // 
             // label46
             // 
@@ -1233,7 +1235,6 @@
             this.label12.Size = new System.Drawing.Size(20, 22);
             this.label12.TabIndex = 52;
             this.label12.Text = "*";
-           
             // 
             // cmbCategoryName
             // 
@@ -1302,12 +1303,10 @@
             // txtRABlock
             // 
             this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtRABlock.Location = new System.Drawing.Point(157, 107);
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
             this.txtRABlock.TabIndex = 83;
-            this.txtRABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtRABlock.WaterMarkText = "if Any";
             // 
             // txtWABlock
             // 
@@ -1316,8 +1315,6 @@
             this.txtWABlock.Name = "txtWABlock";
             this.txtWABlock.Size = new System.Drawing.Size(172, 26);
             this.txtWABlock.TabIndex = 83;
-            this.txtWABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtWABlock.WaterMarkText = "if Any";
             // 
             // frm1
             // 
@@ -1396,7 +1393,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private wmgCMS.WaterMarkTextBox txtWABlock;
         private System.Windows.Forms.ComboBox cmbWAPost;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
@@ -1427,7 +1423,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox unKnownRA;
         private System.Windows.Forms.GroupBox groupBox5;
-        private wmgCMS.WaterMarkTextBox txtRABlock;
         private System.Windows.Forms.ComboBox cmbRAPost;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label43;
@@ -1466,6 +1461,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox CountrycomboBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtRABlock;
+        private System.Windows.Forms.TextBox txtWABlock;
     }
 }
 

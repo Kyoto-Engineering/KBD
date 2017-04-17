@@ -19,6 +19,7 @@ namespace PhonebookApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
+            //Application.Run(new frm1());
             //Application.Run(new Group());
             //Application.Run(new GroupCreation());
             //Application.Run(new frmCategory());

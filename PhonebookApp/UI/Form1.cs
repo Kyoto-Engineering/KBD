@@ -23,40 +23,14 @@ namespace PhonebookApp
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-
-        //public string categoryId,
-        //               jobTitleId,
-        //            countryid,
-        //           companyId,
-        //            specializationId,
-        //            professionId,
-        //            ageGroupId,
-        //            educationLevelId,
-        //           highestDegreeId,
-        //          relationshipId,
-        //            postofficeIdWA,
-        //            postofficeIdRA,
-        //            divisionIdWA,
-        //            divisionIdRA,
-        //            districtIdRA,
-        //            districtIdWA,
-        //            thanaIdRA,
-        //            thanaIdWA;
-        
-        //       public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
-        //            public string nUserId;
-
-
         public string relationshipId,postofficeIdWA,postofficeIdRA,divisionIdWA,divisionIdRA,districtIdRA,districtIdWA,thanaIdRA,thanaIdWA,categoryId,jobTitleId,countryid,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId;
-        public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3;
+        public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3, rAdistrictid, wAdistrictid;
         public string nUserId;
 
         public frm1()
         {
             InitializeComponent();
         }
-
-
 
         // Regex emailValidation = new Regex((@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$"));
 
@@ -213,8 +187,6 @@ namespace PhonebookApp
             cmbRAThana.SelectedIndex = -1;
             cmbRADistrict.SelectedIndex = -1;
             cmbRADivision.SelectedIndex = -1;
-
-
         }
 
         public void ResetWorkingAddress()
@@ -230,7 +202,6 @@ namespace PhonebookApp
             cmbWAThana.SelectedIndex = -1;
             cmbWADistrict.SelectedIndex = -1;
             cmbWADivision.SelectedIndex = -1;
-
         }
 
         private void Reset1()
@@ -253,10 +224,8 @@ namespace PhonebookApp
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
-
             ResetResidentialAddress();
             ResetWorkingAddress();
-
         }
 
         private void Reset2()
@@ -279,9 +248,7 @@ namespace PhonebookApp
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
-
             ResetForeignAddress();
-
         }
 
         private void SavePersonDetails()
@@ -324,16 +291,12 @@ namespace PhonebookApp
 
         private void btnInsert_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CountrycomboBox.Text))
-            {
-                MessageBox.Show("Please Enter Country Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             if (string.IsNullOrWhiteSpace(txtPersonName.Text))
             {
                 MessageBox.Show("Please Enter Person Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+                //txtPersonName.Focus();
             }
             if (CountrycomboBox.Text == "Bangladesh")
             {
@@ -345,31 +308,31 @@ namespace PhonebookApp
                         MessageBox.Show("Please select Residential Address division", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbRADivision.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
                     {
                         MessageBox.Show("Please Select Residential Address district", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbRADistrict.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
                     {
                         MessageBox.Show("Please select Residential Address Thana", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbRAThana.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
                     {
-                        MessageBox.Show("Please Select Residential Address Post Name", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("Please Select Residential Address Post Name", "Error",
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbRAPost.Focus();
                     }
-                    if (string.IsNullOrWhiteSpace(txtRAPostCode.Text))
-                    {
-                        MessageBox.Show("Please select Residential Address Post Code", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        return;
-                    }
+
                 }
                 if (unKnownCheckBox.Checked == false && sameAsRACheckBox.Checked == false)
                 {
@@ -378,32 +341,32 @@ namespace PhonebookApp
                         MessageBox.Show("Please select Working Address division", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbWADivision.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbWADistrict.Text))
                     {
                         MessageBox.Show("Please Select Working Address district", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbWADistrict.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbWAThana.Text))
                     {
                         MessageBox.Show("Please select Working Address Thana", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbWAThana.Focus();
                     }
                     if (string.IsNullOrWhiteSpace(cmbWAPost.Text))
                     {
                         MessageBox.Show("Please Select Working Address Post Name", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
+                        //cmbWAPost.Focus();
                     }
-                    if (string.IsNullOrWhiteSpace(txtWAPostCode.Text))
-                    {
-                        MessageBox.Show("Please select Working Address Post Code", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        return;
-                    }
+
                 }
+
 
                 try
                 {
@@ -430,33 +393,41 @@ namespace PhonebookApp
                     }
 
 
-                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                     Reset1();
+                    CountrycomboBox.SelectedItem = "Bangladesh";
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+
             else
             {
+                if (CountrycomboBox.Text != "Bangladesh")
+                {
+                    if (string.IsNullOrWhiteSpace(StreettextBox.Text) && string.IsNullOrWhiteSpace(StatetextBox.Text) &&
+                        string.IsNullOrWhiteSpace(PostalCodetextBox.Text))
+                    {
+                        MessageBox.Show("Please enter Addresses!", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                        //StreettextBox.Focus();
+                    }
+                }
+
                 SavePersonDetails();
-                SaveWorkingAddress("ForeignAddress");
-                //ForeignAddresses();
+                ForeignAddresses("ForeignAddress");
                 MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset2();
+                //CountrycomboBox.Text = "Bangladesh";
+                //CountrycomboBox.SelectedIndex = 14;
+                CountrycomboBox.SelectedItem = "Bangladesh";
             }
-
-
         }
-
-
-
-
-
-
-
-
 
         private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -537,7 +508,20 @@ namespace PhonebookApp
                 {
                     CountrycomboBox.Items.Add(rdr[0]);
                 }
-                CountrycomboBox.Items.Add("Not In The List");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctt = "select RTRIM(CountryId) from Country  where  Country.CountryName='" +
+                            CountrycomboBox.Text + "' ";
+                cmd = new SqlCommand(ctt);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    countryid = (rdr.GetString(0));
+                }
+               
+                //CountrycomboBox.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -806,6 +790,7 @@ namespace PhonebookApp
         private void frm1_Load(object sender, EventArgs e)
         {
             FillCountry();
+            CountrycomboBox.SelectedItem = "Bangladesh";
             FillRelationShip();
             FillJobTitle();
             FillAgeGroup();
@@ -819,12 +804,15 @@ namespace PhonebookApp
             FillCategory();
             FillWADivisionCombo();
             FillRADivisionCombo();
-            disableAll();
-            groupBox2.Hide();
-            groupBox3.Hide();
+            cmbRADistrict.Enabled = false;
+            cmbRAThana.Enabled = false;
+            cmbRAPost.Enabled = false;
+            cmbWADistrict.Enabled = false;
+            cmbWAThana.Enabled = false;
+            cmbWAPost.Enabled = false;
             groupBox6.Hide();
-            btnInsert.Location = new Point(651, 158);
-            //btnInsert.Hide();
+            btnInsert.Location = new Point(1045, 549);
+           
         }
 
         private void cmbCategoryName_SelectedIndexChanged(object sender, EventArgs e)
@@ -930,432 +918,7 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbRADistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
-                cmd.Parameters["@find"].Value = cmbRADistrict.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    districtIdRA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbRADistrict.Text = cmbRADistrict.Text.Trim();
-                cmbRAThana.SelectedIndex = -1;
-                cmbRAThana.Items.Clear();
-                cmbRAPost.SelectedIndex = -1;
-                cmbRAPost.Items.Clear();
-                cmbRAThana.Enabled = true;
-                cmbRAThana.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA + "' order by Thanas.D_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbRAThana.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbRADivision_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Divisions.Division_ID)  from Divisions WHERE Divisions.Division=@find";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Division"));
-                cmd.Parameters["@find"].Value = cmbRADivision.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    divisionIdRA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbRADivision.Text = cmbRADivision.Text.Trim();
-                cmbRADistrict.SelectedIndex = -1;
-                cmbRADistrict.Items.Clear();
-                cmbRAThana.SelectedIndex = -1;
-                cmbRAThana.Items.Clear();
-                cmbRAPost.SelectedIndex = -1;
-                cmbRAPost.Items.Clear();
-                txtRAPostCode.Clear();
-                cmbRADistrict.Enabled = true;
-                cmbRADistrict.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdRA + "' order by Districts.Division_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbRADistrict.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbRAThana_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
-                cmd.Parameters["@find"].Value = cmbRAThana.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    thanaIdRA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbRAThana.Text = cmbRAThana.Text.Trim();
-                cmbRAPost.Items.Clear();
-                cmbRAPost.SelectedIndex = -1;
-                cmbRAPost.Items.Clear();
-                cmbRAPost.Enabled = true;
-                cmbRAPost.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.T_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbRAPost.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbRAPost_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
-                cmd.Parameters["@find"].Value = cmbRAPost.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    postofficeIdRA = (rdr.GetString(0));
-                    txtRAPostCode.Text = (rdr.GetString(1));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbWADivision_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Divisions.Division_ID)  from Divisions WHERE Divisions.Division=@find";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Division"));
-                cmd.Parameters["@find"].Value = cmbWADivision.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    divisionIdWA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbWADivision.Text = cmbWADivision.Text.Trim();
-                cmbWADistrict.SelectedIndex = -1;
-                cmbWADistrict.Items.Clear();
-                cmbWAThana.SelectedIndex = -1;
-                cmbWAThana.Items.Clear();
-                cmbWAPost.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;
-                txtWAPostCode.Clear();
-                cmbWADistrict.Enabled = true;
-                cmbWADistrict.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdWA + "' order by Districts.Division_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbWADistrict.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbWADistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
-                cmd.Parameters["@find"].Value = cmbWADistrict.Text;
-                rdr = cmd.ExecuteReader();
-
-                if (rdr.Read())
-                {
-                    districtIdWA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbWADistrict.Text = cmbWADistrict.Text.Trim();
-                cmbWAThana.SelectedIndex = -1;
-                cmbWAThana.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;
-                cmbWAPost.Items.Clear();
-                txtWAPostCode.Clear();
-                cmbWAThana.Enabled = true;
-                cmbWAThana.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdWA + "' order by Thanas.D_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbWAThana.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbWAThana_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
-                cmd.Parameters["@find"].Value = cmbWAThana.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    thanaIdWA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbWAThana.Text = cmbWAThana.Text.Trim();
-                cmbWAPost.SelectedIndex = -1;
-                cmbWAPost.Items.Clear();
-                txtWAPostCode.Clear();
-                cmbWAPost.Enabled = true;
-                cmbWAPost.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdWA + "' order by PostOffice.T_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbWAPost.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbWAPost_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
-                cmd.Parameters["@find"].Value = cmbWAPost.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    postofficeIdWA = (rdr.GetString(0));
-                    txtWAPostCode.Text = (rdr.GetString(1));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
         private void FillRelationShip()
         {
             try
@@ -2250,16 +1813,17 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
-
-
                 cmbRADistrict.Text = cmbRADistrict.Text.Trim();
-                cmbRAThana.SelectedIndex = -1;
                 cmbRAThana.Items.Clear();
-                cmbRAPost.SelectedIndex = -1;
+                cmbRAThana.ResetText();
                 cmbRAPost.Items.Clear();
+                cmbRAPost.ResetText();
+                cmbRAPost.SelectedIndex = -1;
+                cmbRAPost.Enabled = false;
                 txtRAPostCode.Clear();
                 cmbRAThana.Enabled = true;
                 cmbRAThana.Focus();
+
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -2284,11 +1848,33 @@ namespace PhonebookApp
 
         private void cmbRAThana_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = con.CreateCommand();
+
+            cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
+
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                rAdistrictid = rdr.GetInt32(0);
+                //districtIdRA = (rdr.GetString(0));
+            }
+            if ((rdr != null))
+            {
+                rdr.Close();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+
+
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + rAdistrictid + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
@@ -2311,14 +1897,16 @@ namespace PhonebookApp
 
 
                 cmbRAThana.Text = cmbRAThana.Text.Trim();
-                cmbRAPost.SelectedIndex = -1;
                 cmbRAPost.Items.Clear();
+                cmbRAPost.ResetText();
+                // cPostOfficeCombo.Text = "";
                 txtRAPostCode.Clear();
                 cmbRAPost.Enabled = true;
                 cmbRAPost.Focus();
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
+                //string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdC + "' order by PostOffice.T_ID desc";
                 string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.T_ID desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
@@ -2336,10 +1924,12 @@ namespace PhonebookApp
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cmbRAPost.SelectedIndex = -1;
+
         }
 
         private void cmbRAPost_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
+        {           
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -2377,6 +1967,13 @@ namespace PhonebookApp
 
         private void cmbWADivision_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            cmbWADistrict.Items.Clear();
+            cmbWADistrict.ResetText();
+            cmbWAThana.Items.Clear();
+            cmbWAThana.ResetText();
+            cmbWAPost.Items.Clear();
+            cmbWAPost.ResetText();
+
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -2403,14 +2000,15 @@ namespace PhonebookApp
                     con.Close();
                 }
 
-
                 cmbWADivision.Text = cmbWADivision.Text.Trim();
-                cmbWADistrict.SelectedIndex = -1;
                 cmbWADistrict.Items.Clear();
-                cmbWAThana.SelectedIndex = -1;
+                cmbWADistrict.ResetText();
                 cmbWAThana.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;
+                cmbWAThana.ResetText();
+                cmbWAThana.SelectedIndex = -1;
                 cmbWAPost.Items.Clear();
+                cmbWAPost.ResetText();
+                cmbWAPost.SelectedIndex = -1;
                 txtWAPostCode.Clear();
                 cmbWADistrict.Enabled = true;
                 cmbWADistrict.Focus();
@@ -2434,10 +2032,20 @@ namespace PhonebookApp
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cmbWAThana.Enabled = false;
+            cmbWAPost.Enabled = false;
         }
 
         private void cmbRADivision_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+
+            cmbRADistrict.Items.Clear();
+            cmbRADistrict.ResetText();
+            cmbRAThana.Items.Clear();
+            cmbRAThana.ResetText();
+            cmbRAPost.Items.Clear();
+            cmbRAPost.ResetText();
+            
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -2464,14 +2072,15 @@ namespace PhonebookApp
                     con.Close();
                 }
 
-
                 cmbRADivision.Text = cmbRADivision.Text.Trim();
-                cmbRADistrict.SelectedIndex = -1;
                 cmbRADistrict.Items.Clear();
+                cmbRADistrict.ResetText();
+                cmbRAThana.Items.Clear();
+                cmbRAThana.ResetText();
                 cmbRAThana.SelectedIndex = -1;
-                cmbWAThana.Items.Clear();
-                cmbRAPost.SelectedIndex = -1;
                 cmbRAPost.Items.Clear();
+                cmbRAPost.ResetText();
+                cmbRAPost.SelectedIndex = -1;
                 txtRAPostCode.Clear();
                 cmbRADistrict.Enabled = true;
                 cmbRADistrict.Focus();
@@ -2488,13 +2097,14 @@ namespace PhonebookApp
                     cmbRADistrict.Items.Add(rdr[0]);
                 }
                 con.Close();
-
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cmbRAThana.Enabled = false;
+            cmbRAPost.Enabled = false;
         }
 
         private void cmbWADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -2513,7 +2123,6 @@ namespace PhonebookApp
                 if (rdr.Read())
                 {
                     districtIdWA = (rdr.GetString(0));
-
                 }
 
                 if ((rdr != null))
@@ -2525,13 +2134,17 @@ namespace PhonebookApp
                     con.Close();
                 }
                 cmbWADistrict.Text = cmbWADistrict.Text.Trim();
-                cmbWAThana.SelectedIndex = -1;
                 cmbWAThana.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;
+                cmbWAThana.ResetText();
                 cmbWAPost.Items.Clear();
+                cmbWAPost.ResetText();
+                cmbWAPost.SelectedIndex = -1;
+                cmbWAPost.Enabled = false;
                 txtWAPostCode.Clear();
                 cmbWAThana.Enabled = true;
                 cmbWAThana.Focus();
+
+
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -2554,11 +2167,33 @@ namespace PhonebookApp
 
         private void cmbWAThana_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = con.CreateCommand();
+
+            cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbWADistrict.Text + "'";
+
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                wAdistrictid = rdr.GetInt32(0);
+                //districtIdRA = (rdr.GetString(0));
+            }
+            if ((rdr != null))
+            {
+                rdr.Close();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+
+
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + wAdistrictid + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
@@ -2569,6 +2204,7 @@ namespace PhonebookApp
                     thanaIdWA = (rdr.GetString(0));
 
                 }
+
                 if ((rdr != null))
                 {
                     rdr.Close();
@@ -2577,14 +2213,19 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
+
+
                 cmbWAThana.Text = cmbWAThana.Text.Trim();
                 cmbWAPost.Items.Clear();
-                cmbWAPost.SelectedIndex = -1;
+                cmbWAPost.ResetText();
+
                 txtWAPostCode.Clear();
                 cmbWAPost.Enabled = true;
                 cmbWAPost.Focus();
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
+                //string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdC + "' order by PostOffice.T_ID desc";
                 string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdWA + "' order by PostOffice.T_ID desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
@@ -2602,13 +2243,13 @@ namespace PhonebookApp
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cmbWAPost.SelectedIndex = -1;
         }
 
         private void cmbWAPost_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
             {
-
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
@@ -2621,7 +2262,6 @@ namespace PhonebookApp
                 {
                     postofficeIdWA = (rdr.GetString(0));
                     txtWAPostCode.Text = (rdr.GetString(1));
-
                 }
 
                 if ((rdr != null))
@@ -2632,8 +2272,6 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
-
-
             }
 
             catch (Exception ex)
@@ -2642,102 +2280,103 @@ namespace PhonebookApp
             }
         }
 
-
         private void CountrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (CountrycomboBox.Text == "Not In The List")
+            //if (CountrycomboBox.Text == "Not In The List")
+            //{
+            //    string inputt = Microsoft.VisualBasic.Interaction.InputBox("Please Input Country  Here", "Input Here", "", -1, -1);
+            //    if (string.IsNullOrWhiteSpace(inputt))
+            //    {
+            //        CountrycomboBox.SelectedIndex = -1;
+            //        disableAll();
+            //        groupBox2.Hide();
+            //        groupBox3.Hide();
+            //        groupBox6.Hide();
+            //    }
+
+            //    else
+            //    {
+            //        con = new SqlConnection(cs.DBConn);
+            //        con.Open();
+            //        string ct2 = "select CountryName from Country where CountryName='" + inputt + "'";
+            //        cmd = new SqlCommand(ct2, con);
+            //        rdr = cmd.ExecuteReader();
+            //        if (rdr.Read() && !rdr.IsDBNull(0))
+            //        {
+            //            MessageBox.Show("This Country Name  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            con.Close();
+            //            CountrycomboBox.SelectedIndex = -1;
+            //            disableAll();
+            //            groupBox2.Hide();
+            //            groupBox3.Hide();
+            //            groupBox6.Hide();
+
+            //        }
+            //        else
+            //        {
+            //            try
+            //            {
+            //                con = new SqlConnection(cs.DBConn);
+            //                con.Open();
+            //                string query1 = "insert into Country(CountryName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            //                cmd = new SqlCommand(query1, con);
+            //                cmd.Parameters.AddWithValue("@d1", inputt);
+            //                cmd.ExecuteNonQuery();
+
+            //                con.Close();
+            //                CountrycomboBox.Items.Clear();
+            //                FillCountry();
+            //                CountrycomboBox.SelectedText = inputt;
+            //                if (CountrycomboBox.Text == "Bangladesh")
+            //                {
+            //                    enableAll();
+            //                    groupBox6.Hide();
+            //                    groupBox2.Show();
+            //                    groupBox3.Show();
+            //                    btnInsert.Location = new Point(1045, 549);
+            //                }
+            //                else
+            //                {
+
+
+            //                    enableAll();
+            //                    groupBox2.Hide();
+            //                    groupBox3.Hide();
+            //                    groupBox6.Show();
+            //                    groupBox6.Location = new Point(466, 18);
+            //                    btnInsert.Location = new Point(650, 157);
+            //                }
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            if (CountrycomboBox.Text == "Bangladesh")
             {
-                string inputt = Microsoft.VisualBasic.Interaction.InputBox("Please Input Country  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(inputt))
-                {
-                    CountrycomboBox.SelectedIndex = -1;
-                    disableAll();
-                    groupBox2.Hide();
-                    groupBox3.Hide();
-                    groupBox6.Hide();
-                }
-
-                else
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct2 = "select CountryName from Country where CountryName='" + inputt + "'";
-                    cmd = new SqlCommand(ct2, con);
-                    rdr = cmd.ExecuteReader();
-                    if (rdr.Read() && !rdr.IsDBNull(0))
-                    {
-                        MessageBox.Show("This Country Name  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.Close();
-                        CountrycomboBox.SelectedIndex = -1;
-                        disableAll();
-                        groupBox2.Hide();
-                        groupBox3.Hide();
-                        groupBox6.Hide();
-
-                    }
-                    else
-                    {
-                        try
-                        {
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            string query1 = "insert into Country(CountryName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                            cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", inputt);
-                            cmd.ExecuteNonQuery();
-
-                            con.Close();
-                            CountrycomboBox.Items.Clear();
-                            FillCountry();
-                            CountrycomboBox.SelectedText = inputt;
-                            if (CountrycomboBox.Text == "Bangladesh")
-                            {
-                                enableAll();
-                                groupBox6.Hide();
-                                groupBox2.Show();
-                                groupBox3.Show();
-                                btnInsert.Location = new Point(1045, 549);
-                            }
-                            else
-                            {
-
-
-                                enableAll();
-                                groupBox2.Hide();
-                                groupBox3.Hide();
-                                groupBox6.Show();
-                                groupBox6.Location = new Point(466, 18);
-                                btnInsert.Location = new Point(650, 157);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
+                enableAll();
+                groupBox6.Hide();
+                groupBox2.Show();
+                groupBox3.Show();
+                btnInsert.Location = new Point(1045, 549);
             }
             else
             {
-                if (CountrycomboBox.Text == "Bangladesh")
-                {
-                    enableAll();
-                    groupBox6.Hide();
-                    groupBox2.Show();
-                    groupBox3.Show();
-                    btnInsert.Location = new Point(1045, 549);
-                }
-                else
-                {
-                    try
+                enableAll();
+                groupBox2.Hide();
+                groupBox3.Hide();
+                groupBox6.Show();
+                groupBox6.Location = new Point(466, 18);
+                btnInsert.Location = new Point(650, 157);
+            }
+            try
                     {
-                        enableAll();
-                        groupBox2.Hide();
-                        groupBox3.Hide();
-                        groupBox6.Show();
-                        groupBox6.Location = new Point(466, 18);
-                        btnInsert.Location = new Point(650, 157);
+                      
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string ct = "select RTRIM(CountryId) from Country  where  Country.CountryName='" +
@@ -2757,12 +2396,9 @@ namespace PhonebookApp
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-        }
-
+            
         private void disableAll()
         {
-
             txtPersonName.Enabled = false;
             textNickName.Enabled = false;
             txtFatherName.Enabled = false;
@@ -2783,7 +2419,6 @@ namespace PhonebookApp
 
         private void enableAll()
         {
-
             txtPersonName.Enabled = true;
             textNickName.Enabled = true;
             txtFatherName.Enabled = true;
@@ -2801,7 +2436,28 @@ namespace PhonebookApp
             txtSkypeId.Enabled = true;
             txtImmo.Enabled = true;
         }
-        
+
+        private void txtRAContactNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            //string Cell_Phone = txtRAContactNo.Text;
+
+            //if (char.IsNumber(e.KeyChar))
+            //{ }
+            //else
+            //{
+            //    e.Handled = e.KeyChar != (char)Keys.Back;
+            //}
+
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+                e.Handled = true;
+
+        }
+
+        private void txtWAContactNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+                e.Handled = true;
+        }        
     }
 }
 

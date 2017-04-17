@@ -40,7 +40,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(31, 99);
+            this.groupBox1.Location = new System.Drawing.Point(31, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1243, 501);
             this.groupBox1.TabIndex = 0;
@@ -63,7 +63,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1204, 456);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // label1
@@ -80,7 +79,7 @@
             // lk
             // 
             this.lk.AutoSize = true;
-            this.lk.Location = new System.Drawing.Point(14, 81);
+            this.lk.Location = new System.Drawing.Point(14, 44);
             this.lk.Name = "lk";
             this.lk.Size = new System.Drawing.Size(18, 15);
             this.lk.TabIndex = 3;

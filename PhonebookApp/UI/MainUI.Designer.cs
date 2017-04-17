@@ -38,11 +38,11 @@
             this.buttonProfession = new System.Windows.Forms.Button();
             this.buttonSpecialization = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.personDetailsButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.personDetailsButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.personDetailsButton);
             this.groupBox1.Controls.Add(this.MemberAddedToGroupbutton);
             this.groupBox1.Controls.Add(this.GroupCreationbutton);
             this.groupBox1.Controls.Add(this.buttonJobTitle);
@@ -67,7 +68,6 @@
             this.groupBox1.Controls.Add(this.buttonProfession);
             this.groupBox1.Controls.Add(this.buttonSpecialization);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.personDetailsButton);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
@@ -166,26 +166,13 @@
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button4.ForeColor = System.Drawing.Color.Blue;
-            this.button4.Location = new System.Drawing.Point(9, 117);
+            this.button4.Location = new System.Drawing.Point(9, 179);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 57);
             this.button4.TabIndex = 36;
             this.button4.Text = "Company Creation";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // personDetailsButton
-            // 
-            this.personDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.personDetailsButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personDetailsButton.ForeColor = System.Drawing.Color.Blue;
-            this.personDetailsButton.Location = new System.Drawing.Point(10, 174);
-            this.personDetailsButton.Name = "personDetailsButton";
-            this.personDetailsButton.Size = new System.Drawing.Size(134, 62);
-            this.personDetailsButton.TabIndex = 35;
-            this.personDetailsButton.Text = "Person Details";
-            this.personDetailsButton.UseVisualStyleBackColor = false;
-            this.personDetailsButton.Click += new System.EventHandler(this.personDetailsButton_Click);
             // 
             // button3
             // 
@@ -203,7 +190,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(6, 73);
+            this.button2.Location = new System.Drawing.Point(6, 134);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 44);
             this.button2.TabIndex = 1;
@@ -220,7 +207,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 54);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Person Details";
+            this.button1.Text = "New Entry";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -236,6 +223,19 @@
             this.logOutButton.Text = "LogOut";
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // personDetailsButton
+            // 
+            this.personDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.personDetailsButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personDetailsButton.ForeColor = System.Drawing.Color.Blue;
+            this.personDetailsButton.Location = new System.Drawing.Point(6, 72);
+            this.personDetailsButton.Name = "personDetailsButton";
+            this.personDetailsButton.Size = new System.Drawing.Size(134, 62);
+            this.personDetailsButton.TabIndex = 44;
+            this.personDetailsButton.Text = "Person Details";
+            this.personDetailsButton.UseVisualStyleBackColor = false;
+            this.personDetailsButton.Click += new System.EventHandler(this.personDetailsButton_Click_1);
             // 
             // MainUI
             // 
@@ -264,7 +264,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button logOutButton;
-        private System.Windows.Forms.Button personDetailsButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonAgeGroup;
         private System.Windows.Forms.Button buttonEducationLevel;
@@ -273,5 +272,6 @@
         private System.Windows.Forms.Button buttonJobTitle;
         private System.Windows.Forms.Button GroupCreationbutton;
         private System.Windows.Forms.Button MemberAddedToGroupbutton;
+        private System.Windows.Forms.Button personDetailsButton;
     }
 }

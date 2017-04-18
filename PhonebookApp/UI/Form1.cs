@@ -23,9 +23,10 @@ namespace PhonebookApp
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public string relationshipId,postofficeIdWA,postofficeIdRA,divisionIdWA,divisionIdRA,districtIdRA,districtIdWA,thanaIdRA,thanaIdWA,categoryId,jobTitleId,countryid,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId;
-        public int currentPersonId, affectedRows1, affectedRows2, bankEmailId, affectedRows3, rAdistrictid, wAdistrictid;
-        public string nUserId;
+        public string countryid,nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
+        public Nullable<Int64> relationshipId,bankEmailId,categoryId,jobTitleId,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId ;
+        //public string nUserId;
+        public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
 
         public frm1()
         {
@@ -206,19 +207,61 @@ namespace PhonebookApp
 
         private void Reset1()
         {
-            CountrycomboBox.SelectedIndex = -1;
+            //FillRelationShip();
+            //FillJobTitle();
+            //FillAgeGroup();
+            //FillCompanyName();
+            //FillEducationLevel();
+            //FillHighestDegree();
+            //FillProfession();
+            //FillSpecialization();
+            //EmailAddress();
+            //CountrycomboBox.SelectedIndex = -1;
+            relationshipId=bankEmailId=categoryId=jobTitleId=companyId=specializationId=professionId=ageGroupId=educationLevelId=highestDegreeId
+                = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
+            cmbEmailAddress.Items.Clear();
+            
+            //cmbEmailAddress.ResetText();
+            //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
+            cmbCompanyName.Items.Clear();
+            //cmbCompanyName.ResetText();
+            //FillCompanyName();
             cmbCompanyName.SelectedIndex = -1;
+            cmbCategoryName.Items.Clear();
+            //cmbCategoryName.ResetText();
+            //FillCategory();
             cmbCategoryName.SelectedIndex = -1;
+            cmbAgeGroup.Items.Clear();
+            //cmbAgeGroup.ResetText();
+            //FillAgeGroup();
             cmbAgeGroup.SelectedIndex = -1;
+            cmbProfession.Items.Clear();
+            //cmbProfession.ResetText();
+            //FillProfession();
             cmbProfession.SelectedIndex = -1;
+            cmbEducationalLevel.Items.Clear();
+            //cmbEducationalLevel.ResetText();
+            //FillEducationLevel();
             cmbEducationalLevel.SelectedIndex = -1;
+            cmbHighestDegree.Items.Clear();
+            //cmbHighestDegree.ResetText();
+            //FillHighestDegree();
             cmbHighestDegree.SelectedIndex = -1;
+            cmbJobTitle.Items.Clear();
+            //cmbJobTitle.ResetText();
+            //FillJobTitle();
             cmbJobTitle.SelectedIndex = -1;
+            cmbSpecialization.Items.Clear();
+            //cmbSpecialization.ResetText();
+            //FillSpecialization();
             cmbSpecialization.SelectedIndex = -1;
+            cmbRelationShip.Items.Clear();
+            //cmbRelationShip.ResetText();
+           //FillRelationShip();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -230,19 +273,59 @@ namespace PhonebookApp
 
         private void Reset2()
         {
-            CountrycomboBox.SelectedIndex = -1;
+            //EmailAddress();
+            //FillCompanyName();
+            //FillJobTitle();
+            //FillCategory();
+            //FillSpecialization();
+            //FillProfession();
+            //FillEducationLevel();
+            //FillHighestDegree();
+            //FillAgeGroup();            
+            //FillRelationShip();
+            //CountrycomboBox.SelectedIndex = -1;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
+            cmbEmailAddress.Items.Clear();
+            //cmbEmailAddress.ResetText();
+            //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
+            cmbCompanyName.Items.Clear();
+            //cmbCompanyName.ResetText();
+            //FillCompanyName();
             cmbCompanyName.SelectedIndex = -1;
+            cmbCategoryName.Items.Clear();
+            //cmbCategoryName.ResetText();
+            //FillCategory();
             cmbCategoryName.SelectedIndex = -1;
+            cmbAgeGroup.Items.Clear();
+            //cmbAgeGroup.ResetText();
+           //FillAgeGroup();
             cmbAgeGroup.SelectedIndex = -1;
+            cmbProfession.Items.Clear();
+            //cmbProfession.ResetText();
+            //FillProfession();
             cmbProfession.SelectedIndex = -1;
+            cmbEducationalLevel.Items.Clear();
+            //cmbEducationalLevel.ResetText();
+            //FillEducationLevel();
             cmbEducationalLevel.SelectedIndex = -1;
+            cmbHighestDegree.Items.Clear();
+            //cmbHighestDegree.ResetText();
+            //FillHighestDegree();
             cmbHighestDegree.SelectedIndex = -1;
+            cmbJobTitle.Items.Clear();
+            //cmbJobTitle.ResetText();
+            //FillJobTitle();
             cmbJobTitle.SelectedIndex = -1;
+            cmbSpecialization.Items.Clear();
+            //cmbSpecialization.ResetText();
+            //FillSpecialization();
             cmbSpecialization.SelectedIndex = -1;
+            cmbRelationShip.Items.Clear();
+            //cmbRelationShip.ResetText();
+            //FillRelationShip();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -264,16 +347,17 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(textNickName.Text) ? (object)DBNull.Value : textNickName.Text));
             cmd.Parameters.Add(new SqlParameter("@d3",
                 string.IsNullOrEmpty(txtFatherName.Text) ? (object)DBNull.Value : txtFatherName.Text));
-            cmd.Parameters.AddWithValue("@d4", Convert.ToInt32(bankEmailId));
-            cmd.Parameters.AddWithValue("@d5", Convert.ToInt32(companyId));
-            cmd.Parameters.AddWithValue("@d6", Convert.ToInt32(jobTitleId));
-            cmd.Parameters.AddWithValue("@d7", Convert.ToInt32(categoryId));
-            cmd.Parameters.AddWithValue("@d8", Convert.ToInt32(specializationId));
-            cmd.Parameters.AddWithValue("@d9", Convert.ToInt32(professionId));
-            cmd.Parameters.AddWithValue("@d10", Convert.ToInt32(educationLevelId));
-            cmd.Parameters.AddWithValue("@d11", Convert.ToInt32(highestDegreeId));
-            cmd.Parameters.AddWithValue("@d12", Convert.ToInt32(ageGroupId));
-            cmd.Parameters.AddWithValue("@d13", Convert.ToInt32(relationshipId));
+            
+            cmd.Parameters.AddWithValue("@d4", (object)bankEmailId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d5", (object)companyId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d6", (object)jobTitleId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d7", (object)categoryId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d8", (object)specializationId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d9", (object)professionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d10", (object)educationLevelId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d11", (object)highestDegreeId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d12", (object)ageGroupId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d13", (object)relationshipId ?? DBNull.Value);
             cmd.Parameters.Add(new SqlParameter("@d14",
                 string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
             cmd.Parameters.Add(new SqlParameter("@d15",
@@ -283,7 +367,7 @@ namespace PhonebookApp
             cmd.Parameters.Add(new SqlParameter("@d17",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
             
-            cmd.Parameters.AddWithValue("@d18", Convert.ToInt32(countryid));
+            cmd.Parameters.AddWithValue("@d18", (object)countryid ?? DBNull.Value);
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
 
@@ -296,7 +380,7 @@ namespace PhonebookApp
             {
                 MessageBox.Show("Please Enter Person Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-                //txtPersonName.Focus();
+                
             }
             if (CountrycomboBox.Text == "Bangladesh")
             {
@@ -308,21 +392,21 @@ namespace PhonebookApp
                         MessageBox.Show("Please select Residential Address division", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbRADivision.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
                     {
                         MessageBox.Show("Please Select Residential Address district", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbRADistrict.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
                     {
                         MessageBox.Show("Please select Residential Address Thana", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbRAThana.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
                     {
@@ -330,7 +414,7 @@ namespace PhonebookApp
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbRAPost.Focus();
+
                     }
 
                 }
@@ -341,91 +425,143 @@ namespace PhonebookApp
                         MessageBox.Show("Please select Working Address division", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbWADivision.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbWADistrict.Text))
                     {
                         MessageBox.Show("Please Select Working Address district", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbWADistrict.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbWAThana.Text))
                     {
                         MessageBox.Show("Please select Working Address Thana", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbWAThana.Focus();
+
                     }
                     if (string.IsNullOrWhiteSpace(cmbWAPost.Text))
                     {
                         MessageBox.Show("Please Select Working Address Post Name", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
-                        //cmbWAPost.Focus();
+
                     }
 
                 }
+                if (unKnownRA.Checked && unKnownCheckBox.Checked)
+                {
+                    MessageBox.Show("Please Enter at least One Address!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    try
+                    {
+                        //1.Residential Address Applicable  & Working Address not Applicable
+                        if (unKnownRA.Checked == false && unKnownCheckBox.Checked)
+                        {
+                            SavePersonDetails();
+                            SaveWorkingAddress("ResidentialAddresses");
+                        }
+                        //2.Residential Address Applicable  & Working Address Same as  Corporate Address                                        
+                        if (unKnownRA.Checked == false && sameAsRACheckBox.Checked && unKnownCheckBox.Checked == false)
+                        {
+                            SavePersonDetails();
+                            SaveWorkingAddress("ResidentialAddresses");
+                            WASameAsRA("WorkingAddresses");
 
+                        }
+                        //3.Residential Address Applicable  & Working Address  Applicable
+                        if (unKnownRA.Checked == false && sameAsRACheckBox.Checked == false &&
+                            unKnownCheckBox.Checked == false)
+                        {
+                            SavePersonDetails();
+                            SaveWorkingAddress("ResidentialAddresses");
+                            SaveWorkingAddress("WorkingAddresses");
+                        }
+                        //4 
+                        if (unKnownRA.Checked && unKnownCheckBox.Checked == false)
+                        {
+                            SavePersonDetails();
+                            SaveWorkingAddress("WorkingAddresses");
+                        }
 
+                        MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Reset1();
+                        CountrycomboBox.SelectedItem = "Bangladesh";
+                        EmailAddress();
+                        cmbEmailAddress.ResetText();
+                        FillCompanyName();
+                        cmbCompanyName.ResetText();
+                        FillJobTitle();
+                        cmbJobTitle.ResetText();
+                        FillCategory();
+                        cmbCategoryName.ResetText();
+                        FillSpecialization();
+                        cmbSpecialization.ResetText();
+                        FillProfession();
+                        cmbProfession.ResetText();
+                        FillEducationLevel();
+                        cmbEducationalLevel.ResetText();
+                        FillHighestDegree();
+                        cmbHighestDegree.ResetText();
+                        FillAgeGroup();
+                        cmbAgeGroup.ResetText();
+                        FillRelationShip();
+                        cmbRelationShip.ResetText();
+                        unKnownRA.Checked = false;
+                        sameAsRACheckBox.Checked = false;
+
+                        unKnownCheckBox.Checked = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            else
+            {
                 try
                 {
-                    //1.Residential Address Applicable  & Working Address not Applicable
-                    if (unKnownCheckBox.Checked)
+                    if (CountrycomboBox.Text != "Bangladesh")
                     {
-                        SavePersonDetails();
-                        SaveWorkingAddress("ResidentialAddresses");
-                    }
-                    //2.Residential Address Applicable  & Working Address Same as  Corporate Address                                        
-                    if (sameAsRACheckBox.Checked)
-                    {
-                        SavePersonDetails();
-                        SaveWorkingAddress("ResidentialAddresses");
-                        WASameAsRA("WorkingAddresses");
+                        if (string.IsNullOrWhiteSpace(StreettextBox.Text) &&
+                            string.IsNullOrWhiteSpace(StatetextBox.Text) &&
+                            string.IsNullOrWhiteSpace(PostalCodetextBox.Text))
+                        {
+                            MessageBox.Show("Please enter Addresses!", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                            return;
 
-                    }
-                    //3.Residential Address Applicable  & Working Address  Applicable
-                    if (sameAsRACheckBox.Checked == false && unKnownCheckBox.Checked == false)
-                    {
-                        SavePersonDetails();
-                        SaveWorkingAddress("ResidentialAddresses");
-                        SaveWorkingAddress("WorkingAddresses");
+                        }
                     }
 
-
-                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    Reset1();
+                    SavePersonDetails();
+                    ForeignAddresses("ForeignAddress");
+                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset2();
                     CountrycomboBox.SelectedItem = "Bangladesh";
+                    EmailAddress();
+                    FillCompanyName();
+                    FillJobTitle();
+                    FillCategory();
+                    FillSpecialization();
+                    FillProfession();
+                    FillEducationLevel();
+                    FillHighestDegree();
+                    FillAgeGroup();
+                    FillRelationShip();
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-
-
-            else
-            {
-                if (CountrycomboBox.Text != "Bangladesh")
-                {
-                    if (string.IsNullOrWhiteSpace(StreettextBox.Text) && string.IsNullOrWhiteSpace(StatetextBox.Text) &&
-                        string.IsNullOrWhiteSpace(PostalCodetextBox.Text))
-                    {
-                        MessageBox.Show("Please enter Addresses!", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        return;
-                        //StreettextBox.Focus();
-                    }
-                }
-
-                SavePersonDetails();
-                ForeignAddresses("ForeignAddress");
-                MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Reset2();
-                //CountrycomboBox.Text = "Bangladesh";
-                //CountrycomboBox.SelectedIndex = 14;
-                CountrycomboBox.SelectedItem = "Bangladesh";
             }
         }
 
@@ -519,6 +655,8 @@ namespace PhonebookApp
                 if (rdr.Read())
                 {
                     countryid = (rdr.GetString(0));
+                    //countryid = rdr.GetInt32(0);
+
                 }
                
                 //CountrycomboBox.Items.Add("Not In The List");
@@ -875,9 +1013,11 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into Category(CategoryName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into Category(CategoryName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
                             cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
@@ -900,14 +1040,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(CategoryId) from Category  where  Category.CategoryName='" + cmbCategoryName.Text + "' ";
+                    string ct = "select CategoryId from Category  where  Category.CategoryName='" + cmbCategoryName.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        categoryId = (rdr.GetString(0));
+                        //categoryId = (rdr.GetString(0));
+                        //categoryId = rdr.GetInt32(0);
+                        categoryId = Convert.ToInt64(rdr["CategoryId"]);
                     }
                     con.Close();
                 }
@@ -965,7 +1107,7 @@ namespace PhonebookApp
         {
             if (cmbEmailAddress.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Mode Of Conduct  Here", "Input Here", "", -1, -1);
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     cmbEmailAddress.SelectedIndex = -1;
@@ -1041,7 +1183,8 @@ namespace PhonebookApp
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
-                        bankEmailId = rdr.GetInt32(0);
+                        //bankEmailId = rdr.GetInt32(0);
+                        bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
                     }
                     if ((rdr != null))
                     {
@@ -1069,8 +1212,8 @@ namespace PhonebookApp
 
             if (cmbCompanyName.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Company Name  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string input1 = Microsoft.VisualBasic.Interaction.InputBox("Please Input Company Name  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(input1))
                 {
                     cmbCompanyName.SelectedIndex = -1;
                 }
@@ -1079,7 +1222,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select CompanyName from Company where CompanyName='" + input + "'";
+                    string ct2 = "select CompanyName from Company where CompanyName='" + input1 + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1095,15 +1238,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into Company (CompanyName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into Company (CompanyName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", input1);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbCompanyName.Items.Clear();
                             FillCompanyName();
-                            cmbCompanyName.SelectedText = input;
+                            cmbCompanyName.SelectedText = input1;
 
                         }
                         catch (Exception ex)
@@ -1120,14 +1265,15 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(CompanyId) from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+                    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        companyId = (rdr.GetString(0));
+                        //companyId = (rdr.GetString(0));
+                        companyId = Convert.ToInt64(rdr["CompanyId"]);                       
                     }
                     con.Close();
                 }
@@ -1143,8 +1289,8 @@ namespace PhonebookApp
 
             if (cmbSpecialization.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputs))
                 {
                     cmbSpecialization.SelectedIndex = -1;
                 }
@@ -1153,7 +1299,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select Specialization from Specializations where Specialization='" + input + "'";
+                    string ct2 = "select Specialization from Specializations where Specialization='" + inputs + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1169,15 +1315,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into Specializations(Specialization) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into Specializations(Specialization,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inputs);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbSpecialization.Items.Clear();
                             FillSpecialization();
-                            cmbSpecialization.SelectedText = input;
+                            cmbSpecialization.SelectedText = inputs;
 
                         }
                         catch (Exception ex)
@@ -1194,14 +1342,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(SpecializationsId) from Specializations  where  Specializations.Specialization='" + cmbSpecialization.Text + "' ";
+                    string ct = "select SpecializationsId from Specializations  where  Specializations.Specialization='" + cmbSpecialization.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        specializationId = (rdr.GetString(0));
+                        //specializationId = (rdr.GetString(0));
+                        //specializationId = rdr.GetInt32(0);
+                        specializationId = Convert.ToInt64(rdr["SpecializationsId"]);
                     }
                     con.Close();
                 }
@@ -1217,8 +1367,8 @@ namespace PhonebookApp
 
             if (cmbProfession.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputp))
                 {
                     cmbProfession.SelectedIndex = -1;
                 }
@@ -1227,7 +1377,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select ProfessionName from Profession where ProfessionName='" + input + "'";
+                    string ct2 = "select ProfessionName from Profession where ProfessionName='" + inputp + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1243,15 +1393,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into Profession(ProfessionName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into Profession(ProfessionName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inputp);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbProfession.Items.Clear();
                             FillProfession();
-                            cmbProfession.SelectedText = input;
+                            cmbProfession.SelectedText = inputp;
 
                         }
                         catch (Exception ex)
@@ -1268,14 +1420,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(ProfessionId) from Profession  where  Profession.ProfessionName='" + cmbProfession.Text + "' ";
+                    string ct = "select ProfessionId from Profession  where  Profession.ProfessionName='" + cmbProfession.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        professionId = (rdr.GetString(0));
+                        //professionId = (rdr.GetString(0));
+                        //professionId = rdr.GetInt32(0);
+                        professionId = Convert.ToInt64(rdr["ProfessionId"]);
                     }
                     con.Close();
                 }
@@ -1291,8 +1445,8 @@ namespace PhonebookApp
 
             if (cmbEducationalLevel.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inpute))
                 {
                     cmbEducationalLevel.SelectedIndex = -1;
                 }
@@ -1301,7 +1455,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select EducationLevelName from EducationLevel where EducationLevelName='" + input + "'";
+                    string ct2 = "select EducationLevelName from EducationLevel where EducationLevelName='" + inpute + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1317,15 +1471,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into EducationLevel(EducationLevelName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into EducationLevel(EducationLevelName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inpute);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbEducationalLevel.Items.Clear();
                             FillEducationLevel();
-                            cmbEducationalLevel.SelectedText = input;
+                            cmbEducationalLevel.SelectedText = inpute;
 
                         }
                         catch (Exception ex)
@@ -1342,14 +1498,17 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(EducationLevelId) from EducationLevel  where  EducationLevel.EducationLevelName='" + cmbEducationalLevel.Text + "' ";
+                    string ct = "select EducationLevelId from EducationLevel  where  EducationLevel.EducationLevelName='" + cmbEducationalLevel.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        educationLevelId = (rdr.GetString(0));
+                        //educationLevelId = (rdr.GetString(0));
+                        //educationLevelId = rdr.GetInt32(0);
+                        educationLevelId = Convert.ToInt64(rdr["EducationLevelId"]);
+                        
                     }
                     con.Close();
                 }
@@ -1391,9 +1550,11 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into HighestDegrees(HighestDegree) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into HighestDegrees(HighestDegree,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
                             cmd.Parameters.AddWithValue("@d1", inputx);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
@@ -1416,14 +1577,17 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(HighestDegreeId) from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
+                    string ct = "select HighestDegreeId from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        highestDegreeId = (rdr.GetString(0));
+                        //highestDegreeId = (rdr.GetString(0));
+                        //highestDegreeId = rdr.GetInt32(0);
+                        highestDegreeId = Convert.ToInt64(rdr["HighestDegreeId"]);
+                        
                     }
                     con.Close();
                 }
@@ -1439,8 +1603,8 @@ namespace PhonebookApp
 
             if (cmbAgeGroup.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputa))
                 {
                     cmbAgeGroup.SelectedIndex = -1;
                 }
@@ -1449,7 +1613,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select AgeGroupLevel from AgeGroup where AgeGroupLevel='" + input + "'";
+                    string ct2 = "select AgeGroupLevel from AgeGroup where AgeGroupLevel='" + inputa + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1465,15 +1629,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into AgeGroup(AgeGroupLevel) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into AgeGroup(AgeGroupLevel,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inputa);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbAgeGroup.Items.Clear();
                             FillAgeGroup();
-                            cmbAgeGroup.SelectedText = input;
+                            cmbAgeGroup.SelectedText = inputa;
 
                         }
                         catch (Exception ex)
@@ -1490,14 +1656,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(AgeGroupId) from AgeGroup  where  AgeGroup.AgeGroupLevel='" + cmbAgeGroup.Text + "' ";
+                    string ct = "select AgeGroupId from AgeGroup  where  AgeGroup.AgeGroupLevel='" + cmbAgeGroup.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        ageGroupId = (rdr.GetString(0));
+                        //ageGroupId = (rdr.GetString(0));
+                        //ageGroupId = rdr.GetInt32(0);
+                        ageGroupId = Convert.ToInt64(rdr["AgeGroupId"]);
                     }
                     con.Close();
                 }
@@ -1513,8 +1681,8 @@ namespace PhonebookApp
 
             if (cmbJobTitle.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputj))
                 {
                     cmbJobTitle.SelectedIndex = -1;
                 }
@@ -1523,7 +1691,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select JobTitleName from JobTitle where JobTitleName='" + input + "'";
+                    string ct2 = "select JobTitleName from JobTitle where JobTitleName='" + inputj + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1539,15 +1707,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into JobTitle(JobTitleName) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into JobTitle(JobTitleName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inputj);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbJobTitle.Items.Clear();
                             FillJobTitle();
-                            cmbJobTitle.SelectedText = input;
+                            cmbJobTitle.SelectedText = inputj;
 
                         }
                         catch (Exception ex)
@@ -1564,14 +1734,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(JobTitleId) from JobTitle  where  JobTitle.JobTitleName='" + cmbJobTitle.Text + "' ";
+                    string ct = "select JobTitleId from JobTitle  where  JobTitle.JobTitleName='" + cmbJobTitle.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        jobTitleId = (rdr.GetString(0));
+                        //jobTitleId = (rdr.GetString(0));
+                        //jobTitleId = rdr.GetInt32(0);
+                        jobTitleId = Convert.ToInt64(rdr["JobTitleId"]);
                     }
                     con.Close();
                 }
@@ -1599,8 +1771,8 @@ namespace PhonebookApp
 
             if (cmbRelationShip.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
+                string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputr))
                 {
                     cmbRelationShip.SelectedIndex = -1;
                 }
@@ -1609,7 +1781,7 @@ namespace PhonebookApp
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select RelationShip from RelationShips where RelationShip='" + input + "'";
+                    string ct2 = "select RelationShip from RelationShips where RelationShip='" + inputr + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -1625,15 +1797,17 @@ namespace PhonebookApp
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into RelationShips(RelationShip) values (@d1)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into RelationShips(RelationShip,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d1", inputr);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
 
                             con.Close();
                             cmbRelationShip.Items.Clear();
                             FillRelationShip();
-                            cmbRelationShip.SelectedText = input;
+                            cmbRelationShip.SelectedText = inputr;
 
                         }
                         catch (Exception ex)
@@ -1650,14 +1824,16 @@ namespace PhonebookApp
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "select RTRIM(RelationShipsId) from  RelationShips  where  RelationShips.RelationShip='" + cmbRelationShip.Text + "' ";
+                    string ct = "select RelationShipsId from  RelationShips  where  RelationShips.RelationShip='" + cmbRelationShip.Text + "' ";
                     cmd = new SqlCommand(ct);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                        relationshipId = (rdr.GetString(0));
+                        //relationshipId = (rdr.GetString(0));
+                        relationshipId = rdr.GetInt32(0);
+                        relationshipId = Convert.ToInt64(rdr["RelationShipsId"]);
                     }
                     con.Close();
                 }
@@ -2388,6 +2564,7 @@ namespace PhonebookApp
                         if (rdr.Read())
                         {
                             countryid = (rdr.GetString(0));
+                            //countryid = rdr.GetInt32(0);
                         }
                         con.Close();
                     }

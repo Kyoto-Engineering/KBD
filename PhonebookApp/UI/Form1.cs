@@ -635,7 +635,7 @@ namespace PhonebookApp
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Country.CountryName) from Country  order by Country.CountryId";
+                string ct = "select RTRIM(Countries.CountryName) from Countries  order by Countries.CountryId";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -646,7 +646,7 @@ namespace PhonebookApp
                 }
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctt = "select RTRIM(CountryId) from Country  where  Country.CountryName='" +
+                string ctt = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
                             CountrycomboBox.Text + "' ";
                 cmd = new SqlCommand(ctt);
                 cmd.Connection = con;
@@ -2555,7 +2555,7 @@ namespace PhonebookApp
                       
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string ct = "select RTRIM(CountryId) from Country  where  Country.CountryName='" +
+                        string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
                                     CountrycomboBox.Text + "' ";
                         cmd = new SqlCommand(ct);
                         cmd.Connection = con;

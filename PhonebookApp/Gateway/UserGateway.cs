@@ -13,8 +13,10 @@ namespace PhonebookApp.Gateway
     {
       public int SaveUser(User aUser)
       {
+         
+          //SqlConnection connection=
           connection.Open();
-          string insertquery = " insert into Registration(Username,Usertype,Password,Name,Email,Designation,Department,ContactNo) Values('" + aUser.UserName + "','" + aUser.UserType + "','" + aUser.Password + "','" + aUser.Name + "','" + aUser.Email + "','" + aUser.Designation + "','" + aUser.Department + "','" + aUser.ContactNo + "')";
+          string insertquery = " insert into Registration(UserName,UserType,Password,Name,Email,Designation,Department,ContactNo) Values('" + aUser.UserName + "','" + aUser.UserType + "','" + aUser.Password + "','" + aUser.Name + "','" + aUser.Email + "','" + aUser.Designation + "','" + aUser.Department + "','" + aUser.ContactNo + "')";
           SqlCommand cmd = new SqlCommand(insertquery, connection);
           int affectedrows = cmd.ExecuteNonQuery();
           connection.Close();

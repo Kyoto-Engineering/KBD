@@ -10,10 +10,15 @@ namespace PhonebookApp.DbGateway
   public   class ConnectionGateway
     {
         protected SqlConnection connection;
-        //string connectionString = @"server=KYOTO-PC06\SQLSERVER2018; Integrated Security = SSPI; database =NewProductList33;User=sa;Password=SystemAdministrator;Connect Timeout=30";
-        string connectionString = @"server=tcp:KyotoServer,49172; Integrated Security = SSPI; database =PhoneBookDBKD;Connect Timeout=30";
-        //string connectionString = @"Data Source=tcp:KyotoServer,49172;Initial Catalog=NewProductList;User=sa;Password=SystemAdministrator;Persist Security Info=True;";
-        //string connectionString = @"server=KYOTO-PC06\SQLEXPRESS; Integrated Security = SSPI; database =NewProductList;Connect Timeout=30";
 
+        public ConnectionGateway()
+        {
+
+            //string connectionString = @"server=KYOTO-PC06\SQLSERVER2018; Integrated Security = SSPI; database =NewProductList33;User=sa;Password=SystemAdministrator;Connect Timeout=30";
+            //string connectionString = @"server=tcp:KyotoServer,49172; Integrated Security = SSPI; database =PhoneBookDBK;Connect Timeout=30";
+            string connectionString = @"Data Source=tcp:KyotoServer,49172;Initial Catalog=PhoneBookDBL;User=sa;Password=SystemAdministrator;Persist Security Info=True;";
+            //string connectionString = @"server=KYOTO-PC06\SQLEXPRESS; Integrated Security = SSPI; database =NewProductList;Connect Timeout=30";
+            connection = new SqlConnection(connectionString);
+        }
     }
 }

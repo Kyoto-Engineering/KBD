@@ -44,6 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.unKnownRA = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtRABlock = new System.Windows.Forms.TextBox();
             this.cmbRAPost = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@
             this.sameAsRACheckBox = new System.Windows.Forms.CheckBox();
             this.unKnownCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtWABlock = new System.Windows.Forms.TextBox();
             this.cmbWAPost = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -135,8 +137,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.txtRABlock = new System.Windows.Forms.TextBox();
-            this.txtWABlock = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -379,6 +379,14 @@
             this.groupBox5.Size = new System.Drawing.Size(661, 209);
             this.groupBox5.TabIndex = 85;
             this.groupBox5.TabStop = false;
+            // 
+            // txtRABlock
+            // 
+            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRABlock.Location = new System.Drawing.Point(157, 107);
+            this.txtRABlock.Name = "txtRABlock";
+            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtRABlock.TabIndex = 83;
             // 
             // cmbRAPost
             // 
@@ -702,6 +710,14 @@
             this.groupBox4.TabIndex = 86;
             this.groupBox4.TabStop = false;
             // 
+            // txtWABlock
+            // 
+            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtWABlock.Name = "txtWABlock";
+            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtWABlock.TabIndex = 83;
+            // 
             // cmbWAPost
             // 
             this.cmbWAPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -958,16 +974,17 @@
             this.txtImmo.Name = "txtImmo";
             this.txtImmo.Size = new System.Drawing.Size(238, 29);
             this.txtImmo.TabIndex = 89;
+            this.txtImmo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImmo_KeyPress);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(134, 625);
+            this.label13.Location = new System.Drawing.Point(58, 625);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 22);
+            this.label13.Size = new System.Drawing.Size(123, 22);
             this.label13.TabIndex = 88;
-            this.label13.Text = "Imo:";
+            this.label13.Text = "Handset Two:";
             // 
             // txtWhatsApp
             // 
@@ -975,16 +992,17 @@
             this.txtWhatsApp.Name = "txtWhatsApp";
             this.txtWhatsApp.Size = new System.Drawing.Size(238, 29);
             this.txtWhatsApp.TabIndex = 87;
+            this.txtWhatsApp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWhatsApp_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(76, 588);
+            this.label3.Location = new System.Drawing.Point(59, 588);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 22);
+            this.label3.Size = new System.Drawing.Size(121, 22);
             this.label3.TabIndex = 86;
-            this.label3.Text = "Whats App:";
+            this.label3.Text = "Handset One:";
             // 
             // cmbJobTitle
             // 
@@ -1253,11 +1271,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(39, 272);
+            this.label10.Location = new System.Drawing.Point(19, 272);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(144, 22);
+            this.label10.Size = new System.Drawing.Size(164, 22);
             this.label10.TabIndex = 50;
-            this.label10.Text = "Category Name:";
+            this.label10.Text = "Industry Category:";
             // 
             // txtPersonName
             // 
@@ -1299,22 +1317,6 @@
             this.label1.Size = new System.Drawing.Size(125, 22);
             this.label1.TabIndex = 42;
             this.label1.Text = "Person Name:";
-            // 
-            // txtRABlock
-            // 
-            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRABlock.Location = new System.Drawing.Point(157, 107);
-            this.txtRABlock.Name = "txtRABlock";
-            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtRABlock.TabIndex = 83;
-            // 
-            // txtWABlock
-            // 
-            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
-            this.txtWABlock.Name = "txtWABlock";
-            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtWABlock.TabIndex = 83;
             // 
             // frm1
             // 

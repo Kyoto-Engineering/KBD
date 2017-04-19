@@ -101,9 +101,6 @@ namespace PhonebookApp.LogInUI
                         MainUI frm = new MainUI();
                         frm.Show();
 
-                        
-                       
-
                     }
                     //if (txtUserType.Text.Trim() == "User")
                     //{
@@ -113,7 +110,14 @@ namespace PhonebookApp.LogInUI
                     //    this.Visible = true;
 
                     //}
+                    if (txtUserType.Text.Trim() == "User")
+                    {
 
+                        this.Hide();
+                        MainUI frm = new MainUI();
+                        frm.Show();
+
+                    }
                 }
 
 
@@ -138,6 +142,11 @@ namespace PhonebookApp.LogInUI
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

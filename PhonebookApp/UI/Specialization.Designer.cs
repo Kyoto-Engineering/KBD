@@ -52,6 +52,7 @@
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.Size = new System.Drawing.Size(367, 29);
             this.txtSpecialization.TabIndex = 1;
+            this.txtSpecialization.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpecialization_KeyDown);
             // 
             // groupBox1
             // 

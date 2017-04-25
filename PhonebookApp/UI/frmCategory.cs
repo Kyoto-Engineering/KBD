@@ -129,5 +129,14 @@ namespace PhonebookApp.UI
             MainUI frm = new MainUI();
             frm.Show();
         }
+
+        private void txtCategoryName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveCategory_Click(this, new EventArgs());
+               
+            }
+        }
     }
 }

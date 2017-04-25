@@ -53,7 +53,8 @@ namespace PhonebookApp.LogInUI
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(152, 26);
-            this.txtConfirmPassword.TabIndex = 26;
+            this.txtConfirmPassword.TabIndex = 4;
+            this.txtConfirmPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirmPassword_KeyDown);
             // 
             // txtNewPassword
             // 
@@ -62,7 +63,8 @@ namespace PhonebookApp.LogInUI
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(152, 26);
-            this.txtNewPassword.TabIndex = 25;
+            this.txtNewPassword.TabIndex = 3;
+            this.txtNewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNewPassword_KeyDown);
             // 
             // txtOldPassword
             // 
@@ -71,7 +73,8 @@ namespace PhonebookApp.LogInUI
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.PasswordChar = '*';
             this.txtOldPassword.Size = new System.Drawing.Size(152, 26);
-            this.txtOldPassword.TabIndex = 24;
+            this.txtOldPassword.TabIndex = 2;
+            this.txtOldPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOldPassword_KeyDown);
             // 
             // txtUserName
             // 
@@ -79,7 +82,8 @@ namespace PhonebookApp.LogInUI
             this.txtUserName.Location = new System.Drawing.Point(185, 63);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(152, 26);
-            this.txtUserName.TabIndex = 23;
+            this.txtUserName.TabIndex = 1;
+            this.txtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserName_KeyDown);
             // 
             // button1
             // 
@@ -88,7 +92,7 @@ namespace PhonebookApp.LogInUI
             this.button1.Location = new System.Drawing.Point(232, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 34);
-            this.button1.TabIndex = 22;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Change";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -100,7 +104,7 @@ namespace PhonebookApp.LogInUI
             this.label4.Location = new System.Drawing.Point(53, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 19);
-            this.label4.TabIndex = 21;
+            this.label4.TabIndex = 0;
             this.label4.Text = "ConfirmPassword";
             // 
             // label3
@@ -110,7 +114,7 @@ namespace PhonebookApp.LogInUI
             this.label3.Location = new System.Drawing.Point(72, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 19);
-            this.label3.TabIndex = 20;
+            this.label3.TabIndex = 0;
             this.label3.Text = "NewPassword";
             // 
             // label2
@@ -120,7 +124,7 @@ namespace PhonebookApp.LogInUI
             this.label2.Location = new System.Drawing.Point(77, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 19);
-            this.label2.TabIndex = 19;
+            this.label2.TabIndex = 0;
             this.label2.Text = "OldPassword";
             // 
             // label1
@@ -130,7 +134,7 @@ namespace PhonebookApp.LogInUI
             this.label1.Location = new System.Drawing.Point(94, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 19);
-            this.label1.TabIndex = 18;
+            this.label1.TabIndex = 0;
             this.label1.Text = "UserName";
             // 
             // ChangePassword
@@ -249,6 +253,42 @@ namespace PhonebookApp.LogInUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtOldPassword.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtOldPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNewPassword.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtNewPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtConfirmPassword.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtConfirmPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+                e.Handled = true;
             }
         }
     }

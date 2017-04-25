@@ -52,6 +52,7 @@
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(367, 29);
             this.txtCategoryName.TabIndex = 1;
+            this.txtCategoryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCategoryName_KeyDown);
             // 
             // btnSaveCategory
             // 

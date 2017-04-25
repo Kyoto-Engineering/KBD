@@ -42,7 +42,7 @@
             this.lblCategoryName.Location = new System.Drawing.Point(40, 28);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(195, 22);
-            this.lblCategoryName.TabIndex = 4;
+            this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Education Level Name";
             // 
             // txtEducationLevel
@@ -52,6 +52,7 @@
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.Size = new System.Drawing.Size(367, 29);
             this.txtEducationLevel.TabIndex = 1;
+            this.txtEducationLevel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEducationLevel_KeyDown);
             // 
             // groupBox1
             // 
@@ -59,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(35, 66);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveEducationLevel
@@ -70,7 +71,7 @@
             this.btnSaveEducationLevel.Location = new System.Drawing.Point(310, 182);
             this.btnSaveEducationLevel.Name = "btnSaveEducationLevel";
             this.btnSaveEducationLevel.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveEducationLevel.TabIndex = 5;
+            this.btnSaveEducationLevel.TabIndex = 1;
             this.btnSaveEducationLevel.Text = "Save ";
             this.btnSaveEducationLevel.UseVisualStyleBackColor = false;
             this.btnSaveEducationLevel.Click += new System.EventHandler(this.btnSaveEducationLevel_Click);

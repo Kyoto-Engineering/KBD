@@ -53,6 +53,7 @@
             this.txtJobTitle.Name = "txtJobTitle";
             this.txtJobTitle.Size = new System.Drawing.Size(367, 29);
             this.txtJobTitle.TabIndex = 1;
+            this.txtJobTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobTitle_KeyDown);
             // 
             // groupBox1
             // 

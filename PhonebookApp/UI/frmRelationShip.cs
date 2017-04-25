@@ -79,5 +79,13 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtRelationship_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveRelationship_Click(this, new EventArgs());
+            }
+        }
     }
 }

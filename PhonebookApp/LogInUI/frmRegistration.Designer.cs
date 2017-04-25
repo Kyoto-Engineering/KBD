@@ -55,7 +55,9 @@
             this.emailTextBox.Location = new System.Drawing.Point(187, 186);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(228, 29);
-            this.emailTextBox.TabIndex = 17;
+            this.emailTextBox.TabIndex = 5;
+            this.emailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emailTextBox_KeyDown);
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
             // 
             // label8
             // 
@@ -71,9 +73,12 @@
             // 
             this.contactNoTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNoTextBox.Location = new System.Drawing.Point(187, 308);
+            this.contactNoTextBox.MaxLength = 11;
             this.contactNoTextBox.Name = "contactNoTextBox";
             this.contactNoTextBox.Size = new System.Drawing.Size(228, 29);
-            this.contactNoTextBox.TabIndex = 15;
+            this.contactNoTextBox.TabIndex = 8;
+            this.contactNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.contactNoTextBox_KeyDown);
+            this.contactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactNoTextBox_KeyPress);
             // 
             // label7
             // 
@@ -91,7 +96,8 @@
             this.departmentTextBox.Location = new System.Drawing.Point(187, 263);
             this.departmentTextBox.Name = "departmentTextBox";
             this.departmentTextBox.Size = new System.Drawing.Size(228, 29);
-            this.departmentTextBox.TabIndex = 13;
+            this.departmentTextBox.TabIndex = 7;
+            this.departmentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.departmentTextBox_KeyDown);
             // 
             // label6
             // 
@@ -109,7 +115,8 @@
             this.designationTextBox.Location = new System.Drawing.Point(187, 224);
             this.designationTextBox.Name = "designationTextBox";
             this.designationTextBox.Size = new System.Drawing.Size(228, 29);
-            this.designationTextBox.TabIndex = 11;
+            this.designationTextBox.TabIndex = 6;
+            this.designationTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.designationTextBox_KeyDown);
             // 
             // label5
             // 
@@ -127,7 +134,8 @@
             this.userNameTextBox.Location = new System.Drawing.Point(187, 27);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(228, 29);
-            this.userNameTextBox.TabIndex = 8;
+            this.userNameTextBox.TabIndex = 1;
+            this.userNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userNameTextBox_KeyDown);
             // 
             // passwordTextBox
             // 
@@ -136,7 +144,8 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(228, 29);
-            this.passwordTextBox.TabIndex = 7;
+            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             // 
             // txtUserComboBox
             // 
@@ -148,7 +157,8 @@
             this.txtUserComboBox.Location = new System.Drawing.Point(187, 104);
             this.txtUserComboBox.Name = "txtUserComboBox";
             this.txtUserComboBox.Size = new System.Drawing.Size(228, 29);
-            this.txtUserComboBox.TabIndex = 6;
+            this.txtUserComboBox.TabIndex = 3;
+            this.txtUserComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserComboBox_KeyDown);
             // 
             // nameTextBox
             // 
@@ -156,7 +166,8 @@
             this.nameTextBox.Location = new System.Drawing.Point(187, 145);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(228, 29);
-            this.nameTextBox.TabIndex = 5;
+            this.nameTextBox.TabIndex = 4;
+            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameTextBox_KeyDown);
             // 
             // userButton
             // 
@@ -166,7 +177,7 @@
             this.userButton.Location = new System.Drawing.Point(291, 363);
             this.userButton.Name = "userButton";
             this.userButton.Size = new System.Drawing.Size(124, 49);
-            this.userButton.TabIndex = 4;
+            this.userButton.TabIndex = 9;
             this.userButton.Text = "Create ";
             this.userButton.UseVisualStyleBackColor = false;
             this.userButton.Click += new System.EventHandler(this.userButton_Click);

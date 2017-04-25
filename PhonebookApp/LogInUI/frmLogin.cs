@@ -148,5 +148,23 @@ namespace PhonebookApp.LogInUI
         {
 
         }
+
+        private void txt1UserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt1Password.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txt1Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(this, new EventArgs());
+
+            }
+        }
     }
 }

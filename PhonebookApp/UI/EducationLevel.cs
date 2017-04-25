@@ -86,5 +86,14 @@ namespace PhonebookApp.UI
             MainUI frm = new MainUI();
             frm.Show();
         }
+
+        private void txtEducationLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveEducationLevel_Click(this, new EventArgs());
+                
+            }
+        }
     }
 }

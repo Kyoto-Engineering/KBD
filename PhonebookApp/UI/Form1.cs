@@ -2572,6 +2572,393 @@ namespace PhonebookApp
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
                 e.Handled = true;
+        }
+
+        private void CountrycomboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPersonName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtPersonName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textNickName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void textNickName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtFatherName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtFatherName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbEmailAddress.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbEmailAddress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbCompanyName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbCompanyName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbJobTitle.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbJobTitle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbCategoryName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbCategoryName_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbSpecialization.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbSpecialization_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbProfession.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbProfession_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbEducationalLevel.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbEducationalLevel_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbHighestDegree.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbHighestDegree_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbAgeGroup.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbAgeGroup_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRelationShip.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRelationShip_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWebsite.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWebsite_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSkypeId.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtSkypeId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWhatsApp.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWhatsApp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtImmo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtImmo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAFlatNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAFlatNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAHouseNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAHouseNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRARoadNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRARoadNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRABlock.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRABlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAArea.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAArea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAContactNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAContactNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADivision.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADivision_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADistrict.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADistrict_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAThana.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAThana_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAPost.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAPost_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAPostCode.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAPostCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWAFlatName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWAFlatName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWAHouseName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWAHouseName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWARoadNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWARoadNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWABlock.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWABlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWAArea.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWAArea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWAContactNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWAContactNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbWADivision.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbWADivision_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbWADistrict.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbWADistrict_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbWAThana.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbWAThana_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbWAPost.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbWAPost_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtWAPostCode.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtWAPostCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                StreettextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void StreettextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                StatetextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void StatetextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PostalCodetextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void PostalCodetextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnInsert_Click_1(this, new EventArgs());
+               
+            }
         }        
     }
 }

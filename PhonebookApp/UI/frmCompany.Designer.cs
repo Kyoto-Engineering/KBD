@@ -52,6 +52,7 @@
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(367, 29);
             this.txtCompanyName.TabIndex = 1;
+            this.txtCompanyName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompanyName_KeyDown);
             // 
             // groupBox1
             // 

@@ -52,6 +52,7 @@
             this.txtRelationship.Name = "txtRelationship";
             this.txtRelationship.Size = new System.Drawing.Size(367, 29);
             this.txtRelationship.TabIndex = 1;
+            this.txtRelationship.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRelationship_KeyDown);
             // 
             // groupBox1
             // 

@@ -84,5 +84,14 @@ namespace PhonebookApp.UI
         {
             user_id = frmLogin.uId.ToString();
         }
+
+        private void txtCompanyName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveCompany_Click(this, new EventArgs());
+                
+            }
+        }
     }
 }

@@ -113,5 +113,29 @@ namespace PhonebookApp.UI
         {
             user_id = frmLogin.uId.ToString();
         }
+
+        private void groupNametextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                definitionrichTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void definitionrichTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                purposetextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void purposetextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                savebutton_Click(this, new EventArgs());
+        }
     }
 }

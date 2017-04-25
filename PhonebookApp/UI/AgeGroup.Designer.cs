@@ -43,7 +43,7 @@
             this.lblCategoryName.Location = new System.Drawing.Point(36, 19);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(100, 22);
-            this.lblCategoryName.TabIndex = 4;
+            this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Age Group";
             // 
             // txtAgeGroup
@@ -53,6 +53,7 @@
             this.txtAgeGroup.Name = "txtAgeGroup";
             this.txtAgeGroup.Size = new System.Drawing.Size(367, 29);
             this.txtAgeGroup.TabIndex = 1;
+            this.txtAgeGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAgeGroup_KeyDown);
             // 
             // groupBox1
             // 
@@ -60,7 +61,7 @@
             this.groupBox1.Location = new System.Drawing.Point(31, 57);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveAgeGroup
@@ -71,7 +72,7 @@
             this.btnSaveAgeGroup.Location = new System.Drawing.Point(306, 173);
             this.btnSaveAgeGroup.Name = "btnSaveAgeGroup";
             this.btnSaveAgeGroup.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveAgeGroup.TabIndex = 5;
+            this.btnSaveAgeGroup.TabIndex = 1;
             this.btnSaveAgeGroup.Text = "Save ";
             this.btnSaveAgeGroup.UseVisualStyleBackColor = false;
             this.btnSaveAgeGroup.Click += new System.EventHandler(this.btnSaveAgeGroup_Click);

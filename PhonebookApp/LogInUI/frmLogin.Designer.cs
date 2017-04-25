@@ -54,7 +54,7 @@
             this.groupBox1.Location = new System.Drawing.Point(95, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(477, 187);
-            this.groupBox1.TabIndex = 107;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txt1Password
@@ -64,7 +64,8 @@
             this.txt1Password.Name = "txt1Password";
             this.txt1Password.PasswordChar = '*';
             this.txt1Password.Size = new System.Drawing.Size(249, 29);
-            this.txt1Password.TabIndex = 1;
+            this.txt1Password.TabIndex = 2;
+            this.txt1Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1Password_KeyDown);
             // 
             // txt1UserName
             // 
@@ -72,7 +73,8 @@
             this.txt1UserName.Location = new System.Drawing.Point(177, 61);
             this.txt1UserName.Name = "txt1UserName";
             this.txt1UserName.Size = new System.Drawing.Size(243, 29);
-            this.txt1UserName.TabIndex = 0;
+            this.txt1UserName.TabIndex = 1;
+            this.txt1UserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1UserName_KeyDown);
             // 
             // label3
             // 
@@ -140,7 +142,7 @@
             this.cancelButton.Location = new System.Drawing.Point(375, 279);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(106, 46);
-            this.cancelButton.TabIndex = 102;
+            this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseMnemonic = false;
             this.cancelButton.UseVisualStyleBackColor = false;
@@ -154,7 +156,7 @@
             this.button1.Location = new System.Drawing.Point(230, 279);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 46);
-            this.button1.TabIndex = 101;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Ok";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -167,7 +169,7 @@
             this.label1.Location = new System.Drawing.Point(107, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 31);
-            this.label1.TabIndex = 100;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
             // ProgressBar1
@@ -183,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(666, 356);
+            this.ClientSize = new System.Drawing.Size(664, 372);
             this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.departmentTextBox);

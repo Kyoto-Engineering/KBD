@@ -52,6 +52,7 @@
             this.txtProfessionName.Name = "txtProfessionName";
             this.txtProfessionName.Size = new System.Drawing.Size(367, 29);
             this.txtProfessionName.TabIndex = 1;
+            this.txtProfessionName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProfessionName_KeyDown);
             // 
             // groupBox1
             // 

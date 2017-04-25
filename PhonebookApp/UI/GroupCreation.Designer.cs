@@ -55,6 +55,7 @@
             this.groupNametextBox.Name = "groupNametextBox";
             this.groupNametextBox.Size = new System.Drawing.Size(311, 29);
             this.groupNametextBox.TabIndex = 6;
+            this.groupNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.groupNametextBox_KeyDown);
             // 
             // savebutton
             // 
@@ -96,6 +97,7 @@
             this.definitionrichTextBox.Size = new System.Drawing.Size(311, 121);
             this.definitionrichTextBox.TabIndex = 13;
             this.definitionrichTextBox.Text = "";
+            this.definitionrichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.definitionrichTextBox_KeyDown);
             // 
             // label3
             // 
@@ -115,6 +117,7 @@
             this.purposetextBox.Name = "purposetextBox";
             this.purposetextBox.Size = new System.Drawing.Size(311, 29);
             this.purposetextBox.TabIndex = 16;
+            this.purposetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.purposetextBox_KeyDown);
             // 
             // GroupCreation
             // 

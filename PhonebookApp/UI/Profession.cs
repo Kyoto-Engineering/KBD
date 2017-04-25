@@ -86,5 +86,11 @@ namespace PhonebookApp.UI
         {
             user_id = frmLogin.uId.ToString();
         }
+
+        private void txtProfessionName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                btnSaveProfession_Click(this, new EventArgs());
+        }
     }
 }

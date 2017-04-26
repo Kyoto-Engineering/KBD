@@ -101,41 +101,41 @@ namespace PhonebookApp.LogInUI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(53, 207);
+            this.label4.Location = new System.Drawing.Point(12, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 19);
+            this.label4.Size = new System.Drawing.Size(173, 19);
             this.label4.TabIndex = 0;
-            this.label4.Text = "ConfirmPassword";
+            this.label4.Text = "Confirm Password            :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(72, 162);
+            this.label3.Location = new System.Drawing.Point(12, 162);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 19);
+            this.label3.Size = new System.Drawing.Size(174, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = "NewPassword";
+            this.label3.Text = "New Password                 :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 112);
+            this.label2.Location = new System.Drawing.Point(12, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 19);
+            this.label2.Size = new System.Drawing.Size(175, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "OldPassword";
+            this.label2.Text = "Old Password                   :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(94, 66);
+            this.label1.Location = new System.Drawing.Point(12, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(174, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "UserName";
+            this.label1.Text = "User Name                       :";
             // 
             // ChangePassword
             // 
@@ -287,8 +287,8 @@ namespace PhonebookApp.LogInUI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1.Focus();
-                e.Handled = true;
+                button1_Click(this, new EventArgs());
+                
             }
         }
     }

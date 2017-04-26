@@ -404,6 +404,7 @@
             this.cmbRADivision.Name = "cmbRADivision";
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
             this.cmbRADivision.TabIndex = 78;
+            this.cmbRADivision.SelectedIndexChanged += new System.EventHandler(this.cmbRADivision_SelectedIndexChanged);
             this.cmbRADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADivision_KeyDown);
             // 
             // label41

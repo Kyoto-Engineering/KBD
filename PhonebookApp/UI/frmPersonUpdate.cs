@@ -527,8 +527,7 @@ namespace PhonebookApp.UI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                StreettextBox.Focus();
-                e.Handled = true;
+               Updatebutton_Click(this, new EventArgs());
             }
         }
 
@@ -597,6 +596,11 @@ namespace PhonebookApp.UI
 
                 }
             }
+        }
+
+        private void cmbRADivision_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -205,10 +205,9 @@ namespace PhonebookApp.LogInUI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                userButton.Focus();
-                e.Handled = true;
+                userButton_Click(this, new EventArgs());
+                
             }
-        }
 
         private void contactNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {

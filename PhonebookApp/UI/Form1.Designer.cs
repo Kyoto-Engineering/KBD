@@ -409,7 +409,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.ForeColor = System.Drawing.Color.Red;
-            this.label44.Location = new System.Drawing.Point(437, 125);
+            this.label44.Location = new System.Drawing.Point(428, 125);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(20, 22);
             this.label44.TabIndex = 81;
@@ -420,15 +420,15 @@
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(336, 125);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(106, 22);
+            this.label43.Size = new System.Drawing.Size(96, 22);
             this.label43.TabIndex = 80;
-            this.label43.Text = "Post           :";
+            this.label43.Text = "Post         :";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
             this.label42.ForeColor = System.Drawing.Color.Red;
-            this.label42.Location = new System.Drawing.Point(437, 25);
+            this.label42.Location = new System.Drawing.Point(428, 24);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(20, 22);
             this.label42.TabIndex = 79;
@@ -450,15 +450,15 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(335, 20);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(106, 22);
+            this.label41.Size = new System.Drawing.Size(96, 22);
             this.label41.TabIndex = 77;
-            this.label41.Text = "Division     :";
+            this.label41.Text = "Division   :";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.Color.Red;
-            this.label34.Location = new System.Drawing.Point(437, 171);
+            this.label34.Location = new System.Drawing.Point(428, 168);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(20, 22);
             this.label34.TabIndex = 75;
@@ -468,7 +468,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.Color.Red;
-            this.label33.Location = new System.Drawing.Point(437, 55);
+            this.label33.Location = new System.Drawing.Point(428, 54);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(20, 22);
             this.label33.TabIndex = 74;
@@ -478,7 +478,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Red;
-            this.label32.Location = new System.Drawing.Point(437, 88);
+            this.label32.Location = new System.Drawing.Point(428, 88);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(20, 22);
             this.label32.TabIndex = 73;
@@ -534,9 +534,9 @@
             this.label21.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(336, 54);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(106, 22);
+            this.label21.Size = new System.Drawing.Size(96, 22);
             this.label21.TabIndex = 18;
-            this.label21.Text = "District      :";
+            this.label21.Text = "District    :";
             // 
             // txtRAPostCode
             // 
@@ -571,21 +571,21 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(332, 168);
+            this.label19.Location = new System.Drawing.Point(334, 164);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(109, 22);
+            this.label19.Size = new System.Drawing.Size(99, 22);
             this.label19.TabIndex = 13;
-            this.label19.Text = "Post Code  :";
+            this.label19.Text = "Post Code:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(335, 85);
+            this.label18.Location = new System.Drawing.Point(334, 88);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(108, 22);
+            this.label18.Size = new System.Drawing.Size(98, 22);
             this.label18.TabIndex = 12;
-            this.label18.Text = "Thana        :";
+            this.label18.Text = "Thana      :";
             // 
             // txtRARoadNo
             // 
@@ -1027,7 +1027,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(10, 589);
+            this.label3.Location = new System.Drawing.Point(6, 589);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(198, 22);
             this.label3.TabIndex = 86;
@@ -1069,6 +1069,7 @@
             this.cmbEmailAddress.TabIndex = 81;
             this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
             this.cmbEmailAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEmailAddress_KeyDown);
+            this.cmbEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEmailAddress_Validating);
             // 
             // txtFatherName
             // 

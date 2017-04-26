@@ -2729,12 +2729,25 @@ namespace PhonebookApp
 
         private void txtImmo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (CountrycomboBox.Text == "Bangladesh")
             {
-                txtRAFlatNo.Focus();
-                e.Handled = true;
+                if (e.KeyCode == Keys.Enter)
+                {
+                    txtRAFlatNo.Focus();
+                    e.Handled = true;
+                }
             }
+            //else
+            //{
+            //    if (e.KeyCode == Keys.Enter)
+            //    {
+            //        StreettextBox.Focus();
+            //        e.Handled = true;
+            //    }
+            //}
+
         }
+
 
         private void txtRAFlatNo_KeyDown(object sender, KeyEventArgs e)
         {
@@ -2828,12 +2841,12 @@ namespace PhonebookApp
 
         private void txtRAPostCode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWAFlatName.Focus();
-                e.Handled = true;
-            }
-        }
+           if (e.KeyCode == Keys.Enter)
+                {
+                    txtWAFlatName.Focus();
+                    e.Handled = true;
+                }
+         }
 
         private void txtWAFlatName_KeyDown(object sender, KeyEventArgs e)
         {

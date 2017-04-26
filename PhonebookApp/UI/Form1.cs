@@ -2929,8 +2929,7 @@ namespace PhonebookApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                StreettextBox.Focus();
-                e.Handled = true;
+                btnInsert_Click_1(this, new EventArgs());
             }
         }
 
@@ -2958,6 +2957,30 @@ namespace PhonebookApp
             {
                 btnInsert_Click_1(this, new EventArgs());
                
+            }
+        }
+
+        private void cmbEmailAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
+            {
+
+
+                string emailId = cmbEmailAddress.Text.Trim();
+                Regex mRegxExpression;
+                mRegxExpression =
+                    new Regex(
+                        @"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+                if (!mRegxExpression.IsMatch(emailId))
+                {
+
+                    MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    cmbEmailAddress.SelectedIndex = -1;
+                    cmbEmailAddress.ResetText();
+                    cmbEmailAddress.Focus();
+
+                }
             }
         }        
     }

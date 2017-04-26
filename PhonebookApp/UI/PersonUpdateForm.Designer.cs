@@ -61,7 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtRABlock = new wmgCMS.WaterMarkTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmbRAPost = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -89,7 +89,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtWABlock = new wmgCMS.WaterMarkTextBox();
             this.cmbWAPost = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -118,7 +117,8 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
+            this.txtWABlock = new wmgCMS.WaterMarkTextBox();
+            this.txtRABlock = new wmgCMS.WaterMarkTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -162,7 +162,7 @@
             this.groupBox1.Location = new System.Drawing.Point(11, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(488, 537);
-            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
@@ -174,7 +174,7 @@
             this.cmbJobTitle.Location = new System.Drawing.Point(206, 190);
             this.cmbJobTitle.Name = "cmbJobTitle";
             this.cmbJobTitle.Size = new System.Drawing.Size(235, 30);
-            this.cmbJobTitle.TabIndex = 83;
+            this.cmbJobTitle.TabIndex = 6;
             this.cmbJobTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbJobTitle_KeyDown);
             // 
             // cmbCompanyName
@@ -186,7 +186,7 @@
             this.cmbCompanyName.Location = new System.Drawing.Point(205, 155);
             this.cmbCompanyName.Name = "cmbCompanyName";
             this.cmbCompanyName.Size = new System.Drawing.Size(235, 30);
-            this.cmbCompanyName.TabIndex = 82;
+            this.cmbCompanyName.TabIndex = 5;
             this.cmbCompanyName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCompanyName_KeyDown);
             // 
             // cmbEmailAddress
@@ -197,7 +197,7 @@
             this.cmbEmailAddress.Location = new System.Drawing.Point(206, 122);
             this.cmbEmailAddress.Name = "cmbEmailAddress";
             this.cmbEmailAddress.Size = new System.Drawing.Size(235, 30);
-            this.cmbEmailAddress.TabIndex = 81;
+            this.cmbEmailAddress.TabIndex = 4;
             this.cmbEmailAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEmailAddress_KeyDown);
             this.cmbEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEmailAddress_Validating);
             // 
@@ -206,7 +206,7 @@
             this.txtFatherName.Location = new System.Drawing.Point(206, 88);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(235, 29);
-            this.txtFatherName.TabIndex = 80;
+            this.txtFatherName.TabIndex = 3;
             this.txtFatherName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFatherName_KeyDown);
             // 
             // label27
@@ -224,7 +224,7 @@
             this.txtInternetCall.Location = new System.Drawing.Point(203, 497);
             this.txtInternetCall.Name = "txtInternetCall";
             this.txtInternetCall.Size = new System.Drawing.Size(238, 29);
-            this.txtInternetCall.TabIndex = 78;
+            this.txtInternetCall.TabIndex = 15;
             this.txtInternetCall.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInternetCall_KeyDown);
             // 
             // label31
@@ -242,7 +242,7 @@
             this.txtWebsite.Location = new System.Drawing.Point(203, 464);
             this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(238, 29);
-            this.txtWebsite.TabIndex = 76;
+            this.txtWebsite.TabIndex = 14;
             this.txtWebsite.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWebsite_KeyDown);
             // 
             // label30
@@ -270,7 +270,7 @@
             this.txtRelationship.Location = new System.Drawing.Point(205, 429);
             this.txtRelationship.Name = "txtRelationship";
             this.txtRelationship.Size = new System.Drawing.Size(235, 29);
-            this.txtRelationship.TabIndex = 72;
+            this.txtRelationship.TabIndex = 13;
             this.txtRelationship.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRelationship_KeyDown);
             // 
             // label28
@@ -289,7 +289,7 @@
             this.textNickName.Location = new System.Drawing.Point(205, 56);
             this.textNickName.Name = "textNickName";
             this.textNickName.Size = new System.Drawing.Size(235, 29);
-            this.textNickName.TabIndex = 68;
+            this.textNickName.TabIndex = 2;
             this.textNickName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textNickName_KeyDown);
             // 
             // label25
@@ -312,7 +312,7 @@
             this.cmbProfession.Location = new System.Drawing.Point(205, 290);
             this.cmbProfession.Name = "cmbProfession";
             this.cmbProfession.Size = new System.Drawing.Size(235, 30);
-            this.cmbProfession.TabIndex = 66;
+            this.cmbProfession.TabIndex = 9;
             this.cmbProfession.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProfession_KeyDown);
             // 
             // cmbSpecialization
@@ -324,7 +324,7 @@
             this.cmbSpecialization.Location = new System.Drawing.Point(205, 256);
             this.cmbSpecialization.Name = "cmbSpecialization";
             this.cmbSpecialization.Size = new System.Drawing.Size(235, 30);
-            this.cmbSpecialization.TabIndex = 65;
+            this.cmbSpecialization.TabIndex = 8;
             this.cmbSpecialization.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSpecialization_KeyDown);
             // 
             // cmbAgeGroup
@@ -336,7 +336,7 @@
             this.cmbAgeGroup.Location = new System.Drawing.Point(205, 394);
             this.cmbAgeGroup.Name = "cmbAgeGroup";
             this.cmbAgeGroup.Size = new System.Drawing.Size(235, 30);
-            this.cmbAgeGroup.TabIndex = 64;
+            this.cmbAgeGroup.TabIndex = 12;
             this.cmbAgeGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbAgeGroup_KeyDown);
             // 
             // cmbHighestDegree
@@ -348,7 +348,7 @@
             this.cmbHighestDegree.Location = new System.Drawing.Point(205, 359);
             this.cmbHighestDegree.Name = "cmbHighestDegree";
             this.cmbHighestDegree.Size = new System.Drawing.Size(235, 30);
-            this.cmbHighestDegree.TabIndex = 63;
+            this.cmbHighestDegree.TabIndex = 11;
             this.cmbHighestDegree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbHighestDegree_KeyDown);
             // 
             // cmbEducationalLevel
@@ -360,7 +360,7 @@
             this.cmbEducationalLevel.Location = new System.Drawing.Point(205, 324);
             this.cmbEducationalLevel.Name = "cmbEducationalLevel";
             this.cmbEducationalLevel.Size = new System.Drawing.Size(235, 30);
-            this.cmbEducationalLevel.TabIndex = 62;
+            this.cmbEducationalLevel.TabIndex = 10;
             this.cmbEducationalLevel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEducationalLevel_KeyDown);
             // 
             // label8
@@ -438,7 +438,7 @@
             this.cmbCategoryName.Location = new System.Drawing.Point(205, 223);
             this.cmbCategoryName.Name = "cmbCategoryName";
             this.cmbCategoryName.Size = new System.Drawing.Size(235, 27);
-            this.cmbCategoryName.TabIndex = 51;
+            this.cmbCategoryName.TabIndex = 7;
             this.cmbCategoryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCategoryName_KeyDown);
             // 
             // label10
@@ -458,7 +458,7 @@
             this.txtPersonName.Location = new System.Drawing.Point(205, 22);
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(235, 29);
-            this.txtPersonName.TabIndex = 46;
+            this.txtPersonName.TabIndex = 1;
             this.txtPersonName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPersonName_KeyDown);
             // 
             // label9
@@ -529,20 +529,18 @@
             this.groupBox2.Location = new System.Drawing.Point(514, 69);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(675, 209);
-            this.groupBox2.TabIndex = 69;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential  Address";
             // 
-            // txtRABlock
+            // label11
             // 
-            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRABlock.Location = new System.Drawing.Point(158, 108);
-            this.txtRABlock.Name = "txtRABlock";
-            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtRABlock.TabIndex = 83;
-            this.txtRABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtRABlock.WaterMarkText = "if Any";
-            this.txtRABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRABlock_KeyDown);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(331, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(101, 22);
+            this.label11.TabIndex = 84;
+            this.label11.Text = "Division    :";
             // 
             // cmbRAPost
             // 
@@ -551,7 +549,7 @@
             this.cmbRAPost.Location = new System.Drawing.Point(452, 122);
             this.cmbRAPost.Name = "cmbRAPost";
             this.cmbRAPost.Size = new System.Drawing.Size(198, 30);
-            this.cmbRAPost.TabIndex = 82;
+            this.cmbRAPost.TabIndex = 10;
             this.cmbRAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAPost_KeyDown);
             // 
             // label44
@@ -590,7 +588,7 @@
             this.cmbRADivision.Location = new System.Drawing.Point(452, 20);
             this.cmbRADivision.Name = "cmbRADivision";
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbRADivision.TabIndex = 78;
+            this.cmbRADivision.TabIndex = 7;
             this.cmbRADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADivision_KeyDown);
             // 
             // label41
@@ -638,7 +636,7 @@
             this.cmbRAThana.Location = new System.Drawing.Point(452, 85);
             this.cmbRAThana.Name = "cmbRAThana";
             this.cmbRAThana.Size = new System.Drawing.Size(198, 30);
-            this.cmbRAThana.TabIndex = 42;
+            this.cmbRAThana.TabIndex = 9;
             this.cmbRAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAThana_KeyDown);
             // 
             // txtRAContactNo
@@ -648,7 +646,7 @@
             this.txtRAContactNo.MaxLength = 11;
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
-            this.txtRAContactNo.TabIndex = 41;
+            this.txtRAContactNo.TabIndex = 6;
             this.txtRAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAContactNo_KeyDown);
             this.txtRAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRAContactNo_KeyPress);
             // 
@@ -670,7 +668,7 @@
             this.cmbRADistrict.Location = new System.Drawing.Point(451, 54);
             this.cmbRADistrict.Name = "cmbRADistrict";
             this.cmbRADistrict.Size = new System.Drawing.Size(199, 27);
-            this.cmbRADistrict.TabIndex = 19;
+            this.cmbRADistrict.TabIndex = 8;
             this.cmbRADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADistrict_KeyDown);
             // 
             // label21
@@ -690,7 +688,7 @@
             this.txtRAPostCode.Name = "txtRAPostCode";
             this.txtRAPostCode.ReadOnly = true;
             this.txtRAPostCode.Size = new System.Drawing.Size(198, 29);
-            this.txtRAPostCode.TabIndex = 17;
+            this.txtRAPostCode.TabIndex = 11;
             this.txtRAPostCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAPostCode_KeyDown);
             // 
             // txtRAArea
@@ -699,7 +697,7 @@
             this.txtRAArea.Location = new System.Drawing.Point(158, 138);
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
-            this.txtRAArea.TabIndex = 15;
+            this.txtRAArea.TabIndex = 5;
             this.txtRAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAArea_KeyDown);
             // 
             // label20
@@ -738,7 +736,7 @@
             this.txtRARoadNo.Location = new System.Drawing.Point(158, 78);
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRARoadNo.TabIndex = 10;
+            this.txtRARoadNo.TabIndex = 3;
             this.txtRARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRARoadNo_KeyDown);
             // 
             // txtRAHouseNo
@@ -747,7 +745,7 @@
             this.txtRAHouseNo.Location = new System.Drawing.Point(158, 49);
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAHouseNo.TabIndex = 9;
+            this.txtRAHouseNo.TabIndex = 2;
             this.txtRAHouseNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAHouseNo_KeyDown);
             // 
             // txtRAFlatNo
@@ -756,7 +754,7 @@
             this.txtRAFlatNo.Location = new System.Drawing.Point(158, 20);
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAFlatNo.TabIndex = 8;
+            this.txtRAFlatNo.TabIndex = 1;
             this.txtRAFlatNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAFlatNo_KeyDown);
             // 
             // label17
@@ -833,20 +831,9 @@
             this.groupBox3.Location = new System.Drawing.Point(515, 286);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(675, 209);
-            this.groupBox3.TabIndex = 70;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
-            // 
-            // txtWABlock
-            // 
-            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
-            this.txtWABlock.Name = "txtWABlock";
-            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtWABlock.TabIndex = 83;
-            this.txtWABlock.WaterMarkColor = System.Drawing.Color.Gray;
-            this.txtWABlock.WaterMarkText = "if Any";
-            this.txtWABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWABlock_KeyDown);
             // 
             // cmbWAPost
             // 
@@ -855,7 +842,7 @@
             this.cmbWAPost.Location = new System.Drawing.Point(452, 122);
             this.cmbWAPost.Name = "cmbWAPost";
             this.cmbWAPost.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAPost.TabIndex = 82;
+            this.cmbWAPost.TabIndex = 10;
             this.cmbWAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAPost_KeyDown);
             // 
             // label35
@@ -894,7 +881,7 @@
             this.cmbWADivision.Location = new System.Drawing.Point(452, 20);
             this.cmbWADivision.Name = "cmbWADivision";
             this.cmbWADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbWADivision.TabIndex = 78;
+            this.cmbWADivision.TabIndex = 7;
             this.cmbWADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADivision_KeyDown);
             // 
             // label38
@@ -943,7 +930,7 @@
             this.cmbWAThana.Location = new System.Drawing.Point(452, 85);
             this.cmbWAThana.Name = "cmbWAThana";
             this.cmbWAThana.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAThana.TabIndex = 42;
+            this.cmbWAThana.TabIndex = 9;
             this.cmbWAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAThana_KeyDown);
             // 
             // txtWAContactNo
@@ -953,7 +940,7 @@
             this.txtWAContactNo.MaxLength = 11;
             this.txtWAContactNo.Name = "txtWAContactNo";
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 26);
-            this.txtWAContactNo.TabIndex = 41;
+            this.txtWAContactNo.TabIndex = 6;
             this.txtWAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAContactNo_KeyDown);
             this.txtWAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWAContactNo_KeyPress);
             // 
@@ -975,7 +962,7 @@
             this.cmbWADistrict.Location = new System.Drawing.Point(451, 54);
             this.cmbWADistrict.Name = "cmbWADistrict";
             this.cmbWADistrict.Size = new System.Drawing.Size(199, 27);
-            this.cmbWADistrict.TabIndex = 19;
+            this.cmbWADistrict.TabIndex = 8;
             this.cmbWADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADistrict_KeyDown);
             // 
             // label47
@@ -995,7 +982,7 @@
             this.txtWAPostCode.Name = "txtWAPostCode";
             this.txtWAPostCode.ReadOnly = true;
             this.txtWAPostCode.Size = new System.Drawing.Size(198, 29);
-            this.txtWAPostCode.TabIndex = 17;
+            this.txtWAPostCode.TabIndex = 11;
             this.txtWAPostCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAPostCode_KeyDown);
             // 
             // txtWAArea
@@ -1004,7 +991,7 @@
             this.txtWAArea.Location = new System.Drawing.Point(158, 138);
             this.txtWAArea.Name = "txtWAArea";
             this.txtWAArea.Size = new System.Drawing.Size(171, 26);
-            this.txtWAArea.TabIndex = 15;
+            this.txtWAArea.TabIndex = 5;
             this.txtWAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAArea_KeyDown);
             // 
             // label48
@@ -1043,7 +1030,7 @@
             this.txtWARoadNo.Location = new System.Drawing.Point(158, 78);
             this.txtWARoadNo.Name = "txtWARoadNo";
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 26);
-            this.txtWARoadNo.TabIndex = 10;
+            this.txtWARoadNo.TabIndex = 3;
             this.txtWARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWARoadNo_KeyDown);
             // 
             // txtWAHouseName
@@ -1052,7 +1039,7 @@
             this.txtWAHouseName.Location = new System.Drawing.Point(158, 49);
             this.txtWAHouseName.Name = "txtWAHouseName";
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 26);
-            this.txtWAHouseName.TabIndex = 9;
+            this.txtWAHouseName.TabIndex = 2;
             this.txtWAHouseName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAHouseName_KeyDown);
             // 
             // txtWAFlatName
@@ -1061,7 +1048,7 @@
             this.txtWAFlatName.Location = new System.Drawing.Point(158, 20);
             this.txtWAFlatName.Name = "txtWAFlatName";
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 26);
-            this.txtWAFlatName.TabIndex = 8;
+            this.txtWAFlatName.TabIndex = 1;
             this.txtWAFlatName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAFlatName_KeyDown);
             // 
             // label51
@@ -1112,7 +1099,7 @@
             this.label3.Location = new System.Drawing.Point(390, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(404, 36);
-            this.label3.TabIndex = 71;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Person Details Update Form";
             // 
             // btnUpdate
@@ -1122,19 +1109,32 @@
             this.btnUpdate.Location = new System.Drawing.Point(756, 504);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(203, 72);
-            this.btnUpdate.TabIndex = 72;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnPersonUpdate_click);
             // 
-            // label11
+            // txtWABlock
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(331, 23);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 22);
-            this.label11.TabIndex = 84;
-            this.label11.Text = "Division    :";
+            this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtWABlock.Name = "txtWABlock";
+            this.txtWABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtWABlock.TabIndex = 4;
+            this.txtWABlock.WaterMarkColor = System.Drawing.Color.Gray;
+            this.txtWABlock.WaterMarkText = "if Any";
+            this.txtWABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWABlock_KeyDown);
+            // 
+            // txtRABlock
+            // 
+            this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtRABlock.Name = "txtRABlock";
+            this.txtRABlock.Size = new System.Drawing.Size(172, 26);
+            this.txtRABlock.TabIndex = 4;
+            this.txtRABlock.WaterMarkColor = System.Drawing.Color.Gray;
+            this.txtRABlock.WaterMarkText = "if Any";
+            this.txtRABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRABlock_KeyDown);
             // 
             // PersonUpdateForm
             // 

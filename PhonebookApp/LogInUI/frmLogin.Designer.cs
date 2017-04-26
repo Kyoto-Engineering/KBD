@@ -72,7 +72,7 @@
             this.txt1UserName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt1UserName.Location = new System.Drawing.Point(177, 61);
             this.txt1UserName.Name = "txt1UserName";
-            this.txt1UserName.Size = new System.Drawing.Size(243, 29);
+            this.txt1UserName.Size = new System.Drawing.Size(249, 29);
             this.txt1UserName.TabIndex = 1;
             this.txt1UserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1UserName_KeyDown);
             // 
@@ -81,22 +81,22 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(52, 123);
+            this.label3.Location = new System.Drawing.Point(52, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 24);
+            this.label3.Size = new System.Drawing.Size(128, 24);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Password";
+            this.label3.Text = "Password     :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(52, 63);
+            this.label2.Location = new System.Drawing.Point(52, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 24);
+            this.label2.Size = new System.Drawing.Size(126, 24);
             this.label2.TabIndex = 0;
-            this.label2.Text = "UserName";
+            this.label2.Text = "UserName   :";
             // 
             // departmentTextBox
             // 

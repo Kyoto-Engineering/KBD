@@ -31,6 +31,12 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.BirthdateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.additionalInfobutton = new System.Windows.Forms.Button();
             this.CountrycomboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -137,7 +143,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.label59 = new System.Windows.Forms.Label();
+            this.AnniversarydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label60 = new System.Windows.Forms.Label();
+            this.GendercomboBox = new System.Windows.Forms.ComboBox();
+            this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
+            this.maritalStatuscomboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -150,7 +163,7 @@
             this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnInsert.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsert.ForeColor = System.Drawing.Color.Blue;
-            this.btnInsert.Location = new System.Drawing.Point(1045, 549);
+            this.btnInsert.Location = new System.Drawing.Point(1045, 540);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 62);
             this.btnInsert.TabIndex = 18;
@@ -171,6 +184,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox7);
+            this.groupBox1.Controls.Add(this.additionalInfobutton);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.groupBox6);
@@ -221,6 +236,79 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.maritalStatuscomboBox);
+            this.groupBox7.Controls.Add(this.ReligioncomboBox);
+            this.groupBox7.Controls.Add(this.GendercomboBox);
+            this.groupBox7.Controls.Add(this.label60);
+            this.groupBox7.Controls.Add(this.AnniversarydateTimePicker);
+            this.groupBox7.Controls.Add(this.label59);
+            this.groupBox7.Controls.Add(this.BirthdateTimePicker);
+            this.groupBox7.Controls.Add(this.label56);
+            this.groupBox7.Controls.Add(this.label57);
+            this.groupBox7.Controls.Add(this.label58);
+            this.groupBox7.Location = new System.Drawing.Point(447, 397);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(547, 127);
+            this.groupBox7.TabIndex = 99;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Additional Personal Information";
+            // 
+            // BirthdateTimePicker
+            // 
+            this.BirthdateTimePicker.Checked = false;
+            this.BirthdateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.BirthdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.BirthdateTimePicker.Location = new System.Drawing.Point(110, 24);
+            this.BirthdateTimePicker.Name = "BirthdateTimePicker";
+            this.BirthdateTimePicker.ShowCheckBox = true;
+            this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 29);
+            this.BirthdateTimePicker.TabIndex = 15;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(17, 93);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(65, 19);
+            this.label56.TabIndex = 13;
+            this.label56.Text = "Religion";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(23, 55);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(59, 19);
+            this.label57.TabIndex = 11;
+            this.label57.Text = "Gender";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(5, 22);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(101, 19);
+            this.label58.TabIndex = 9;
+            this.label58.Text = "Date Of Birth";
+            // 
+            // additionalInfobutton
+            // 
+            this.additionalInfobutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.additionalInfobutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additionalInfobutton.ForeColor = System.Drawing.Color.Blue;
+            this.additionalInfobutton.Location = new System.Drawing.Point(1012, 605);
+            this.additionalInfobutton.Name = "additionalInfobutton";
+            this.additionalInfobutton.Size = new System.Drawing.Size(151, 63);
+            this.additionalInfobutton.TabIndex = 98;
+            this.additionalInfobutton.Text = "Additional Information";
+            this.additionalInfobutton.UseVisualStyleBackColor = false;
+            this.additionalInfobutton.Click += new System.EventHandler(this.additionalInfobutton_Click);
+            // 
             // CountrycomboBox
             // 
             this.CountrycomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -251,9 +339,10 @@
             this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.StreettextBox);
             this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(466, 539);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(565, 129);
+            this.groupBox6.Size = new System.Drawing.Size(540, 129);
             this.groupBox6.TabIndex = 93;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Address For Foreigner";
@@ -271,6 +360,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.Yellow;
             this.label55.Location = new System.Drawing.Point(23, 93);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(150, 19);
@@ -290,6 +380,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Yellow;
             this.label16.Location = new System.Drawing.Point(23, 60);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(149, 19);
@@ -309,6 +400,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Yellow;
             this.label15.Location = new System.Drawing.Point(21, 28);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(151, 19);
@@ -330,9 +422,9 @@
             this.groupBox2.Controls.Add(this.unKnownRA);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(466, 18);
+            this.groupBox2.Location = new System.Drawing.Point(466, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(694, 259);
+            this.groupBox2.Size = new System.Drawing.Size(694, 248);
             this.groupBox2.TabIndex = 91;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential  Address";
@@ -340,7 +432,7 @@
             // unKnownRA
             // 
             this.unKnownRA.AutoSize = true;
-            this.unKnownRA.Location = new System.Drawing.Point(279, 18);
+            this.unKnownRA.Location = new System.Drawing.Point(279, 13);
             this.unKnownRA.Name = "unKnownRA";
             this.unKnownRA.Size = new System.Drawing.Size(107, 26);
             this.unKnownRA.TabIndex = 86;
@@ -379,16 +471,16 @@
             this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox5.Location = new System.Drawing.Point(17, 40);
+            this.groupBox5.Location = new System.Drawing.Point(17, 29);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(661, 209);
+            this.groupBox5.Size = new System.Drawing.Size(661, 203);
             this.groupBox5.TabIndex = 85;
             this.groupBox5.TabStop = false;
             // 
             // txtRABlock
             // 
             this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRABlock.Location = new System.Drawing.Point(157, 107);
+            this.txtRABlock.Location = new System.Drawing.Point(157, 104);
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
             this.txtRABlock.TabIndex = 83;
@@ -398,7 +490,7 @@
             // 
             this.cmbRAPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRAPost.FormattingEnabled = true;
-            this.cmbRAPost.Location = new System.Drawing.Point(454, 122);
+            this.cmbRAPost.Location = new System.Drawing.Point(454, 119);
             this.cmbRAPost.Name = "cmbRAPost";
             this.cmbRAPost.Size = new System.Drawing.Size(196, 30);
             this.cmbRAPost.TabIndex = 82;
@@ -409,7 +501,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.ForeColor = System.Drawing.Color.Red;
-            this.label44.Location = new System.Drawing.Point(428, 125);
+            this.label44.Location = new System.Drawing.Point(428, 122);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(20, 22);
             this.label44.TabIndex = 81;
@@ -418,7 +510,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(336, 125);
+            this.label43.Location = new System.Drawing.Point(336, 122);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(96, 22);
             this.label43.TabIndex = 80;
@@ -458,7 +550,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.Color.Red;
-            this.label34.Location = new System.Drawing.Point(428, 168);
+            this.label34.Location = new System.Drawing.Point(428, 158);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(20, 22);
             this.label34.TabIndex = 75;
@@ -498,7 +590,7 @@
             // txtRAContactNo
             // 
             this.txtRAContactNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRAContactNo.Location = new System.Drawing.Point(158, 167);
+            this.txtRAContactNo.Location = new System.Drawing.Point(158, 161);
             this.txtRAContactNo.MaxLength = 11;
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
@@ -510,7 +602,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(6, 170);
+            this.label26.Location = new System.Drawing.Point(6, 164);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(154, 19);
             this.label26.TabIndex = 40;
@@ -541,7 +633,7 @@
             // txtRAPostCode
             // 
             this.txtRAPostCode.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRAPostCode.Location = new System.Drawing.Point(454, 164);
+            this.txtRAPostCode.Location = new System.Drawing.Point(454, 154);
             this.txtRAPostCode.Name = "txtRAPostCode";
             this.txtRAPostCode.ReadOnly = true;
             this.txtRAPostCode.Size = new System.Drawing.Size(196, 29);
@@ -551,7 +643,7 @@
             // txtRAArea
             // 
             this.txtRAArea.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRAArea.Location = new System.Drawing.Point(158, 138);
+            this.txtRAArea.Location = new System.Drawing.Point(158, 133);
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
             this.txtRAArea.TabIndex = 15;
@@ -561,7 +653,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 138);
+            this.label20.Location = new System.Drawing.Point(6, 133);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(155, 19);
             this.label20.TabIndex = 14;
@@ -571,7 +663,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(334, 164);
+            this.label19.Location = new System.Drawing.Point(334, 154);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(99, 22);
             this.label19.TabIndex = 13;
@@ -590,7 +682,7 @@
             // txtRARoadNo
             // 
             this.txtRARoadNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRARoadNo.Location = new System.Drawing.Point(158, 78);
+            this.txtRARoadNo.Location = new System.Drawing.Point(158, 75);
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
             this.txtRARoadNo.TabIndex = 10;
@@ -599,7 +691,7 @@
             // txtRAHouseNo
             // 
             this.txtRAHouseNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRAHouseNo.Location = new System.Drawing.Point(158, 49);
+            this.txtRAHouseNo.Location = new System.Drawing.Point(158, 46);
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAHouseNo.TabIndex = 9;
@@ -608,7 +700,7 @@
             // txtRAFlatNo
             // 
             this.txtRAFlatNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRAFlatNo.Location = new System.Drawing.Point(158, 20);
+            this.txtRAFlatNo.Location = new System.Drawing.Point(158, 17);
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAFlatNo.TabIndex = 8;
@@ -618,7 +710,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(6, 110);
+            this.label17.Location = new System.Drawing.Point(6, 107);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(153, 19);
             this.label17.TabIndex = 7;
@@ -628,7 +720,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(6, 79);
+            this.label22.Location = new System.Drawing.Point(6, 76);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(154, 19);
             this.label22.TabIndex = 6;
@@ -638,7 +730,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 52);
+            this.label23.Location = new System.Drawing.Point(6, 49);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(157, 19);
             this.label23.TabIndex = 5;
@@ -648,7 +740,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(6, 25);
+            this.label24.Location = new System.Drawing.Point(6, 22);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(156, 19);
             this.label24.TabIndex = 4;
@@ -660,9 +752,9 @@
             this.groupBox3.Controls.Add(this.unKnownCheckBox);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(466, 278);
+            this.groupBox3.Location = new System.Drawing.Point(466, 261);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(694, 255);
+            this.groupBox3.Size = new System.Drawing.Size(694, 248);
             this.groupBox3.TabIndex = 90;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
@@ -670,7 +762,7 @@
             // sameAsRACheckBox
             // 
             this.sameAsRACheckBox.AutoSize = true;
-            this.sameAsRACheckBox.Location = new System.Drawing.Point(327, 21);
+            this.sameAsRACheckBox.Location = new System.Drawing.Point(327, 12);
             this.sameAsRACheckBox.Name = "sameAsRACheckBox";
             this.sameAsRACheckBox.Size = new System.Drawing.Size(265, 26);
             this.sameAsRACheckBox.TabIndex = 88;
@@ -681,7 +773,7 @@
             // unKnownCheckBox
             // 
             this.unKnownCheckBox.AutoSize = true;
-            this.unKnownCheckBox.Location = new System.Drawing.Point(149, 20);
+            this.unKnownCheckBox.Location = new System.Drawing.Point(170, 13);
             this.unKnownCheckBox.Name = "unKnownCheckBox";
             this.unKnownCheckBox.Size = new System.Drawing.Size(107, 26);
             this.unKnownCheckBox.TabIndex = 87;
@@ -720,7 +812,7 @@
             this.groupBox4.Controls.Add(this.label54);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox4.Location = new System.Drawing.Point(13, 43);
+            this.groupBox4.Location = new System.Drawing.Point(13, 30);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(672, 203);
             this.groupBox4.TabIndex = 86;
@@ -1362,6 +1454,75 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Person Name                :";
             // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(320, 63);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(195, 19);
+            this.label59.TabIndex = 16;
+            this.label59.Text = "Marriage Anniversary Date";
+            // 
+            // AnniversarydateTimePicker
+            // 
+            this.AnniversarydateTimePicker.Checked = false;
+            this.AnniversarydateTimePicker.CustomFormat = "MM/yyyy";
+            this.AnniversarydateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(322, 83);
+            this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
+            this.AnniversarydateTimePicker.ShowCheckBox = true;
+            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 29);
+            this.AnniversarydateTimePicker.TabIndex = 17;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(349, 13);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(106, 19);
+            this.label60.TabIndex = 18;
+            this.label60.Text = "Marital Status";
+            // 
+            // GendercomboBox
+            // 
+            this.GendercomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.GendercomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GendercomboBox.FormattingEnabled = true;
+            this.GendercomboBox.Location = new System.Drawing.Point(110, 56);
+            this.GendercomboBox.Name = "GendercomboBox";
+            this.GendercomboBox.Size = new System.Drawing.Size(193, 30);
+            this.GendercomboBox.TabIndex = 83;
+            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
+            // 
+            // ReligioncomboBox
+            // 
+            this.ReligioncomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ReligioncomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReligioncomboBox.FormattingEnabled = true;
+            this.ReligioncomboBox.Location = new System.Drawing.Point(110, 90);
+            this.ReligioncomboBox.Name = "ReligioncomboBox";
+            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 30);
+            this.ReligioncomboBox.TabIndex = 84;
+            this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
+            // 
+            // maritalStatuscomboBox
+            // 
+            this.maritalStatuscomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.maritalStatuscomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.maritalStatuscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maritalStatuscomboBox.FormattingEnabled = true;
+            this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
+            this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
+            this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 30);
+            this.maritalStatuscomboBox.TabIndex = 85;
+            this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
+            // 
             // frm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1378,6 +1539,8 @@
             this.Load += new System.EventHandler(this.frm1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1509,6 +1672,18 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtRABlock;
         private System.Windows.Forms.TextBox txtWABlock;
+        private System.Windows.Forms.Button additionalInfobutton;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.DateTimePicker BirthdateTimePicker;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.ComboBox maritalStatuscomboBox;
+        private System.Windows.Forms.ComboBox ReligioncomboBox;
+        private System.Windows.Forms.ComboBox GendercomboBox;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.DateTimePicker AnniversarydateTimePicker;
+        private System.Windows.Forms.Label label59;
     }
 }
 

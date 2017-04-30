@@ -24,7 +24,7 @@ namespace PhonebookApp
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         public string countryid,nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
-        public Nullable<Int64> relationshipId,bankEmailId,categoryId,jobTitleId,companyId,specializationId,professionId,ageGroupId,educationLevelId,highestDegreeId ;
+        public Nullable<Int64> relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
         public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
 
@@ -339,7 +339,7 @@ namespace PhonebookApp
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -368,6 +368,14 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
             
             cmd.Parameters.AddWithValue("@d18", (object)countryid ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d19", (object)religionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d20", (object)genderId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d21", (object)maritalStatusId ?? DBNull.Value);
+            cmd.Parameters.Add(new SqlParameter("@d22",
+                !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
+            cmd.Parameters.Add(new SqlParameter("@d23",
+                !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
+
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
 
@@ -908,6 +916,83 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        private void FillGender()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Gender.GenderName) from Gender  order by Gender.GenderId";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    GendercomboBox.Items.Add(rdr[0]);
+                }
+               
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void FillReligion()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Religion.ReligionName) from Religion  order by Religion.ReligionId";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    ReligioncomboBox.Items.Add(rdr[0]);
+                }
+                ReligioncomboBox.Items.Add("Not In The List");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FillMaritalStatus()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(MaritalStatus.MaritalStatusName) from MaritalStatus  order by MaritalStatus.MaritalStatusId";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    maritalStatuscomboBox.Items.Add(rdr[0]);
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FilStar()
         {
             label37.Visible = true;
@@ -942,6 +1027,9 @@ namespace PhonebookApp
             FillCategory();
             FillWADivisionCombo();
             FillRADivisionCombo();
+            FillGender();
+            FillReligion();
+            FillMaritalStatus();
             cmbRADistrict.Enabled = false;
             cmbRAThana.Enabled = false;
             cmbRAPost.Enabled = false;
@@ -949,7 +1037,10 @@ namespace PhonebookApp
             cmbWAThana.Enabled = false;
             cmbWAPost.Enabled = false;
             groupBox6.Hide();
-            btnInsert.Location = new Point(1045, 549);
+            groupBox7.Hide();
+            btnInsert.Hide();
+            //additionalInfobutton.Hide();
+            //btnInsert.Location = new Point(1045, 549);
            
         }
 
@@ -2465,7 +2556,10 @@ namespace PhonebookApp
                 groupBox6.Hide();
                 groupBox2.Show();
                 groupBox3.Show();
-                btnInsert.Location = new Point(1045, 549);
+                //btnInsert.Location = new Point(1045, 549);
+                btnInsert.Hide();
+                additionalInfobutton.Show();
+                additionalInfobutton.Location = new Point(891, 548);
             }
             else
             {
@@ -2474,7 +2568,10 @@ namespace PhonebookApp
                 groupBox3.Hide();
                 groupBox6.Show();
                 groupBox6.Location = new Point(466, 18);
-                btnInsert.Location = new Point(650, 157);
+                //btnInsert.Location = new Point(650, 157);
+                btnInsert.Hide();
+                additionalInfobutton.Show();
+                additionalInfobutton.Location = new Point(650, 157);
             }
             try
                     {
@@ -2995,7 +3092,162 @@ namespace PhonebookApp
 
                 }
             }
-        }        
+        }
+
+        private void ReligioncomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ReligioncomboBox.Text == "Not In The List")
+            {
+                string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputReligion))
+                {
+                    ReligioncomboBox.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select ReligionName from Religion where ReligionName='" + inputReligion + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Religion Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        ReligioncomboBox.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into Religion (ReligionName,UserId) values (@d1,@d2)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputReligion);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);                      
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            ReligioncomboBox.Items.Clear();                      
+                            FillReligion();
+                            ReligioncomboBox.SelectedText = inputReligion;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select ReligionId from Religion  where  Religion.ReligionName='" + ReligioncomboBox.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        
+                        religionId = Convert.ToInt64(rdr["ReligionId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void GendercomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select GenderId from Gender  where  Gender.GenderName='" + GendercomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+
+                    genderId = Convert.ToInt64(rdr["GenderId"]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void maritalStatuscomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select MaritalStatusId from Gender  where  MaritalStatus.MaritalStatusIdName='" + maritalStatuscomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    maritalStatusId = Convert.ToInt64(rdr["MaritalStatusId"]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void additionalInfobutton_Click(object sender, EventArgs e)
+        {
+            additionalInfobutton.Hide();
+            CountrycomboBox.Enabled = false;
+
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+                enableAll();
+                groupBox6.Hide();
+                groupBox2.Show();
+                groupBox3.Show();
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 520);
+                btnInsert.Show();
+                btnInsert.Location = new Point(1045, 549);
+                
+            }
+            else
+            {
+                enableAll();
+                groupBox2.Hide();
+                groupBox3.Hide();
+                groupBox6.Show();
+                groupBox6.Location = new Point(466, 18);               
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 190);
+                btnInsert.Show();
+                btnInsert.Location = new Point(850, 330);               
+            }
+        }      
     }
 }
 

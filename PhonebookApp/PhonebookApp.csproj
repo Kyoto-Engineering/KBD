@@ -112,12 +112,6 @@
       <DependentUpon>LOI.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\AdditionalInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\AdditionalInformation.Designer.cs">
-      <DependentUpon>AdditionalInformation.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\AgeGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,9 +222,6 @@
     <EmbeddedResource Include="Reports\LOI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LOI.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\AdditionalInformation.resx">
-      <DependentUpon>AdditionalInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AgeGroup.resx">
       <DependentUpon>AgeGroup.cs</DependentUpon>

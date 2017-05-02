@@ -205,6 +205,15 @@ namespace PhonebookApp
             cmbWADivision.SelectedIndex = -1;
         }
 
+        public void ResetAdditionalInformation()
+        {
+            BirthdateTimePicker.ResetText();
+            GendercomboBox.SelectedIndex = -1;
+            ReligioncomboBox.SelectedIndex = -1;
+            maritalStatuscomboBox.SelectedIndex = -1;
+            AnniversarydateTimePicker.ResetText();
+        }
+
         private void Reset1()
         {
             //FillRelationShip();
@@ -217,7 +226,7 @@ namespace PhonebookApp
             //FillSpecialization();
             //EmailAddress();
             //CountrycomboBox.SelectedIndex = -1;
-            relationshipId=bankEmailId=categoryId=jobTitleId=companyId=specializationId=professionId=ageGroupId=educationLevelId=highestDegreeId
+            relationshipId=bankEmailId=categoryId=jobTitleId=companyId=specializationId=professionId=ageGroupId=educationLevelId=highestDegreeId=religionId=genderId=maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
@@ -269,6 +278,7 @@ namespace PhonebookApp
             txtImmo.Clear();
             ResetResidentialAddress();
             ResetWorkingAddress();
+            ResetAdditionalInformation();
         }
 
         private void Reset2()
@@ -284,6 +294,8 @@ namespace PhonebookApp
             //FillAgeGroup();            
             //FillRelationShip();
             //CountrycomboBox.SelectedIndex = -1;
+            relationshipId = bankEmailId = categoryId = jobTitleId = companyId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+                = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
@@ -332,6 +344,7 @@ namespace PhonebookApp
             txtWhatsApp.Clear();
             txtImmo.Clear();
             ResetForeignAddress();
+            ResetAdditionalInformation();
         }
 
         private void SavePersonDetails()
@@ -339,7 +352,7 @@ namespace PhonebookApp
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,CategoryId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -372,9 +385,10 @@ namespace PhonebookApp
             cmd.Parameters.AddWithValue("@d20", (object)genderId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d21", (object)maritalStatusId ?? DBNull.Value);
             cmd.Parameters.Add(new SqlParameter("@d22",
-                !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
+                !BirthdateTimePicker.Checked ? (object) DBNull.Value : BirthdateTimePicker.Value));
             cmd.Parameters.Add(new SqlParameter("@d23",
                 !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
+            cmd.Parameters.AddWithValue("@d24", nUserId);
 
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
@@ -390,6 +404,14 @@ namespace PhonebookApp
                 return;
                 
             }
+
+            if (string.IsNullOrWhiteSpace(GendercomboBox.Text))
+            {
+                MessageBox.Show("Please Select Gender", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
             if (CountrycomboBox.Text == "Bangladesh")
             {
 
@@ -500,6 +522,7 @@ namespace PhonebookApp
                             MessageBoxIcon.Information);
                         Reset1();
                         CountrycomboBox.SelectedItem = "Bangladesh";
+                        CountrycomboBox.Enabled = true;
                         EmailAddress();
                         cmbEmailAddress.ResetText();
                         FillCompanyName();
@@ -522,8 +545,10 @@ namespace PhonebookApp
                         cmbRelationShip.ResetText();
                         unKnownRA.Checked = false;
                         sameAsRACheckBox.Checked = false;
-
                         unKnownCheckBox.Checked = false;
+                        groupBox7.Hide();
+                        btnInsert.Hide();
+                        additionalInfobutton.Show();
                     }
                     catch (Exception ex)
                     {
@@ -554,6 +579,7 @@ namespace PhonebookApp
                     MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset2();
                     CountrycomboBox.SelectedItem = "Bangladesh";
+                    CountrycomboBox.Enabled = true;
                     EmailAddress();
                     FillCompanyName();
                     FillJobTitle();
@@ -564,6 +590,9 @@ namespace PhonebookApp
                     FillHighestDegree();
                     FillAgeGroup();
                     FillRelationShip();
+                    groupBox7.Hide();
+                    btnInsert.Hide();
+                    additionalInfobutton.Show();
                 }
 
                 catch (Exception ex)
@@ -3201,7 +3230,7 @@ namespace PhonebookApp
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select MaritalStatusId from Gender  where  MaritalStatus.MaritalStatusIdName='" + maritalStatuscomboBox.Text + "' ";
+                string ct = "select MaritalStatusId from MaritalStatus  where  MaritalStatus.MaritalStatusName='" + maritalStatuscomboBox.Text + "' ";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();

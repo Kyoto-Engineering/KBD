@@ -32,6 +32,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.maritalStatuscomboBox = new System.Windows.Forms.ComboBox();
+            this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
+            this.GendercomboBox = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.AnniversarydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label59 = new System.Windows.Forms.Label();
             this.BirthdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -143,12 +149,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.label59 = new System.Windows.Forms.Label();
-            this.AnniversarydateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label60 = new System.Windows.Forms.Label();
-            this.GendercomboBox = new System.Windows.Forms.ComboBox();
-            this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
-            this.maritalStatuscomboBox = new System.Windows.Forms.ComboBox();
+            this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -254,6 +255,75 @@
             this.groupBox7.TabIndex = 99;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Personal Information";
+            // 
+            // maritalStatuscomboBox
+            // 
+            this.maritalStatuscomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.maritalStatuscomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.maritalStatuscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maritalStatuscomboBox.FormattingEnabled = true;
+            this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
+            this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
+            this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 30);
+            this.maritalStatuscomboBox.TabIndex = 85;
+            this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
+            // 
+            // ReligioncomboBox
+            // 
+            this.ReligioncomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ReligioncomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReligioncomboBox.FormattingEnabled = true;
+            this.ReligioncomboBox.Location = new System.Drawing.Point(110, 90);
+            this.ReligioncomboBox.Name = "ReligioncomboBox";
+            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 30);
+            this.ReligioncomboBox.TabIndex = 84;
+            this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
+            // 
+            // GendercomboBox
+            // 
+            this.GendercomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.GendercomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GendercomboBox.FormattingEnabled = true;
+            this.GendercomboBox.Location = new System.Drawing.Point(110, 56);
+            this.GendercomboBox.Name = "GendercomboBox";
+            this.GendercomboBox.Size = new System.Drawing.Size(193, 30);
+            this.GendercomboBox.TabIndex = 83;
+            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(349, 13);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(106, 19);
+            this.label60.TabIndex = 18;
+            this.label60.Text = "Marital Status";
+            // 
+            // AnniversarydateTimePicker
+            // 
+            this.AnniversarydateTimePicker.Checked = false;
+            this.AnniversarydateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.AnniversarydateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(322, 83);
+            this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
+            this.AnniversarydateTimePicker.ShowCheckBox = true;
+            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 29);
+            this.AnniversarydateTimePicker.TabIndex = 17;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(320, 63);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(195, 19);
+            this.label59.TabIndex = 16;
+            this.label59.Text = "Marriage Anniversary Date";
             // 
             // BirthdateTimePicker
             // 
@@ -1454,75 +1524,6 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Person Name                :";
             // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(320, 63);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(195, 19);
-            this.label59.TabIndex = 16;
-            this.label59.Text = "Marriage Anniversary Date";
-            // 
-            // AnniversarydateTimePicker
-            // 
-            this.AnniversarydateTimePicker.Checked = false;
-            this.AnniversarydateTimePicker.CustomFormat = "MM/yyyy";
-            this.AnniversarydateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(322, 83);
-            this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
-            this.AnniversarydateTimePicker.ShowCheckBox = true;
-            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 29);
-            this.AnniversarydateTimePicker.TabIndex = 17;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(349, 13);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(106, 19);
-            this.label60.TabIndex = 18;
-            this.label60.Text = "Marital Status";
-            // 
-            // GendercomboBox
-            // 
-            this.GendercomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.GendercomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GendercomboBox.FormattingEnabled = true;
-            this.GendercomboBox.Location = new System.Drawing.Point(110, 56);
-            this.GendercomboBox.Name = "GendercomboBox";
-            this.GendercomboBox.Size = new System.Drawing.Size(193, 30);
-            this.GendercomboBox.TabIndex = 83;
-            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
-            // 
-            // ReligioncomboBox
-            // 
-            this.ReligioncomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.ReligioncomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReligioncomboBox.FormattingEnabled = true;
-            this.ReligioncomboBox.Location = new System.Drawing.Point(110, 90);
-            this.ReligioncomboBox.Name = "ReligioncomboBox";
-            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 30);
-            this.ReligioncomboBox.TabIndex = 84;
-            this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
-            // 
-            // maritalStatuscomboBox
-            // 
-            this.maritalStatuscomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.maritalStatuscomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.maritalStatuscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maritalStatuscomboBox.FormattingEnabled = true;
-            this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
-            this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
-            this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 30);
-            this.maritalStatuscomboBox.TabIndex = 85;
-            this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
-            // 
             // frm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1684,6 +1685,7 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.DateTimePicker AnniversarydateTimePicker;
         private System.Windows.Forms.Label label59;
+        private Reports.CachedLOI cachedLOI1;
     }
 }
 

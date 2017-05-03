@@ -56,7 +56,7 @@ namespace PhonebookApp.UI
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "BoardSecretariatDBDemo";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             LOI cr = new LOI();
@@ -111,7 +111,7 @@ namespace PhonebookApp.UI
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "BoardSecretariatDBDemo";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             GreetingCards cr = new GreetingCards();
@@ -165,7 +165,7 @@ namespace PhonebookApp.UI
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "BoardSecretariatDBDemo";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             Document cr = new Document();

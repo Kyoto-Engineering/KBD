@@ -54,7 +54,7 @@
             this.groupNametextBox.Location = new System.Drawing.Point(302, 114);
             this.groupNametextBox.Name = "groupNametextBox";
             this.groupNametextBox.Size = new System.Drawing.Size(311, 29);
-            this.groupNametextBox.TabIndex = 6;
+            this.groupNametextBox.TabIndex = 1;
             this.groupNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.groupNametextBox_KeyDown);
             // 
             // savebutton
@@ -65,7 +65,7 @@
             this.savebutton.Location = new System.Drawing.Point(409, 360);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(104, 64);
-            this.savebutton.TabIndex = 8;
+            this.savebutton.TabIndex = 4;
             this.savebutton.Text = "Save";
             this.savebutton.UseVisualStyleBackColor = false;
             this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
@@ -95,7 +95,7 @@
             this.definitionrichTextBox.Location = new System.Drawing.Point(302, 161);
             this.definitionrichTextBox.Name = "definitionrichTextBox";
             this.definitionrichTextBox.Size = new System.Drawing.Size(311, 121);
-            this.definitionrichTextBox.TabIndex = 13;
+            this.definitionrichTextBox.TabIndex = 2;
             this.definitionrichTextBox.Text = "";
             this.definitionrichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.definitionrichTextBox_KeyDown);
             // 
@@ -116,7 +116,7 @@
             this.purposetextBox.Location = new System.Drawing.Point(302, 303);
             this.purposetextBox.Name = "purposetextBox";
             this.purposetextBox.Size = new System.Drawing.Size(311, 29);
-            this.purposetextBox.TabIndex = 16;
+            this.purposetextBox.TabIndex = 3;
             this.purposetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.purposetextBox_KeyDown);
             // 
             // GroupCreation

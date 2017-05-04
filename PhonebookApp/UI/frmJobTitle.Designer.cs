@@ -43,7 +43,7 @@
             this.lblCategoryName.Location = new System.Drawing.Point(31, 22);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(185, 22);
-            this.lblCategoryName.TabIndex = 4;
+            this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Job Title/Designation";
             // 
             // txtJobTitle
@@ -61,7 +61,7 @@
             this.groupBox1.Location = new System.Drawing.Point(26, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveJobTitle
@@ -72,7 +72,7 @@
             this.btnSaveJobTitle.Location = new System.Drawing.Point(310, 168);
             this.btnSaveJobTitle.Name = "btnSaveJobTitle";
             this.btnSaveJobTitle.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveJobTitle.TabIndex = 5;
+            this.btnSaveJobTitle.TabIndex = 1;
             this.btnSaveJobTitle.Text = "Save ";
             this.btnSaveJobTitle.UseVisualStyleBackColor = false;
             this.btnSaveJobTitle.Click += new System.EventHandler(this.btnSaveJobTitle_Click);

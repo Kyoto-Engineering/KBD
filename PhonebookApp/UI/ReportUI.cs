@@ -79,25 +79,25 @@ namespace PhonebookApp.UI
         private void gretingsCardButton_Click(object sender, EventArgs e)
         {
             //creating an object of ParameterField class
-            ParameterField paramField = new ParameterField();
+            //ParameterField paramField = new ParameterField();
 
             //creating an object of ParameterFields class
-            ParameterFields paramFields = new ParameterFields();
+            //ParameterFields paramFields = new ParameterFields();
 
             //creating an object of ParameterDiscreteValue class
-            ParameterDiscreteValue paramDiscreteValue = new ParameterDiscreteValue();
+            //ParameterDiscreteValue paramDiscreteValue = new ParameterDiscreteValue();
 
             //set the parameter field name
-            paramField.Name = "GroupName";
+            //paramField.Name = "GroupName";
 
             //set the parameter value
-            paramDiscreteValue.Value = x;
+           // paramDiscreteValue.Value = x;
 
             //add the parameter value in the ParameterField object
-            paramField.CurrentValues.Add(paramDiscreteValue);
+            //paramField.CurrentValues.Add(paramDiscreteValue);
 
             //add the parameter in the ParameterFields object
-            paramFields.Add(paramField);
+            //paramFields.Add(paramField);
 
             //set the parameterfield information in the crystal report
 
@@ -122,7 +122,7 @@ namespace PhonebookApp.UI
                 reportLogonInfo.ConnectionInfo = reportConInfo;
                 table.ApplyLogOnInfo(reportLogonInfo);
             }
-            f2.crystalReportViewer1.ParameterFieldInfo = paramFields;
+            //f2.crystalReportViewer1.ParameterFieldInfo = paramFields;
             //set the parameterfield information in the crystal report
             f2.crystalReportViewer1.ReportSource = cr;
             this.Visible = false;
@@ -184,5 +184,62 @@ namespace PhonebookApp.UI
             f2.ShowDialog();
             this.Visible = true;
         }
+
+        private void allAddressButton_Click(object sender, EventArgs e)
+        {
+            //creating an object of ParameterField class
+            //ParameterField paramField = new ParameterField();
+
+            //creating an object of ParameterFields class
+            //ParameterFields paramFields = new ParameterFields();
+
+            //creating an object of ParameterDiscreteValue class
+            //ParameterDiscreteValue paramDiscreteValue = new ParameterDiscreteValue();
+
+            //set the parameter field name
+            //paramField.Name = " ";
+
+            //set the parameter value
+            //paramDiscreteValue.Value = x;
+
+            //add the parameter value in the ParameterField object
+            //paramField.CurrentValues.Add(paramDiscreteValue);
+
+            //add the parameter in the ParameterFields object
+            //paramFields.Add(paramField);
+
+            //set the parameterfield information in the crystal report
+
+
+
+            ReportViewer f2 = new ReportViewer();
+            TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
+            TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
+            ConnectionInfo reportConInfo = new ConnectionInfo();
+            Tables tables = default(Tables);
+            //	Table table = default(Table);
+            var with1 = reportConInfo;
+            with1.ServerName = "tcp:KyotoServer,49172";
+            with1.DatabaseName = "PhoneBookDBKD22";
+            with1.UserID = "sa";
+            with1.Password = "SystemAdministrator";
+            EidGreetings cr = new EidGreetings();
+            tables = cr.Database.Tables;
+            foreach (Table table in tables)
+            {
+                reportLogonInfo = table.LogOnInfo;
+                reportLogonInfo.ConnectionInfo = reportConInfo;
+                table.ApplyLogOnInfo(reportLogonInfo);
+            }
+            //f2.crystalReportViewer1.ParameterFieldInfo = paramFields;
+            //set the parameterfield information in the crystal report
+            f2.crystalReportViewer1.ReportSource = cr;
+            this.Visible = false;
+
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+      
     }
 }

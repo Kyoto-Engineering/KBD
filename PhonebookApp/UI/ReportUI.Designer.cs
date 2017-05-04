@@ -32,6 +32,7 @@
             this.gretingsCardButton = new System.Windows.Forms.Button();
             this.addressButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.allAddressButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -40,7 +41,7 @@
             // letterOfIntroductionButton
             // 
             this.letterOfIntroductionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.letterOfIntroductionButton.Location = new System.Drawing.Point(23, 50);
+            this.letterOfIntroductionButton.Location = new System.Drawing.Point(27, 19);
             this.letterOfIntroductionButton.Name = "letterOfIntroductionButton";
             this.letterOfIntroductionButton.Size = new System.Drawing.Size(151, 62);
             this.letterOfIntroductionButton.TabIndex = 0;
@@ -51,7 +52,7 @@
             // gretingsCardButton
             // 
             this.gretingsCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gretingsCardButton.Location = new System.Drawing.Point(198, 50);
+            this.gretingsCardButton.Location = new System.Drawing.Point(193, 19);
             this.gretingsCardButton.Name = "gretingsCardButton";
             this.gretingsCardButton.Size = new System.Drawing.Size(149, 62);
             this.gretingsCardButton.TabIndex = 1;
@@ -62,31 +63,43 @@
             // addressButton
             // 
             this.addressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressButton.Location = new System.Drawing.Point(366, 50);
+            this.addressButton.Location = new System.Drawing.Point(364, 19);
             this.addressButton.Name = "addressButton";
             this.addressButton.Size = new System.Drawing.Size(149, 62);
             this.addressButton.TabIndex = 2;
-            this.addressButton.Text = "Address ";
+            this.addressButton.Text = "Address Individual ";
             this.addressButton.UseVisualStyleBackColor = true;
             this.addressButton.Click += new System.EventHandler(this.addressButton_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.allAddressButton);
             this.groupBox1.Controls.Add(this.letterOfIntroductionButton);
             this.groupBox1.Controls.Add(this.addressButton);
             this.groupBox1.Controls.Add(this.gretingsCardButton);
             this.groupBox1.Location = new System.Drawing.Point(42, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 185);
+            this.groupBox1.Size = new System.Drawing.Size(660, 185);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // allAddressButton
+            // 
+            this.allAddressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allAddressButton.Location = new System.Drawing.Point(27, 96);
+            this.allAddressButton.Name = "allAddressButton";
+            this.allAddressButton.Size = new System.Drawing.Size(151, 62);
+            this.allAddressButton.TabIndex = 3;
+            this.allAddressButton.Text = "All Address";
+            this.allAddressButton.UseVisualStyleBackColor = true;
+            this.allAddressButton.Click += new System.EventHandler(this.allAddressButton_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(34, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(645, 254);
+            this.groupBox2.Size = new System.Drawing.Size(708, 254);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
@@ -111,5 +124,6 @@
         private System.Windows.Forms.Button addressButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button allAddressButton;
     }
 }

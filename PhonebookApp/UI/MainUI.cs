@@ -108,6 +108,13 @@ namespace PhonebookApp.UI
             this.Hide();
             PersonDetail frm = new PersonDetail();
             frm.Show();
+        }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReportUI frm = new ReportUI();
+            frm.Show();
         }       
     }
 }

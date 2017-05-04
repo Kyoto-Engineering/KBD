@@ -42,7 +42,7 @@
             this.lblCategoryName.Location = new System.Drawing.Point(21, 16);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(112, 22);
-            this.lblCategoryName.TabIndex = 4;
+            this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Relationship";
             // 
             // txtRelationship
@@ -60,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(16, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveRelationship
@@ -71,7 +71,7 @@
             this.btnSaveRelationship.Location = new System.Drawing.Point(281, 171);
             this.btnSaveRelationship.Name = "btnSaveRelationship";
             this.btnSaveRelationship.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveRelationship.TabIndex = 5;
+            this.btnSaveRelationship.TabIndex = 1;
             this.btnSaveRelationship.Text = "Save ";
             this.btnSaveRelationship.UseVisualStyleBackColor = false;
             this.btnSaveRelationship.Click += new System.EventHandler(this.btnSaveRelationship_Click);

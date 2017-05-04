@@ -42,7 +42,7 @@
             this.lblCategoryName.Location = new System.Drawing.Point(53, 27);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(141, 22);
-            this.lblCategoryName.TabIndex = 4;
+            this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Company Name";
             // 
             // txtCompanyName
@@ -60,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(48, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveCompany
@@ -71,7 +71,7 @@
             this.btnSaveCompany.Location = new System.Drawing.Point(323, 181);
             this.btnSaveCompany.Name = "btnSaveCompany";
             this.btnSaveCompany.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveCompany.TabIndex = 5;
+            this.btnSaveCompany.TabIndex = 1;
             this.btnSaveCompany.Text = "Save ";
             this.btnSaveCompany.UseVisualStyleBackColor = false;
             this.btnSaveCompany.Click += new System.EventHandler(this.btnSaveCompany_Click);

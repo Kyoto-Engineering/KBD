@@ -60,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(31, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveProfession
@@ -71,7 +71,7 @@
             this.btnSaveProfession.Location = new System.Drawing.Point(306, 186);
             this.btnSaveProfession.Name = "btnSaveProfession";
             this.btnSaveProfession.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveProfession.TabIndex = 5;
+            this.btnSaveProfession.TabIndex = 1;
             this.btnSaveProfession.Text = "Save ";
             this.btnSaveProfession.UseVisualStyleBackColor = false;
             this.btnSaveProfession.Click += new System.EventHandler(this.btnSaveProfession_Click);

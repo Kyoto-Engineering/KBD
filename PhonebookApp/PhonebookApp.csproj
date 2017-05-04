@@ -120,6 +120,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EidGreetings.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\GreetingCards.cs">
       <AutoGen>True</AutoGen>

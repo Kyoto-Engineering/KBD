@@ -167,7 +167,7 @@
             this.btnInsert.Location = new System.Drawing.Point(1045, 540);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 62);
-            this.btnInsert.TabIndex = 18;
+            this.btnInsert.TabIndex = 24;
             this.btnInsert.Text = "Save";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click_1);
@@ -180,7 +180,7 @@
             this.label11.Location = new System.Drawing.Point(352, -1);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(452, 31);
-            this.label11.TabIndex = 36;
+            this.label11.TabIndex = 0;
             this.label11.Text = "Store  the Person Details Information";
             // 
             // groupBox1
@@ -233,7 +233,7 @@
             this.groupBox1.Location = new System.Drawing.Point(14, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1181, 674);
-            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
@@ -249,10 +249,10 @@
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Location = new System.Drawing.Point(447, 397);
+            this.groupBox7.Location = new System.Drawing.Point(459, 405);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 127);
-            this.groupBox7.TabIndex = 99;
+            this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Personal Information";
             // 
@@ -266,7 +266,7 @@
             this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
             this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
             this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 30);
-            this.maritalStatuscomboBox.TabIndex = 85;
+            this.maritalStatuscomboBox.TabIndex = 4;
             this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
             // 
             // ReligioncomboBox
@@ -278,7 +278,7 @@
             this.ReligioncomboBox.Location = new System.Drawing.Point(110, 90);
             this.ReligioncomboBox.Name = "ReligioncomboBox";
             this.ReligioncomboBox.Size = new System.Drawing.Size(193, 30);
-            this.ReligioncomboBox.TabIndex = 84;
+            this.ReligioncomboBox.TabIndex = 3;
             this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
             // 
             // GendercomboBox
@@ -291,7 +291,7 @@
             this.GendercomboBox.Location = new System.Drawing.Point(110, 56);
             this.GendercomboBox.Name = "GendercomboBox";
             this.GendercomboBox.Size = new System.Drawing.Size(193, 30);
-            this.GendercomboBox.TabIndex = 83;
+            this.GendercomboBox.TabIndex = 2;
             this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
             // 
             // label60
@@ -313,7 +313,7 @@
             this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
             this.AnniversarydateTimePicker.ShowCheckBox = true;
             this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 29);
-            this.AnniversarydateTimePicker.TabIndex = 17;
+            this.AnniversarydateTimePicker.TabIndex = 5;
             // 
             // label59
             // 
@@ -334,7 +334,7 @@
             this.BirthdateTimePicker.Name = "BirthdateTimePicker";
             this.BirthdateTimePicker.ShowCheckBox = true;
             this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 29);
-            this.BirthdateTimePicker.TabIndex = 15;
+            this.BirthdateTimePicker.TabIndex = 1;
             // 
             // label56
             // 
@@ -374,7 +374,7 @@
             this.additionalInfobutton.Location = new System.Drawing.Point(1012, 605);
             this.additionalInfobutton.Name = "additionalInfobutton";
             this.additionalInfobutton.Size = new System.Drawing.Size(151, 63);
-            this.additionalInfobutton.TabIndex = 98;
+            this.additionalInfobutton.TabIndex = 21;
             this.additionalInfobutton.Text = "Additional Information";
             this.additionalInfobutton.UseVisualStyleBackColor = false;
             this.additionalInfobutton.Click += new System.EventHandler(this.additionalInfobutton_Click);
@@ -387,7 +387,7 @@
             this.CountrycomboBox.Location = new System.Drawing.Point(203, 30);
             this.CountrycomboBox.Name = "CountrycomboBox";
             this.CountrycomboBox.Size = new System.Drawing.Size(238, 30);
-            this.CountrycomboBox.TabIndex = 97;
+            this.CountrycomboBox.TabIndex = 1;
             this.CountrycomboBox.SelectedIndexChanged += new System.EventHandler(this.CountrycomboBox_SelectedIndexChanged);
             this.CountrycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountrycomboBox_KeyDown);
             // 
@@ -413,7 +413,7 @@
             this.groupBox6.Location = new System.Drawing.Point(466, 539);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(540, 129);
-            this.groupBox6.TabIndex = 93;
+            this.groupBox6.TabIndex = 23;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Address For Foreigner";
             // 
@@ -423,7 +423,7 @@
             this.PostalCodetextBox.Location = new System.Drawing.Point(168, 89);
             this.PostalCodetextBox.Name = "PostalCodetextBox";
             this.PostalCodetextBox.Size = new System.Drawing.Size(214, 26);
-            this.PostalCodetextBox.TabIndex = 14;
+            this.PostalCodetextBox.TabIndex = 3;
             this.PostalCodetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PostalCodetextBox_KeyDown);
             // 
             // label55
@@ -443,7 +443,7 @@
             this.StatetextBox.Location = new System.Drawing.Point(168, 57);
             this.StatetextBox.Name = "StatetextBox";
             this.StatetextBox.Size = new System.Drawing.Size(214, 26);
-            this.StatetextBox.TabIndex = 12;
+            this.StatetextBox.TabIndex = 2;
             this.StatetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StatetextBox_KeyDown);
             // 
             // label16
@@ -463,7 +463,7 @@
             this.StreettextBox.Location = new System.Drawing.Point(168, 25);
             this.StreettextBox.Name = "StreettextBox";
             this.StreettextBox.Size = new System.Drawing.Size(214, 26);
-            this.StreettextBox.TabIndex = 10;
+            this.StreettextBox.TabIndex = 1;
             this.StreettextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StreettextBox_KeyDown);
             // 
             // label15
@@ -483,7 +483,7 @@
             this.cmbRelationShip.Location = new System.Drawing.Point(203, 478);
             this.cmbRelationShip.Name = "cmbRelationShip";
             this.cmbRelationShip.Size = new System.Drawing.Size(237, 30);
-            this.cmbRelationShip.TabIndex = 92;
+            this.cmbRelationShip.TabIndex = 14;
             this.cmbRelationShip.SelectedIndexChanged += new System.EventHandler(this.cmbRelationShip_SelectedIndexChanged);
             this.cmbRelationShip.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRelationShip_KeyDown);
             // 
@@ -495,7 +495,7 @@
             this.groupBox2.Location = new System.Drawing.Point(466, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(694, 248);
-            this.groupBox2.TabIndex = 91;
+            this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential  Address";
             // 
@@ -544,7 +544,7 @@
             this.groupBox5.Location = new System.Drawing.Point(17, 29);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(661, 203);
-            this.groupBox5.TabIndex = 85;
+            this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
             // txtRABlock
@@ -553,7 +553,7 @@
             this.txtRABlock.Location = new System.Drawing.Point(157, 104);
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtRABlock.TabIndex = 83;
+            this.txtRABlock.TabIndex = 4;
             this.txtRABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRABlock_KeyDown);
             // 
             // cmbRAPost
@@ -563,7 +563,7 @@
             this.cmbRAPost.Location = new System.Drawing.Point(454, 119);
             this.cmbRAPost.Name = "cmbRAPost";
             this.cmbRAPost.Size = new System.Drawing.Size(196, 30);
-            this.cmbRAPost.TabIndex = 82;
+            this.cmbRAPost.TabIndex = 10;
             this.cmbRAPost.SelectedIndexChanged += new System.EventHandler(this.cmbRAPost_SelectedIndexChanged_1);
             this.cmbRAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAPost_KeyDown);
             // 
@@ -603,7 +603,7 @@
             this.cmbRADivision.Location = new System.Drawing.Point(452, 20);
             this.cmbRADivision.Name = "cmbRADivision";
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbRADivision.TabIndex = 78;
+            this.cmbRADivision.TabIndex = 7;
             this.cmbRADivision.SelectedIndexChanged += new System.EventHandler(this.cmbRADivision_SelectedIndexChanged_1);
             this.cmbRADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADivision_KeyDown);
             // 
@@ -653,7 +653,7 @@
             this.cmbRAThana.Location = new System.Drawing.Point(453, 85);
             this.cmbRAThana.Name = "cmbRAThana";
             this.cmbRAThana.Size = new System.Drawing.Size(197, 30);
-            this.cmbRAThana.TabIndex = 42;
+            this.cmbRAThana.TabIndex = 9;
             this.cmbRAThana.SelectedIndexChanged += new System.EventHandler(this.cmbRAThana_SelectedIndexChanged_1);
             this.cmbRAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAThana_KeyDown);
             // 
@@ -664,7 +664,7 @@
             this.txtRAContactNo.MaxLength = 11;
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
-            this.txtRAContactNo.TabIndex = 41;
+            this.txtRAContactNo.TabIndex = 6;
             this.txtRAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAContactNo_KeyDown);
             this.txtRAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRAContactNo_KeyPress_1);
             // 
@@ -686,7 +686,7 @@
             this.cmbRADistrict.Location = new System.Drawing.Point(452, 54);
             this.cmbRADistrict.Name = "cmbRADistrict";
             this.cmbRADistrict.Size = new System.Drawing.Size(198, 27);
-            this.cmbRADistrict.TabIndex = 19;
+            this.cmbRADistrict.TabIndex = 8;
             this.cmbRADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbRADistrict_SelectedIndexChanged_1);
             this.cmbRADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADistrict_KeyDown);
             // 
@@ -707,7 +707,7 @@
             this.txtRAPostCode.Name = "txtRAPostCode";
             this.txtRAPostCode.ReadOnly = true;
             this.txtRAPostCode.Size = new System.Drawing.Size(196, 29);
-            this.txtRAPostCode.TabIndex = 17;
+            this.txtRAPostCode.TabIndex = 11;
             this.txtRAPostCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAPostCode_KeyDown);
             // 
             // txtRAArea
@@ -716,7 +716,7 @@
             this.txtRAArea.Location = new System.Drawing.Point(158, 133);
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
-            this.txtRAArea.TabIndex = 15;
+            this.txtRAArea.TabIndex = 5;
             this.txtRAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAArea_KeyDown);
             // 
             // label20
@@ -755,7 +755,7 @@
             this.txtRARoadNo.Location = new System.Drawing.Point(158, 75);
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRARoadNo.TabIndex = 10;
+            this.txtRARoadNo.TabIndex = 3;
             this.txtRARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRARoadNo_KeyDown);
             // 
             // txtRAHouseNo
@@ -764,7 +764,7 @@
             this.txtRAHouseNo.Location = new System.Drawing.Point(158, 46);
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAHouseNo.TabIndex = 9;
+            this.txtRAHouseNo.TabIndex = 2;
             this.txtRAHouseNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAHouseNo_KeyDown);
             // 
             // txtRAFlatNo
@@ -773,7 +773,7 @@
             this.txtRAFlatNo.Location = new System.Drawing.Point(158, 17);
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAFlatNo.TabIndex = 8;
+            this.txtRAFlatNo.TabIndex = 1;
             this.txtRAFlatNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAFlatNo_KeyDown);
             // 
             // label17
@@ -825,7 +825,7 @@
             this.groupBox3.Location = new System.Drawing.Point(466, 261);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(694, 248);
-            this.groupBox3.TabIndex = 90;
+            this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
             // 
@@ -885,7 +885,7 @@
             this.groupBox4.Location = new System.Drawing.Point(13, 30);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(672, 203);
-            this.groupBox4.TabIndex = 86;
+            this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
             // txtWABlock
@@ -894,7 +894,7 @@
             this.txtWABlock.Location = new System.Drawing.Point(158, 108);
             this.txtWABlock.Name = "txtWABlock";
             this.txtWABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtWABlock.TabIndex = 83;
+            this.txtWABlock.TabIndex = 4;
             this.txtWABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWABlock_KeyDown);
             // 
             // cmbWAPost
@@ -904,7 +904,7 @@
             this.cmbWAPost.Location = new System.Drawing.Point(452, 122);
             this.cmbWAPost.Name = "cmbWAPost";
             this.cmbWAPost.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAPost.TabIndex = 82;
+            this.cmbWAPost.TabIndex = 10;
             this.cmbWAPost.SelectedIndexChanged += new System.EventHandler(this.cmbWAPost_SelectedIndexChanged_1);
             this.cmbWAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAPost_KeyDown);
             // 
@@ -944,7 +944,7 @@
             this.cmbWADivision.Location = new System.Drawing.Point(452, 20);
             this.cmbWADivision.Name = "cmbWADivision";
             this.cmbWADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbWADivision.TabIndex = 78;
+            this.cmbWADivision.TabIndex = 7;
             this.cmbWADivision.SelectedIndexChanged += new System.EventHandler(this.cmbWADivision_SelectedIndexChanged_1);
             this.cmbWADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADivision_KeyDown);
             // 
@@ -994,7 +994,7 @@
             this.cmbWAThana.Location = new System.Drawing.Point(452, 85);
             this.cmbWAThana.Name = "cmbWAThana";
             this.cmbWAThana.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAThana.TabIndex = 42;
+            this.cmbWAThana.TabIndex = 9;
             this.cmbWAThana.SelectedIndexChanged += new System.EventHandler(this.cmbWAThana_SelectedIndexChanged_1);
             this.cmbWAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAThana_KeyDown);
             // 
@@ -1005,7 +1005,7 @@
             this.txtWAContactNo.MaxLength = 11;
             this.txtWAContactNo.Name = "txtWAContactNo";
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 26);
-            this.txtWAContactNo.TabIndex = 41;
+            this.txtWAContactNo.TabIndex = 6;
             this.txtWAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAContactNo_KeyDown);
             this.txtWAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWAContactNo_KeyPress_1);
             // 
@@ -1027,7 +1027,7 @@
             this.cmbWADistrict.Location = new System.Drawing.Point(451, 54);
             this.cmbWADistrict.Name = "cmbWADistrict";
             this.cmbWADistrict.Size = new System.Drawing.Size(199, 27);
-            this.cmbWADistrict.TabIndex = 19;
+            this.cmbWADistrict.TabIndex = 8;
             this.cmbWADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbWADistrict_SelectedIndexChanged_1);
             this.cmbWADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADistrict_KeyDown);
             // 
@@ -1048,7 +1048,7 @@
             this.txtWAPostCode.Name = "txtWAPostCode";
             this.txtWAPostCode.ReadOnly = true;
             this.txtWAPostCode.Size = new System.Drawing.Size(198, 29);
-            this.txtWAPostCode.TabIndex = 17;
+            this.txtWAPostCode.TabIndex = 11;
             this.txtWAPostCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAPostCode_KeyDown);
             // 
             // txtWAArea
@@ -1057,7 +1057,7 @@
             this.txtWAArea.Location = new System.Drawing.Point(158, 138);
             this.txtWAArea.Name = "txtWAArea";
             this.txtWAArea.Size = new System.Drawing.Size(171, 26);
-            this.txtWAArea.TabIndex = 15;
+            this.txtWAArea.TabIndex = 5;
             this.txtWAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAArea_KeyDown);
             // 
             // label48
@@ -1096,7 +1096,7 @@
             this.txtWARoadNo.Location = new System.Drawing.Point(158, 78);
             this.txtWARoadNo.Name = "txtWARoadNo";
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 26);
-            this.txtWARoadNo.TabIndex = 10;
+            this.txtWARoadNo.TabIndex = 3;
             this.txtWARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWARoadNo_KeyDown);
             // 
             // txtWAHouseName
@@ -1105,7 +1105,7 @@
             this.txtWAHouseName.Location = new System.Drawing.Point(158, 49);
             this.txtWAHouseName.Name = "txtWAHouseName";
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 26);
-            this.txtWAHouseName.TabIndex = 9;
+            this.txtWAHouseName.TabIndex = 2;
             this.txtWAHouseName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAHouseName_KeyDown);
             // 
             // txtWAFlatName
@@ -1114,7 +1114,7 @@
             this.txtWAFlatName.Location = new System.Drawing.Point(158, 20);
             this.txtWAFlatName.Name = "txtWAFlatName";
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 26);
-            this.txtWAFlatName.TabIndex = 8;
+            this.txtWAFlatName.TabIndex = 1;
             this.txtWAFlatName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAFlatName_KeyDown);
             // 
             // label51
@@ -1162,7 +1162,7 @@
             this.txtImmo.Location = new System.Drawing.Point(203, 622);
             this.txtImmo.Name = "txtImmo";
             this.txtImmo.Size = new System.Drawing.Size(238, 29);
-            this.txtImmo.TabIndex = 89;
+            this.txtImmo.TabIndex = 18;
             this.txtImmo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtImmo_KeyDown);
             this.txtImmo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImmo_KeyPress);
             // 
@@ -1181,7 +1181,7 @@
             this.txtWhatsApp.Location = new System.Drawing.Point(203, 586);
             this.txtWhatsApp.Name = "txtWhatsApp";
             this.txtWhatsApp.Size = new System.Drawing.Size(238, 29);
-            this.txtWhatsApp.TabIndex = 87;
+            this.txtWhatsApp.TabIndex = 17;
             this.txtWhatsApp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWhatsApp_KeyDown);
             this.txtWhatsApp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWhatsApp_KeyPress);
             // 
@@ -1203,7 +1203,7 @@
             this.cmbJobTitle.Location = new System.Drawing.Point(206, 235);
             this.cmbJobTitle.Name = "cmbJobTitle";
             this.cmbJobTitle.Size = new System.Drawing.Size(235, 30);
-            this.cmbJobTitle.TabIndex = 83;
+            this.cmbJobTitle.TabIndex = 7;
             this.cmbJobTitle.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitle_SelectedIndexChanged);
             this.cmbJobTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbJobTitle_KeyDown);
             // 
@@ -1216,7 +1216,7 @@
             this.cmbCompanyName.Location = new System.Drawing.Point(205, 200);
             this.cmbCompanyName.Name = "cmbCompanyName";
             this.cmbCompanyName.Size = new System.Drawing.Size(235, 30);
-            this.cmbCompanyName.TabIndex = 82;
+            this.cmbCompanyName.TabIndex = 6;
             this.cmbCompanyName.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyName_SelectedIndexChanged);
             this.cmbCompanyName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCompanyName_KeyDown);
             // 
@@ -1228,7 +1228,7 @@
             this.cmbEmailAddress.Location = new System.Drawing.Point(206, 165);
             this.cmbEmailAddress.Name = "cmbEmailAddress";
             this.cmbEmailAddress.Size = new System.Drawing.Size(235, 30);
-            this.cmbEmailAddress.TabIndex = 81;
+            this.cmbEmailAddress.TabIndex = 5;
             this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
             this.cmbEmailAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEmailAddress_KeyDown);
             this.cmbEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEmailAddress_Validating);
@@ -1238,7 +1238,7 @@
             this.txtFatherName.Location = new System.Drawing.Point(206, 132);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(235, 29);
-            this.txtFatherName.TabIndex = 80;
+            this.txtFatherName.TabIndex = 4;
             this.txtFatherName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFatherName_KeyDown);
             // 
             // label27
@@ -1256,7 +1256,7 @@
             this.txtSkypeId.Location = new System.Drawing.Point(203, 549);
             this.txtSkypeId.Name = "txtSkypeId";
             this.txtSkypeId.Size = new System.Drawing.Size(238, 29);
-            this.txtSkypeId.TabIndex = 78;
+            this.txtSkypeId.TabIndex = 16;
             this.txtSkypeId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSkypeId_KeyDown);
             // 
             // label31
@@ -1274,7 +1274,7 @@
             this.txtWebsite.Location = new System.Drawing.Point(203, 514);
             this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(238, 29);
-            this.txtWebsite.TabIndex = 76;
+            this.txtWebsite.TabIndex = 15;
             this.txtWebsite.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWebsite_KeyDown);
             // 
             // label30
@@ -1313,7 +1313,7 @@
             this.textNickName.Location = new System.Drawing.Point(205, 99);
             this.textNickName.Name = "textNickName";
             this.textNickName.Size = new System.Drawing.Size(235, 29);
-            this.textNickName.TabIndex = 68;
+            this.textNickName.TabIndex = 3;
             this.textNickName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textNickName_KeyDown);
             // 
             // label25
@@ -1336,7 +1336,7 @@
             this.cmbProfession.Location = new System.Drawing.Point(205, 336);
             this.cmbProfession.Name = "cmbProfession";
             this.cmbProfession.Size = new System.Drawing.Size(235, 30);
-            this.cmbProfession.TabIndex = 66;
+            this.cmbProfession.TabIndex = 10;
             this.cmbProfession.SelectedIndexChanged += new System.EventHandler(this.cmbProfession_SelectedIndexChanged);
             this.cmbProfession.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProfession_KeyDown_1);
             // 
@@ -1349,7 +1349,7 @@
             this.cmbSpecialization.Location = new System.Drawing.Point(205, 301);
             this.cmbSpecialization.Name = "cmbSpecialization";
             this.cmbSpecialization.Size = new System.Drawing.Size(235, 30);
-            this.cmbSpecialization.TabIndex = 65;
+            this.cmbSpecialization.TabIndex = 9;
             this.cmbSpecialization.SelectedIndexChanged += new System.EventHandler(this.cmbSpecialization_SelectedIndexChanged);
             this.cmbSpecialization.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSpecialization_KeyDown_1);
             // 
@@ -1362,7 +1362,7 @@
             this.cmbAgeGroup.Location = new System.Drawing.Point(205, 442);
             this.cmbAgeGroup.Name = "cmbAgeGroup";
             this.cmbAgeGroup.Size = new System.Drawing.Size(235, 30);
-            this.cmbAgeGroup.TabIndex = 64;
+            this.cmbAgeGroup.TabIndex = 13;
             this.cmbAgeGroup.SelectedIndexChanged += new System.EventHandler(this.cmbAgeGroup_SelectedIndexChanged);
             this.cmbAgeGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbAgeGroup_KeyDown_1);
             // 
@@ -1375,7 +1375,7 @@
             this.cmbHighestDegree.Location = new System.Drawing.Point(205, 406);
             this.cmbHighestDegree.Name = "cmbHighestDegree";
             this.cmbHighestDegree.Size = new System.Drawing.Size(235, 30);
-            this.cmbHighestDegree.TabIndex = 63;
+            this.cmbHighestDegree.TabIndex = 12;
             this.cmbHighestDegree.SelectedIndexChanged += new System.EventHandler(this.cmbHighestDegree_SelectedIndexChanged);
             this.cmbHighestDegree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbHighestDegree_KeyDown_1);
             // 
@@ -1388,7 +1388,7 @@
             this.cmbEducationalLevel.Location = new System.Drawing.Point(205, 371);
             this.cmbEducationalLevel.Name = "cmbEducationalLevel";
             this.cmbEducationalLevel.Size = new System.Drawing.Size(235, 30);
-            this.cmbEducationalLevel.TabIndex = 62;
+            this.cmbEducationalLevel.TabIndex = 11;
             this.cmbEducationalLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationalLevel_SelectedIndexChanged);
             this.cmbEducationalLevel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEducationalLevel_KeyDown_1);
             // 
@@ -1467,7 +1467,7 @@
             this.cmbCategoryName.Location = new System.Drawing.Point(205, 270);
             this.cmbCategoryName.Name = "cmbCategoryName";
             this.cmbCategoryName.Size = new System.Drawing.Size(235, 27);
-            this.cmbCategoryName.TabIndex = 51;
+            this.cmbCategoryName.TabIndex = 8;
             this.cmbCategoryName.SelectedIndexChanged += new System.EventHandler(this.cmbCategoryName_SelectedIndexChanged_1);
             this.cmbCategoryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCategoryName_KeyDown_1);
             // 
@@ -1488,7 +1488,7 @@
             this.txtPersonName.Location = new System.Drawing.Point(205, 65);
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(235, 29);
-            this.txtPersonName.TabIndex = 46;
+            this.txtPersonName.TabIndex = 2;
             this.txtPersonName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPersonName_KeyDown);
             // 
             // label9

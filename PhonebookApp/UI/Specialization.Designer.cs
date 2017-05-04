@@ -60,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(21, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveSpecialization
@@ -71,7 +71,7 @@
             this.btnSaveSpecialization.Location = new System.Drawing.Point(305, 166);
             this.btnSaveSpecialization.Name = "btnSaveSpecialization";
             this.btnSaveSpecialization.Size = new System.Drawing.Size(124, 70);
-            this.btnSaveSpecialization.TabIndex = 5;
+            this.btnSaveSpecialization.TabIndex = 1;
             this.btnSaveSpecialization.Text = "Save ";
             this.btnSaveSpecialization.UseVisualStyleBackColor = false;
             this.btnSaveSpecialization.Click += new System.EventHandler(this.btnSaveSpecialization_Click);

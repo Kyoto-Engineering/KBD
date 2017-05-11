@@ -184,6 +184,12 @@
     <Compile Include="UI\AgeGroup.Designer.cs">
       <DependentUpon>AgeGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CompanyCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CompanyCreation.designer.cs">
+      <DependentUpon>CompanyCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\EducationLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,12 @@
     </Compile>
     <Compile Include="UI\frmCompany.Designer.cs">
       <DependentUpon>frmCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmIndustryCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmIndustryCategory.designer.cs">
+      <DependentUpon>frmIndustryCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmJobTitle.cs">
       <SubType>Form</SubType>
@@ -325,6 +337,9 @@
     <EmbeddedResource Include="UI\AgeGroup.resx">
       <DependentUpon>AgeGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\CompanyCreation.resx">
+      <DependentUpon>CompanyCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\EducationLevel.resx">
       <DependentUpon>EducationLevel.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +361,9 @@
     </Compile>
     <EmbeddedResource Include="UI\frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmIndustryCategory.resx">
+      <DependentUpon>frmIndustryCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmJobTitle.resx">
       <DependentUpon>frmJobTitle.cs</DependentUpon>

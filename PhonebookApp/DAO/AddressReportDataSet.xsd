@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AddressReportDataSet" targetNamespace="http://tempuri.org/AddressReportDataSet.xsd" xmlns:mstns="http://tempuri.org/AddressReportDataSet.xsd" xmlns="http://tempuri.org/AddressReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AddressReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AddressReportDataSet" msprop:Generator_UserDSName="AddressReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AddressDataTable" msprop:Generator_TableClassName="AddressDataTableDataTable" msprop:Generator_TableVarName="tableAddressDataTable" msprop:Generator_RowChangedName="AddressDataTableRowChanged" msprop:Generator_TablePropName="AddressDataTable" msprop:Generator_RowDeletingName="AddressDataTableRowDeleting" msprop:Generator_RowChangingName="AddressDataTableRowChanging" msprop:Generator_RowEvHandlerName="AddressDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AddressDataTableRowDeleted" msprop:Generator_RowClassName="AddressDataTableRow" msprop:Generator_UserTableName="AddressDataTable" msprop:Generator_RowEvArgName="AddressDataTableRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PersonName" msprop:Generator_ColumnVarNameInTable="columnPersonName" msprop:Generator_ColumnPropNameInRow="PersonName" msprop:Generator_ColumnPropNameInTable="PersonNameColumn" msprop:Generator_UserColumnName="PersonName" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="JobTitleName" msprop:Generator_ColumnVarNameInTable="columnJobTitleName" msprop:Generator_ColumnPropNameInRow="JobTitleName" msprop:Generator_ColumnPropNameInTable="JobTitleNameColumn" msprop:Generator_UserColumnName="JobTitleName" type="xs:string" minOccurs="0" />
+              <xs:element name="RFlatNo" msprop:Generator_ColumnVarNameInTable="columnRFlatNo" msprop:Generator_ColumnPropNameInRow="RFlatNo" msprop:Generator_ColumnPropNameInTable="RFlatNoColumn" msprop:Generator_UserColumnName="RFlatNo" type="xs:string" minOccurs="0" />
+              <xs:element name="RHouseNo" msprop:Generator_ColumnVarNameInTable="columnRHouseNo" msprop:Generator_ColumnPropNameInRow="RHouseNo" msprop:Generator_ColumnPropNameInTable="RHouseNoColumn" msprop:Generator_UserColumnName="RHouseNo" type="xs:string" minOccurs="0" />
+              <xs:element name="RRoadNo" msprop:Generator_ColumnVarNameInTable="columnRRoadNo" msprop:Generator_ColumnPropNameInRow="RRoadNo" msprop:Generator_ColumnPropNameInTable="RRoadNoColumn" msprop:Generator_UserColumnName="RRoadNo" type="xs:string" minOccurs="0" />
+              <xs:element name="RBlock" msprop:Generator_ColumnVarNameInTable="columnRBlock" msprop:Generator_ColumnPropNameInRow="RBlock" msprop:Generator_ColumnPropNameInTable="RBlockColumn" msprop:Generator_UserColumnName="RBlock" type="xs:string" minOccurs="0" />
+              <xs:element name="RArea" msprop:Generator_ColumnVarNameInTable="columnRArea" msprop:Generator_ColumnPropNameInRow="RArea" msprop:Generator_ColumnPropNameInTable="RAreaColumn" msprop:Generator_UserColumnName="RArea" type="xs:string" minOccurs="0" />
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:string" minOccurs="0" />
+              <xs:element name="PostCode" msprop:Generator_ColumnVarNameInTable="columnPostCode" msprop:Generator_ColumnPropNameInRow="PostCode" msprop:Generator_ColumnPropNameInTable="PostCodeColumn" msprop:Generator_UserColumnName="PostCode" type="xs:string" minOccurs="0" />
+              <xs:element name="QRCODE" msprop:Generator_ColumnVarNameInTable="columnQRCODE" msprop:Generator_ColumnPropNameInRow="QRCODE" msprop:Generator_ColumnPropNameInTable="QRCODEColumn" msprop:Generator_UserColumnName="QRCODE" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -32,7 +32,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -69,6 +69,9 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="QRCoder">
+      <HintPath>..\packages\QRCoder.1.2.7\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -81,10 +84,27 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\packages\QRCoder.1.2.7\lib\net40\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Person.cs" />
     <Compile Include="DAL\User.cs" />
+    <Compile Include="DAO\AddressReportDataSet.cs">
+      <DependentUpon>AddressReportDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DAO\AddressReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddressReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\BarCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DbGateway\ConnectionGateway.cs" />
     <Compile Include="DbGateway\ConnectionString.cs" />
     <Compile Include="Gateway\UserGateway.cs" />
@@ -110,6 +130,12 @@
       <DependentUpon>UserManagementUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Reports\BarCode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\Document.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +147,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EidGreetings.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GreetingCardsForWorkingAdd.cs">
+      <DependentUpon>GreetingCardsForWorkingAdd.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\GreetingCards.cs">
       <AutoGen>True</AutoGen>
@@ -139,6 +171,12 @@
     </Compile>
     <Compile Include="Reports\ReportViewer.Designer.cs">
       <DependentUpon>ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TestReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\AgeGroup.cs">
       <SubType>Form</SubType>
@@ -253,6 +291,10 @@
     <EmbeddedResource Include="LogInUI\UserManagementUI.resx">
       <DependentUpon>UserManagementUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BarCode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BarCode.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Document.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Document.cs</LastGenOutput>
@@ -260,6 +302,10 @@
     <EmbeddedResource Include="Reports\EidGreetings.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetings.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GreetingCardsForWorkingAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GreetingCardsForWorkingAdd.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GreetingCards.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -271,6 +317,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TestReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TestReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AgeGroup.resx">
       <DependentUpon>AgeGroup.cs</DependentUpon>
@@ -292,6 +342,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
@@ -329,6 +380,29 @@
     <EmbeddedResource Include="UI\Specialization.resx">
       <DependentUpon>Specialization.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DAO\AddressReportDataSet.xsc">
+      <DependentUpon>AddressReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DAO\AddressReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AddressReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAO\AddressReportDataSet.xss">
+      <DependentUpon>AddressReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DAO\BarCode.xsc">
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </None>
+    <None Include="DAO\BarCode.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BarCode.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAO\BarCode.xss">
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="PhonebookApp_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -360,9 +434,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kyoto Google Plus  Profile.png" />
+    <Content Include="Resources\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,7 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyCreation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbNatureOfClient = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.IndustryCategorycomboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCompanytype = new System.Windows.Forms.ComboBox();
+            this.lblCategoryName = new System.Windows.Forms.Label();
+            this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.FblocktextBox = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.tDivisionCombo = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -58,6 +68,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.blocktextBox = new System.Windows.Forms.TextBox();
             this.cPostOfficeCombo = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -94,22 +105,11 @@
             this.newButton = new System.Windows.Forms.Button();
             this.tBlockTextBox2 = new wmgCMS.WaterMarkTextBox();
             this.cBlockTextBox1 = new wmgCMS.WaterMarkTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.IndustryCategorycomboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbCompanytype = new System.Windows.Forms.ComboBox();
-            this.lblCategoryName = new System.Windows.Forms.Label();
-            this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
-            this.cmbNatureOfClient = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -127,9 +127,113 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cmbNatureOfClient);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.IndustryCategorycomboBox);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.cmbCompanytype);
+            this.groupBox5.Controls.Add(this.lblCategoryName);
+            this.groupBox5.Controls.Add(this.CompanyNameTextBox);
+            this.groupBox5.Location = new System.Drawing.Point(5, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(431, 202);
+            this.groupBox5.TabIndex = 81;
+            this.groupBox5.TabStop = false;
+            // 
+            // cmbNatureOfClient
+            // 
+            this.cmbNatureOfClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNatureOfClient.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNatureOfClient.FormattingEnabled = true;
+            this.cmbNatureOfClient.Location = new System.Drawing.Point(146, 143);
+            this.cmbNatureOfClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbNatureOfClient.Name = "cmbNatureOfClient";
+            this.cmbNatureOfClient.Size = new System.Drawing.Size(278, 27);
+            this.cmbNatureOfClient.TabIndex = 72;
+            this.cmbNatureOfClient.SelectedIndexChanged += new System.EventHandler(this.cmbNatureOfClient_SelectedIndexChanged_1);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(5, 143);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 19);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Nature Of Business ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 19);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Industry Category";
+            // 
+            // IndustryCategorycomboBox
+            // 
+            this.IndustryCategorycomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.IndustryCategorycomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.IndustryCategorycomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IndustryCategorycomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IndustryCategorycomboBox.FormattingEnabled = true;
+            this.IndustryCategorycomboBox.Location = new System.Drawing.Point(146, 103);
+            this.IndustryCategorycomboBox.Name = "IndustryCategorycomboBox";
+            this.IndustryCategorycomboBox.Size = new System.Drawing.Size(278, 30);
+            this.IndustryCategorycomboBox.TabIndex = 9;
+            this.IndustryCategorycomboBox.SelectedIndexChanged += new System.EventHandler(this.IndustryCategorycomboBox_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 19);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Company Type";
+            // 
+            // cmbCompanytype
+            // 
+            this.cmbCompanytype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCompanytype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCompanytype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCompanytype.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCompanytype.FormattingEnabled = true;
+            this.cmbCompanytype.Location = new System.Drawing.Point(146, 62);
+            this.cmbCompanytype.Name = "cmbCompanytype";
+            this.cmbCompanytype.Size = new System.Drawing.Size(278, 30);
+            this.cmbCompanytype.TabIndex = 7;
+            this.cmbCompanytype.SelectedIndexChanged += new System.EventHandler(this.cmbCompanytype_SelectedIndexChanged);
+            // 
+            // lblCategoryName
+            // 
+            this.lblCategoryName.AutoSize = true;
+            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.Location = new System.Drawing.Point(9, 25);
+            this.lblCategoryName.Name = "lblCategoryName";
+            this.lblCategoryName.Size = new System.Drawing.Size(116, 19);
+            this.lblCategoryName.TabIndex = 0;
+            this.lblCategoryName.Text = "Company Name";
+            // 
+            // CompanyNameTextBox
+            // 
+            this.CompanyNameTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyNameTextBox.Location = new System.Drawing.Point(146, 22);
+            this.CompanyNameTextBox.Name = "CompanyNameTextBox";
+            this.CompanyNameTextBox.Size = new System.Drawing.Size(278, 29);
+            this.CompanyNameTextBox.TabIndex = 1;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.FblocktextBox);
             this.groupBox3.Controls.Add(this.label47);
             this.groupBox3.Controls.Add(this.tDivisionCombo);
             this.groupBox3.Controls.Add(this.label48);
@@ -163,6 +267,14 @@
             this.groupBox3.Size = new System.Drawing.Size(651, 202);
             this.groupBox3.TabIndex = 60;
             this.groupBox3.TabStop = false;
+            // 
+            // FblocktextBox
+            // 
+            this.FblocktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FblocktextBox.Location = new System.Drawing.Point(157, 106);
+            this.FblocktextBox.Name = "FblocktextBox";
+            this.FblocktextBox.Size = new System.Drawing.Size(162, 26);
+            this.FblocktextBox.TabIndex = 89;
             // 
             // label47
             // 
@@ -426,7 +538,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.blocktextBox);
             this.groupBox2.Controls.Add(this.cPostOfficeCombo);
             this.groupBox2.Controls.Add(this.label44);
             this.groupBox2.Controls.Add(this.label43);
@@ -461,6 +573,14 @@
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address or Corporate Address";
+            // 
+            // blocktextBox
+            // 
+            this.blocktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blocktextBox.Location = new System.Drawing.Point(154, 112);
+            this.blocktextBox.Name = "blocktextBox";
+            this.blocktextBox.Size = new System.Drawing.Size(172, 26);
+            this.blocktextBox.TabIndex = 82;
             // 
             // cPostOfficeCombo
             // 
@@ -831,126 +951,6 @@
             this.cBlockTextBox1.WaterMarkColor = System.Drawing.Color.Gray;
             this.cBlockTextBox1.WaterMarkText = "if Any";
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 26);
-            this.textBox1.TabIndex = 82;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(157, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 26);
-            this.textBox2.TabIndex = 89;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.cmbNatureOfClient);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.IndustryCategorycomboBox);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.cmbCompanytype);
-            this.groupBox5.Controls.Add(this.lblCategoryName);
-            this.groupBox5.Controls.Add(this.CompanyNameTextBox);
-            this.groupBox5.Location = new System.Drawing.Point(5, 21);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(431, 202);
-            this.groupBox5.TabIndex = 81;
-            this.groupBox5.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 19);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Industry Category";
-            // 
-            // IndustryCategorycomboBox
-            // 
-            this.IndustryCategorycomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.IndustryCategorycomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.IndustryCategorycomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IndustryCategorycomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IndustryCategorycomboBox.FormattingEnabled = true;
-            this.IndustryCategorycomboBox.Location = new System.Drawing.Point(146, 103);
-            this.IndustryCategorycomboBox.Name = "IndustryCategorycomboBox";
-            this.IndustryCategorycomboBox.Size = new System.Drawing.Size(278, 30);
-            this.IndustryCategorycomboBox.TabIndex = 9;
-            this.IndustryCategorycomboBox.SelectedIndexChanged += new System.EventHandler(this.IndustryCategorycomboBox_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 65);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 19);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Company Type";
-            // 
-            // cmbCompanytype
-            // 
-            this.cmbCompanytype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCompanytype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbCompanytype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCompanytype.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCompanytype.FormattingEnabled = true;
-            this.cmbCompanytype.Location = new System.Drawing.Point(146, 62);
-            this.cmbCompanytype.Name = "cmbCompanytype";
-            this.cmbCompanytype.Size = new System.Drawing.Size(278, 30);
-            this.cmbCompanytype.TabIndex = 7;
-            this.cmbCompanytype.SelectedIndexChanged += new System.EventHandler(this.cmbCompanytype_SelectedIndexChanged);
-            // 
-            // lblCategoryName
-            // 
-            this.lblCategoryName.AutoSize = true;
-            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryName.Location = new System.Drawing.Point(9, 25);
-            this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(116, 19);
-            this.lblCategoryName.TabIndex = 0;
-            this.lblCategoryName.Text = "Company Name";
-            // 
-            // CompanyNameTextBox
-            // 
-            this.CompanyNameTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyNameTextBox.Location = new System.Drawing.Point(146, 22);
-            this.CompanyNameTextBox.Name = "CompanyNameTextBox";
-            this.CompanyNameTextBox.Size = new System.Drawing.Size(278, 29);
-            this.CompanyNameTextBox.TabIndex = 1;
-            // 
-            // cmbNatureOfClient
-            // 
-            this.cmbNatureOfClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNatureOfClient.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbNatureOfClient.FormattingEnabled = true;
-            this.cmbNatureOfClient.Location = new System.Drawing.Point(146, 143);
-            this.cmbNatureOfClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbNatureOfClient.Name = "cmbNatureOfClient";
-            this.cmbNatureOfClient.Size = new System.Drawing.Size(278, 27);
-            this.cmbNatureOfClient.TabIndex = 72;
-            this.cmbNatureOfClient.SelectedIndexChanged += new System.EventHandler(this.cmbNatureOfClient_SelectedIndexChanged_1);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(5, 143);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 19);
-            this.label11.TabIndex = 73;
-            this.label11.Text = "Nature Of Business ";
-            // 
             // CompanyCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -972,14 +972,14 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientRegistrationForm_FormClosed);
             this.Load += new System.EventHandler(this.ClientRegistrationForm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1054,8 +1054,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private wmgCMS.WaterMarkTextBox tBlockTextBox2;
         private wmgCMS.WaterMarkTextBox cBlockTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FblocktextBox;
+        private System.Windows.Forms.TextBox blocktextBox;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox cmbNatureOfClient;
         private System.Windows.Forms.Label label11;

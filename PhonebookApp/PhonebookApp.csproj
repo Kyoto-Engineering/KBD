@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kyoto Business Directory</ProductName>
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -69,6 +69,10 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="QRCoder, Version=1.2.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QRCoder.1.2.7\lib\net40\QRCoder.dll</HintPath>
       <Private>True</Private>

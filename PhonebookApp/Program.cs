@@ -24,7 +24,7 @@ namespace PhonebookApp
             //Application.Run(new GroupCreation());
             //Application.Run(new frmCategory());
             //Application.Run(new MainUI());
-            //Application.Run( new frmRegistration());
+            //Application.Run( new CompanyCreation());
         }
     }
 }

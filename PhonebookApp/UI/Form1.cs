@@ -440,8 +440,8 @@ namespace PhonebookApp
             if (CountrycomboBox.Text == "Bangladesh")
             {
 
-                //if (unKnownRA.Checked == false)
-                //{
+                if (unKnownRA.Checked == false)
+                {
                     if (string.IsNullOrWhiteSpace(cmbRADivision.Text))
                     {
                         MessageBox.Show("Please select Residential Address division", "Error", MessageBoxButtons.OK,
@@ -472,78 +472,11 @@ namespace PhonebookApp
 
                     }
 
-                //}
-                //if (unKnownCheckBox.Checked == false && sameAsRACheckBox.Checked == false)
-                //{
-                //    if (string.IsNullOrWhiteSpace(cmbWADivision.Text))
-                //    {
-                //        MessageBox.Show("Please select Working Address division", "Error", MessageBoxButtons.OK,
-                //            MessageBoxIcon.Error);
-                //        return;
-
-                //    }
-                //    if (string.IsNullOrWhiteSpace(cmbWADistrict.Text))
-                //    {
-                //        MessageBox.Show("Please Select Working Address district", "Error", MessageBoxButtons.OK,
-                //            MessageBoxIcon.Error);
-                //        return;
-
-                //    }
-                //    if (string.IsNullOrWhiteSpace(cmbWAThana.Text))
-                //    {
-                //        MessageBox.Show("Please select Working Address Thana", "Error", MessageBoxButtons.OK,
-                //            MessageBoxIcon.Error);
-                //        return;
-
-                //    }
-                //    if (string.IsNullOrWhiteSpace(cmbWAPost.Text))
-                //    {
-                //        MessageBox.Show("Please Select Working Address Post Name", "Error", MessageBoxButtons.OK,
-                //            MessageBoxIcon.Error);
-                //        return;
-
-                //    }
-
-                //}
-                //if (unKnownRA.Checked && unKnownCheckBox.Checked)
-                //{
-                //    MessageBox.Show("Please Enter at least One Address!", "Error", MessageBoxButtons.OK,
-                //        MessageBoxIcon.Information);
-                //}
-                //else
-                //{
                     try
                     {
-                        //1.Residential Address Applicable  & Working Address not Applicable
-                        //if (unKnownRA.Checked == false && unKnownCheckBox.Checked)
-                        //if (unKnownRA.Checked == false)
-                        //{
-                            SavePersonDetails();
-                            SaveWorkingAddress("ResidentialAddresses");
-                        //}
-                        //2.Residential Address Applicable  & Working Address Same as  Corporate Address                                        
-                        //if (unKnownRA.Checked == false && sameAsRACheckBox.Checked && unKnownCheckBox.Checked == false)
-                        //{
-                        //    SavePersonDetails();
-                        //    SaveWorkingAddress("ResidentialAddresses");
-                        //    WASameAsRA("WorkingAddresses");
+                        SavePersonDetails();
+                        SaveWorkingAddress("ResidentialAddresses");
 
-                        //}
-                        //3.Residential Address Applicable  & Working Address  Applicable
-                        //if (unKnownRA.Checked == false && sameAsRACheckBox.Checked == false &&
-                        //    unKnownCheckBox.Checked == false)
-                        //{
-                        //    SavePersonDetails();
-                        //    SaveWorkingAddress("ResidentialAddresses");
-                        //    SaveWorkingAddress("WorkingAddresses");
-                        //}
-                        //4 
-                        //if (unKnownRA.Checked && unKnownCheckBox.Checked == false)
-                        //if (unKnownRA.Checked)
-                        //{
-                        //    SavePersonDetails();
-                        //    SaveWorkingAddress("WorkingAddresses");
-                        //}
 
                         MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -570,9 +503,7 @@ namespace PhonebookApp
                         cmbAgeGroup.ResetText();
                         FillRelationShip();
                         cmbRelationShip.ResetText();
-                        //unKnownRA.Checked = false;
-                        //sameAsRACheckBox.Checked = false;
-                        //unKnownCheckBox.Checked = false;
+                        unKnownRA.Checked = false;
                         groupBox7.Hide();
                         btnInsert.Hide();
                         additionalInfobutton.Show();
@@ -581,7 +512,49 @@ namespace PhonebookApp
                     {
                         MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                //}
+
+                }
+               
+                else
+                {
+                    try
+                    {
+                        SavePersonDetails();
+                        MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Reset1();
+                        CountrycomboBox.SelectedItem = "Bangladesh";
+                        CountrycomboBox.Enabled = true;
+                        EmailAddress();
+                        cmbEmailAddress.ResetText();
+                        FillCompanyName();
+                        cmbCompanyName.ResetText();
+                        FillJobTitle();
+                        cmbJobTitle.ResetText();
+                        FillGroupName();
+                        GroupNamecomboBox.ResetText();
+                        FillSpecialization();
+                        cmbSpecialization.ResetText();
+                        FillProfession();
+                        cmbProfession.ResetText();
+                        FillEducationLevel();
+                        cmbEducationalLevel.ResetText();
+                        FillHighestDegree();
+                        cmbHighestDegree.ResetText();
+                        FillAgeGroup();
+                        cmbAgeGroup.ResetText();
+                        FillRelationShip();
+                        cmbRelationShip.ResetText();
+                        unKnownRA.Checked = false;
+                        groupBox7.Hide();
+                        btnInsert.Hide();
+                        additionalInfobutton.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
 
             else
@@ -3073,7 +3046,28 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void unKnownRA_CheckedChanged_1(object sender, EventArgs e)
+        {
+           
+                if (unKnownRA.Checked == true)
+                {
+                    Reset2Star();
+                    groupBox5.Enabled = false;
+                    ResetResidentialAddress();
+                    
+
+                }
+                else
+                {
+                    
+                    groupBox5.Enabled = true;
+                    groupBox5.Enabled = true;
+                    FillStar2();
+                }
+            }
         }      
     }
-}
+
 

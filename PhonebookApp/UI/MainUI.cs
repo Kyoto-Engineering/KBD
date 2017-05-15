@@ -50,7 +50,7 @@ namespace PhonebookApp.UI
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCompany frm = new frmCompany();
+            CompanyCreation frm = new CompanyCreation();
             frm.Show();
         }
 

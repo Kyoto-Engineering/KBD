@@ -1505,5 +1505,275 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void CompanyNameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CompanyNameTextBox.Text))
+            {
+                string companyname = CompanyNameTextBox.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(companyname)) && (!(CompanyNameTextBox.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your valid Company Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+                    CompanyNameTextBox.Focus();
+
+                }
+            }
+
+        }
+
+        private void tAreaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label46_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CompanyNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbCompanytype.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbCompanytype_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                IndustryCategorycomboBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void IndustryCategorycomboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbNatureOfClient.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbNatureOfClient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cFlatNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cFlatNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cHouseNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cHouseNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cRoadNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cRoadNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                blocktextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void blocktextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cAreaTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cAreaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cContactNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cContactNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cDivisionCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cDivisionCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cDistCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cDistCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cThanaCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cThanaCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cPostOfficeCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cPostOfficeCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cPostCodeTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cPostCodeTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tFlatNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tFlatNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tHouseNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tHouseNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tRoadNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tRoadNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FblocktextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void FblocktextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tAreaTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tAreaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tContactNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tContactNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tDivisionCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tDivisionCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tDistrictCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tDistrictCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tThenaCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tThenaCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tPostCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tPostCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tPostCodeTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tPostCodeTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               saveButton_Click(this, new EventArgs());
+            }
+        }
     }
 }

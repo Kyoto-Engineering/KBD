@@ -166,5 +166,10 @@ namespace PhonebookApp.LogInUI
 
             }
         }
+
+        private void txt1Password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

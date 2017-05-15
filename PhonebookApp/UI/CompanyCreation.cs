@@ -43,7 +43,7 @@ namespace PhonebookApp.UI
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string query = "insert into Company(CompanyName, UserId, DateAndTime,CompanyTypeId,IndustryCategoryId,NatureOfCompanyId) values(@d1,@d2,@d3,@d4,@d5,@d6)";
+            string query = "insert into Company(CompanyName, UserId, DateAndTime,CompanyTypeId,IndustryCategoryId,NatureOfCompanyId) values(@d1,@d2,@d3,@d4,@d5,@d6)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", CompanyNameTextBox.Text);
             cmd.Parameters.AddWithValue("@d2", user_id);
@@ -62,17 +62,17 @@ namespace PhonebookApp.UI
             string tableName = tblName1;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TContactNo,IClientId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(Qry);
             cmd.Connection = con;
             cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
             cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-            cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(cBlockTextBox1.Text) ? (object)DBNull.Value : cBlockTextBox1.Text));
+            cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-            cmd.Parameters.AddWithValue("@d11", currentClientId);
+            cmd.Parameters.AddWithValue("@d11", companyid);
             affectedRows2 = (int)cmd.ExecuteScalar();
             con.Close();
         }
@@ -90,7 +90,7 @@ namespace PhonebookApp.UI
                 cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(cBlockTextBox1.Text) ? (object)DBNull.Value : cBlockTextBox1.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
 
@@ -109,7 +109,7 @@ namespace PhonebookApp.UI
                 cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(tBlockTextBox2.Text) ? (object)DBNull.Value : tBlockTextBox2.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
                 cmd.Parameters.AddWithValue("@d11", companyid);
@@ -125,103 +125,112 @@ namespace PhonebookApp.UI
             if (string.IsNullOrWhiteSpace(CompanyNameTextBox.Text))
             {
                 MessageBox.Show("Please Enter Company Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                CompanyNameTextBox.Focus();
+                return;
             }
-            else if (cmbCompanytype.Text == "")
+             if (cmbCompanytype.Text == "")
             {
                 MessageBox.Show("Please Select Company Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbCompanytype.Focus();
-
+                return;
             }
 
-            else if (IndustryCategorycomboBox.Text == "")
+             if (IndustryCategorycomboBox.Text == "")
             {
                 MessageBox.Show("Please select Industry Category", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 IndustryCategorycomboBox.Focus();
-
+                return;
 
             }
-            else if (cmbNatureOfClient.Text == "")
+             if (cmbNatureOfClient.Text == "")
             {
-                MessageBox.Show("Please select Nature of Client", "Input Error", MessageBoxButtons.OK,
+                MessageBox.Show("Please select Nature of Business", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cmbNatureOfClient.Focus();
+                return;
 
             }
 
-            else if (cDivisionCombo.Text == "")
+             if (cDivisionCombo.Text == "")
             {
                 MessageBox.Show("Please Select Corporate Division", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cDivisionCombo.Focus();
+                return;
 
             }
-            else if (cDistCombo.Text == "")
+             if (cDistCombo.Text == "")
             {
                 MessageBox.Show("Please Select Corporate District", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cDistCombo.Focus();
+                return;
 
             }
-            else if (cThanaCombo.Text == "")
+             if (cThanaCombo.Text == "")
             {
                 MessageBox.Show("Please Enter Corporate Thana", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cThanaCombo.Focus();
+                return;
 
             }
-            else if (cPostOfficeCombo.Text == "")
+             if (cPostOfficeCombo.Text == "")
             {
                 MessageBox.Show("Please Enter Corporate PostOffice", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cPostOfficeCombo.Focus();
+                return;
 
             }
-            else if (cPostCodeTextBox.Text == "")
+             if (cPostCodeTextBox.Text == "")
             {
                 MessageBox.Show("Please Enter Corporate PostCode", "Input Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 cPostCodeTextBox.Focus();
+                return;
 
             }
-            else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
+            if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
             {
                 if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
                 {
                     MessageBox.Show("Please select factory division", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-
+                    tDivisionCombo.Focus();
+                    return;
                 }
-                else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
+                 if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
                 {
                     MessageBox.Show("Please Select factory district", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+                    tDistrictCombo.Focus();
+                    return;
 
                 }
-                else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
+                 if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
                 {
                     MessageBox.Show("Please select factory Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    tThenaCombo.Focus();
+                    return;
                 }
-                else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
+                 if (string.IsNullOrWhiteSpace(tPostCombo.Text))
                 {
                     MessageBox.Show("Please Select factory Post Name", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+                    return;
 
                 }
-                else if (string.IsNullOrWhiteSpace(tPostCodeTextBox.Text))
-                {
-                    MessageBox.Show("Please select factory Post Code", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                 if (string.IsNullOrWhiteSpace(tPostCodeTextBox.Text))
+                 {
+                     MessageBox.Show("Please select factory Post Code", "Error", MessageBoxButtons.OK,
+                         MessageBoxIcon.Error);
+                     return;
 
-                }
+                 }
             }
-            else
-            {
-
-
-               
+                        
                     try
                     {
                         con = new SqlConnection(cs.DBConn);
@@ -281,7 +290,7 @@ namespace PhonebookApp.UI
                         MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
                     }
 
-                }
+            
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -301,7 +310,7 @@ namespace PhonebookApp.UI
             tHouseNoTextBox.Clear();
             tRoadNoTextBox.Clear();
             tAreaTextBox.Clear();
-            tBlockTextBox2.Clear();
+            FblocktextBox.Clear();
             tContactNoTextBox.Text = "";
 
             tPostCodeTextBox.Clear();
@@ -335,7 +344,7 @@ namespace PhonebookApp.UI
         private void Reset()
         {
 
-            
+            cmbCompanytype.SelectedIndex = -1;
             cmbNatureOfClient.SelectedIndex = -1;
            
             IndustryCategorycomboBox.SelectedIndex = -1;
@@ -347,7 +356,7 @@ namespace PhonebookApp.UI
             cFlatNoTextBox.Clear();
             cHouseNoTextBox.Clear();
             cRoadNoTextBox.Clear();
-            cBlockTextBox1.Clear();
+            blocktextBox.Clear();
             cAreaTextBox.Clear();
             cContactNoTextBox.Clear();
 
@@ -1424,7 +1433,7 @@ namespace PhonebookApp.UI
                 con.Open();
                 cmd = con.CreateCommand();
 
-                cmd.CommandText = "SELECT NatureOfCompanyId from NatureOfCompaniess WHERE CompanyNature = '" + cmbNatureOfClient.Text + "'";
+                cmd.CommandText = "SELECT NatureOfCompanyId from NatureOfCompanies WHERE CompanyNature = '" + cmbNatureOfClient.Text + "'";
                 rdr = cmd.ExecuteReader();
 
                 if (rdr.Read())
@@ -1494,6 +1503,276 @@ namespace PhonebookApp.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CompanyNameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CompanyNameTextBox.Text))
+            {
+                string companyname = CompanyNameTextBox.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(companyname)) && (!(CompanyNameTextBox.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your valid Company Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+                    CompanyNameTextBox.Focus();
+
+                }
+            }
+
+        }
+
+        private void tAreaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label46_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CompanyNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbCompanytype.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbCompanytype_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                IndustryCategorycomboBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void IndustryCategorycomboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbNatureOfClient.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbNatureOfClient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cFlatNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cFlatNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cHouseNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cHouseNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cRoadNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cRoadNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                blocktextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void blocktextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cAreaTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cAreaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cContactNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cContactNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cDivisionCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cDivisionCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cDistCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cDistCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cThanaCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cThanaCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cPostOfficeCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cPostOfficeCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cPostCodeTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cPostCodeTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tFlatNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tFlatNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tHouseNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tHouseNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tRoadNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tRoadNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FblocktextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void FblocktextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tAreaTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tAreaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tContactNoTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tContactNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tDivisionCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tDivisionCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tDistrictCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tDistrictCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tThenaCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tThenaCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tPostCombo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tPostCombo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tPostCodeTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tPostCodeTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               saveButton_Click(this, new EventArgs());
             }
         }
     }

@@ -84,23 +84,21 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.sameAsRACheckBox = new System.Windows.Forms.CheckBox();
-            this.unKnownCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.WAPostOfficetextBox = new System.Windows.Forms.TextBox();
+            this.WAThanatextBox = new System.Windows.Forms.TextBox();
+            this.WADistricttextBox = new System.Windows.Forms.TextBox();
+            this.WAdivisiontextBox = new System.Windows.Forms.TextBox();
             this.txtWABlock = new System.Windows.Forms.TextBox();
-            this.cmbWAPost = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.cmbWADivision = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.cmbWAThana = new System.Windows.Forms.ComboBox();
             this.txtWAContactNo = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.cmbWADistrict = new System.Windows.Forms.ComboBox();
             this.label47 = new System.Windows.Forms.Label();
             this.txtWAPostCode = new System.Windows.Forms.TextBox();
             this.txtWAArea = new System.Windows.Forms.TextBox();
@@ -142,7 +140,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cmbCategoryName = new System.Windows.Forms.ComboBox();
+            this.GroupNamecomboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPersonName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -185,7 +183,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.additionalInfobutton);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
@@ -222,7 +219,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.cmbCategoryName);
+            this.groupBox1.Controls.Add(this.GroupNamecomboBox);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtPersonName);
             this.groupBox1.Controls.Add(this.label9);
@@ -249,7 +246,7 @@
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Location = new System.Drawing.Point(459, 405);
+            this.groupBox7.Location = new System.Drawing.Point(0, 134);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 127);
             this.groupBox7.TabIndex = 22;
@@ -397,9 +394,9 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(10, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(197, 22);
+            this.label14.Size = new System.Drawing.Size(199, 22);
             this.label14.TabIndex = 96;
-            this.label14.Text = "Country                       :";
+            this.label14.Text = "Country Of Res.          :";
             // 
             // groupBox6
             // 
@@ -502,13 +499,13 @@
             // unKnownRA
             // 
             this.unKnownRA.AutoSize = true;
-            this.unKnownRA.Location = new System.Drawing.Point(279, 13);
+            this.unKnownRA.Location = new System.Drawing.Point(252, 14);
             this.unKnownRA.Name = "unKnownRA";
             this.unKnownRA.Size = new System.Drawing.Size(107, 26);
-            this.unKnownRA.TabIndex = 86;
+            this.unKnownRA.TabIndex = 87;
             this.unKnownRA.Text = "Unknown";
             this.unKnownRA.UseVisualStyleBackColor = true;
-            this.unKnownRA.CheckedChanged += new System.EventHandler(this.unKnownRA_CheckedChanged);
+            this.unKnownRA.CheckedChanged += new System.EventHandler(this.unKnownRA_CheckedChanged_1);
             // 
             // groupBox5
             // 
@@ -725,9 +722,10 @@
             this.label20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(6, 133);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(155, 19);
+            this.label20.Size = new System.Drawing.Size(157, 19);
             this.label20.TabIndex = 14;
-            this.label20.Text = "Area                           :";
+            this.label20.Text = "Area / Village             :";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // label19
             // 
@@ -782,9 +780,9 @@
             this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(6, 107);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(153, 19);
+            this.label17.Size = new System.Drawing.Size(152, 19);
             this.label17.TabIndex = 7;
-            this.label17.Text = "Block                         :";
+            this.label17.Text = "Block / Sector           :";
             // 
             // label22
             // 
@@ -812,14 +810,13 @@
             this.label24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(6, 22);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(156, 19);
+            this.label24.Size = new System.Drawing.Size(154, 19);
             this.label24.TabIndex = 4;
-            this.label24.Text = "Flat No / Name          :";
+            this.label24.Text = "Flat No / Level          :";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.sameAsRACheckBox);
-            this.groupBox3.Controls.Add(this.unKnownCheckBox);
+            this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(466, 261);
@@ -829,44 +826,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
             // 
-            // sameAsRACheckBox
-            // 
-            this.sameAsRACheckBox.AutoSize = true;
-            this.sameAsRACheckBox.Location = new System.Drawing.Point(327, 12);
-            this.sameAsRACheckBox.Name = "sameAsRACheckBox";
-            this.sameAsRACheckBox.Size = new System.Drawing.Size(265, 26);
-            this.sameAsRACheckBox.TabIndex = 88;
-            this.sameAsRACheckBox.Text = "Same As Residential Address";
-            this.sameAsRACheckBox.UseVisualStyleBackColor = true;
-            this.sameAsRACheckBox.CheckedChanged += new System.EventHandler(this.sameAsRACheckBox_CheckedChanged);
-            // 
-            // unKnownCheckBox
-            // 
-            this.unKnownCheckBox.AutoSize = true;
-            this.unKnownCheckBox.Location = new System.Drawing.Point(170, 13);
-            this.unKnownCheckBox.Name = "unKnownCheckBox";
-            this.unKnownCheckBox.Size = new System.Drawing.Size(107, 26);
-            this.unKnownCheckBox.TabIndex = 87;
-            this.unKnownCheckBox.Text = "Unknown";
-            this.unKnownCheckBox.UseVisualStyleBackColor = true;
-            this.unKnownCheckBox.CheckedChanged += new System.EventHandler(this.unKnownCheckBox_CheckedChanged);
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.WAPostOfficetextBox);
+            this.groupBox4.Controls.Add(this.WAThanatextBox);
+            this.groupBox4.Controls.Add(this.WADistricttextBox);
+            this.groupBox4.Controls.Add(this.WAdivisiontextBox);
             this.groupBox4.Controls.Add(this.txtWABlock);
-            this.groupBox4.Controls.Add(this.cmbWAPost);
             this.groupBox4.Controls.Add(this.label35);
             this.groupBox4.Controls.Add(this.label36);
             this.groupBox4.Controls.Add(this.label37);
-            this.groupBox4.Controls.Add(this.cmbWADivision);
             this.groupBox4.Controls.Add(this.label38);
             this.groupBox4.Controls.Add(this.label39);
             this.groupBox4.Controls.Add(this.label40);
             this.groupBox4.Controls.Add(this.label45);
-            this.groupBox4.Controls.Add(this.cmbWAThana);
             this.groupBox4.Controls.Add(this.txtWAContactNo);
             this.groupBox4.Controls.Add(this.label46);
-            this.groupBox4.Controls.Add(this.cmbWADistrict);
             this.groupBox4.Controls.Add(this.label47);
             this.groupBox4.Controls.Add(this.txtWAPostCode);
             this.groupBox4.Controls.Add(this.txtWAArea);
@@ -882,31 +857,57 @@
             this.groupBox4.Controls.Add(this.label54);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox4.Location = new System.Drawing.Point(13, 30);
+            this.groupBox4.Location = new System.Drawing.Point(13, 26);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(672, 203);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
+            // 
+            // WAPostOfficetextBox
+            // 
+            this.WAPostOfficetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WAPostOfficetextBox.Location = new System.Drawing.Point(451, 126);
+            this.WAPostOfficetextBox.Name = "WAPostOfficetextBox";
+            this.WAPostOfficetextBox.ReadOnly = true;
+            this.WAPostOfficetextBox.Size = new System.Drawing.Size(198, 29);
+            this.WAPostOfficetextBox.TabIndex = 85;
+            // 
+            // WAThanatextBox
+            // 
+            this.WAThanatextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WAThanatextBox.Location = new System.Drawing.Point(451, 93);
+            this.WAThanatextBox.Name = "WAThanatextBox";
+            this.WAThanatextBox.ReadOnly = true;
+            this.WAThanatextBox.Size = new System.Drawing.Size(198, 29);
+            this.WAThanatextBox.TabIndex = 84;
+            // 
+            // WADistricttextBox
+            // 
+            this.WADistricttextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WADistricttextBox.Location = new System.Drawing.Point(451, 58);
+            this.WADistricttextBox.Name = "WADistricttextBox";
+            this.WADistricttextBox.ReadOnly = true;
+            this.WADistricttextBox.Size = new System.Drawing.Size(198, 29);
+            this.WADistricttextBox.TabIndex = 83;
+            // 
+            // WAdivisiontextBox
+            // 
+            this.WAdivisiontextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WAdivisiontextBox.Location = new System.Drawing.Point(451, 23);
+            this.WAdivisiontextBox.Name = "WAdivisiontextBox";
+            this.WAdivisiontextBox.ReadOnly = true;
+            this.WAdivisiontextBox.Size = new System.Drawing.Size(198, 29);
+            this.WAdivisiontextBox.TabIndex = 82;
             // 
             // txtWABlock
             // 
             this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWABlock.Location = new System.Drawing.Point(158, 108);
             this.txtWABlock.Name = "txtWABlock";
+            this.txtWABlock.ReadOnly = true;
             this.txtWABlock.Size = new System.Drawing.Size(172, 26);
             this.txtWABlock.TabIndex = 4;
             this.txtWABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWABlock_KeyDown);
-            // 
-            // cmbWAPost
-            // 
-            this.cmbWAPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWAPost.FormattingEnabled = true;
-            this.cmbWAPost.Location = new System.Drawing.Point(452, 122);
-            this.cmbWAPost.Name = "cmbWAPost";
-            this.cmbWAPost.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAPost.TabIndex = 10;
-            this.cmbWAPost.SelectedIndexChanged += new System.EventHandler(this.cmbWAPost_SelectedIndexChanged_1);
-            this.cmbWAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAPost_KeyDown);
             // 
             // label35
             // 
@@ -914,18 +915,17 @@
             this.label35.ForeColor = System.Drawing.Color.Red;
             this.label35.Location = new System.Drawing.Point(427, 127);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(20, 22);
+            this.label35.Size = new System.Drawing.Size(0, 22);
             this.label35.TabIndex = 81;
-            this.label35.Text = "*";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(336, 127);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(96, 22);
+            this.label36.Size = new System.Drawing.Size(116, 22);
             this.label36.TabIndex = 80;
-            this.label36.Text = "Post         :";
+            this.label36.Text = "Post             :";
             // 
             // label37
             // 
@@ -933,29 +933,17 @@
             this.label37.ForeColor = System.Drawing.Color.Red;
             this.label37.Location = new System.Drawing.Point(425, 25);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(20, 22);
+            this.label37.Size = new System.Drawing.Size(0, 22);
             this.label37.TabIndex = 79;
-            this.label37.Text = "*";
-            // 
-            // cmbWADivision
-            // 
-            this.cmbWADivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWADivision.FormattingEnabled = true;
-            this.cmbWADivision.Location = new System.Drawing.Point(452, 20);
-            this.cmbWADivision.Name = "cmbWADivision";
-            this.cmbWADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbWADivision.TabIndex = 7;
-            this.cmbWADivision.SelectedIndexChanged += new System.EventHandler(this.cmbWADivision_SelectedIndexChanged_1);
-            this.cmbWADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADivision_KeyDown);
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(336, 23);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(96, 22);
+            this.label38.Size = new System.Drawing.Size(116, 22);
             this.label38.TabIndex = 77;
-            this.label38.Text = "Division   :";
+            this.label38.Text = "Division       :";
             // 
             // label39
             // 
@@ -963,9 +951,8 @@
             this.label39.ForeColor = System.Drawing.Color.Red;
             this.label39.Location = new System.Drawing.Point(427, 160);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(20, 22);
+            this.label39.Size = new System.Drawing.Size(0, 22);
             this.label39.TabIndex = 75;
-            this.label39.Text = "*";
             // 
             // label40
             // 
@@ -973,9 +960,8 @@
             this.label40.ForeColor = System.Drawing.Color.Red;
             this.label40.Location = new System.Drawing.Point(426, 54);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(20, 22);
+            this.label40.Size = new System.Drawing.Size(0, 22);
             this.label40.TabIndex = 74;
-            this.label40.Text = "*";
             // 
             // label45
             // 
@@ -983,20 +969,8 @@
             this.label45.ForeColor = System.Drawing.Color.Red;
             this.label45.Location = new System.Drawing.Point(427, 89);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(20, 22);
+            this.label45.Size = new System.Drawing.Size(0, 22);
             this.label45.TabIndex = 73;
-            this.label45.Text = "*";
-            // 
-            // cmbWAThana
-            // 
-            this.cmbWAThana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWAThana.FormattingEnabled = true;
-            this.cmbWAThana.Location = new System.Drawing.Point(452, 85);
-            this.cmbWAThana.Name = "cmbWAThana";
-            this.cmbWAThana.Size = new System.Drawing.Size(198, 30);
-            this.cmbWAThana.TabIndex = 9;
-            this.cmbWAThana.SelectedIndexChanged += new System.EventHandler(this.cmbWAThana_SelectedIndexChanged_1);
-            this.cmbWAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWAThana_KeyDown);
             // 
             // txtWAContactNo
             // 
@@ -1004,6 +978,7 @@
             this.txtWAContactNo.Location = new System.Drawing.Point(158, 167);
             this.txtWAContactNo.MaxLength = 11;
             this.txtWAContactNo.Name = "txtWAContactNo";
+            this.txtWAContactNo.ReadOnly = true;
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 26);
             this.txtWAContactNo.TabIndex = 6;
             this.txtWAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAContactNo_KeyDown);
@@ -1019,27 +994,15 @@
             this.label46.TabIndex = 40;
             this.label46.Text = "Contact No               :";
             // 
-            // cmbWADistrict
-            // 
-            this.cmbWADistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWADistrict.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbWADistrict.FormattingEnabled = true;
-            this.cmbWADistrict.Location = new System.Drawing.Point(451, 54);
-            this.cmbWADistrict.Name = "cmbWADistrict";
-            this.cmbWADistrict.Size = new System.Drawing.Size(199, 27);
-            this.cmbWADistrict.TabIndex = 8;
-            this.cmbWADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbWADistrict_SelectedIndexChanged_1);
-            this.cmbWADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWADistrict_KeyDown);
-            // 
             // label47
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(336, 55);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(96, 22);
+            this.label47.Size = new System.Drawing.Size(116, 22);
             this.label47.TabIndex = 18;
-            this.label47.Text = "District    :";
+            this.label47.Text = "District        :";
             // 
             // txtWAPostCode
             // 
@@ -1056,6 +1019,7 @@
             this.txtWAArea.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWAArea.Location = new System.Drawing.Point(158, 138);
             this.txtWAArea.Name = "txtWAArea";
+            this.txtWAArea.ReadOnly = true;
             this.txtWAArea.Size = new System.Drawing.Size(171, 26);
             this.txtWAArea.TabIndex = 5;
             this.txtWAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAArea_KeyDown);
@@ -1066,9 +1030,9 @@
             this.label48.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.Location = new System.Drawing.Point(10, 141);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(151, 19);
+            this.label48.Size = new System.Drawing.Size(153, 19);
             this.label48.TabIndex = 14;
-            this.label48.Text = "Area                          :";
+            this.label48.Text = "Area / Village            :";
             // 
             // label49
             // 
@@ -1076,9 +1040,9 @@
             this.label49.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.Location = new System.Drawing.Point(331, 158);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(104, 22);
+            this.label49.Size = new System.Drawing.Size(124, 22);
             this.label49.TabIndex = 13;
-            this.label49.Text = "Post Code :";
+            this.label49.Text = "Post Code     :";
             // 
             // label50
             // 
@@ -1086,15 +1050,16 @@
             this.label50.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.Location = new System.Drawing.Point(336, 88);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(98, 22);
+            this.label50.Size = new System.Drawing.Size(118, 22);
             this.label50.TabIndex = 12;
-            this.label50.Text = "Thana      :";
+            this.label50.Text = "Thana          :";
             // 
             // txtWARoadNo
             // 
             this.txtWARoadNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWARoadNo.Location = new System.Drawing.Point(158, 78);
             this.txtWARoadNo.Name = "txtWARoadNo";
+            this.txtWARoadNo.ReadOnly = true;
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 26);
             this.txtWARoadNo.TabIndex = 3;
             this.txtWARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWARoadNo_KeyDown);
@@ -1104,6 +1069,7 @@
             this.txtWAHouseName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWAHouseName.Location = new System.Drawing.Point(158, 49);
             this.txtWAHouseName.Name = "txtWAHouseName";
+            this.txtWAHouseName.ReadOnly = true;
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 26);
             this.txtWAHouseName.TabIndex = 2;
             this.txtWAHouseName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAHouseName_KeyDown);
@@ -1113,6 +1079,7 @@
             this.txtWAFlatName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWAFlatName.Location = new System.Drawing.Point(158, 20);
             this.txtWAFlatName.Name = "txtWAFlatName";
+            this.txtWAFlatName.ReadOnly = true;
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 26);
             this.txtWAFlatName.TabIndex = 1;
             this.txtWAFlatName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAFlatName_KeyDown);
@@ -1123,9 +1090,9 @@
             this.label51.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.Location = new System.Drawing.Point(10, 111);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(149, 19);
+            this.label51.Size = new System.Drawing.Size(152, 19);
             this.label51.TabIndex = 7;
-            this.label51.Text = "Block                        :";
+            this.label51.Text = "Block / Sector           :";
             // 
             // label52
             // 
@@ -1153,9 +1120,9 @@
             this.label54.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.Location = new System.Drawing.Point(6, 23);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(156, 19);
+            this.label54.Size = new System.Drawing.Size(154, 19);
             this.label54.TabIndex = 4;
-            this.label54.Text = "Flat No / Name          :";
+            this.label54.Text = "Flat No / Level          :";
             // 
             // txtImmo
             // 
@@ -1458,18 +1425,18 @@
             this.label12.TabIndex = 52;
             this.label12.Text = "*";
             // 
-            // cmbCategoryName
+            // GroupNamecomboBox
             // 
-            this.cmbCategoryName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCategoryName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbCategoryName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategoryName.FormattingEnabled = true;
-            this.cmbCategoryName.Location = new System.Drawing.Point(205, 270);
-            this.cmbCategoryName.Name = "cmbCategoryName";
-            this.cmbCategoryName.Size = new System.Drawing.Size(235, 27);
-            this.cmbCategoryName.TabIndex = 8;
-            this.cmbCategoryName.SelectedIndexChanged += new System.EventHandler(this.cmbCategoryName_SelectedIndexChanged_1);
-            this.cmbCategoryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCategoryName_KeyDown_1);
+            this.GroupNamecomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.GroupNamecomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.GroupNamecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupNamecomboBox.FormattingEnabled = true;
+            this.GroupNamecomboBox.Location = new System.Drawing.Point(205, 270);
+            this.GroupNamecomboBox.Name = "GroupNamecomboBox";
+            this.GroupNamecomboBox.Size = new System.Drawing.Size(235, 27);
+            this.GroupNamecomboBox.TabIndex = 8;
+            this.GroupNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.GroupNamecomboBox_SelectedIndexChanged);
+            this.GroupNamecomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCategoryName_KeyDown_1);
             // 
             // label10
             // 
@@ -1478,9 +1445,9 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(6, 271);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(204, 22);
+            this.label10.Size = new System.Drawing.Size(203, 22);
             this.label10.TabIndex = 50;
-            this.label10.Text = "Industry Category        :";
+            this.label10.Text = "Group                           :";
             // 
             // txtPersonName
             // 
@@ -1520,9 +1487,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(6, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 22);
+            this.label1.Size = new System.Drawing.Size(178, 22);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Person Name                :";
+            this.label1.Text = "Contact Name          ";
             // 
             // frm1
             // 
@@ -1549,7 +1516,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -1578,7 +1544,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cmbCategoryName;
+        private System.Windows.Forms.ComboBox GroupNamecomboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPersonName;
         private System.Windows.Forms.Label label9;
@@ -1603,19 +1569,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox cmbWAPost;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.ComboBox cmbWADivision;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.ComboBox cmbWAThana;
         private System.Windows.Forms.TextBox txtWAContactNo;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.ComboBox cmbWADistrict;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox txtWAPostCode;
         private System.Windows.Forms.TextBox txtWAArea;
@@ -1631,7 +1593,6 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.ComboBox cmbRelationShip;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox unKnownRA;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox cmbRAPost;
         private System.Windows.Forms.Label label44;
@@ -1659,16 +1620,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox sameAsRACheckBox;
-        private System.Windows.Forms.CheckBox unKnownCheckBox;
         private System.Windows.Forms.FontDialog fontDialog1;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox PostalCodetextBox;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox StatetextBox;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox StreettextBox;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox CountrycomboBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtRABlock;
@@ -1686,6 +1638,18 @@
         private System.Windows.Forms.DateTimePicker AnniversarydateTimePicker;
         private System.Windows.Forms.Label label59;
         private Reports.CachedLOI cachedLOI1;
+        private System.Windows.Forms.TextBox WAPostOfficetextBox;
+        private System.Windows.Forms.TextBox WAThanatextBox;
+        private System.Windows.Forms.TextBox WADistricttextBox;
+        private System.Windows.Forms.TextBox WAdivisiontextBox;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox PostalCodetextBox;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox StatetextBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox StreettextBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox unKnownRA;
     }
 }
 

@@ -315,6 +315,13 @@ namespace PhonebookApp.UI
             this.Visible = true;
         }
 
+        private void ReportUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            MainUI frm = new MainUI();
+            frm.Show();
+        }
+
       
     }
 }

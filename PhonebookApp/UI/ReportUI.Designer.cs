@@ -32,9 +32,9 @@
             this.gretingsCardButton = new System.Windows.Forms.Button();
             this.addressButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TestButton = new System.Windows.Forms.Button();
             this.allAddressButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TestButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,17 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // TestButton
+            // 
+            this.TestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestButton.Location = new System.Drawing.Point(193, 96);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(151, 62);
+            this.TestButton.TabIndex = 5;
+            this.TestButton.Text = "Test";
+            this.TestButton.UseVisualStyleBackColor = true;
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            // 
             // allAddressButton
             // 
             this.allAddressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,17 +116,6 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // TestButton
-            // 
-            this.TestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton.Location = new System.Drawing.Point(193, 96);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(151, 62);
-            this.TestButton.TabIndex = 5;
-            this.TestButton.Text = "Test";
-            this.TestButton.UseVisualStyleBackColor = true;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
             // ReportUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +124,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "ReportUI";
             this.Text = "ReportUI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportUI_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

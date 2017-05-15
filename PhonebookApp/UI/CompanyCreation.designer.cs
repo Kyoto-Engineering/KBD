@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyCreation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbNatureOfClient = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +47,9 @@
             this.label47 = new System.Windows.Forms.Label();
             this.tDivisionCombo = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.tPostCombo = new System.Windows.Forms.ComboBox();
+            this.tContactNoTextBox = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -52,8 +57,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.tThenaCombo = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.tContactNoTextBox = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.tDistrictCombo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tPostCodeTextBox = new System.Windows.Forms.TextBox();
@@ -103,9 +106,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.getDataButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -146,6 +146,36 @@
             this.groupBox5.Size = new System.Drawing.Size(431, 202);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(145, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(17, 19);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(145, 112);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 19);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(145, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 19);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "*";
             // 
             // cmbNatureOfClient
             // 
@@ -317,6 +347,16 @@
             this.label48.TabIndex = 86;
             this.label48.Text = "Division       :";
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(3, 173);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(154, 19);
+            this.label27.TabIndex = 40;
+            this.label27.Text = "Contact No                :";
+            // 
             // tPostCombo
             // 
             this.tPostCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -328,6 +368,18 @@
             this.tPostCombo.SelectedIndexChanged += new System.EventHandler(this.tPostCombo_SelectedIndexChanged);
             this.tPostCombo.Enter += new System.EventHandler(this.tPostCombo_Enter);
             this.tPostCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPostCombo_KeyDown);
+            // 
+            // tContactNoTextBox
+            // 
+            this.tContactNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tContactNoTextBox.Location = new System.Drawing.Point(157, 170);
+            this.tContactNoTextBox.MaxLength = 11;
+            this.tContactNoTextBox.Name = "tContactNoTextBox";
+            this.tContactNoTextBox.Size = new System.Drawing.Size(162, 26);
+            this.tContactNoTextBox.TabIndex = 6;
+            this.tContactNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tContactNoTextBox_KeyDown);
+            this.tContactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tContactNoTextBox_KeyPress);
+            this.tContactNoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.tContactNoTextBox_Validating);
             // 
             // label45
             // 
@@ -405,28 +457,6 @@
             this.label28.Size = new System.Drawing.Size(98, 22);
             this.label28.TabIndex = 43;
             this.label28.Text = "Thana      :";
-            // 
-            // tContactNoTextBox
-            // 
-            this.tContactNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tContactNoTextBox.Location = new System.Drawing.Point(157, 170);
-            this.tContactNoTextBox.MaxLength = 11;
-            this.tContactNoTextBox.Name = "tContactNoTextBox";
-            this.tContactNoTextBox.Size = new System.Drawing.Size(162, 26);
-            this.tContactNoTextBox.TabIndex = 6;
-            this.tContactNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tContactNoTextBox_KeyDown);
-            this.tContactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tContactNoTextBox_KeyPress);
-            this.tContactNoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.tContactNoTextBox_Validating);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(3, 173);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(154, 19);
-            this.label27.TabIndex = 40;
-            this.label27.Text = "Contact No                :";
             // 
             // tDistrictCombo
             // 
@@ -905,7 +935,7 @@
             this.sameAsCorporatAddCheckBox.Location = new System.Drawing.Point(378, 14);
             this.sameAsCorporatAddCheckBox.Name = "sameAsCorporatAddCheckBox";
             this.sameAsCorporatAddCheckBox.Size = new System.Drawing.Size(206, 23);
-            this.sameAsCorporatAddCheckBox.TabIndex = 79;
+            this.sameAsCorporatAddCheckBox.TabIndex = 0;
             this.sameAsCorporatAddCheckBox.Text = "Same as Corporat Address";
             this.sameAsCorporatAddCheckBox.UseVisualStyleBackColor = true;
             this.sameAsCorporatAddCheckBox.CheckedChanged += new System.EventHandler(this.sameAsCorporatAddCheckBox_CheckedChanged);
@@ -965,36 +995,6 @@
             this.newButton.TabIndex = 7;
             this.newButton.UseVisualStyleBackColor = false;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(145, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 19);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "*";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(145, 112);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 19);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "*";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(145, 146);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 19);
-            this.label9.TabIndex = 77;
-            this.label9.Text = "*";
             // 
             // CompanyCreation
             // 

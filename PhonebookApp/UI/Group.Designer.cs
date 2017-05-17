@@ -40,6 +40,10 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupNamelabel = new System.Windows.Forms.Label();
             this.addbutton = new System.Windows.Forms.Button();
             this.submitbutton = new System.Windows.Forms.Button();
@@ -60,10 +64,6 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -152,7 +152,7 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Category";
+            this.columnHeader6.Text = "Group";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 85;
             // 
@@ -179,6 +179,22 @@
             this.columnHeader10.Text = "Age Group Level";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader10.Width = 95;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Date Of Birth";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Religion";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Marital Status";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Marriage Anniversary Date";
             // 
             // groupNamelabel
             // 
@@ -280,7 +296,7 @@
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Category";
+            this.Column6.HeaderText = "Group";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -332,22 +348,6 @@
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
             // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Date Of Birth";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Religion";
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Marital Status";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Marriage Anniversary Date";
-            // 
             // Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +394,10 @@
         private System.Windows.Forms.ComboBox GroupNamecomboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -408,9 +412,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
     }
 }

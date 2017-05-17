@@ -420,6 +420,29 @@ namespace PhonebookApp
 
         }
 
+        private void SaveInfo()
+        {
+            try
+            {
+              
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d2", currentPersonId);
+                cmd.Parameters.AddWithValue("@d3", nUserId);
+                cmd.ExecuteNonQuery();
+                con.Close();
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private void btnInsert_Click_1(object sender, EventArgs e)
         {
 
@@ -476,7 +499,10 @@ namespace PhonebookApp
                     {
                         SavePersonDetails();
                         SaveWorkingAddress("ResidentialAddresses");
-
+                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        {
+                            SaveInfo();
+                        }
 
                         MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -520,6 +546,10 @@ namespace PhonebookApp
                     try
                     {
                         SavePersonDetails();
+                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        {
+                            SaveInfo();
+                        }
                         MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                         Reset1();
@@ -576,6 +606,10 @@ namespace PhonebookApp
 
                     SavePersonDetails();
                     ForeignAddresses("ForeignAddress");
+                    if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                    {
+                        SaveInfo();
+                    }
                     MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset2();
                     CountrycomboBox.SelectedItem = "Bangladesh";
@@ -2322,6 +2356,7 @@ namespace PhonebookApp
                 groupBox6.Hide();
                 groupBox2.Show();
                 groupBox3.Show();
+                groupBox3.Location = new Point(466, 261);
                 //btnInsert.Location = new Point(1045, 549);
                 btnInsert.Hide();
                 additionalInfobutton.Show();

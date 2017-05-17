@@ -1775,5 +1775,49 @@ namespace PhonebookApp.UI
                saveButton_Click(this, new EventArgs());
             }
         }
+
+        private void CompanyNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText =
+                "select " +
+                "    Company.CompanyName, " +
+                "    isnull(nullif([CorporateAddresses.CFlatNo], '') + ', ', '') + " +
+                "    isnull(nullif([CorporateAddresses.CHouseNo], '') + ', ', '') + " +
+                "    isnull(nullif([CorporateAddresses.CRoadNo], ''), '') + " +
+                "    isnull(nullif([CorporateAddresses.CBlock], '') + ', ', '') + " +
+                "    isnull(nullif([CorporateAddresses.CArea], '') + ', ', '') + " +
+                "    isnull(nullif([CorporateAddresses.CContactNo], ''), '') + " +
+                "    isnull(nullif([PostOffice.PostOfficeName], '') + ', ', '') + " +
+                "    isnull(nullif([PostOffice.PostCode], '') + ', ', '') + " +
+                "    isnull(nullif([Thanas.Thana], ''), '') + " +
+                "    isnull(nullif([Districts.District], ''), '') as Address " +
+                "FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                using (DataTable dt = new DataTable())
+                {
+                    sda.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            //DataTable dt = new DataTable();        
+            //    sda.Fill(dt);
+
+            //    dataGridView1.DataSource = dt;
+                con.Close();
+            }
+           
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //sda.Dispose();
+                // handle your error
+        }
     }
 }

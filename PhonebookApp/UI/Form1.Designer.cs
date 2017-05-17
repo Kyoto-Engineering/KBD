@@ -183,6 +183,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.additionalInfobutton);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
@@ -246,7 +247,7 @@
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Location = new System.Drawing.Point(0, 134);
+            this.groupBox7.Location = new System.Drawing.Point(466, 413);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 127);
             this.groupBox7.TabIndex = 22;
@@ -722,10 +723,9 @@
             this.label20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(6, 133);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(157, 19);
+            this.label20.Size = new System.Drawing.Size(155, 19);
             this.label20.TabIndex = 14;
-            this.label20.Text = "Area / Village             :";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
+            this.label20.Text = "Area                           :";
             // 
             // label19
             // 
@@ -780,9 +780,9 @@
             this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(6, 107);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(152, 19);
+            this.label17.Size = new System.Drawing.Size(153, 19);
             this.label17.TabIndex = 7;
-            this.label17.Text = "Block / Sector           :";
+            this.label17.Text = "Block                         :";
             // 
             // label22
             // 
@@ -810,13 +810,12 @@
             this.label24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(6, 22);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(154, 19);
+            this.label24.Size = new System.Drawing.Size(156, 19);
             this.label24.TabIndex = 4;
-            this.label24.Text = "Flat No / Level          :";
+            this.label24.Text = "Flat No / Name          :";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(466, 261);
@@ -1030,9 +1029,9 @@
             this.label48.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.Location = new System.Drawing.Point(10, 141);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(153, 19);
+            this.label48.Size = new System.Drawing.Size(151, 19);
             this.label48.TabIndex = 14;
-            this.label48.Text = "Area / Village            :";
+            this.label48.Text = "Area                          :";
             // 
             // label49
             // 
@@ -1090,9 +1089,9 @@
             this.label51.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.Location = new System.Drawing.Point(10, 111);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(152, 19);
+            this.label51.Size = new System.Drawing.Size(149, 19);
             this.label51.TabIndex = 7;
-            this.label51.Text = "Block / Sector           :";
+            this.label51.Text = "Block                        :";
             // 
             // label52
             // 
@@ -1120,9 +1119,9 @@
             this.label54.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.Location = new System.Drawing.Point(6, 23);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(154, 19);
+            this.label54.Size = new System.Drawing.Size(156, 19);
             this.label54.TabIndex = 4;
-            this.label54.Text = "Flat No / Level          :";
+            this.label54.Text = "Flat No / Name          :";
             // 
             // txtImmo
             // 

@@ -43,16 +43,23 @@ namespace PhonebookApp.UI
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string query = "insert into Company(CompanyName, UserId, DateAndTime,CompanyTypeId,IndustryCategoryId,NatureOfCompanyId) values(@d1,@d2,@d3,@d4,@d5,@d6)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string query = "insert into Company(CompanyName,Email,ContactNo,IdentificationNo,WebSiteUrl, UserId, DateAndTime,CompanyTypeId,IndustryCategoryId,NatureOfCompanyId) values(@d1,@nemail,@nphone,@nidenti,@nweburl,@d2,@d3,@d4,@d5,@d6)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", CompanyNameTextBox.Text);
+            cmd.Parameters.Add(new SqlParameter("@nemail",
+                string.IsNullOrEmpty(EmailtextBox.Text) ? (object)DBNull.Value : EmailtextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@nphone",
+                string.IsNullOrEmpty(ContactNotextBox.Text) ? (object)DBNull.Value : ContactNotextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@nidenti",
+                string.IsNullOrEmpty(IdentificationNotextBox.Text) ? (object)DBNull.Value : IdentificationNotextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@nweburl",
+                string.IsNullOrEmpty(WebSiteUrltextBox.Text) ? (object)DBNull.Value : WebSiteUrltextBox.Text));           
             cmd.Parameters.AddWithValue("@d2", user_id);
             cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
             cmd.Parameters.AddWithValue("@d4", companytypeid);
             cmd.Parameters.AddWithValue("@d5", industryCategoryId);
             cmd.Parameters.AddWithValue("@d6", natureOfClientId);
-
-           
+        
             companyid = (int)cmd.ExecuteScalar();
             con.Close();
         }
@@ -62,7 +69,7 @@ namespace PhonebookApp.UI
             string tableName = tblName1;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(Qry);
             cmd.Connection = con;
             cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
@@ -71,8 +78,9 @@ namespace PhonebookApp.UI
             cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-            cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-            cmd.Parameters.AddWithValue("@d11", companyid);
+            cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+            cmd.Parameters.AddWithValue("@d12", companyid);
             affectedRows2 = (int)cmd.ExecuteScalar();
             con.Close();
         }
@@ -83,7 +91,7 @@ namespace PhonebookApp.UI
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
@@ -92,9 +100,10 @@ namespace PhonebookApp.UI
                 cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
 
-                cmd.Parameters.AddWithValue("@d11", companyid);
+                cmd.Parameters.AddWithValue("@d12", companyid);
                 affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
             }
@@ -102,7 +111,7 @@ namespace PhonebookApp.UI
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(Qry);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
@@ -111,198 +120,282 @@ namespace PhonebookApp.UI
                 cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
-                cmd.Parameters.AddWithValue("@d11", companyid);
+                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(tLandmarktextBox.Text) ? (object)DBNull.Value : tLandmarktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
+                cmd.Parameters.AddWithValue("@d12", companyid);
                 affectedRows2 = (int)cmd.ExecuteScalar();
                 con.Close();
             }
         }
 
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private bool ValidateControlls()
         {
+            bool validate = true;
 
-            if (string.IsNullOrWhiteSpace(CompanyNameTextBox.Text))
+            if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
             {
-                MessageBox.Show("Please Enter Company Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
                 CompanyNameTextBox.Focus();
-                return;
             }
-             if (cmbCompanytype.Text == "")
+
+            else if (string.IsNullOrEmpty(cmbCompanytype.Text))
             {
-                MessageBox.Show("Please Select Company Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
                 cmbCompanytype.Focus();
-                return;
             }
 
-             if (IndustryCategorycomboBox.Text == "")
+            else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
             {
-                MessageBox.Show("Please select Industry Category", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
                 IndustryCategorycomboBox.Focus();
-                return;
-
             }
-             if (cmbNatureOfClient.Text == "")
+
+            else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
             {
-                MessageBox.Show("Please select Nature of Business", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
                 cmbNatureOfClient.Focus();
-                return;
+            }      
 
-            }
+            else if (string.IsNullOrEmpty(cDivisionCombo.Text))
+                {
+                    MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-             if (cDivisionCombo.Text == "")
-            {
-                MessageBox.Show("Please Select Corporate Division", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                cDivisionCombo.Focus();
-                return;
+                    validate = false;
+                    cDivisionCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cDistCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
+                {
+                    MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cThanaCombo.Focus();
+                }
 
-            }
-             if (cDistCombo.Text == "")
-            {
-                MessageBox.Show("Please Select Corporate District", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                cDistCombo.Focus();
-                return;
+                else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cPostOfficeCombo.Focus();
+                }
 
-            }
-             if (cThanaCombo.Text == "")
-            {
-                MessageBox.Show("Please Enter Corporate Thana", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                cThanaCombo.Focus();
-                return;
-
-            }
-             if (cPostOfficeCombo.Text == "")
-            {
-                MessageBox.Show("Please Enter Corporate PostOffice", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                cPostOfficeCombo.Focus();
-                return;
-
-            }
-             if (cPostCodeTextBox.Text == "")
-            {
-                MessageBox.Show("Please Enter Corporate PostCode", "Input Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                cPostCodeTextBox.Focus();
-                return;
-
-            }
-            if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
-            {
+            else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
+             {
                 if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
                 {
-                    MessageBox.Show("Please select factory division", "Error", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Please select factory division", @"Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                    tDivisionCombo.Focus();
-                    return;
+                    validate = false;
+                    tDivisionCombo.Focus();                    
                 }
-                 if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
+                else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
                 {
-                    MessageBox.Show("Please Select factory district", "Error", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Please Select factory district", @"Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                    tDistrictCombo.Focus();
-                    return;
+                    validate = false;
+                    tDistrictCombo.Focus();                    
+                }
+                else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
+                {
+                    MessageBox.Show(@"Please select factory Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    tThenaCombo.Focus();                   
+                }
+                else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select factory Post Name", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    tPostCombo.Focus();
 
                 }
-                 if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
-                {
-                    MessageBox.Show("Please select factory Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tThenaCombo.Focus();
-                    return;
-                }
-                 if (string.IsNullOrWhiteSpace(tPostCombo.Text))
-                {
-                    MessageBox.Show("Please Select factory Post Name", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return;
 
-                }
-                 if (string.IsNullOrWhiteSpace(tPostCodeTextBox.Text))
-                 {
-                     MessageBox.Show("Please select factory Post Code", "Error", MessageBoxButtons.OK,
-                         MessageBoxIcon.Error);
-                     return;
-
-                 }
             }
-                        
-                    try
+
+            else if (ValidateCompany())
+            {
+                validate = false;
+            }
+
+            return validate;
+        }
+
+        private bool ValidateCompany()
+        {
+            List<Company> companies = new List<Company>();
+
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct3 =
+                "SELECT CompanyName, Email,ContactNo,IdentificationNo, WebSiteUrl FROM Company where  Company.CompanyName='" + CompanyNameTextBox.Text + "'";
+            cmd = new SqlCommand(ct3, con);
+            rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
+                {
+                    Company x = new Company();
+                    x.CompanyName = rdr.GetString(0);
+
+                    if (!DBNull.Value.Equals(rdr["Email"]))
                     {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        string ct = "select CompanyName from Company where CompanyName='" + CompanyNameTextBox.Text +
-                                    "'";
-
-                        cmd = new SqlCommand(ct);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-
-                        if (rdr.Read())
-                        {
-                            MessageBox.Show("This Company Name Already Exists in the List", "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                            CompanyNameTextBox.Text = "";
-                            CompanyNameTextBox.Focus();
-
-
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            return;
-                        }
-                        //1.Corporate Address Applicable  & Tradding Address not Applicable
-                        if (notApplicableCheckBox.Checked)
-                        {
-                            SaveCompany();
-                            SaveCorporateORTraddingAddress("CorporateAddresses");
-                        }
-                        //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
-                        if (sameAsCorporatAddCheckBox.Checked)
-                        {
-                            SaveCompany();
-                            SaveCorporateORTraddingAddress("CorporateAddresses");
-                            TASameAsCA("TraddingAddresses");
-
-                        }
-                        //3.Corporate Address Applicable  & Tradding Address  Applicable
-                        if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
-                        {
-                            SaveCompany();
-                            SaveCorporateORTraddingAddress("CorporateAddresses");
-                            SaveCorporateORTraddingAddress("TraddingAddresses");
-                        }
-                        
-                        MessageBox.Show("Registration Completed Successfully",
-                            "Record",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Reset();
-
+                        x.Email = rdr.GetString(1);
                     }
-                    catch (FormatException formatException)
+                    else
                     {
-                        MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
+                        x.Email = null;
                     }
 
-            
+                    if (!DBNull.Value.Equals(rdr["ContactNo"]))
+                    {
+                        x.ContactNo = rdr.GetString(2);
+                    }
+                    else
+                    {
+                        x.ContactNo = null;
+                    }
+
+                    if (!DBNull.Value.Equals(rdr["IdentificationNo"]))
+                    {
+                        x.IdentificationNo = rdr.GetString(3);
+                    }
+                    else
+                    {
+                        x.IdentificationNo = null;
+                    }
+
+                    if (!DBNull.Value.Equals(rdr["WebSiteUrl"]))
+                    {
+                        x.WebSiteUrl = rdr.GetString(4);
+                    }
+                    else
+                    {
+                        x.WebSiteUrl = null;
+                    }
+
+                    companies.Add(x);
+                }
+            }
+            foreach (Company p in companies)
+            {
+                if (p.CompanyName == CompanyNameTextBox.Text && p.Email == EmailtextBox.Text)
+                {
+                    MessageBox.Show(@"This Company Exists,Please Input another one" + "\n" + @"Or Use another Email",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+                    EmailtextBox.Clear();
+                    con.Close();
+                    return true;
+                }
+
+                if (p.CompanyName == CompanyNameTextBox.Text && p.ContactNo == ContactNotextBox.Text)
+                {
+                    MessageBox.Show(@"This Company Exists,Please Input another one" + "\n" + @"Or Use another Contact",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+                    ContactNotextBox.Clear();
+                    con.Close();
+                    return true;
+                }
+
+                if (p.CompanyName == CompanyNameTextBox.Text && p.IdentificationNo == IdentificationNotextBox.Text)
+                {
+                    MessageBox.Show(@"This Company Exists,Please Input another one" + "\n" + @"Or Use another Identification Number",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+                    IdentificationNotextBox.Clear();
+                    con.Close();
+                    return true;
+                }
+                
+                if (p.CompanyName == CompanyNameTextBox.Text && p.WebSiteUrl == WebSiteUrltextBox.Text)
+                {
+                    MessageBox.Show(
+                        @"This Company Exists,Please Input another one" + "\n" + @"Or Use another Web Service URL",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();                   
+                    WebSiteUrltextBox.Clear();
+                    con.Close();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CompanyNameTextBox.Text) && string.IsNullOrEmpty(EmailtextBox.Text) && string.IsNullOrEmpty(ContactNotextBox.Text) && string.IsNullOrEmpty(IdentificationNotextBox.Text) &&
+                string.IsNullOrEmpty(WebSiteUrltextBox.Text))
+            {
+                MessageBox.Show(@"Please insert Email or Contact Number or Identification Number or Website", @"Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (ValidateControlls())
+            {
+                try
+                {                        
+                    //1.Corporate Address Applicable  & Tradding Address not Applicable
+                    if (notApplicableCheckBox.Checked)
+                    {
+                        SaveCompany();
+                        SaveCorporateORTraddingAddress("CorporateAddresses");
+                    }
+                    //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
+                    if (sameAsCorporatAddCheckBox.Checked)
+                    {
+                        SaveCompany();
+                        SaveCorporateORTraddingAddress("CorporateAddresses");
+                        TASameAsCA("TraddingAddresses");
+
+                    }
+                    //3.Corporate Address Applicable  & Tradding Address  Applicable
+                    if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
+                    {
+                        SaveCompany();
+                        SaveCorporateORTraddingAddress("CorporateAddresses");
+                        SaveCorporateORTraddingAddress("TraddingAddresses");
+                    }
+                        
+                    MessageBox.Show("Registration Completed Successfully",
+                        "Record",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+
+                }
+                catch (FormatException formatException)
+                {
+                    MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
+                }
+            }           
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
 
         }
-
         private void getDataButton_Click(object sender, EventArgs e)
         {
 
         }
-
         private void ResetTradingAddress()
         {
 
@@ -311,6 +404,7 @@ namespace PhonebookApp.UI
             tRoadNoTextBox.Clear();
             tAreaTextBox.Clear();
             FblocktextBox.Clear();
+            tLandmarktextBox.Clear();
             tContactNoTextBox.Text = "";
 
             tPostCodeTextBox.Clear();
@@ -318,9 +412,6 @@ namespace PhonebookApp.UI
             tThenaCombo.SelectedIndex = -1;
             tDistrictCombo.SelectedIndex = -1;
             tDivisionCombo.SelectedIndex = -1;
-
-
-
 
         }
         private void FilStar()
@@ -343,32 +434,26 @@ namespace PhonebookApp.UI
 
         private void Reset()
         {
-
             cmbCompanytype.SelectedIndex = -1;
-            cmbNatureOfClient.SelectedIndex = -1;
-           
-            IndustryCategorycomboBox.SelectedIndex = -1;
-            
+            cmbNatureOfClient.SelectedIndex = -1;          
+            IndustryCategorycomboBox.SelectedIndex = -1;           
             CompanyNameTextBox.Clear();
-           
-
-
+            EmailtextBox.Clear();
+            ContactNotextBox.Clear();
+            IdentificationNotextBox.Clear();
+            WebSiteUrltextBox.Clear();
             cFlatNoTextBox.Clear();
             cHouseNoTextBox.Clear();
             cRoadNoTextBox.Clear();
             blocktextBox.Clear();
             cAreaTextBox.Clear();
+            cLandmarktextBox.Clear();
             cContactNoTextBox.Clear();
-
-
-
             cPostCodeTextBox.Clear();
             cPostOfficeCombo.SelectedIndex = -1;
             cThanaCombo.SelectedIndex = -1;
             cDistCombo.SelectedIndex = -1;
             cDivisionCombo.SelectedIndex = -1;
-
-
             notApplicableCheckBox.CheckedChanged -= NotApplicableCheckBox_CheckedChanged;
             notApplicableCheckBox.Checked = false;
             notApplicableCheckBox.CheckedChanged += NotApplicableCheckBox_CheckedChanged;
@@ -380,9 +465,6 @@ namespace PhonebookApp.UI
             {
                 ResetTradingAddress();
             }
-
-
-
            
             saveButton.Enabled = true;
 
@@ -393,21 +475,15 @@ namespace PhonebookApp.UI
             Reset();
 
         }
-
-       
-      
-
        
         private void label17_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label19_Click(object sender, EventArgs e)
         {
 
         }
-
         private void cellNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -1519,7 +1595,7 @@ namespace PhonebookApp.UI
                 if ((!mRegxExpression.IsMatch(companyname)) && (!(CompanyNameTextBox.Text.Length >= Minlen)))
                 {
 
-                    MessageBox.Show("Please type your valid Company Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please Type Minimum 3 Characters.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     CompanyNameTextBox.Clear();
                     CompanyNameTextBox.Focus();
 
@@ -1778,46 +1854,31 @@ namespace PhonebookApp.UI
 
         private void CompanyNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText =
-                "select " +
-                "    Company.CompanyName, " +
-                "    isnull(nullif([CorporateAddresses.CFlatNo], '') + ', ', '') + " +
-                "    isnull(nullif([CorporateAddresses.CHouseNo], '') + ', ', '') + " +
-                "    isnull(nullif([CorporateAddresses.CRoadNo], ''), '') + " +
-                "    isnull(nullif([CorporateAddresses.CBlock], '') + ', ', '') + " +
-                "    isnull(nullif([CorporateAddresses.CArea], '') + ', ', '') + " +
-                "    isnull(nullif([CorporateAddresses.CContactNo], ''), '') + " +
-                "    isnull(nullif([PostOffice.PostOfficeName], '') + ', ', '') + " +
-                "    isnull(nullif([PostOffice.PostCode], '') + ', ', '') + " +
-                "    isnull(nullif([Thanas.Thana], ''), '') + " +
-                "    isnull(nullif([Districts.District], ''), '') as Address " +
-                "FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
-
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                using (DataTable dt = new DataTable())
-                {
-                    sda.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
-            //DataTable dt = new DataTable();        
-            //    sda.Fill(dt);
-
-            //    dataGridView1.DataSource = dt;
-                con.Close();
-            }
-           
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //sda.Dispose();
-                // handle your error
+            
+            //try
+            //{
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandText = "SELECT Company.CompanyName AS Name, (IIF(CorporateAddresses.CFlatNo=null,null,CorporateAddresses.CFlatNo+',') + IIF(CorporateAddresses.CHouseNo=null,null,CorporateAddresses.CHouseNo+',') + IIF(CorporateAddresses.CRoadNo=null,null,CorporateAddresses.CRoadNo+',') + IIF(CorporateAddresses.CBlock=null,null,CorporateAddresses.CBlock+',') + IIF(CorporateAddresses.CArea=null,null,CorporateAddresses.CArea+',') + IIF(CorporateAddresses.CLandmark=null,null,CorporateAddresses.CLandmark+',') + IIF(CorporateAddresses.CContactNo=null,null,CorporateAddresses.CContactNo+',') + IIF(PostOffice.PostOfficeName=null,null,PostOffice.PostOfficeName+',') + IIF(Thanas.Thana=null,null,Thanas.Thana+',') + IIF(Districts.District=null,null,Districts.District)) AS Address FROM Company LEFT JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId LEFT JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId LEFT JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID LEFT JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
+                
+            //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+               
+            //    using (DataTable dt = new DataTable())
+            //    {
+            //        sda.Fill(dt);
+            //        dataGridView1.DataSource = dt;
+            //    }
+                
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            ////sda.Dispose();
+            
         }
     }
 }

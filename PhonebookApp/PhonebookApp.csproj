@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kyoto Business Directory</ProductName>
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -188,6 +188,7 @@
     <Compile Include="UI\AgeGroup.Designer.cs">
       <DependentUpon>AgeGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Company.cs" />
     <Compile Include="UI\CompanyCreation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,7 +425,6 @@
     <None Include="DAO\BarCode.xss">
       <DependentUpon>BarCode.xsd</DependentUpon>
     </None>
-    <None Include="packages.config" />
     <None Include="PhonebookApp_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

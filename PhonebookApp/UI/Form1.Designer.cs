@@ -148,6 +148,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
+            this.LandmarktextBox = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -247,7 +249,7 @@
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Location = new System.Drawing.Point(466, 413);
+            this.groupBox7.Location = new System.Drawing.Point(459, 539);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 127);
             this.groupBox7.TabIndex = 22;
@@ -820,13 +822,15 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(466, 261);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(694, 248);
+            this.groupBox3.Size = new System.Drawing.Size(694, 259);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.LandmarktextBox);
+            this.groupBox4.Controls.Add(this.label61);
             this.groupBox4.Controls.Add(this.WAPostOfficetextBox);
             this.groupBox4.Controls.Add(this.WAThanatextBox);
             this.groupBox4.Controls.Add(this.WADistricttextBox);
@@ -856,9 +860,9 @@
             this.groupBox4.Controls.Add(this.label54);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox4.Location = new System.Drawing.Point(13, 26);
+            this.groupBox4.Location = new System.Drawing.Point(13, 28);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(672, 203);
+            this.groupBox4.Size = new System.Drawing.Size(672, 218);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
@@ -901,7 +905,7 @@
             // txtWABlock
             // 
             this.txtWABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWABlock.Location = new System.Drawing.Point(158, 108);
+            this.txtWABlock.Location = new System.Drawing.Point(158, 103);
             this.txtWABlock.Name = "txtWABlock";
             this.txtWABlock.ReadOnly = true;
             this.txtWABlock.Size = new System.Drawing.Size(172, 26);
@@ -974,7 +978,7 @@
             // txtWAContactNo
             // 
             this.txtWAContactNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWAContactNo.Location = new System.Drawing.Point(158, 167);
+            this.txtWAContactNo.Location = new System.Drawing.Point(158, 187);
             this.txtWAContactNo.MaxLength = 11;
             this.txtWAContactNo.Name = "txtWAContactNo";
             this.txtWAContactNo.ReadOnly = true;
@@ -987,7 +991,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(10, 170);
+            this.label46.Location = new System.Drawing.Point(10, 190);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(150, 19);
             this.label46.TabIndex = 40;
@@ -1016,7 +1020,7 @@
             // txtWAArea
             // 
             this.txtWAArea.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWAArea.Location = new System.Drawing.Point(158, 138);
+            this.txtWAArea.Location = new System.Drawing.Point(158, 131);
             this.txtWAArea.Name = "txtWAArea";
             this.txtWAArea.ReadOnly = true;
             this.txtWAArea.Size = new System.Drawing.Size(171, 26);
@@ -1027,7 +1031,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(10, 141);
+            this.label48.Location = new System.Drawing.Point(10, 134);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(151, 19);
             this.label48.TabIndex = 14;
@@ -1056,7 +1060,7 @@
             // txtWARoadNo
             // 
             this.txtWARoadNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWARoadNo.Location = new System.Drawing.Point(158, 78);
+            this.txtWARoadNo.Location = new System.Drawing.Point(158, 74);
             this.txtWARoadNo.Name = "txtWARoadNo";
             this.txtWARoadNo.ReadOnly = true;
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 26);
@@ -1066,7 +1070,7 @@
             // txtWAHouseName
             // 
             this.txtWAHouseName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWAHouseName.Location = new System.Drawing.Point(158, 49);
+            this.txtWAHouseName.Location = new System.Drawing.Point(158, 45);
             this.txtWAHouseName.Name = "txtWAHouseName";
             this.txtWAHouseName.ReadOnly = true;
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 26);
@@ -1076,7 +1080,7 @@
             // txtWAFlatName
             // 
             this.txtWAFlatName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWAFlatName.Location = new System.Drawing.Point(158, 20);
+            this.txtWAFlatName.Location = new System.Drawing.Point(158, 17);
             this.txtWAFlatName.Name = "txtWAFlatName";
             this.txtWAFlatName.ReadOnly = true;
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 26);
@@ -1087,7 +1091,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(10, 111);
+            this.label51.Location = new System.Drawing.Point(10, 106);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(149, 19);
             this.label51.TabIndex = 7;
@@ -1097,7 +1101,7 @@
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(8, 81);
+            this.label52.Location = new System.Drawing.Point(8, 77);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(150, 19);
             this.label52.TabIndex = 6;
@@ -1107,7 +1111,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(6, 52);
+            this.label53.Location = new System.Drawing.Point(6, 48);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(153, 19);
             this.label53.TabIndex = 5;
@@ -1117,7 +1121,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(6, 23);
+            this.label54.Location = new System.Drawing.Point(6, 20);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(156, 19);
             this.label54.TabIndex = 4;
@@ -1490,6 +1494,25 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Contact Name          ";
             // 
+            // LandmarktextBox
+            // 
+            this.LandmarktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LandmarktextBox.Location = new System.Drawing.Point(158, 159);
+            this.LandmarktextBox.Name = "LandmarktextBox";
+            this.LandmarktextBox.ReadOnly = true;
+            this.LandmarktextBox.Size = new System.Drawing.Size(171, 26);
+            this.LandmarktextBox.TabIndex = 86;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(10, 162);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(149, 19);
+            this.label61.TabIndex = 87;
+            this.label61.Text = "Nearest Landmark  :";
+            // 
             // frm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1649,6 +1672,8 @@
         private System.Windows.Forms.TextBox StreettextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox unKnownRA;
+        private System.Windows.Forms.TextBox LandmarktextBox;
+        private System.Windows.Forms.Label label61;
     }
 }
 

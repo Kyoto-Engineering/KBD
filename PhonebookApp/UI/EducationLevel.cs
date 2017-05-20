@@ -83,7 +83,7 @@ namespace PhonebookApp.UI
         private void EducationLevel_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmManageGroups frm = new frmManageGroups();
             frm.Show();
         }
 

@@ -1349,7 +1349,7 @@ namespace PhonebookApp.UI
         private void ClientRegistrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmNewEntry frm = new frmNewEntry();
             frm.Show();
         }
 

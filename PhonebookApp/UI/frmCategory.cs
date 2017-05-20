@@ -126,7 +126,7 @@ namespace PhonebookApp.UI
         private void frmCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmManageGroups frm = new frmManageGroups();
             frm.Show();
         }
 

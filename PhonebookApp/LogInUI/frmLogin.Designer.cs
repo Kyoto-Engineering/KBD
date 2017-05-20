@@ -39,8 +39,8 @@
             this.txtUserType = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,12 +50,14 @@
             this.groupBox1.Controls.Add(this.txt1UserName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(95, 70);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox1.Location = new System.Drawing.Point(95, 114);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(477, 187);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Login";
             // 
             // txt1Password
             // 
@@ -101,7 +103,7 @@
             // 
             // departmentTextBox
             // 
-            this.departmentTextBox.Location = new System.Drawing.Point(411, 44);
+            this.departmentTextBox.Location = new System.Drawing.Point(411, 88);
             this.departmentTextBox.Name = "departmentTextBox";
             this.departmentTextBox.Size = new System.Drawing.Size(27, 20);
             this.departmentTextBox.TabIndex = 106;
@@ -109,7 +111,7 @@
             // 
             // designationTextBox
             // 
-            this.designationTextBox.Location = new System.Drawing.Point(338, 44);
+            this.designationTextBox.Location = new System.Drawing.Point(338, 88);
             this.designationTextBox.Name = "designationTextBox";
             this.designationTextBox.Size = new System.Drawing.Size(34, 20);
             this.designationTextBox.TabIndex = 105;
@@ -117,7 +119,7 @@
             // 
             // fullNameTextBox
             // 
-            this.fullNameTextBox.Location = new System.Drawing.Point(298, 44);
+            this.fullNameTextBox.Location = new System.Drawing.Point(298, 88);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.Size = new System.Drawing.Size(25, 20);
             this.fullNameTextBox.TabIndex = 104;
@@ -128,7 +130,7 @@
             this.txtUserType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.txtUserType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtUserType.Location = new System.Drawing.Point(115, 210);
+            this.txtUserType.Location = new System.Drawing.Point(115, 254);
             this.txtUserType.Name = "txtUserType";
             this.txtUserType.ReadOnly = true;
             this.txtUserType.Size = new System.Drawing.Size(17, 13);
@@ -140,7 +142,7 @@
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.cancelButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.Red;
-            this.cancelButton.Location = new System.Drawing.Point(375, 279);
+            this.cancelButton.Location = new System.Drawing.Point(413, 320);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(106, 46);
             this.cancelButton.TabIndex = 2;
@@ -154,7 +156,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(230, 279);
+            this.button1.Location = new System.Drawing.Point(268, 320);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 46);
             this.button1.TabIndex = 1;
@@ -162,31 +164,32 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(107, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Login";
-            // 
             // ProgressBar1
             // 
-            this.ProgressBar1.Location = new System.Drawing.Point(12, 345);
+            this.ProgressBar1.Location = new System.Drawing.Point(12, 389);
             this.ProgressBar1.Name = "ProgressBar1";
             this.ProgressBar1.Size = new System.Drawing.Size(100, 10);
             this.ProgressBar1.TabIndex = 108;
             this.ProgressBar1.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.LawnGreen;
+            this.label4.Location = new System.Drawing.Point(231, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(240, 33);
+            this.label4.TabIndex = 109;
+            this.label4.Text = "Business Directory";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(664, 372);
+            this.ClientSize = new System.Drawing.Size(735, 457);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.departmentTextBox);
@@ -195,7 +198,6 @@
             this.Controls.Add(this.txtUserType);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
@@ -220,7 +222,7 @@
         private System.Windows.Forms.TextBox txtUserType;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         public  System.Windows.Forms.ProgressBar ProgressBar1;
+        private System.Windows.Forms.Label label4;
     }
 }

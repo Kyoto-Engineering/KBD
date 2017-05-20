@@ -39,6 +39,7 @@
             // 
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.ForeColor = System.Drawing.Color.Chartreuse;
             this.lblCategoryName.Location = new System.Drawing.Point(21, 16);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(112, 22);
@@ -80,11 +81,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Chocolate;
             this.ClientSize = new System.Drawing.Size(468, 292);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveRelationship);
             this.Name = "frmRelationShip";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRelationShip";
             this.Load += new System.EventHandler(this.frmRelationShip_Load);
             this.groupBox1.ResumeLayout(false);

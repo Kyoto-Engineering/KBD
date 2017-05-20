@@ -105,7 +105,7 @@ namespace PhonebookApp.UI
         private void GroupCreation_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frmm = new MainUI();
+            frmManageGroups frmm = new frmManageGroups();
             frmm.Show();
         }
 

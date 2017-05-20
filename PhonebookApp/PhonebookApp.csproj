@@ -233,6 +233,18 @@
     <Compile Include="UI\frmJobTitle.Designer.cs">
       <DependentUpon>frmJobTitle.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmManageGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmManageGroups.Designer.cs">
+      <DependentUpon>frmManageGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmNewEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmNewEntry.Designer.cs">
+      <DependentUpon>frmNewEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmPersonUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +256,12 @@
     </Compile>
     <Compile Include="UI\frmRelationShip.Designer.cs">
       <DependentUpon>frmRelationShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmViewAndReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmViewAndReport.Designer.cs">
+      <DependentUpon>frmViewAndReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Group.cs">
       <SubType>Form</SubType>
@@ -373,11 +391,20 @@
     <EmbeddedResource Include="UI\frmJobTitle.resx">
       <DependentUpon>frmJobTitle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmManageGroups.resx">
+      <DependentUpon>frmManageGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmNewEntry.resx">
+      <DependentUpon>frmNewEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPersonUpdate.resx">
       <DependentUpon>frmPersonUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmRelationShip.resx">
       <DependentUpon>frmRelationShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmViewAndReport.resx">
+      <DependentUpon>frmViewAndReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Group.resx">
       <DependentUpon>Group.cs</DependentUpon>

@@ -318,8 +318,13 @@ namespace PhonebookApp.UI
         private void ReportUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmViewAndReport frm = new frmViewAndReport();
             frm.Show();
+        }
+
+        private void ReportUI_Load(object sender, EventArgs e)
+        {
+
         }
 
       

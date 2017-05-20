@@ -80,7 +80,7 @@ namespace PhonebookApp.UI
         private void PersonDetail_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmViewAndReport frm = new frmViewAndReport();
             frm.Show();
         }
 

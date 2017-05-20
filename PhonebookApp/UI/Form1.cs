@@ -1158,7 +1158,7 @@ namespace PhonebookApp
         private void frm1_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmNewEntry frm = new frmNewEntry();
             frm.Show();
         }
 

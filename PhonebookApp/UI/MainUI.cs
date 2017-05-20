@@ -20,9 +20,9 @@ namespace PhonebookApp.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm1  frm=new frm1();
-             frm.Show();
+            //this.Hide();
+            //frm1  frm=new frm1();
+            // frm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,51 +49,51 @@ namespace PhonebookApp.UI
        
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CompanyCreation frm = new CompanyCreation();
-            frm.Show();
+            //this.Hide();
+            //CompanyCreation frm = new CompanyCreation();
+            //frm.Show();
         }
 
         private void buttonSpecialization_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Specialization frm = new Specialization();
-            frm.Show();
+            //this.Hide();
+            //Specialization frm = new Specialization();
+            //frm.Show();
         }
 
         private void buttonProfession_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Profession frm = new Profession();
-            frm.Show();
+            //this.Hide();
+            //Profession frm = new Profession();
+            //frm.Show();
         }
 
         private void buttonEducationLevel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            EducationLevel frm = new EducationLevel();
-            frm.Show();
+            //this.Hide();
+            //EducationLevel frm = new EducationLevel();
+            //frm.Show();
         }
 
         private void buttonAgeGroup_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AgeGroup frm = new AgeGroup();
-            frm.Show();
+            //this.Hide();
+            //AgeGroup frm = new AgeGroup();
+            //frm.Show();
         }
 
         private void buttonJobTitle_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmJobTitle frm = new frmJobTitle();
-            frm.Show();
+            //this.Hide();
+            //frmJobTitle frm = new frmJobTitle();
+            //frm.Show();
         }
 
         private void GroupCreationbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            GroupCreation frm = new GroupCreation();
-            frm.Show();
+            //this.Hide();
+            //GroupCreation frm = new GroupCreation();
+            //frm.Show();
         }
 
         private void MemberAddedToGroupbutton_Click(object sender, EventArgs e)
@@ -105,15 +105,36 @@ namespace PhonebookApp.UI
 
         private void personDetailsButton_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            PersonDetail frm = new PersonDetail();
-            frm.Show();
+            //this.Hide();
+            //PersonDetail frm = new PersonDetail();
+            //frm.Show();
         }
 
         private void reportButton_Click(object sender, EventArgs e)
         {
+            //this.Hide();
+            //ReportUI frm = new ReportUI();
+            //frm.Show();
+        }
+
+        private void NewEntrybutton_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            ReportUI frm = new ReportUI();
+            frmNewEntry frm = new frmNewEntry();
+            frm.Show();
+        }
+
+        private void ManageGroupsbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmManageGroups frm = new frmManageGroups();
+            frm.Show();
+        }
+
+        private void ViewAndReportbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmViewAndReport frm = new frmViewAndReport();
             frm.Show();
         }       
     }

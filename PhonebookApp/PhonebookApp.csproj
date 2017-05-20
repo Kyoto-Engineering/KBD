@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kyoto Business Directory</ProductName>
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -134,6 +134,7 @@
       <DependentUpon>UserManagementUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Models\CompanyAddress.cs" />
     <Compile Include="Reports\BarCode.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

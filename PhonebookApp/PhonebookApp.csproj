@@ -153,6 +153,21 @@
       <DependentUpon>EidGreetings.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\EidGreetingsForResidentialAdd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForResidentialAdd.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EidGreetingsForWorkingAdd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForWorkingAdd.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GreetingCardsForResidentialAdd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreetingCardsForResidentialAdd.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Reports\GreetingCardsForWorkingAdd.cs">
       <DependentUpon>GreetingCardsForWorkingAdd.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -338,6 +353,18 @@
     <EmbeddedResource Include="Reports\EidGreetings.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetings.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForResidentialAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForResidentialAdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForWorkingAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForWorkingAdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GreetingCardsForResidentialAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GreetingCardsForResidentialAdd.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GreetingCardsForWorkingAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

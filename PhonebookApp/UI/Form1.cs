@@ -96,7 +96,7 @@ namespace PhonebookApp
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string insertQ = "insert into " + tableName +
-                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
+                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo,,BuildingName,RoadName,LandMark) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" +
                                  "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
@@ -115,6 +115,12 @@ namespace PhonebookApp
                     string.IsNullOrEmpty(txtRAArea.Text) ? (object) DBNull.Value : txtRAArea.Text));
                 cmd.Parameters.Add(new SqlParameter("@d8",
                     string.IsNullOrEmpty(txtRAContactNo.Text) ? (object) DBNull.Value : txtRAContactNo.Text));
+                cmd.Parameters.Add(new SqlParameter("@d9",
+                    string.IsNullOrEmpty(buildingNameTextBox.Text) ? (object)DBNull.Value : buildingNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d10",
+                    string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d11",
+                    string.IsNullOrEmpty(nearestLandMarkTextBox.Text) ? (object)DBNull.Value : nearestLandMarkTextBox.Text));
                 affectedRows1 = (int) cmd.ExecuteScalar();
                 con.Close();
 

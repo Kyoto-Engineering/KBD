@@ -1595,7 +1595,7 @@ namespace PhonebookApp.UI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cFlatNoTextBox.Focus();
+                EmailtextBox.Focus();
                 e.Handled = true;
             }
         }
@@ -1829,6 +1829,92 @@ namespace PhonebookApp.UI
             }
             //sda.Dispose();
 
+        }
+
+        private void EmailtextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(EmailtextBox.Text))
+            {
+
+
+                string emailId = EmailtextBox.Text.Trim();
+                Regex mRegxExpression;
+                mRegxExpression =
+                    new Regex(
+                        @"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+                if (!mRegxExpression.IsMatch(emailId))
+                {
+
+                    MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    EmailtextBox.Clear();
+                }
+            }
+        }
+
+        private void ContactNotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)) || (e.KeyChar == (char)Keys.Back))
+                e.Handled = true;
+        }
+
+        private void WebSiteUrltextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(WebSiteUrltextBox.Text))
+            {
+                string urlAddress = WebSiteUrltextBox.Text.Trim();
+                Regex mRegxExpression;
+                Regex mRegxExpression1;
+
+                mRegxExpression = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
+                mRegxExpression1 = new Regex(@"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
+
+                if ((!mRegxExpression.IsMatch(urlAddress)) && (!mRegxExpression1.IsMatch(urlAddress)))
+                {
+
+                    MessageBox.Show("Please type your valid Url Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WebSiteUrltextBox.Clear();
+                    WebSiteUrltextBox.Focus();
+
+                }
+            }
+        }
+
+        private void EmailtextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ContactNotextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void ContactNotextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                IdentificationNotextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void IdentificationNotextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                WebSiteUrltextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void WebSiteUrltextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cFlatNoTextBox.Focus();
+                e.Handled = true;
+            }
         }
     }
 }

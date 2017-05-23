@@ -56,6 +56,10 @@
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tRoadNameTextBox = new System.Windows.Forms.TextBox();
+            this.tBuldingNameTextBox = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.tLandmarktextBox = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.FblocktextBox = new System.Windows.Forms.TextBox();
@@ -86,6 +90,10 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cRoadNameTextBox = new System.Windows.Forms.TextBox();
+            this.cBuldingNameTextBox = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.cLandmarktextBox = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.blocktextBox = new System.Windows.Forms.TextBox();
@@ -123,14 +131,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.getDataButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
-            this.tRoadNameTextBox = new System.Windows.Forms.TextBox();
-            this.tBuldingNameTextBox = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.cRoadNameTextBox = new System.Windows.Forms.TextBox();
-            this.cBuldingNameTextBox = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -224,7 +224,7 @@
             this.groupBox5.Location = new System.Drawing.Point(10, 0);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(453, 297);
-            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
             // WebSiteUrltextBox
@@ -233,7 +233,9 @@
             this.WebSiteUrltextBox.Location = new System.Drawing.Point(168, 262);
             this.WebSiteUrltextBox.Name = "WebSiteUrltextBox";
             this.WebSiteUrltextBox.Size = new System.Drawing.Size(256, 29);
-            this.WebSiteUrltextBox.TabIndex = 84;
+            this.WebSiteUrltextBox.TabIndex = 8;
+            this.WebSiteUrltextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WebSiteUrltextBox_KeyDown);
+            this.WebSiteUrltextBox.Leave += new System.EventHandler(this.WebSiteUrltextBox_Leave);
             // 
             // label13
             // 
@@ -262,7 +264,8 @@
             this.IdentificationNotextBox.Location = new System.Drawing.Point(168, 228);
             this.IdentificationNotextBox.Name = "IdentificationNotextBox";
             this.IdentificationNotextBox.Size = new System.Drawing.Size(256, 29);
-            this.IdentificationNotextBox.TabIndex = 83;
+            this.IdentificationNotextBox.TabIndex = 7;
+            this.IdentificationNotextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IdentificationNotextBox_KeyDown);
             // 
             // label10
             // 
@@ -278,9 +281,12 @@
             // 
             this.ContactNotextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContactNotextBox.Location = new System.Drawing.Point(168, 194);
+            this.ContactNotextBox.MaxLength = 11;
             this.ContactNotextBox.Name = "ContactNotextBox";
             this.ContactNotextBox.Size = new System.Drawing.Size(256, 29);
-            this.ContactNotextBox.TabIndex = 81;
+            this.ContactNotextBox.TabIndex = 6;
+            this.ContactNotextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContactNotextBox_KeyDown);
+            this.ContactNotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ContactNotextBox_KeyPress);
             // 
             // label1
             // 
@@ -298,7 +304,9 @@
             this.EmailtextBox.Location = new System.Drawing.Point(168, 160);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(256, 29);
-            this.EmailtextBox.TabIndex = 79;
+            this.EmailtextBox.TabIndex = 5;
+            this.EmailtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmailtextBox_KeyDown);
+            this.EmailtextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailtextBox_Validating);
             // 
             // label9
             // 
@@ -467,13 +475,49 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
+            // tRoadNameTextBox
+            // 
+            this.tRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tRoadNameTextBox.Location = new System.Drawing.Point(133, 129);
+            this.tRoadNameTextBox.Name = "tRoadNameTextBox";
+            this.tRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
+            this.tRoadNameTextBox.TabIndex = 5;
+            // 
+            // tBuldingNameTextBox
+            // 
+            this.tBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBuldingNameTextBox.Location = new System.Drawing.Point(133, 73);
+            this.tBuldingNameTextBox.Name = "tBuldingNameTextBox";
+            this.tBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
+            this.tBuldingNameTextBox.TabIndex = 3;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(6, 136);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(93, 19);
+            this.label31.TabIndex = 96;
+            this.label31.Text = "Road Name ";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(6, 80);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(112, 19);
+            this.label37.TabIndex = 95;
+            this.label37.Text = "Building Name ";
+            // 
             // tLandmarktextBox
             // 
             this.tLandmarktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tLandmarktextBox.Location = new System.Drawing.Point(431, 228);
             this.tLandmarktextBox.Name = "tLandmarktextBox";
             this.tLandmarktextBox.Size = new System.Drawing.Size(154, 26);
-            this.tLandmarktextBox.TabIndex = 91;
+            this.tLandmarktextBox.TabIndex = 14;
             // 
             // label30
             // 
@@ -491,7 +535,7 @@
             this.FblocktextBox.Location = new System.Drawing.Point(154, 158);
             this.FblocktextBox.Name = "FblocktextBox";
             this.FblocktextBox.Size = new System.Drawing.Size(143, 26);
-            this.FblocktextBox.TabIndex = 4;
+            this.FblocktextBox.TabIndex = 6;
             this.FblocktextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FblocktextBox_KeyDown);
             // 
             // label47
@@ -512,7 +556,7 @@
             this.tDivisionCombo.Location = new System.Drawing.Point(401, 17);
             this.tDivisionCombo.Name = "tDivisionCombo";
             this.tDivisionCombo.Size = new System.Drawing.Size(184, 27);
-            this.tDivisionCombo.TabIndex = 7;
+            this.tDivisionCombo.TabIndex = 8;
             this.tDivisionCombo.SelectedIndexChanged += new System.EventHandler(this.tDivisionCombo_SelectedIndexChanged);
             this.tDivisionCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tDivisionCombo_KeyDown);
             // 
@@ -542,7 +586,7 @@
             this.tPostCombo.Location = new System.Drawing.Point(400, 114);
             this.tPostCombo.Name = "tPostCombo";
             this.tPostCombo.Size = new System.Drawing.Size(185, 27);
-            this.tPostCombo.TabIndex = 10;
+            this.tPostCombo.TabIndex = 11;
             this.tPostCombo.SelectedIndexChanged += new System.EventHandler(this.tPostCombo_SelectedIndexChanged);
             this.tPostCombo.Enter += new System.EventHandler(this.tPostCombo_Enter);
             this.tPostCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPostCombo_KeyDown);
@@ -554,7 +598,7 @@
             this.tContactNoTextBox.MaxLength = 11;
             this.tContactNoTextBox.Name = "tContactNoTextBox";
             this.tContactNoTextBox.Size = new System.Drawing.Size(162, 26);
-            this.tContactNoTextBox.TabIndex = 6;
+            this.tContactNoTextBox.TabIndex = 7;
             this.tContactNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tContactNoTextBox_KeyDown);
             this.tContactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tContactNoTextBox_KeyPress);
             this.tContactNoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.tContactNoTextBox_Validating);
@@ -621,7 +665,7 @@
             this.tThenaCombo.Location = new System.Drawing.Point(401, 81);
             this.tThenaCombo.Name = "tThenaCombo";
             this.tThenaCombo.Size = new System.Drawing.Size(185, 27);
-            this.tThenaCombo.TabIndex = 9;
+            this.tThenaCombo.TabIndex = 10;
             this.tThenaCombo.SelectedIndexChanged += new System.EventHandler(this.tThenaCombo_SelectedIndexChanged);
             this.tThenaCombo.Enter += new System.EventHandler(this.tThenaCombo_Enter);
             this.tThenaCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tThenaCombo_KeyDown);
@@ -644,7 +688,7 @@
             this.tDistrictCombo.Location = new System.Drawing.Point(401, 49);
             this.tDistrictCombo.Name = "tDistrictCombo";
             this.tDistrictCombo.Size = new System.Drawing.Size(185, 27);
-            this.tDistrictCombo.TabIndex = 8;
+            this.tDistrictCombo.TabIndex = 9;
             this.tDistrictCombo.SelectedIndexChanged += new System.EventHandler(this.tDistrictCombo_SelectedIndexChanged);
             this.tDistrictCombo.Enter += new System.EventHandler(this.tDistrictCombo_Enter);
             this.tDistrictCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tDistrictCombo_KeyDown);
@@ -666,7 +710,7 @@
             this.tPostCodeTextBox.Name = "tPostCodeTextBox";
             this.tPostCodeTextBox.ReadOnly = true;
             this.tPostCodeTextBox.Size = new System.Drawing.Size(185, 26);
-            this.tPostCodeTextBox.TabIndex = 11;
+            this.tPostCodeTextBox.TabIndex = 12;
             this.tPostCodeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPostCodeTextBox_KeyDown);
             this.tPostCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPostCodeTextBox_KeyPress);
             // 
@@ -676,7 +720,7 @@
             this.tAreaTextBox.Location = new System.Drawing.Point(431, 177);
             this.tAreaTextBox.Name = "tAreaTextBox";
             this.tAreaTextBox.Size = new System.Drawing.Size(155, 26);
-            this.tAreaTextBox.TabIndex = 5;
+            this.tAreaTextBox.TabIndex = 13;
             this.tAreaTextBox.TextChanged += new System.EventHandler(this.tAreaTextBox_TextChanged);
             this.tAreaTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tAreaTextBox_KeyDown);
             // 
@@ -707,7 +751,7 @@
             this.tRoadNoTextBox.Location = new System.Drawing.Point(136, 101);
             this.tRoadNoTextBox.Name = "tRoadNoTextBox";
             this.tRoadNoTextBox.Size = new System.Drawing.Size(162, 26);
-            this.tRoadNoTextBox.TabIndex = 3;
+            this.tRoadNoTextBox.TabIndex = 4;
             this.tRoadNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tRoadNoTextBox_KeyDown);
             // 
             // tHouseNoTextBox
@@ -808,9 +852,45 @@
             this.groupBox2.Location = new System.Drawing.Point(7, 297);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(607, 272);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Corporate Address";
+            // 
+            // cRoadNameTextBox
+            // 
+            this.cRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cRoadNameTextBox.Location = new System.Drawing.Point(137, 148);
+            this.cRoadNameTextBox.Name = "cRoadNameTextBox";
+            this.cRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
+            this.cRoadNameTextBox.TabIndex = 5;
+            // 
+            // cBuldingNameTextBox
+            // 
+            this.cBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBuldingNameTextBox.Location = new System.Drawing.Point(137, 87);
+            this.cBuldingNameTextBox.Name = "cBuldingNameTextBox";
+            this.cBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
+            this.cBuldingNameTextBox.TabIndex = 3;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(10, 155);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(93, 19);
+            this.label38.TabIndex = 100;
+            this.label38.Text = "Road Name ";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(10, 94);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(112, 19);
+            this.label39.TabIndex = 99;
+            this.label39.Text = "Building Name ";
             // 
             // cLandmarktextBox
             // 
@@ -818,7 +898,7 @@
             this.cLandmarktextBox.Location = new System.Drawing.Point(444, 239);
             this.cLandmarktextBox.Name = "cLandmarktextBox";
             this.cLandmarktextBox.Size = new System.Drawing.Size(152, 26);
-            this.cLandmarktextBox.TabIndex = 85;
+            this.cLandmarktextBox.TabIndex = 14;
             // 
             // label29
             // 
@@ -836,7 +916,7 @@
             this.blocktextBox.Location = new System.Drawing.Point(146, 181);
             this.blocktextBox.Name = "blocktextBox";
             this.blocktextBox.Size = new System.Drawing.Size(153, 26);
-            this.blocktextBox.TabIndex = 4;
+            this.blocktextBox.TabIndex = 6;
             this.blocktextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blocktextBox_KeyDown);
             // 
             // cPostOfficeCombo
@@ -846,7 +926,7 @@
             this.cPostOfficeCombo.Location = new System.Drawing.Point(399, 127);
             this.cPostOfficeCombo.Name = "cPostOfficeCombo";
             this.cPostOfficeCombo.Size = new System.Drawing.Size(198, 30);
-            this.cPostOfficeCombo.TabIndex = 10;
+            this.cPostOfficeCombo.TabIndex = 11;
             this.cPostOfficeCombo.SelectedIndexChanged += new System.EventHandler(this.cPostOfficeCombo_SelectedIndexChanged);
             this.cPostOfficeCombo.Enter += new System.EventHandler(this.cPostOfficeCombo_Enter);
             this.cPostOfficeCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cPostOfficeCombo_KeyDown);
@@ -888,7 +968,7 @@
             this.cDivisionCombo.Location = new System.Drawing.Point(399, 25);
             this.cDivisionCombo.Name = "cDivisionCombo";
             this.cDivisionCombo.Size = new System.Drawing.Size(198, 30);
-            this.cDivisionCombo.TabIndex = 7;
+            this.cDivisionCombo.TabIndex = 8;
             this.cDivisionCombo.SelectedIndexChanged += new System.EventHandler(this.cDivisionCombo_SelectedIndexChanged);
             this.cDivisionCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cDivisionCombo_KeyDown);
             // 
@@ -939,7 +1019,7 @@
             this.cThanaCombo.Location = new System.Drawing.Point(399, 92);
             this.cThanaCombo.Name = "cThanaCombo";
             this.cThanaCombo.Size = new System.Drawing.Size(198, 30);
-            this.cThanaCombo.TabIndex = 9;
+            this.cThanaCombo.TabIndex = 10;
             this.cThanaCombo.SelectedIndexChanged += new System.EventHandler(this.cThanaCombo_SelectedIndexChanged);
             this.cThanaCombo.Enter += new System.EventHandler(this.cThanaCombo_Enter);
             this.cThanaCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cThanaCombo_KeyDown);
@@ -951,7 +1031,7 @@
             this.cContactNoTextBox.MaxLength = 11;
             this.cContactNoTextBox.Name = "cContactNoTextBox";
             this.cContactNoTextBox.Size = new System.Drawing.Size(152, 26);
-            this.cContactNoTextBox.TabIndex = 6;
+            this.cContactNoTextBox.TabIndex = 7;
             this.cContactNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cContactNoTextBox_KeyDown);
             this.cContactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cContactNoTextBox_KeyPress);
             this.cContactNoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cContactNoTextBox_Validating);
@@ -975,7 +1055,7 @@
             this.cDistCombo.Location = new System.Drawing.Point(399, 60);
             this.cDistCombo.Name = "cDistCombo";
             this.cDistCombo.Size = new System.Drawing.Size(199, 27);
-            this.cDistCombo.TabIndex = 8;
+            this.cDistCombo.TabIndex = 9;
             this.cDistCombo.SelectedIndexChanged += new System.EventHandler(this.cDistCombo_SelectedIndexChanged);
             this.cDistCombo.Enter += new System.EventHandler(this.cDistCombo_Enter);
             this.cDistCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cDistCombo_KeyDown);
@@ -997,7 +1077,7 @@
             this.cPostCodeTextBox.Name = "cPostCodeTextBox";
             this.cPostCodeTextBox.ReadOnly = true;
             this.cPostCodeTextBox.Size = new System.Drawing.Size(198, 29);
-            this.cPostCodeTextBox.TabIndex = 11;
+            this.cPostCodeTextBox.TabIndex = 12;
             this.cPostCodeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cPostCodeTextBox_KeyDown);
             this.cPostCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cPostCodeTextBox_KeyPress);
             // 
@@ -1007,7 +1087,7 @@
             this.cAreaTextBox.Location = new System.Drawing.Point(444, 199);
             this.cAreaTextBox.Name = "cAreaTextBox";
             this.cAreaTextBox.Size = new System.Drawing.Size(152, 26);
-            this.cAreaTextBox.TabIndex = 5;
+            this.cAreaTextBox.TabIndex = 13;
             this.cAreaTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cAreaTextBox_KeyDown);
             // 
             // label20
@@ -1048,7 +1128,7 @@
             this.cRoadNoTextBox.Location = new System.Drawing.Point(145, 117);
             this.cRoadNoTextBox.Name = "cRoadNoTextBox";
             this.cRoadNoTextBox.Size = new System.Drawing.Size(153, 26);
-            this.cRoadNoTextBox.TabIndex = 3;
+            this.cRoadNoTextBox.TabIndex = 4;
             this.cRoadNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cRoadNoTextBox_KeyDown);
             // 
             // cHouseNoTextBox
@@ -1123,7 +1203,7 @@
             this.groupBox4.Location = new System.Drawing.Point(625, 245);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(617, 321);
-            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Factory  Address";
             // 
@@ -1204,78 +1284,6 @@
             this.newButton.TabIndex = 7;
             this.newButton.UseVisualStyleBackColor = false;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
-            // 
-            // tRoadNameTextBox
-            // 
-            this.tRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tRoadNameTextBox.Location = new System.Drawing.Point(133, 129);
-            this.tRoadNameTextBox.Name = "tRoadNameTextBox";
-            this.tRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
-            this.tRoadNameTextBox.TabIndex = 94;
-            // 
-            // tBuldingNameTextBox
-            // 
-            this.tBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBuldingNameTextBox.Location = new System.Drawing.Point(133, 73);
-            this.tBuldingNameTextBox.Name = "tBuldingNameTextBox";
-            this.tBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
-            this.tBuldingNameTextBox.TabIndex = 93;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(6, 136);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(93, 19);
-            this.label31.TabIndex = 96;
-            this.label31.Text = "Road Name ";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(6, 80);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(112, 19);
-            this.label37.TabIndex = 95;
-            this.label37.Text = "Building Name ";
-            // 
-            // cRoadNameTextBox
-            // 
-            this.cRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cRoadNameTextBox.Location = new System.Drawing.Point(137, 148);
-            this.cRoadNameTextBox.Name = "cRoadNameTextBox";
-            this.cRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
-            this.cRoadNameTextBox.TabIndex = 98;
-            // 
-            // cBuldingNameTextBox
-            // 
-            this.cBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBuldingNameTextBox.Location = new System.Drawing.Point(137, 87);
-            this.cBuldingNameTextBox.Name = "cBuldingNameTextBox";
-            this.cBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
-            this.cBuldingNameTextBox.TabIndex = 97;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(10, 155);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(93, 19);
-            this.label38.TabIndex = 100;
-            this.label38.Text = "Road Name ";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(10, 94);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(112, 19);
-            this.label39.TabIndex = 99;
-            this.label39.Text = "Building Name ";
             // 
             // CompanyCreation
             // 

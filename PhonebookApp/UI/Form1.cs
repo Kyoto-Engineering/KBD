@@ -98,7 +98,7 @@ namespace PhonebookApp
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string insertQ = "insert into " + tableName +
-                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo,,BuildingName,RoadName,LandMark,AdressQR) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" +
+                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo,BuildingName,RoadName,LandMark,AdressQR) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" +
                                  "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
@@ -138,6 +138,13 @@ namespace PhonebookApp
                 SqlParameter p = new SqlParameter("@d12", SqlDbType.VarBinary);
                 p.Value = data;
                 cmd.Parameters.Add(p);
+                string debugSQL = cmd.CommandText;
+
+                foreach (SqlParameter param in cmd.Parameters)
+                {
+                    debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
+                }
+               
                 affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
                 ms.Dispose();

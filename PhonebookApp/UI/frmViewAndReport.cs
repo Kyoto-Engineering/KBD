@@ -37,5 +37,12 @@ namespace PhonebookApp.UI
             ReportUI frm = new ReportUI();
             frm.Show();
         }
+
+        private void ViewCompanybutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CompanyGrid frm = new CompanyGrid();
+            frm.Show();
+        }
     }
 }

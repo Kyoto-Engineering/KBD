@@ -214,6 +214,12 @@
     <Compile Include="UI\CompanyCreation.designer.cs">
       <DependentUpon>CompanyCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CompanyGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CompanyGrid.Designer.cs">
+      <DependentUpon>CompanyGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\EducationLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,11 +240,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\frmCompany.cs">
+    <Compile Include="UI\frmUpdateCompany.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmCompany.Designer.cs">
-      <DependentUpon>frmCompany.cs</DependentUpon>
+    <Compile Include="UI\frmUpdateCompany.Designer.cs">
+      <DependentUpon>frmUpdateCompany.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmIndustryCategory.cs">
       <SubType>Form</SubType>
@@ -394,6 +400,9 @@
     <EmbeddedResource Include="UI\CompanyCreation.resx">
       <DependentUpon>CompanyCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\CompanyGrid.resx">
+      <DependentUpon>CompanyGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\EducationLevel.resx">
       <DependentUpon>EducationLevel.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,8 +422,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\frmCompany.resx">
-      <DependentUpon>frmCompany.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmUpdateCompany.resx">
+      <DependentUpon>frmUpdateCompany.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmIndustryCategory.resx">
       <DependentUpon>frmIndustryCategory.cs</DependentUpon>

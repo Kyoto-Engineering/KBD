@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
 using PhonebookApp.UI;
+using QRCoder;
 
 
 namespace PhonebookApp
@@ -96,7 +98,7 @@ namespace PhonebookApp
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string insertQ = "insert into " + tableName +
-                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo,,BuildingName,RoadName,LandMark) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" +
+                                 "(PersonsId,PostOfficeId,RFlatNo,RHouseNo,RRoadNo,RBlock,RArea,RContactNo,,BuildingName,RoadName,LandMark,AdressQR) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)" +
                                  "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
@@ -121,10 +123,54 @@ namespace PhonebookApp
                     string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d11",
                     string.IsNullOrEmpty(nearestLandMarkTextBox.Text) ? (object)DBNull.Value : nearestLandMarkTextBox.Text));
-                affectedRows1 = (int) cmd.ExecuteScalar();
+                var Qrdata = GetQrdata();
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Properties.Resources.logo.MakeTransparent();
+                Bitmap Logo = Properties.Resources.logo;
+                Logo.MakeTransparent();
+                Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.Black, Color.White, Logo, 30);
+                //qrCode.GetGraphic()
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                byte[] data = ms.GetBuffer();
+                SqlParameter p = new SqlParameter("@d12", SqlDbType.VarBinary);
+                p.Value = data;
+                cmd.Parameters.Add(p);
+                affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
-
+                ms.Dispose();
             }
+        }
+
+        private string GetQrdata()
+        {
+            string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
+            Qrdata += "Division:" + cmbRADivision.Text + "\r\n";
+            Qrdata += "District:" + cmbRADistrict.Text + "\r\n";
+            Qrdata += "Thana:" + cmbRAThana.Text + "\r\n";
+            Qrdata += "Post:" + cmbRAPost.Text + "\r\n";
+            Qrdata += "Post Code:" + txtRAPostCode.Text + "\r\n";
+            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(txtRAArea.Text) ? (object) DBNull.Value : txtRAArea.Text) +
+                      "\r\n";
+            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(txtRABlock.Text) ? (object) DBNull.Value : txtRABlock.Text) +
+                      "\r\n";
+            Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(nearestLandMarkTextBox.Text)
+                          ? (object) DBNull.Value
+                          : nearestLandMarkTextBox.Text) + "\r\n";
+            Qrdata += "Road Name:" +
+                      (string.IsNullOrEmpty(roadNameTextBox.Text) ? (object) DBNull.Value : roadNameTextBox.Text) + "\r\n";
+            Qrdata += "Road#:" + (string.IsNullOrEmpty(txtRARoadNo.Text) ? (object) DBNull.Value : txtRARoadNo.Text) + "\r\n";
+            Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingNameTextBox.Text)
+                          ? (object) DBNull.Value
+                          : buildingNameTextBox.Text) + "\r\n";
+            Qrdata += "Holding#:" + (string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object) DBNull.Value : txtRAHouseNo.Text) +
+                      "\r\n";
+            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object) DBNull.Value : txtRAFlatNo.Text) +
+                      "\r\n";
+            Qrdata += "Contact#:" + (string.IsNullOrEmpty(txtRAContactNo.Text) ? (object) DBNull.Value : txtRAContactNo.Text);
+            return Qrdata;
         }
 
         //private void SaveWorkingAddre(string tblName1)
@@ -380,10 +426,11 @@ namespace PhonebookApp
 
         private void SavePersonDetails()
         {
+            SqlParameter p;
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,GroupId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,GroupId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -420,7 +467,21 @@ namespace PhonebookApp
             cmd.Parameters.Add(new SqlParameter("@d23",
                 !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
             cmd.Parameters.AddWithValue("@d24", nUserId);
-
+            if (userPictureBox.Image != null)
+            {
+                MemoryStream ms = new MemoryStream();
+                Bitmap bmpImage = new Bitmap(userPictureBox.Image);
+                bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] data = ms.GetBuffer();
+                p = new SqlParameter("@d25", SqlDbType.VarBinary);
+                p.Value = data;
+                cmd.Parameters.Add(p);
+            }
+            else
+            {
+                cmd.Parameters.Add("@d25", SqlDbType.VarBinary, -1);
+                cmd.Parameters["@d25"].Value = DBNull.Value;
+            }
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
 
@@ -3109,6 +3170,55 @@ namespace PhonebookApp
                     FillStar2();
                 }
             }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _with1 = openFileDialog1;
+
+                _with1.Filter = ("Image Files |*.png;*.bmp; *.jpg;*.jpeg; *.gif;");
+                _with1.FilterIndex = 4;
+
+                openFileDialog1.FileName = "";
+                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                //{
+                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                    {
+                        MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Image.FromFile(openFileDialog1.FileName).Width != 300)
+                    {
+                        MessageBox.Show("Width Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
+                        //{
+
+                        userPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                        pictureBrowseButton.Focus();
+                    }
+                    //else
+                    //{
+                    //    MessageBox.Show("Image Size is invalid");
+                    //}
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         }      
     }
 

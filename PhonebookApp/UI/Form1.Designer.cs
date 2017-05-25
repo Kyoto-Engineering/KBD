@@ -31,6 +31,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBrowseButton = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.maritalStatuscomboBox = new System.Windows.Forms.ComboBox();
             this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
@@ -156,9 +157,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
-            this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBrowseButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -195,6 +198,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label67);
+            this.groupBox1.Controls.Add(this.label66);
+            this.groupBox1.Controls.Add(this.label65);
             this.groupBox1.Controls.Add(this.pictureBrowseButton);
             this.groupBox1.Controls.Add(this.userPictureBox);
             this.groupBox1.Controls.Add(this.groupBox7);
@@ -248,6 +254,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // pictureBrowseButton
+            // 
+            this.pictureBrowseButton.Location = new System.Drawing.Point(290, 607);
+            this.pictureBrowseButton.Name = "pictureBrowseButton";
+            this.pictureBrowseButton.Size = new System.Drawing.Size(127, 37);
+            this.pictureBrowseButton.TabIndex = 98;
+            this.pictureBrowseButton.Text = "Browse";
+            this.pictureBrowseButton.UseVisualStyleBackColor = true;
+            this.pictureBrowseButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox7
             // 
@@ -1602,27 +1618,49 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Contact Name          ";
             // 
-            // userPictureBox
-            // 
-            this.userPictureBox.Location = new System.Drawing.Point(290, 451);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(150, 150);
-            this.userPictureBox.TabIndex = 97;
-            this.userPictureBox.TabStop = false;
-            // 
-            // pictureBrowseButton
-            // 
-            this.pictureBrowseButton.Location = new System.Drawing.Point(290, 607);
-            this.pictureBrowseButton.Name = "pictureBrowseButton";
-            this.pictureBrowseButton.Size = new System.Drawing.Size(127, 37);
-            this.pictureBrowseButton.TabIndex = 98;
-            this.pictureBrowseButton.Text = "Browse";
-            this.pictureBrowseButton.UseVisualStyleBackColor = true;
-            this.pictureBrowseButton.Click += new System.EventHandler(this.button1_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.MistyRose;
+            this.userPictureBox.BackgroundImage = global::PhonebookApp.Properties.Resources.user_up;
+            this.userPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.userPictureBox.Location = new System.Drawing.Point(290, 451);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(150, 150);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userPictureBox.TabIndex = 97;
+            this.userPictureBox.TabStop = false;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(138, 451);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(132, 22);
+            this.label65.TabIndex = 99;
+            this.label65.Text = "Upload Picture";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(28, 473);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(256, 22);
+            this.label66.TabIndex = 100;
+            this.label66.Text = "Size Must Be 300 by 300 Pixel";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(38, 497);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(246, 15);
+            this.label67.TabIndex = 101;
+            this.label67.Text = "Only .JPG, .JPEG, .PNG, .BMP is Supported";
             // 
             // frm1
             // 
@@ -1795,6 +1833,9 @@
         private System.Windows.Forms.Button pictureBrowseButton;
         private System.Windows.Forms.PictureBox userPictureBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
     }
 }
 

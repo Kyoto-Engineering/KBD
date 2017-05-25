@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
+using QRCoder;
 
 namespace PhonebookApp.UI
 {
@@ -32,7 +33,7 @@ namespace PhonebookApp.UI
         private void frmCompany_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            MainUI frm = new MainUI();
+            frmViewAndReport frm = new frmViewAndReport();
             frm.Show();
         }
 
@@ -953,7 +954,7 @@ namespace PhonebookApp.UI
                 }
                 else
                 {
-                    SaveCorporateORTraddingAddress("CorporateAddresses");
+                    SaveTraddingAddress("CorporateAddresses");
                 }
             }
             else if (checkTable == "TraddingAddresses")
@@ -969,7 +970,7 @@ namespace PhonebookApp.UI
                 }
                 else
                 {
-                    SaveCorporateORTraddingAddress("TraddingAddresses");
+                    SaveTraddingAddress("TraddingAddresses");
                 }
             }
         }
@@ -983,7 +984,7 @@ namespace PhonebookApp.UI
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string query = "Update " + corporatTable + " set PostOfficeId=@d4,CFlatNo=@d5,CHouseNo=@d6,CRoadNo=@d7,CBlock=@d8,CArea=@d9,CLandmark=@d10,CContactNo=@d11,BuildingName=@d12,RoadName=@d13  Where  CorporateAddresses.CompanyId='" + CompanyIdtextBox.Text + "'";
+                    string query = "Update " + corporatTable + " set PostOfficeId=@d4,CFlatNo=@d5,CHouseNo=@d6,CRoadNo=@d7,CBlock=@d8,CArea=@d9,CLandmark=@d10,CContactNo=@d11,BuildingName=@d12,RoadName=@d13,AdressQR=@d14  Where  CorporateAddresses.CompanyId='" + CompanyIdtextBox.Text + "'";
                     cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
                     cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
@@ -994,7 +995,19 @@ namespace PhonebookApp.UI
                     cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d12", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));                
+                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                    var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                    //qrCode.GetGraphic()
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    byte[] data = ms.GetBuffer();
+                    SqlParameter p = new SqlParameter("@d14", SqlDbType.VarBinary);
+                    p.Value = data;
+                    cmd.Parameters.Add(p);
                     rdr = cmd.ExecuteReader();
                     con.Close();
                 }
@@ -1006,7 +1019,7 @@ namespace PhonebookApp.UI
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string query = "Update " + corporatTable +
-                                       " set PostOfficeId=@d4,TFlatNo=@d5,THouseNo=@d6,TRoadNo=@d7,TBlock=@d8,TArea=@d9,TLandmark=@d10,TContactNo=@d11,BuildingName=@d12,RoadName=@d13  Where  TraddingAddresses.CompanyId='" +
+                                       " set PostOfficeId=@d4,TFlatNo=@d5,THouseNo=@d6,TRoadNo=@d7,TBlock=@d8,TArea=@d9,TLandmark=@d10,TContactNo=@d11,BuildingName=@d12,RoadName=@d13,AdressQR=@d14  Where  TraddingAddresses.CompanyId='" +
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.Add(new SqlParameter("@d4",
@@ -1026,7 +1039,7 @@ namespace PhonebookApp.UI
                                 ? (object) DBNull.Value
                                 : tLandmarktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d11",
-                            string.IsNullOrEmpty(cContactNoTextBox.Text)
+                            string.IsNullOrEmpty(tContactNoTextBox.Text)
                                 ? (object) DBNull.Value
                                 : tContactNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d12",
@@ -1037,6 +1050,18 @@ namespace PhonebookApp.UI
                             string.IsNullOrEmpty(tRoadNameTextBox.Text)
                                 ? (object) DBNull.Value
                                 : tRoadNameTextBox.Text));
+                        var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
+                        QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                        QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                        QRCode qrCode = new QRCode(qrCodeData);
+                        Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                        //qrCode.GetGraphic()
+                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                        qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                        byte[] data = ms.GetBuffer();
+                        SqlParameter p = new SqlParameter("@d14", SqlDbType.VarBinary);
+                        p.Value = data;
+                        cmd.Parameters.Add(p);
                         rdr = cmd.ExecuteReader();
                         con.Close();
                     }
@@ -1046,7 +1071,7 @@ namespace PhonebookApp.UI
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string query = "Update " + corporatTable +
-                                       " set PostOfficeId=@d4,TFlatNo=@d5,THouseNo=@d6,TRoadNo=@d7,TBlock=@d8,TArea=@d9,TLandmark=@d10,TContactNo=@d11,BuildingName=@d12,RoadName=@d13  Where  TraddingAddresses.CompanyId='" +
+                                       " set PostOfficeId=@d4,TFlatNo=@d5,THouseNo=@d6,TRoadNo=@d7,TBlock=@d8,TArea=@d9,TLandmark=@d10,TContactNo=@d11,BuildingName=@d12,RoadName=@d13,AdressQR=@d14  Where  TraddingAddresses.CompanyId='" +
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
@@ -1059,6 +1084,18 @@ namespace PhonebookApp.UI
                         cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d12", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                        var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+                        QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                        QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                        QRCode qrCode = new QRCode(qrCodeData);
+                        Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                        //qrCode.GetGraphic()
+                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                        qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                        byte[] data = ms.GetBuffer();
+                        SqlParameter p = new SqlParameter("@d14", SqlDbType.VarBinary);
+                        p.Value = data;
+                        cmd.Parameters.Add(p);
                         rdr = cmd.ExecuteReader();
                         con.Close();
                     }
@@ -1070,64 +1107,145 @@ namespace PhonebookApp.UI
             }
         }
 
-        private void SaveCorporateORTraddingAddress(string tblName1)
+        private void SaveTraddingAddress(string tblName1)
         {
             string tableName = tblName1;
-            if (tableName == "CorporateAddresses")
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                cmd = new SqlCommand(insertQ);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-                cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
-                cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+            //if (tableName == "CorporateAddresses")
+            //{
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            //    cmd = new SqlCommand(insertQ);
+            //    cmd.Connection = con;
+            //    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+            //    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+            //    cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
+            //    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
+            //    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
 
-                affectedRows1 = (int)cmd.ExecuteScalar();
-                con.Close();
-            }
-            else if (tableName == "TraddingAddresses")
+            //    affectedRows1 = (int)cmd.ExecuteScalar();
+            //    con.Close();
+            //}
+         if (tableName == "TraddingAddresses")
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                cmd = new SqlCommand(Qry);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d4",
-                    string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                cmd.Parameters.Add(new SqlParameter("@d5",
-                    string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6",
-                    string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7",
-                    string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8",
-                    string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d9",
-                    string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10",
-                    string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d11",
-                    string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-                cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
-                cmd.Parameters.Add(new SqlParameter("@d13",
-                    string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d14",
-                    string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
-                              
-                affectedRows2 = (int)cmd.ExecuteScalar();
-                con.Close();
+                if (sameAsCorporatAddCheckBox.Checked)
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string Qry = "insert into " + tableName +
+                                 "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" +
+                                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                    cmd = new SqlCommand(Qry);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d4",
+                        string.IsNullOrEmpty(postofficeIdC) ? (object) DBNull.Value : postofficeIdC));
+                    cmd.Parameters.Add(new SqlParameter("@d5",
+                        string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object) DBNull.Value : cFlatNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d6",
+                        string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object) DBNull.Value : cHouseNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d7",
+                        string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object) DBNull.Value : cRoadNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d8",
+                        string.IsNullOrEmpty(blocktextBox.Text) ? (object) DBNull.Value : blocktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d9",
+                        string.IsNullOrEmpty(cAreaTextBox.Text) ? (object) DBNull.Value : cAreaTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d10",
+                        string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object) DBNull.Value : cLandmarktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d11",
+                        string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object) DBNull.Value : cContactNoTextBox.Text));
+                    cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
+                    cmd.Parameters.Add(new SqlParameter("@d13",
+                        string.IsNullOrEmpty(cBuldingNameTextBox.Text)
+                            ? (object) DBNull.Value
+                            : cBuldingNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d14",
+                        string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object) DBNull.Value : cRoadNameTextBox.Text));
+                    var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                    //qrCode.GetGraphic()
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    byte[] data = ms.GetBuffer();
+                    SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+                    p.Value = data;
+                    cmd.Parameters.Add(p);
+                    affectedRows2 = (int) cmd.ExecuteScalar();
+                    con.Close();
+                }
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                    cmd = new SqlCommand(Qry);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
+                    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(tLandmarktextBox.Text) ? (object)DBNull.Value : tLandmarktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
+                    cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
+                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(tBuldingNameTextBox.Text) ? (object)DBNull.Value : tBuldingNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(tRoadNameTextBox.Text) ? (object)DBNull.Value : tRoadNameTextBox.Text));
+                    var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                    //qrCode.GetGraphic()
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    byte[] data = ms.GetBuffer();
+                    SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+                    p.Value = data;
+                    cmd.Parameters.Add(p);
+                    affectedRows2 = (int)cmd.ExecuteScalar();
+                    con.Close();
+                }
             }
         }
+
+        private string GetQrdata(string Division, string District, string Thana, string Post, string PostCode, string Area, string Block, string LandMark, string roadName, string RoadNo, string buildingName, string HouseNo, string FlatNo, string ContactNo)
+        {
+            string Qrdata = "Country:Bangladesh\r\n";
+            Qrdata += "Division:" + Division + "\r\n";
+            Qrdata += "District:" + District + "\r\n";
+            Qrdata += "Thana:" + Thana + "\r\n";
+            Qrdata += "Post:" + Post + "\r\n";
+            Qrdata += "Post Code:" + PostCode + "\r\n";
+            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
+                      "\r\n";
+            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
+                      "\r\n";
+            Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
+                          ? ""
+                          : LandMark) + "\r\n";
+            Qrdata += "Road Name:" +
+                      (string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
+            Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
+            Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
+                          ? ""
+                          : buildingName) + "\r\n";
+            Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
+                      "\r\n";
+            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
+                      "\r\n";
+            Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
+            return Qrdata;
+        }
+
 
         private void Reset()
         {

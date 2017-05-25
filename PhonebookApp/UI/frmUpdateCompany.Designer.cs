@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.WebSiteUrltextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -121,8 +123,7 @@
             this.notApplicableCheckBox = new System.Windows.Forms.CheckBox();
             this.sameAsCorporatAddCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.label49 = new System.Windows.Forms.Label();
-            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -172,6 +173,24 @@
             this.groupBox5.Size = new System.Drawing.Size(437, 346);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(5, 26);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(94, 19);
+            this.label49.TabIndex = 86;
+            this.label49.Text = "Company ID";
+            // 
+            // CompanyIdtextBox
+            // 
+            this.CompanyIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyIdtextBox.Location = new System.Drawing.Point(168, 23);
+            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
+            this.CompanyIdtextBox.Size = new System.Drawing.Size(256, 29);
+            this.CompanyIdtextBox.TabIndex = 87;
             // 
             // WebSiteUrltextBox
             // 
@@ -1136,23 +1155,16 @@
             this.UpdateButton.UseVisualStyleBackColor = false;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // label49
+            // label50
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(5, 26);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(94, 19);
-            this.label49.TabIndex = 86;
-            this.label49.Text = "Company ID";
-            // 
-            // CompanyIdtextBox
-            // 
-            this.CompanyIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyIdtextBox.Location = new System.Drawing.Point(168, 23);
-            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
-            this.CompanyIdtextBox.Size = new System.Drawing.Size(256, 29);
-            this.CompanyIdtextBox.TabIndex = 87;
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.Color.Lime;
+            this.label50.Location = new System.Drawing.Point(442, 13);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(380, 33);
+            this.label50.TabIndex = 3;
+            this.label50.Text = "Update Company Information";
             // 
             // frmUpdateCompany
             // 
@@ -1160,6 +1172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1305, 741);
+            this.Controls.Add(this.label50);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -1178,6 +1191,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1278,6 +1292,7 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Label label49;
         public System.Windows.Forms.TextBox CompanyIdtextBox;
+        private System.Windows.Forms.Label label50;
 
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ViewCompanybutton = new System.Windows.Forms.Button();
             this.reportButton = new System.Windows.Forms.Button();
             this.personDetailsButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.ViewCompanybutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,19 @@
             this.groupBox1.Size = new System.Drawing.Size(423, 269);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // ViewCompanybutton
+            // 
+            this.ViewCompanybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ViewCompanybutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewCompanybutton.ForeColor = System.Drawing.Color.Blue;
+            this.ViewCompanybutton.Location = new System.Drawing.Point(33, 144);
+            this.ViewCompanybutton.Name = "ViewCompanybutton";
+            this.ViewCompanybutton.Size = new System.Drawing.Size(134, 70);
+            this.ViewCompanybutton.TabIndex = 50;
+            this.ViewCompanybutton.Text = "View And Edit Companies";
+            this.ViewCompanybutton.UseVisualStyleBackColor = false;
+            this.ViewCompanybutton.Click += new System.EventHandler(this.ViewCompanybutton_Click);
             // 
             // reportButton
             // 
@@ -83,19 +96,6 @@
             this.label1.Size = new System.Drawing.Size(215, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "View And Report";
-            // 
-            // ViewCompanybutton
-            // 
-            this.ViewCompanybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ViewCompanybutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewCompanybutton.ForeColor = System.Drawing.Color.Blue;
-            this.ViewCompanybutton.Location = new System.Drawing.Point(33, 144);
-            this.ViewCompanybutton.Name = "ViewCompanybutton";
-            this.ViewCompanybutton.Size = new System.Drawing.Size(134, 70);
-            this.ViewCompanybutton.TabIndex = 50;
-            this.ViewCompanybutton.Text = "View All Companies";
-            this.ViewCompanybutton.UseVisualStyleBackColor = false;
-            this.ViewCompanybutton.Click += new System.EventHandler(this.ViewCompanybutton_Click);
             // 
             // frmViewAndReport
             // 

@@ -121,6 +121,8 @@
             this.notApplicableCheckBox = new System.Windows.Forms.CheckBox();
             this.sameAsCorporatAddCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.label49 = new System.Windows.Forms.Label();
+            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -144,6 +146,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label49);
+            this.groupBox5.Controls.Add(this.CompanyIdtextBox);
             this.groupBox5.Controls.Add(this.WebSiteUrltextBox);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.label12);
@@ -165,14 +169,14 @@
             this.groupBox5.Controls.Add(this.CompanyNameTextBox);
             this.groupBox5.Location = new System.Drawing.Point(10, 11);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(437, 303);
+            this.groupBox5.Size = new System.Drawing.Size(437, 346);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
             // WebSiteUrltextBox
             // 
             this.WebSiteUrltextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WebSiteUrltextBox.Location = new System.Drawing.Point(168, 262);
+            this.WebSiteUrltextBox.Location = new System.Drawing.Point(168, 301);
             this.WebSiteUrltextBox.Name = "WebSiteUrltextBox";
             this.WebSiteUrltextBox.Size = new System.Drawing.Size(256, 29);
             this.WebSiteUrltextBox.TabIndex = 8;
@@ -182,7 +186,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(5, 264);
+            this.label13.Location = new System.Drawing.Point(5, 303);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 19);
             this.label13.TabIndex = 85;
@@ -192,7 +196,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(5, 231);
+            this.label12.Location = new System.Drawing.Point(5, 270);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 19);
             this.label12.TabIndex = 82;
@@ -201,7 +205,7 @@
             // IdentificationNotextBox
             // 
             this.IdentificationNotextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdentificationNotextBox.Location = new System.Drawing.Point(168, 228);
+            this.IdentificationNotextBox.Location = new System.Drawing.Point(168, 267);
             this.IdentificationNotextBox.Name = "IdentificationNotextBox";
             this.IdentificationNotextBox.Size = new System.Drawing.Size(256, 29);
             this.IdentificationNotextBox.TabIndex = 7;
@@ -210,7 +214,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(5, 197);
+            this.label10.Location = new System.Drawing.Point(5, 236);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 19);
             this.label10.TabIndex = 80;
@@ -219,7 +223,7 @@
             // ContactNotextBox
             // 
             this.ContactNotextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContactNotextBox.Location = new System.Drawing.Point(168, 194);
+            this.ContactNotextBox.Location = new System.Drawing.Point(168, 233);
             this.ContactNotextBox.MaxLength = 11;
             this.ContactNotextBox.Name = "ContactNotextBox";
             this.ContactNotextBox.Size = new System.Drawing.Size(256, 29);
@@ -229,7 +233,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 163);
+            this.label1.Location = new System.Drawing.Point(5, 202);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 19);
             this.label1.TabIndex = 78;
@@ -238,7 +242,7 @@
             // EmailtextBox
             // 
             this.EmailtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailtextBox.Location = new System.Drawing.Point(168, 160);
+            this.EmailtextBox.Location = new System.Drawing.Point(168, 199);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(256, 29);
             this.EmailtextBox.TabIndex = 5;
@@ -247,7 +251,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(145, 131);
+            this.label9.Location = new System.Drawing.Point(145, 170);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(11, 13);
             this.label9.TabIndex = 77;
@@ -257,7 +261,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(145, 101);
+            this.label8.Location = new System.Drawing.Point(145, 140);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(11, 13);
             this.label8.TabIndex = 76;
@@ -267,7 +271,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(145, 61);
+            this.label2.Location = new System.Drawing.Point(145, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(11, 13);
             this.label2.TabIndex = 75;
@@ -278,18 +282,19 @@
             this.cmbNatureOfClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNatureOfClient.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNatureOfClient.FormattingEnabled = true;
-            this.cmbNatureOfClient.Location = new System.Drawing.Point(168, 128);
+            this.cmbNatureOfClient.Location = new System.Drawing.Point(168, 167);
             this.cmbNatureOfClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbNatureOfClient.Name = "cmbNatureOfClient";
             this.cmbNatureOfClient.Size = new System.Drawing.Size(256, 27);
             this.cmbNatureOfClient.TabIndex = 4;
+            this.cmbNatureOfClient.SelectedIndexChanged += new System.EventHandler(this.cmbNatureOfClient_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(3, 131);
+            this.label11.Location = new System.Drawing.Point(3, 170);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(145, 19);
@@ -300,7 +305,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 97);
+            this.label3.Location = new System.Drawing.Point(5, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 19);
             this.label3.TabIndex = 10;
@@ -313,7 +318,7 @@
             this.IndustryCategorycomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IndustryCategorycomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IndustryCategorycomboBox.FormattingEnabled = true;
-            this.IndustryCategorycomboBox.Location = new System.Drawing.Point(168, 92);
+            this.IndustryCategorycomboBox.Location = new System.Drawing.Point(168, 131);
             this.IndustryCategorycomboBox.Name = "IndustryCategorycomboBox";
             this.IndustryCategorycomboBox.Size = new System.Drawing.Size(256, 30);
             this.IndustryCategorycomboBox.TabIndex = 3;
@@ -323,7 +328,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 61);
+            this.label7.Location = new System.Drawing.Point(6, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 19);
             this.label7.TabIndex = 8;
@@ -336,7 +341,7 @@
             this.cmbCompanytype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompanytype.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCompanytype.FormattingEnabled = true;
-            this.cmbCompanytype.Location = new System.Drawing.Point(168, 56);
+            this.cmbCompanytype.Location = new System.Drawing.Point(168, 95);
             this.cmbCompanytype.Name = "cmbCompanytype";
             this.cmbCompanytype.Size = new System.Drawing.Size(256, 30);
             this.cmbCompanytype.TabIndex = 2;
@@ -346,7 +351,7 @@
             // 
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryName.Location = new System.Drawing.Point(5, 25);
+            this.lblCategoryName.Location = new System.Drawing.Point(5, 64);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(116, 19);
             this.lblCategoryName.TabIndex = 0;
@@ -355,7 +360,7 @@
             // CompanyNameTextBox
             // 
             this.CompanyNameTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyNameTextBox.Location = new System.Drawing.Point(168, 22);
+            this.CompanyNameTextBox.Location = new System.Drawing.Point(168, 61);
             this.CompanyNameTextBox.Name = "CompanyNameTextBox";
             this.CompanyNameTextBox.Size = new System.Drawing.Size(256, 29);
             this.CompanyNameTextBox.TabIndex = 1;
@@ -513,6 +518,7 @@
             this.tPostCombo.Name = "tPostCombo";
             this.tPostCombo.Size = new System.Drawing.Size(185, 27);
             this.tPostCombo.TabIndex = 11;
+            this.tPostCombo.SelectedIndexChanged += new System.EventHandler(this.tPostCombo_SelectedIndexChanged);
             // 
             // tContactNoTextBox
             // 
@@ -585,6 +591,7 @@
             this.tThenaCombo.Name = "tThenaCombo";
             this.tThenaCombo.Size = new System.Drawing.Size(185, 27);
             this.tThenaCombo.TabIndex = 10;
+            this.tThenaCombo.SelectedIndexChanged += new System.EventHandler(this.tThenaCombo_SelectedIndexChanged);
             // 
             // label28
             // 
@@ -605,6 +612,7 @@
             this.tDistrictCombo.Name = "tDistrictCombo";
             this.tDistrictCombo.Size = new System.Drawing.Size(185, 27);
             this.tDistrictCombo.TabIndex = 9;
+            this.tDistrictCombo.SelectedIndexChanged += new System.EventHandler(this.tDistrictCombo_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -831,6 +839,7 @@
             this.cPostOfficeCombo.Name = "cPostOfficeCombo";
             this.cPostOfficeCombo.Size = new System.Drawing.Size(198, 30);
             this.cPostOfficeCombo.TabIndex = 11;
+            this.cPostOfficeCombo.SelectedIndexChanged += new System.EventHandler(this.cPostOfficeCombo_SelectedIndexChanged);
             // 
             // label44
             // 
@@ -870,6 +879,7 @@
             this.cDivisionCombo.Name = "cDivisionCombo";
             this.cDivisionCombo.Size = new System.Drawing.Size(198, 30);
             this.cDivisionCombo.TabIndex = 8;
+            this.cDivisionCombo.SelectedIndexChanged += new System.EventHandler(this.cDivisionCombo_SelectedIndexChanged);
             // 
             // label41
             // 
@@ -919,6 +929,7 @@
             this.cThanaCombo.Name = "cThanaCombo";
             this.cThanaCombo.Size = new System.Drawing.Size(198, 30);
             this.cThanaCombo.TabIndex = 10;
+            this.cThanaCombo.SelectedIndexChanged += new System.EventHandler(this.cThanaCombo_SelectedIndexChanged);
             // 
             // cContactNoTextBox
             // 
@@ -949,6 +960,7 @@
             this.cDistCombo.Name = "cDistCombo";
             this.cDistCombo.Size = new System.Drawing.Size(199, 27);
             this.cDistCombo.TabIndex = 9;
+            this.cDistCombo.SelectedIndexChanged += new System.EventHandler(this.cDistCombo_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -1098,6 +1110,7 @@
             this.notApplicableCheckBox.TabIndex = 0;
             this.notApplicableCheckBox.Text = "Not Applicable";
             this.notApplicableCheckBox.UseVisualStyleBackColor = true;
+            this.notApplicableCheckBox.CheckedChanged += new System.EventHandler(this.notApplicableCheckBox_CheckedChanged);
             // 
             // sameAsCorporatAddCheckBox
             // 
@@ -1108,6 +1121,7 @@
             this.sameAsCorporatAddCheckBox.TabIndex = 0;
             this.sameAsCorporatAddCheckBox.Text = "Same as Corporate Address";
             this.sameAsCorporatAddCheckBox.UseVisualStyleBackColor = true;
+            this.sameAsCorporatAddCheckBox.CheckedChanged += new System.EventHandler(this.sameAsCorporatAddCheckBox_CheckedChanged);
             // 
             // UpdateButton
             // 
@@ -1120,6 +1134,25 @@
             this.UpdateButton.TabIndex = 2;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(5, 26);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(94, 19);
+            this.label49.TabIndex = 86;
+            this.label49.Text = "Company ID";
+            // 
+            // CompanyIdtextBox
+            // 
+            this.CompanyIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyIdtextBox.Location = new System.Drawing.Point(168, 23);
+            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
+            this.CompanyIdtextBox.Size = new System.Drawing.Size(256, 29);
+            this.CompanyIdtextBox.TabIndex = 87;
             // 
             // frmUpdateCompany
             // 
@@ -1152,89 +1185,89 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox WebSiteUrltextBox;
+        public System.Windows.Forms.TextBox WebSiteUrltextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox IdentificationNotextBox;
+        public System.Windows.Forms.TextBox IdentificationNotextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox ContactNotextBox;
+        public System.Windows.Forms.TextBox ContactNotextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox EmailtextBox;
+        public System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbNatureOfClient;
+        public System.Windows.Forms.ComboBox cmbNatureOfClient;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox IndustryCategorycomboBox;
+        public System.Windows.Forms.ComboBox IndustryCategorycomboBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbCompanytype;
+        public System.Windows.Forms.ComboBox cmbCompanytype;
         private System.Windows.Forms.Label lblCategoryName;
-        private System.Windows.Forms.TextBox CompanyNameTextBox;
+        public System.Windows.Forms.TextBox CompanyNameTextBox;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox tRoadNameTextBox;
-        private System.Windows.Forms.TextBox tBuldingNameTextBox;
+        public System.Windows.Forms.TextBox tRoadNameTextBox;
+        public System.Windows.Forms.TextBox tBuldingNameTextBox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox tLandmarktextBox;
+        public System.Windows.Forms.TextBox tLandmarktextBox;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox FblocktextBox;
+        public System.Windows.Forms.TextBox FblocktextBox;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.ComboBox tDivisionCombo;
+        public System.Windows.Forms.ComboBox tDivisionCombo;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox tPostCombo;
-        private System.Windows.Forms.TextBox tContactNoTextBox;
+        public System.Windows.Forms.ComboBox tPostCombo;
+        public System.Windows.Forms.TextBox tContactNoTextBox;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.ComboBox tThenaCombo;
+        public System.Windows.Forms.ComboBox tThenaCombo;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox tDistrictCombo;
+        public System.Windows.Forms.ComboBox tDistrictCombo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tPostCodeTextBox;
-        private System.Windows.Forms.TextBox tAreaTextBox;
+        public System.Windows.Forms.TextBox tPostCodeTextBox;
+        public System.Windows.Forms.TextBox tAreaTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tRoadNoTextBox;
-        private System.Windows.Forms.TextBox tHouseNoTextBox;
-        private System.Windows.Forms.TextBox tFlatNoTextBox;
+        public System.Windows.Forms.TextBox tRoadNoTextBox;
+        public System.Windows.Forms.TextBox tHouseNoTextBox;
+        public System.Windows.Forms.TextBox tFlatNoTextBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox cRoadNameTextBox;
-        private System.Windows.Forms.TextBox cBuldingNameTextBox;
+        public System.Windows.Forms.TextBox cRoadNameTextBox;
+        public System.Windows.Forms.TextBox cBuldingNameTextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TextBox cLandmarktextBox;
+        public System.Windows.Forms.TextBox cLandmarktextBox;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox blocktextBox;
-        private System.Windows.Forms.ComboBox cPostOfficeCombo;
+        public System.Windows.Forms.TextBox blocktextBox;
+        public System.Windows.Forms.ComboBox cPostOfficeCombo;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.ComboBox cDivisionCombo;
+        public System.Windows.Forms.ComboBox cDivisionCombo;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox cThanaCombo;
-        private System.Windows.Forms.TextBox cContactNoTextBox;
+        public System.Windows.Forms.ComboBox cThanaCombo;
+        public System.Windows.Forms.TextBox cContactNoTextBox;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox cDistCombo;
+        public System.Windows.Forms.ComboBox cDistCombo;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox cPostCodeTextBox;
-        private System.Windows.Forms.TextBox cAreaTextBox;
+        public System.Windows.Forms.TextBox cPostCodeTextBox;
+        public System.Windows.Forms.TextBox cAreaTextBox;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox cRoadNoTextBox;
-        private System.Windows.Forms.TextBox cHouseNoTextBox;
-        private System.Windows.Forms.TextBox cFlatNoTextBox;
+        public System.Windows.Forms.TextBox cRoadNoTextBox;
+        public System.Windows.Forms.TextBox cHouseNoTextBox;
+        public System.Windows.Forms.TextBox cFlatNoTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -1243,6 +1276,8 @@
         private System.Windows.Forms.CheckBox notApplicableCheckBox;
         private System.Windows.Forms.CheckBox sameAsCorporatAddCheckBox;
         private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Label label49;
+        public System.Windows.Forms.TextBox CompanyIdtextBox;
 
     }
 }

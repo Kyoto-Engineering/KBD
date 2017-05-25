@@ -127,10 +127,7 @@ namespace PhonebookApp
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
-                Properties.Resources.logo.MakeTransparent();
-                Bitmap Logo = Properties.Resources.logo;
-                Logo.MakeTransparent();
-                Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.Black, Color.White, Logo, 30);
+                Bitmap qrCodeImage = qrCode.GetGraphic(10,Color.Black,Color.White,true);
                 //qrCode.GetGraphic()
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
                 qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);

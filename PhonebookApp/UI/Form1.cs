@@ -279,6 +279,8 @@ namespace PhonebookApp
             txtWABlock.Clear();
             txtWAArea.Clear();
             txtWAContactNo.Clear();
+            WABuildingNametextBox.Clear();
+            WARoadNametextBox.Clear();  
             txtWAPostCode.Clear();
             WAPostOfficetextBox.Clear();
             WAThanatextBox.Clear();
@@ -1400,7 +1402,7 @@ namespace PhonebookApp
                 cmd = con.CreateCommand();
 
                 cmd.CommandText =
-                    "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
+                    "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName,CorporateAddresses.RoadName,Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
                     companyId + "'";
 
                 rdr = cmd.ExecuteReader();
@@ -1413,7 +1415,8 @@ namespace PhonebookApp
                     txtWAArea.Text = rdr["CArea"].ToString();
                     LandmarktextBox.Text = rdr["CLandmark"].ToString();
                     txtWAContactNo.Text = rdr["CContactNo"].ToString();
-
+                    WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
+                    WARoadNametextBox.Text = rdr["RoadName"].ToString();
                     WAdivisiontextBox.Text = rdr["Division"].ToString();
                     WADistricttextBox.Text = rdr["District"].ToString();
                     WAThanatextBox.Text = rdr["Thana"].ToString();

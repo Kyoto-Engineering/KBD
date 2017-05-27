@@ -264,6 +264,9 @@ namespace PhonebookApp
             txtRABlock.Clear();
             txtRAArea.Clear();
             txtRAContactNo.Clear();
+            buildingNameTextBox.Clear();
+            roadNameTextBox.Clear();
+            nearestLandMarkTextBox.Clear();
             txtRAPostCode.Clear();
             cmbRAPost.SelectedIndex = -1;
             cmbRAThana.SelectedIndex = -1;
@@ -279,6 +282,7 @@ namespace PhonebookApp
             txtWABlock.Clear();
             txtWAArea.Clear();
             txtWAContactNo.Clear();
+            LandmarktextBox.Clear();
             WABuildingNametextBox.Clear();
             WARoadNametextBox.Clear();  
             txtWAPostCode.Clear();

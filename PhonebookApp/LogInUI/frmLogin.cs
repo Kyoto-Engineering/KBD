@@ -171,5 +171,10 @@ namespace PhonebookApp.LogInUI
         {
 
         }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

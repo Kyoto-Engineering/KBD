@@ -25,10 +25,10 @@ namespace PhonebookApp
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public string countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
+        public string rAdistrictid, countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
         public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
-        public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
+        public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, wAdistrictid;
 
         public frm1()
         {
@@ -2035,33 +2035,40 @@ namespace PhonebookApp
 
         private void cmbRAThana_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = con.CreateCommand();
+            //con = new SqlConnection(cs.DBConn);
+            //con.Open();
 
-            cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
+            ////cmd = con.CreateCommand();
+            ////cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
+            ////rdr = cmd.ExecuteReader();
 
-            rdr = cmd.ExecuteReader();
-            if (rdr.Read())
-            {
-                rAdistrictid = rdr.GetInt32(0);
-                //districtIdRA = (rdr.GetString(0));
-            }
-            if ((rdr != null))
-            {
-                rdr.Close();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                con.Close();
-            }
+            //string ctkk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
+
+            //cmd = new SqlCommand(ctkk);
+            //cmd.Connection = con;
+            //cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
+            //cmd.Parameters["@find"].Value = cmbRADistrict.Text;
+            //rdr = cmd.ExecuteReader();
+            //if (rdr.Read())
+            //{
+                
+            //    rAdistrictid = (rdr.GetString(0));
+            //}
+            //if ((rdr != null))
+            //{
+            //    rdr.Close();
+            //}
+            //if (con.State == ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
 
 
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + rAdistrictid + "'";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdRA + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));

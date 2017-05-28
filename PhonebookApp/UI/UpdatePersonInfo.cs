@@ -1160,33 +1160,33 @@ namespace PhonebookApp.UI
 
         private void cmbRAThana_SelectedIndexChanged(object sender, EventArgs e)
         {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = con.CreateCommand();
+            //con = new SqlConnection(cs.DBConn);
+            //con.Open();
+            //cmd = con.CreateCommand();
 
-            cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
+            //cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
 
-            rdr = cmd.ExecuteReader();
-            if (rdr.Read())
-            {
-                rAdistrictid = rdr.GetInt32(0);
-                //districtIdRA = (rdr.GetString(0));
-            }
-            if ((rdr != null))
-            {
-                rdr.Close();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                con.Close();
-            }
+            //rdr = cmd.ExecuteReader();
+            //if (rdr.Read())
+            //{
+            //    rAdistrictid = rdr.GetInt32(0);
+            //    //districtIdRA = (rdr.GetString(0));
+            //}
+            //if ((rdr != null))
+            //{
+            //    rdr.Close();
+            //}
+            //if (con.State == ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
 
 
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + rAdistrictid + "'";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdRA + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));

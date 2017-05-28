@@ -463,32 +463,32 @@ namespace PhonebookApp.UI
 
         private void cThanaCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = con.CreateCommand();
+            //con = new SqlConnection(cs.DBConn);
+            //con.Open();
+            //cmd = con.CreateCommand();
 
-            cmd.CommandText = "select D_ID from Districts WHERE District= '" + cDistCombo.Text + "'";
+            //cmd.CommandText = "select D_ID from Districts WHERE District= '" + cDistCombo.Text + "'";
 
-            rdr = cmd.ExecuteReader();
-            if (rdr.Read())
-            {
-                cdistrict_id = rdr.GetInt32(0);
-            }
-            if ((rdr != null))
-            {
-                rdr.Close();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                con.Close();
-            }
+            //rdr = cmd.ExecuteReader();
+            //if (rdr.Read())
+            //{
+            //    cdistrict_id = rdr.GetInt32(0);
+            //}
+            //if ((rdr != null))
+            //{
+            //    rdr.Close();
+            //}
+            //if (con.State == ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
 
 
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + cdistrict_id + "'";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdC + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
@@ -635,32 +635,32 @@ namespace PhonebookApp.UI
 
         private void tThenaCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = con.CreateCommand();
+            //con = new SqlConnection(cs.DBConn);
+            //con.Open();
+            //cmd = con.CreateCommand();
 
-            cmd.CommandText = "select D_ID from Districts WHERE District= '" + tDistrictCombo.Text + "'";
+            //cmd.CommandText = "select D_ID from Districts WHERE District= '" + tDistrictCombo.Text + "'";
 
-            rdr = cmd.ExecuteReader();
-            if (rdr.Read())
-            {
-                tdistrict_id = rdr.GetInt32(0);
-            }
-            if ((rdr != null))
-            {
-                rdr.Close();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                con.Close();
-            }
+            //rdr = cmd.ExecuteReader();
+            //if (rdr.Read())
+            //{
+            //    tdistrict_id = rdr.GetInt32(0);
+            //}
+            //if ((rdr != null))
+            //{
+            //    rdr.Close();
+            //}
+            //if (con.State == ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
 
 
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + tdistrict_id + "'";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdT + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));

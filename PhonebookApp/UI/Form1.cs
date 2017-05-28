@@ -25,10 +25,10 @@ namespace PhonebookApp
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public string countryid,nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
+        public string countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
         public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
-        public int  currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
+        public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
 
         public frm1()
         {
@@ -104,19 +104,19 @@ namespace PhonebookApp
                 cmd.Connection = con;
                 cmd.Parameters.AddWithValue("@d1", currentPersonId);
                 cmd.Parameters.Add(new SqlParameter("@d2",
-                    string.IsNullOrEmpty(postofficeIdRA) ? (object) DBNull.Value : postofficeIdRA));
+                    string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
                 cmd.Parameters.Add(new SqlParameter("@d3",
-                    string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object) DBNull.Value : txtRAFlatNo.Text));
+                    string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
                 cmd.Parameters.Add(new SqlParameter("@d4",
-                    string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object) DBNull.Value : txtRAHouseNo.Text));
+                    string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
                 cmd.Parameters.Add(new SqlParameter("@d5",
-                    string.IsNullOrEmpty(txtRARoadNo.Text) ? (object) DBNull.Value : txtRARoadNo.Text));
+                    string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
                 cmd.Parameters.Add(new SqlParameter("@d6",
-                    string.IsNullOrEmpty(txtRABlock.Text) ? (object) DBNull.Value : txtRABlock.Text));
+                    string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
                 cmd.Parameters.Add(new SqlParameter("@d7",
-                    string.IsNullOrEmpty(txtRAArea.Text) ? (object) DBNull.Value : txtRAArea.Text));
+                    string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
                 cmd.Parameters.Add(new SqlParameter("@d8",
-                    string.IsNullOrEmpty(txtRAContactNo.Text) ? (object) DBNull.Value : txtRAContactNo.Text));
+                    string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));
                 cmd.Parameters.Add(new SqlParameter("@d9",
                     string.IsNullOrEmpty(buildingNameTextBox.Text) ? (object)DBNull.Value : buildingNameTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d10",
@@ -127,7 +127,7 @@ namespace PhonebookApp
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(10,Color.Black,Color.White,true);
+                Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
                 //qrCode.GetGraphic()
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
                 qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
@@ -141,7 +141,7 @@ namespace PhonebookApp
                 {
                     debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
                 }
-               
+
                 affectedRows1 = (int)cmd.ExecuteScalar();
                 con.Close();
                 ms.Dispose();
@@ -156,24 +156,24 @@ namespace PhonebookApp
             Qrdata += "Thana:" + cmbRAThana.Text + "\r\n";
             Qrdata += "Post:" + cmbRAPost.Text + "\r\n";
             Qrdata += "Post Code:" + txtRAPostCode.Text + "\r\n";
-            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(txtRAArea.Text) ? (object) DBNull.Value : txtRAArea.Text) +
+            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text) +
                       "\r\n";
-            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(txtRABlock.Text) ? (object) DBNull.Value : txtRABlock.Text) +
+            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text) +
                       "\r\n";
             Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(nearestLandMarkTextBox.Text)
-                          ? (object) DBNull.Value
+                          ? (object)DBNull.Value
                           : nearestLandMarkTextBox.Text) + "\r\n";
             Qrdata += "Road Name:" +
-                      (string.IsNullOrEmpty(roadNameTextBox.Text) ? (object) DBNull.Value : roadNameTextBox.Text) + "\r\n";
-            Qrdata += "Road#:" + (string.IsNullOrEmpty(txtRARoadNo.Text) ? (object) DBNull.Value : txtRARoadNo.Text) + "\r\n";
+                      (string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text) + "\r\n";
+            Qrdata += "Road#:" + (string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text) + "\r\n";
             Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingNameTextBox.Text)
-                          ? (object) DBNull.Value
+                          ? (object)DBNull.Value
                           : buildingNameTextBox.Text) + "\r\n";
-            Qrdata += "Holding#:" + (string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object) DBNull.Value : txtRAHouseNo.Text) +
+            Qrdata += "Holding#:" + (string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text) +
                       "\r\n";
-            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object) DBNull.Value : txtRAFlatNo.Text) +
+            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text) +
                       "\r\n";
-            Qrdata += "Contact#:" + (string.IsNullOrEmpty(txtRAContactNo.Text) ? (object) DBNull.Value : txtRAContactNo.Text);
+            Qrdata += "Contact#:" + (string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text);
             return Qrdata;
         }
 
@@ -284,7 +284,7 @@ namespace PhonebookApp
             txtWAContactNo.Clear();
             LandmarktextBox.Clear();
             WABuildingNametextBox.Clear();
-            WARoadNametextBox.Clear();  
+            WARoadNametextBox.Clear();
             txtWAPostCode.Clear();
             WAPostOfficetextBox.Clear();
             WAThanatextBox.Clear();
@@ -319,7 +319,7 @@ namespace PhonebookApp
             textNickName.Clear();
             txtFatherName.Clear();
             cmbEmailAddress.Items.Clear();
-            
+
             //cmbEmailAddress.ResetText();
             //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
@@ -357,7 +357,7 @@ namespace PhonebookApp
             cmbSpecialization.SelectedIndex = -1;
             cmbRelationShip.Items.Clear();
             //cmbRelationShip.ResetText();
-           //FillRelationShip();
+            //FillRelationShip();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -400,7 +400,7 @@ namespace PhonebookApp
             GroupNamecomboBox.SelectedIndex = -1;
             cmbAgeGroup.Items.Clear();
             //cmbAgeGroup.ResetText();
-           //FillAgeGroup();
+            //FillAgeGroup();
             cmbAgeGroup.SelectedIndex = -1;
             cmbProfession.Items.Clear();
             //cmbProfession.ResetText();
@@ -448,7 +448,7 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(textNickName.Text) ? (object)DBNull.Value : textNickName.Text));
             cmd.Parameters.Add(new SqlParameter("@d3",
                 string.IsNullOrEmpty(txtFatherName.Text) ? (object)DBNull.Value : txtFatherName.Text));
-            
+
             cmd.Parameters.AddWithValue("@d4", (object)bankEmailId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d5", (object)companyId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d6", (object)jobTitleId ?? DBNull.Value);
@@ -467,13 +467,13 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
             cmd.Parameters.Add(new SqlParameter("@d17",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
-            
+
             cmd.Parameters.AddWithValue("@d18", (object)countryid ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d19", (object)religionId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d20", (object)genderId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d21", (object)maritalStatusId ?? DBNull.Value);
             cmd.Parameters.Add(new SqlParameter("@d22",
-                !BirthdateTimePicker.Checked ? (object) DBNull.Value : BirthdateTimePicker.Value));
+                !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
             cmd.Parameters.Add(new SqlParameter("@d23",
                 !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
             cmd.Parameters.AddWithValue("@d24", nUserId);
@@ -501,7 +501,7 @@ namespace PhonebookApp
         {
             try
             {
-              
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
@@ -511,7 +511,7 @@ namespace PhonebookApp
                 cmd.Parameters.AddWithValue("@d3", nUserId);
                 cmd.ExecuteNonQuery();
                 con.Close();
-               
+
             }
             catch (Exception ex)
             {
@@ -527,7 +527,7 @@ namespace PhonebookApp
             {
                 MessageBox.Show("Please Enter Person Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-                
+
             }
 
             if (string.IsNullOrWhiteSpace(GendercomboBox.Text))
@@ -617,7 +617,7 @@ namespace PhonebookApp
                     }
 
                 }
-               
+
                 else
                 {
                     try
@@ -719,67 +719,6 @@ namespace PhonebookApp
             }
         }
 
-        private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void cmbSpecialization_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbProfession_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbEducationalLevel_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbHighestDegree_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbAgeGroup_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void btnAddC_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmCategory frm = new frmCategory();
-            frm.Show();
-        }
-
-        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void cmbCategoryName_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void txtMobile_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         public void FillCountry()
@@ -809,11 +748,8 @@ namespace PhonebookApp
                 if (rdr.Read())
                 {
                     countryid = (rdr.GetString(0));
-                    //countryid = rdr.GetInt32(0);
 
                 }
-               
-                //CountrycomboBox.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -958,7 +894,6 @@ namespace PhonebookApp
                 {
                     cmbCompanyName.Items.Add(rdr[0]);
                 }
-                //cmbCompanyName.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -1038,31 +973,6 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void FillWADivisionCombo()
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Divisions.Division) from Divisions  order by Divisions.Division_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    //cmbWADivision.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
 
         private void FillGender()
         {
@@ -1080,7 +990,7 @@ namespace PhonebookApp
                 {
                     GendercomboBox.Items.Add(rdr[0]);
                 }
-               
+
                 con.Close();
             }
             catch (Exception ex)
@@ -1139,23 +1049,6 @@ namespace PhonebookApp
             }
         }
 
-        private void FilStar()
-        {
-            label37.Visible = true;
-            label35.Visible = true;
-            label40.Visible = true;
-            label39.Visible = true;
-            label45.Visible = true;
-        }
-
-        private void ResetStar()
-        {
-            label37.Visible = false;
-            label35.Visible = false;
-            label40.Visible = false;
-            label39.Visible = false;
-            label45.Visible = false;
-        }
         private void frm1_Load(object sender, EventArgs e)
         {
             FillCountry();
@@ -1170,9 +1063,7 @@ namespace PhonebookApp
             FillSpecialization();
             EmailAddress();
             nUserId = frmLogin.uId.ToString();
-            //FillCategory();
             FillGroupName();
-            //FillWADivisionCombo();
             FillRADivisionCombo();
             FillGender();
             FillReligion();
@@ -1180,15 +1071,10 @@ namespace PhonebookApp
             cmbRADistrict.Enabled = false;
             cmbRAThana.Enabled = false;
             cmbRAPost.Enabled = false;
-            //cmbWADistrict.Enabled = false;
-            //cmbWAThana.Enabled = false;
-            //cmbWAPost.Enabled = false;
             groupBox6.Hide();
             groupBox7.Hide();
             btnInsert.Hide();
-            //additionalInfobutton.Hide();
-            //btnInsert.Location = new Point(1045, 549);
-           
+
         }
 
         public void FillGroupName()
@@ -1215,23 +1101,6 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbCategoryName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void personDetailsButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainUI frm = new MainUI();
-            frm.Show();
-        }
-
         private void frm1_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
@@ -1239,17 +1108,6 @@ namespace PhonebookApp
             frm.Show();
         }
 
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbCategoryName_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-       
         private void FillRelationShip()
         {
             try
@@ -1337,7 +1195,6 @@ namespace PhonebookApp
                     {
                         try
                         {
-
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
                             string query1 = "insert into EmailBank (Email, UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
@@ -1372,7 +1229,6 @@ namespace PhonebookApp
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
-                        //bankEmailId = rdr.GetInt32(0);
                         bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
                     }
                     if ((rdr != null))
@@ -1390,12 +1246,6 @@ namespace PhonebookApp
                 }
             }
         }
-
-        private void cmbWADivision_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void FillWorkingAddress()
         {
@@ -1444,37 +1294,33 @@ namespace PhonebookApp
             }
         }
 
-
-        
         private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             ResetWorkingAddress();
-            
-            
-           
-                try
-                {
 
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-                    cmd = new SqlCommand(ct);
-                    cmd.Connection = con;
-                    rdr = cmd.ExecuteReader();
 
-                    if (rdr.Read())
-                    {
-                        //companyId = (rdr.GetString(0));
-                        companyId = Convert.ToInt64(rdr["CompanyId"]);                       
-                    }
-                    con.Close();
-                }
-                catch (Exception ex)
+
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyId = Convert.ToInt64(rdr["CompanyId"]);
                 }
-            //} 
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             FillWorkingAddress();
         }
 
@@ -1543,8 +1389,6 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //specializationId = (rdr.GetString(0));
-                        //specializationId = rdr.GetInt32(0);
                         specializationId = Convert.ToInt64(rdr["SpecializationsId"]);
                     }
                     con.Close();
@@ -1621,8 +1465,6 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //professionId = (rdr.GetString(0));
-                        //professionId = rdr.GetInt32(0);
                         professionId = Convert.ToInt64(rdr["ProfessionId"]);
                     }
                     con.Close();
@@ -1699,10 +1541,8 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //educationLevelId = (rdr.GetString(0));
-                        //educationLevelId = rdr.GetInt32(0);
                         educationLevelId = Convert.ToInt64(rdr["EducationLevelId"]);
-                        
+
                     }
                     con.Close();
                 }
@@ -1741,7 +1581,6 @@ namespace PhonebookApp
                     {
                         try
                         {
-
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
                             string query1 = "insert into HighestDegrees(HighestDegree,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
@@ -1778,10 +1617,8 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //highestDegreeId = (rdr.GetString(0));
-                        //highestDegreeId = rdr.GetInt32(0);
                         highestDegreeId = Convert.ToInt64(rdr["HighestDegreeId"]);
-                        
+
                     }
                     con.Close();
                 }
@@ -1847,7 +1684,6 @@ namespace PhonebookApp
             {
                 try
                 {
-
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct = "select AgeGroupId from AgeGroup  where  AgeGroup.AgeGroupLevel='" + cmbAgeGroup.Text + "' ";
@@ -1857,8 +1693,6 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //ageGroupId = (rdr.GetString(0));
-                        //ageGroupId = rdr.GetInt32(0);
                         ageGroupId = Convert.ToInt64(rdr["AgeGroupId"]);
                     }
                     con.Close();
@@ -1907,7 +1741,6 @@ namespace PhonebookApp
                             cmd.Parameters.AddWithValue("@d2", nUserId);
                             cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
-
                             con.Close();
                             cmbJobTitle.Items.Clear();
                             FillJobTitle();
@@ -1935,8 +1768,6 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //jobTitleId = (rdr.GetString(0));
-                        //jobTitleId = rdr.GetInt32(0);
                         jobTitleId = Convert.ToInt64(rdr["JobTitleId"]);
                     }
                     con.Close();
@@ -1946,18 +1777,6 @@ namespace PhonebookApp
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void txtRAContactNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
-                e.Handled = true;
-        }
-
-        private void txtWAContactNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
-                e.Handled = true;
         }
 
         private void cmbRelationShip_SelectedIndexChanged(object sender, EventArgs e)
@@ -2025,8 +1844,6 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        //relationshipId = (rdr.GetString(0));
-                        relationshipId = rdr.GetInt32(0);
                         relationshipId = Convert.ToInt64(rdr["RelationShipsId"]);
                     }
                     con.Close();
@@ -2299,7 +2116,7 @@ namespace PhonebookApp
         }
 
         private void cmbRAPost_SelectedIndexChanged_1(object sender, EventArgs e)
-        {           
+        {
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -2314,9 +2131,7 @@ namespace PhonebookApp
                 {
                     postofficeIdRA = (rdr.GetString(0));
                     txtRAPostCode.Text = (rdr.GetString(1));
-
                 }
-
                 if ((rdr != null))
                 {
                     rdr.Close();
@@ -2325,19 +2140,12 @@ namespace PhonebookApp
                 {
                     con.Close();
                 }
-
-
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void cmbWADivision_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbRADivision_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -2349,7 +2157,7 @@ namespace PhonebookApp
             cmbRAThana.ResetText();
             cmbRAPost.Items.Clear();
             cmbRAPost.ResetText();
-            
+
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -2411,21 +2219,6 @@ namespace PhonebookApp
             cmbRAPost.Enabled = false;
         }
 
-        private void cmbWADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbWAThana_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbWAPost_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void CountrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -2436,7 +2229,6 @@ namespace PhonebookApp
                 groupBox2.Show();
                 groupBox3.Show();
                 groupBox3.Location = new Point(466, 261);
-                //btnInsert.Location = new Point(1045, 549);
                 btnInsert.Hide();
                 additionalInfobutton.Show();
                 additionalInfobutton.Location = new Point(891, 548);
@@ -2446,56 +2238,34 @@ namespace PhonebookApp
                 enableAll();
                 groupBox2.Hide();
                 groupBox3.Show();
-                groupBox3.Location = new Point(466,150);
+                groupBox3.Location = new Point(466, 150);
                 groupBox6.Show();
                 groupBox6.Location = new Point(466, 12);
-                //btnInsert.Location = new Point(650, 157);
                 btnInsert.Hide();
                 additionalInfobutton.Show();
                 additionalInfobutton.Location = new Point(650, 420);
             }
             try
-                    {
-                      
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
-                                    CountrycomboBox.Text + "' ";
-                        cmd = new SqlCommand(ct);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
+            {
 
-                        if (rdr.Read())
-                        {
-                            countryid = (rdr.GetString(0));
-                            //countryid = rdr.GetInt32(0);
-                        }
-                        con.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
+                            CountrycomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    countryid = (rdr.GetString(0));
                 }
-            
-        private void disableAll()
-        {
-            txtPersonName.Enabled = false;
-            textNickName.Enabled = false;
-            txtFatherName.Enabled = false;
-            cmbEmailAddress.Enabled = false;
-            cmbCompanyName.Enabled = false;
-            GroupNamecomboBox.Enabled = false;
-            cmbAgeGroup.Enabled = false;
-            cmbProfession.Enabled = false;
-            cmbEducationalLevel.Enabled = false;
-            cmbHighestDegree.Enabled = false;
-            cmbJobTitle.Enabled = false;
-            cmbSpecialization.Enabled = false;
-            cmbRelationShip.Enabled = false;
-            txtWebsite.Enabled = false;
-            txtSkypeId.Enabled = false;
-            txtImmo.Enabled = false;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void enableAll()
@@ -2819,108 +2589,10 @@ namespace PhonebookApp
 
         private void txtRAPostCode_KeyDown(object sender, KeyEventArgs e)
         {
-           if (e.KeyCode == Keys.Enter)
-                {
-                    txtWAFlatName.Focus();
-                    e.Handled = true;
-                }
-         }
-
-        private void txtWAFlatName_KeyDown(object sender, KeyEventArgs e)
-        {
             if (e.KeyCode == Keys.Enter)
             {
-                txtWAHouseName.Focus();
+                txtWAFlatName.Focus();
                 e.Handled = true;
-            }
-        }
-
-        private void txtWAHouseName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWARoadNo.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void txtWARoadNo_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWABlock.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void txtWABlock_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWAArea.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void txtWAArea_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWAContactNo.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void txtWAContactNo_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //cmbWADivision.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void cmbWADivision_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //cmbWADistrict.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void cmbWADistrict_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //cmbWAThana.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void cmbWAThana_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //cmbWAPost.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void cmbWAPost_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtWAPostCode.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void txtWAPostCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnInsert_Click_1(this, new EventArgs());
             }
         }
 
@@ -2947,7 +2619,7 @@ namespace PhonebookApp
             if (e.KeyCode == Keys.Enter)
             {
                 btnInsert_Click_1(this, new EventArgs());
-               
+
             }
         }
 
@@ -3008,11 +2680,11 @@ namespace PhonebookApp
                             string query1 = "insert into Religion (ReligionName,UserId) values (@d1,@d2)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
                             cmd.Parameters.AddWithValue("@d1", inputReligion);
-                            cmd.Parameters.AddWithValue("@d2", nUserId);                      
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
                             cmd.ExecuteNonQuery();
 
                             con.Close();
-                            ReligioncomboBox.Items.Clear();                      
+                            ReligioncomboBox.Items.Clear();
                             FillReligion();
                             ReligioncomboBox.SelectedText = inputReligion;
 
@@ -3038,7 +2710,7 @@ namespace PhonebookApp
 
                     if (rdr.Read())
                     {
-                        
+
                         religionId = Convert.ToInt64(rdr["ReligionId"]);
                     }
                     con.Close();
@@ -3114,7 +2786,7 @@ namespace PhonebookApp
                 groupBox7.Location = new Point(466, 520);
                 btnInsert.Show();
                 btnInsert.Location = new Point(1045, 549);
-                
+
             }
             else
             {
@@ -3123,11 +2795,11 @@ namespace PhonebookApp
                 groupBox3.Show();
                 groupBox3.Location = new Point(466, 157);
                 groupBox6.Show();
-                groupBox6.Location = new Point(466, 18);               
+                groupBox6.Location = new Point(466, 18);
                 groupBox7.Show();
                 groupBox7.Location = new Point(466, 410);
                 btnInsert.Show();
-                btnInsert.Location = new Point(890, 545);               
+                btnInsert.Location = new Point(890, 545);
             }
         }
 
@@ -3164,23 +2836,20 @@ namespace PhonebookApp
 
         private void unKnownRA_CheckedChanged_1(object sender, EventArgs e)
         {
-           
-                if (unKnownRA.Checked == true)
-                {
-                    Reset2Star();
-                    groupBox5.Enabled = false;
-                    ResetResidentialAddress();
-                    
 
-                }
-                else
-                {
-                    
-                    groupBox5.Enabled = true;
-                    groupBox5.Enabled = true;
-                    FillStar2();
-                }
+            if (unKnownRA.Checked == true)
+            {
+                Reset2Star();
+                groupBox5.Enabled = false;
+                ResetResidentialAddress();
             }
+            else
+            {
+                groupBox5.Enabled = true;
+                groupBox5.Enabled = true;
+                FillStar2();
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -3221,16 +2890,14 @@ namespace PhonebookApp
                     //{
                     //    MessageBox.Show("Image Size is invalid");
                     //}
-
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        }      
     }
+}
 
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PersonIdtextBox = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
@@ -163,8 +165,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PersonIdtextBox = new System.Windows.Forms.TextBox();
-            this.label70 = new System.Windows.Forms.Label();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -235,6 +238,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
+            // PersonIdtextBox
+            // 
+            this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonIdtextBox.Location = new System.Drawing.Point(205, 21);
+            this.PersonIdtextBox.Name = "PersonIdtextBox";
+            this.PersonIdtextBox.Size = new System.Drawing.Size(235, 20);
+            this.PersonIdtextBox.TabIndex = 102;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.White;
+            this.label70.Location = new System.Drawing.Point(7, 24);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(81, 13);
+            this.label70.TabIndex = 103;
+            this.label70.Text = "Person Id    :";
+            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -271,6 +293,7 @@
             this.pictureBrowseButton.TabIndex = 98;
             this.pictureBrowseButton.Text = "Browse";
             this.pictureBrowseButton.UseVisualStyleBackColor = true;
+            this.pictureBrowseButton.Click += new System.EventHandler(this.pictureBrowseButton_Click);
             // 
             // userPictureBox
             // 
@@ -314,6 +337,7 @@
             this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
             this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 25);
             this.maritalStatuscomboBox.TabIndex = 4;
+            this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
             // 
             // ReligioncomboBox
             // 
@@ -325,6 +349,7 @@
             this.ReligioncomboBox.Name = "ReligioncomboBox";
             this.ReligioncomboBox.Size = new System.Drawing.Size(193, 25);
             this.ReligioncomboBox.TabIndex = 3;
+            this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
             // 
             // GendercomboBox
             // 
@@ -337,6 +362,7 @@
             this.GendercomboBox.Name = "GendercomboBox";
             this.GendercomboBox.Size = new System.Drawing.Size(193, 25);
             this.GendercomboBox.TabIndex = 2;
+            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
             // 
             // label60
             // 
@@ -422,6 +448,7 @@
             this.CountrycomboBox.Name = "CountrycomboBox";
             this.CountrycomboBox.Size = new System.Drawing.Size(238, 21);
             this.CountrycomboBox.TabIndex = 1;
+            this.CountrycomboBox.SelectedIndexChanged += new System.EventHandler(this.CountrycomboBox_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -443,9 +470,9 @@
             this.groupBox6.Controls.Add(this.StreettextBox);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.ForeColor = System.Drawing.Color.White;
-            this.groupBox6.Location = new System.Drawing.Point(466, 539);
+            this.groupBox6.Location = new System.Drawing.Point(472, 539);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(540, 129);
+            this.groupBox6.Size = new System.Drawing.Size(525, 129);
             this.groupBox6.TabIndex = 23;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Address For Foreigner";
@@ -515,6 +542,7 @@
             this.cmbRelationShip.Name = "cmbRelationShip";
             this.cmbRelationShip.Size = new System.Drawing.Size(237, 21);
             this.cmbRelationShip.TabIndex = 14;
+            this.cmbRelationShip.SelectedIndexChanged += new System.EventHandler(this.cmbRelationShip_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -1356,6 +1384,7 @@
             this.cmbJobTitle.Name = "cmbJobTitle";
             this.cmbJobTitle.Size = new System.Drawing.Size(235, 21);
             this.cmbJobTitle.TabIndex = 7;
+            this.cmbJobTitle.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitle_SelectedIndexChanged);
             // 
             // cmbCompanyName
             // 
@@ -1379,6 +1408,7 @@
             this.cmbEmailAddress.Name = "cmbEmailAddress";
             this.cmbEmailAddress.Size = new System.Drawing.Size(235, 21);
             this.cmbEmailAddress.TabIndex = 5;
+            this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
             // 
             // txtFatherName
             // 
@@ -1488,6 +1518,7 @@
             this.cmbProfession.Name = "cmbProfession";
             this.cmbProfession.Size = new System.Drawing.Size(235, 21);
             this.cmbProfession.TabIndex = 10;
+            this.cmbProfession.SelectedIndexChanged += new System.EventHandler(this.cmbProfession_SelectedIndexChanged);
             // 
             // cmbSpecialization
             // 
@@ -1499,6 +1530,7 @@
             this.cmbSpecialization.Name = "cmbSpecialization";
             this.cmbSpecialization.Size = new System.Drawing.Size(235, 21);
             this.cmbSpecialization.TabIndex = 9;
+            this.cmbSpecialization.SelectedIndexChanged += new System.EventHandler(this.cmbSpecialization_SelectedIndexChanged);
             // 
             // cmbAgeGroup
             // 
@@ -1510,6 +1542,7 @@
             this.cmbAgeGroup.Name = "cmbAgeGroup";
             this.cmbAgeGroup.Size = new System.Drawing.Size(235, 21);
             this.cmbAgeGroup.TabIndex = 13;
+            this.cmbAgeGroup.SelectedIndexChanged += new System.EventHandler(this.cmbAgeGroup_SelectedIndexChanged);
             // 
             // cmbHighestDegree
             // 
@@ -1521,6 +1554,7 @@
             this.cmbHighestDegree.Name = "cmbHighestDegree";
             this.cmbHighestDegree.Size = new System.Drawing.Size(235, 21);
             this.cmbHighestDegree.TabIndex = 12;
+            this.cmbHighestDegree.SelectedIndexChanged += new System.EventHandler(this.cmbHighestDegree_SelectedIndexChanged);
             // 
             // cmbEducationalLevel
             // 
@@ -1532,6 +1566,7 @@
             this.cmbEducationalLevel.Name = "cmbEducationalLevel";
             this.cmbEducationalLevel.Size = new System.Drawing.Size(235, 21);
             this.cmbEducationalLevel.TabIndex = 11;
+            this.cmbEducationalLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationalLevel_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -1609,6 +1644,7 @@
             this.GroupNamecomboBox.Name = "GroupNamecomboBox";
             this.GroupNamecomboBox.Size = new System.Drawing.Size(235, 21);
             this.GroupNamecomboBox.TabIndex = 8;
+            this.GroupNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.GroupNamecomboBox_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -1662,24 +1698,9 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Contact Name          ";
             // 
-            // PersonIdtextBox
+            // openFileDialog1
             // 
-            this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonIdtextBox.Location = new System.Drawing.Point(205, 21);
-            this.PersonIdtextBox.Name = "PersonIdtextBox";
-            this.PersonIdtextBox.Size = new System.Drawing.Size(235, 20);
-            this.PersonIdtextBox.TabIndex = 102;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.ForeColor = System.Drawing.Color.White;
-            this.label70.Location = new System.Drawing.Point(7, 24);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(81, 13);
-            this.label70.TabIndex = 103;
-            this.label70.Text = "Person Id    :";
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // UpdatePersonInfo
             // 
@@ -1849,5 +1870,8 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox PersonIdtextBox;
         private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private Reports.CachedLOI cachedLOI1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -35,6 +35,7 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.pictureBrowseButton = new System.Windows.Forms.Button();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.maritalStatuscomboBox = new System.Windows.Forms.ComboBox();
             this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
@@ -95,6 +96,10 @@
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.WARoadNametextBox = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.WABuildingNametextBox = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
             this.LandmarktextBox = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.WAPostOfficetextBox = new System.Windows.Forms.TextBox();
@@ -161,19 +166,14 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.WABuildingNametextBox = new System.Windows.Forms.TextBox();
-            this.label68 = new System.Windows.Forms.Label();
-            this.WARoadNametextBox = new System.Windows.Forms.TextBox();
-            this.label69 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInsert
@@ -296,6 +296,18 @@
             this.pictureBrowseButton.Text = "Browse";
             this.pictureBrowseButton.UseVisualStyleBackColor = true;
             this.pictureBrowseButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.MistyRose;
+            this.userPictureBox.BackgroundImage = global::PhonebookApp.Properties.Resources.user_up;
+            this.userPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.userPictureBox.Location = new System.Drawing.Point(290, 451);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(150, 150);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userPictureBox.TabIndex = 97;
+            this.userPictureBox.TabStop = false;
             // 
             // groupBox7
             // 
@@ -993,6 +1005,42 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
+            // WARoadNametextBox
+            // 
+            this.WARoadNametextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WARoadNametextBox.Location = new System.Drawing.Point(467, 193);
+            this.WARoadNametextBox.Name = "WARoadNametextBox";
+            this.WARoadNametextBox.Size = new System.Drawing.Size(172, 22);
+            this.WARoadNametextBox.TabIndex = 90;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(338, 196);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(93, 15);
+            this.label69.TabIndex = 91;
+            this.label69.Text = "Road Name       :";
+            // 
+            // WABuildingNametextBox
+            // 
+            this.WABuildingNametextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WABuildingNametextBox.Location = new System.Drawing.Point(467, 163);
+            this.WABuildingNametextBox.Name = "WABuildingNametextBox";
+            this.WABuildingNametextBox.Size = new System.Drawing.Size(172, 22);
+            this.WABuildingNametextBox.TabIndex = 88;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(340, 167);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(111, 15);
+            this.label68.TabIndex = 89;
+            this.label68.Text = "Building Name      :";
+            // 
             // LandmarktextBox
             // 
             this.LandmarktextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1056,7 +1104,6 @@
             this.txtWABlock.ReadOnly = true;
             this.txtWABlock.Size = new System.Drawing.Size(172, 22);
             this.txtWABlock.TabIndex = 4;
-            this.txtWABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWABlock_KeyDown);
             // 
             // label35
             // 
@@ -1137,8 +1184,6 @@
             this.txtWAContactNo.ReadOnly = true;
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 22);
             this.txtWAContactNo.TabIndex = 6;
-            this.txtWAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAContactNo_KeyDown);
-            this.txtWAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWAContactNo_KeyPress_1);
             // 
             // label46
             // 
@@ -1168,7 +1213,6 @@
             this.txtWAPostCode.ReadOnly = true;
             this.txtWAPostCode.Size = new System.Drawing.Size(198, 22);
             this.txtWAPostCode.TabIndex = 11;
-            this.txtWAPostCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAPostCode_KeyDown);
             // 
             // txtWAArea
             // 
@@ -1178,7 +1222,6 @@
             this.txtWAArea.ReadOnly = true;
             this.txtWAArea.Size = new System.Drawing.Size(171, 22);
             this.txtWAArea.TabIndex = 5;
-            this.txtWAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAArea_KeyDown);
             // 
             // label48
             // 
@@ -1218,7 +1261,6 @@
             this.txtWARoadNo.ReadOnly = true;
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 22);
             this.txtWARoadNo.TabIndex = 3;
-            this.txtWARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWARoadNo_KeyDown);
             // 
             // txtWAHouseName
             // 
@@ -1228,7 +1270,6 @@
             this.txtWAHouseName.ReadOnly = true;
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 22);
             this.txtWAHouseName.TabIndex = 2;
-            this.txtWAHouseName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAHouseName_KeyDown);
             // 
             // txtWAFlatName
             // 
@@ -1238,7 +1279,6 @@
             this.txtWAFlatName.ReadOnly = true;
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 22);
             this.txtWAFlatName.TabIndex = 1;
-            this.txtWAFlatName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWAFlatName_KeyDown);
             // 
             // label51
             // 
@@ -1665,54 +1705,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // userPictureBox
-            // 
-            this.userPictureBox.BackColor = System.Drawing.Color.MistyRose;
-            this.userPictureBox.BackgroundImage = global::PhonebookApp.Properties.Resources.user_up;
-            this.userPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.userPictureBox.Location = new System.Drawing.Point(290, 451);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(150, 150);
-            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.userPictureBox.TabIndex = 97;
-            this.userPictureBox.TabStop = false;
-            // 
-            // WABuildingNametextBox
-            // 
-            this.WABuildingNametextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WABuildingNametextBox.Location = new System.Drawing.Point(467, 163);
-            this.WABuildingNametextBox.Name = "WABuildingNametextBox";
-            this.WABuildingNametextBox.Size = new System.Drawing.Size(172, 22);
-            this.WABuildingNametextBox.TabIndex = 88;
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(340, 167);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(111, 15);
-            this.label68.TabIndex = 89;
-            this.label68.Text = "Building Name      :";
-            // 
-            // WARoadNametextBox
-            // 
-            this.WARoadNametextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WARoadNametextBox.Location = new System.Drawing.Point(467, 193);
-            this.WARoadNametextBox.Name = "WARoadNametextBox";
-            this.WARoadNametextBox.Size = new System.Drawing.Size(172, 22);
-            this.WARoadNametextBox.TabIndex = 90;
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(338, 196);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(93, 15);
-            this.label69.TabIndex = 91;
-            this.label69.Text = "Road Name       :";
-            // 
             // frm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1729,6 +1721,7 @@
             this.Load += new System.EventHandler(this.frm1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1740,7 +1733,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

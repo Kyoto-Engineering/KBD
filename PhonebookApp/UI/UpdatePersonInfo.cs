@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
@@ -1001,8 +1002,6 @@ namespace PhonebookApp.UI
         {
             ResetWorkingAddress();
 
-
-
             try
             {
 
@@ -1015,7 +1014,7 @@ namespace PhonebookApp.UI
 
                 if (rdr.Read())
                 {
-                    //companyId = (rdr.GetString(0));
+                  
                     companyId = Convert.ToInt64(rdr["CompanyId"]);
                 }
                 con.Close();
@@ -1024,7 +1023,7 @@ namespace PhonebookApp.UI
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //} 
+           
             FillWorkingAddress();
         }
 
@@ -1278,5 +1277,883 @@ namespace PhonebookApp.UI
             }
         }
 
+        private void pictureBrowseButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _with1 = openFileDialog1;
+
+                _with1.Filter = ("Image Files |*.png;*.bmp; *.jpg;*.jpeg; *.gif;");
+                _with1.FilterIndex = 4;
+
+                openFileDialog1.FileName = "";
+                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                //{
+                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                    {
+                        MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Image.FromFile(openFileDialog1.FileName).Width != 300)
+                    {
+                        MessageBox.Show("Width Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
+                        //{
+
+                        userPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                        pictureBrowseButton.Focus();
+                    }
+                    //else
+                    //{
+                    //    MessageBox.Show("Image Size is invalid");
+                    //}
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CountrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+               
+                groupBox6.Hide();
+                groupBox2.Show();
+                groupBox3.Show();
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 531);
+                btnInsert.Location = new Point(1045, 540);
+                
+            }
+            else
+            {
+                
+                groupBox2.Hide();
+                groupBox3.Hide();
+                groupBox6.Show();
+                groupBox7.Show();
+                groupBox6.Location = new Point(466, 12);             
+                groupBox7.Location = new Point(466, 155);
+                btnInsert.Location=new Point(860,310);
+              
+             
+                
+            }
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
+                            CountrycomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    countryid = (rdr.GetString(0));
+                   
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbEmailAddress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEmailAddress.Text == "Not In The List")
+            {
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    cmbEmailAddress.SelectedIndex = -1;
+                }
+
+                else
+                {
+
+                    if (!string.IsNullOrWhiteSpace(input))
+                    {
+                        string emailId = input.Trim();
+                        Regex mRegxExpression;
+
+                        mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                        if (!mRegxExpression.IsMatch(emailId))
+                        {
+
+                            MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+
+                        }
+                    }
+
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select Email from EmailBank where Email='" + input + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Email  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbEmailAddress.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into EmailBank (Email, UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", input);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbEmailAddress.Items.Clear();
+                            EmailAddress();
+                            cmbEmailAddress.SelectedText = input;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT EmailBankId from EmailBank WHERE Email= '" + cmbEmailAddress.Text + "'";
+
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                       
+                        bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbJobTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbJobTitle.Text == "Not In The List")
+            {
+                string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputj))
+                {
+                    cmbJobTitle.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select JobTitleName from JobTitle where JobTitleName='" + inputj + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This JobTitle  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbJobTitle.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into JobTitle(JobTitleName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputj);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            cmbJobTitle.Items.Clear();
+                            FillJobTitle();
+                            cmbJobTitle.SelectedText = inputj;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select JobTitleId from JobTitle  where  JobTitle.JobTitleName='" + cmbJobTitle.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        jobTitleId = Convert.ToInt64(rdr["JobTitleId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void GroupNamecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+
+                cmd.CommandText = "SELECT GroupId from [dbo].[Group] WHERE GroupName= '" + GroupNamecomboBox.Text + "'";
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    groupid = rdr.GetInt32(0);
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSpecialization.Text == "Not In The List")
+            {
+                string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputs))
+                {
+                    cmbSpecialization.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select Specialization from Specializations where Specialization='" + inputs + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Specializations  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbSpecialization.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into Specializations(Specialization,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputs);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbSpecialization.Items.Clear();
+                            FillSpecialization();
+                            cmbSpecialization.SelectedText = inputs;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select SpecializationsId from Specializations  where  Specializations.Specialization='" + cmbSpecialization.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        specializationId = Convert.ToInt64(rdr["SpecializationsId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbProfession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProfession.Text == "Not In The List")
+            {
+                string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputp))
+                {
+                    cmbProfession.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select ProfessionName from Profession where ProfessionName='" + inputp + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Profession  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbProfession.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into Profession(ProfessionName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputp);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbProfession.Items.Clear();
+                            FillProfession();
+                            cmbProfession.SelectedText = inputp;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select ProfessionId from Profession  where  Profession.ProfessionName='" + cmbProfession.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        professionId = Convert.ToInt64(rdr["ProfessionId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbEducationalLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEducationalLevel.Text == "Not In The List")
+            {
+                string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inpute))
+                {
+                    cmbEducationalLevel.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select EducationLevelName from EducationLevel where EducationLevelName='" + inpute + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This EducationLevel  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbEducationalLevel.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into EducationLevel(EducationLevelName,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inpute);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbEducationalLevel.Items.Clear();
+                            FillEducationLevel();
+                            cmbEducationalLevel.SelectedText = inpute;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select EducationLevelId from EducationLevel  where  EducationLevel.EducationLevelName='" + cmbEducationalLevel.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        educationLevelId = Convert.ToInt64(rdr["EducationLevelId"]);
+
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbHighestDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbHighestDegree.Text == "Not In The List")
+            {
+                string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputx))
+                {
+                    cmbHighestDegree.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select HighestDegree from HighestDegrees where HighestDegree='" + inputx + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This EducationLevel  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbHighestDegree.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into HighestDegrees(HighestDegree,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputx);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbHighestDegree.Items.Clear();
+                            FillHighestDegree();
+                            cmbHighestDegree.SelectedText = inputx;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select HighestDegreeId from HighestDegrees  where  HighestDegrees.HighestDegree='" + cmbHighestDegree.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        highestDegreeId = Convert.ToInt64(rdr["HighestDegreeId"]);
+
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbAgeGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbAgeGroup.Text == "Not In The List")
+            {
+                string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputa))
+                {
+                    cmbAgeGroup.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select AgeGroupLevel from AgeGroup where AgeGroupLevel='" + inputa + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This AgeGroup  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbAgeGroup.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into AgeGroup(AgeGroupLevel,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputa);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbAgeGroup.Items.Clear();
+                            FillAgeGroup();
+                            cmbAgeGroup.SelectedText = inputa;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select AgeGroupId from AgeGroup  where  AgeGroup.AgeGroupLevel='" + cmbAgeGroup.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        ageGroupId = Convert.ToInt64(rdr["AgeGroupId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbRelationShip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRelationShip.Text == "Not In The List")
+            {
+                string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputr))
+                {
+                    cmbRelationShip.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select RelationShip from RelationShips where RelationShip='" + inputr + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This RelationShips  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        cmbRelationShip.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into RelationShips(RelationShip,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputr);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            cmbRelationShip.Items.Clear();
+                            FillRelationShip();
+                            cmbRelationShip.SelectedText = inputr;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select RelationShipsId from  RelationShips  where  RelationShips.RelationShip='" + cmbRelationShip.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        relationshipId = Convert.ToInt64(rdr["RelationShipsId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void GendercomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select GenderId from Gender  where  Gender.GenderName='" + GendercomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+
+                    genderId = Convert.ToInt64(rdr["GenderId"]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void maritalStatuscomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select MaritalStatusId from MaritalStatus  where  MaritalStatus.MaritalStatusName='" + maritalStatuscomboBox.Text + "' ";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    maritalStatusId = Convert.ToInt64(rdr["MaritalStatusId"]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ReligioncomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ReligioncomboBox.Text == "Not In The List")
+            {
+                string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                if (string.IsNullOrWhiteSpace(inputReligion))
+                {
+                    ReligioncomboBox.SelectedIndex = -1;
+                }
+
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select ReligionName from Religion where ReligionName='" + inputReligion + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        MessageBox.Show("This Religion Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        ReligioncomboBox.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string query1 = "insert into Religion (ReligionName,UserId) values (@d1,@d2)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            cmd = new SqlCommand(query1, con);
+                            cmd.Parameters.AddWithValue("@d1", inputReligion);
+                            cmd.Parameters.AddWithValue("@d2", nUserId);
+                            cmd.ExecuteNonQuery();
+
+                            con.Close();
+                            ReligioncomboBox.Items.Clear();
+                            FillReligion();
+                            ReligioncomboBox.SelectedText = inputReligion;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select ReligionId from Religion  where  Religion.ReligionName='" + ReligioncomboBox.Text + "' ";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+
+                        religionId = Convert.ToInt64(rdr["ReligionId"]);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

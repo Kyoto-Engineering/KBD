@@ -323,7 +323,7 @@
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Location = new System.Drawing.Point(459, 527);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(547, 127);
+            this.groupBox7.Size = new System.Drawing.Size(547, 117);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Personal Information";
@@ -333,11 +333,11 @@
             this.maritalStatuscomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.maritalStatuscomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.maritalStatuscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maritalStatuscomboBox.FormattingEnabled = true;
             this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
             this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
-            this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 30);
+            this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 25);
             this.maritalStatuscomboBox.TabIndex = 4;
             this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
             // 
@@ -345,24 +345,25 @@
             // 
             this.ReligioncomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ReligioncomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReligioncomboBox.FormattingEnabled = true;
-            this.ReligioncomboBox.Location = new System.Drawing.Point(110, 90);
+            this.ReligioncomboBox.Location = new System.Drawing.Point(110, 85);
             this.ReligioncomboBox.Name = "ReligioncomboBox";
-            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 30);
+            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 25);
             this.ReligioncomboBox.TabIndex = 3;
             this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
+            this.ReligioncomboBox.Leave += new System.EventHandler(this.ReligioncomboBox_Leave);
             // 
             // GendercomboBox
             // 
             this.GendercomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.GendercomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GendercomboBox.FormattingEnabled = true;
-            this.GendercomboBox.Location = new System.Drawing.Point(110, 56);
+            this.GendercomboBox.Location = new System.Drawing.Point(110, 53);
             this.GendercomboBox.Name = "GendercomboBox";
-            this.GendercomboBox.Size = new System.Drawing.Size(193, 30);
+            this.GendercomboBox.Size = new System.Drawing.Size(193, 25);
             this.GendercomboBox.TabIndex = 2;
             this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
             // 
@@ -380,18 +381,19 @@
             // 
             this.AnniversarydateTimePicker.Checked = false;
             this.AnniversarydateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.AnniversarydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AnniversarydateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(322, 83);
+            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(322, 80);
             this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
             this.AnniversarydateTimePicker.ShowCheckBox = true;
-            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 29);
+            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 25);
             this.AnniversarydateTimePicker.TabIndex = 5;
             // 
             // label59
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(320, 63);
+            this.label59.Location = new System.Drawing.Point(320, 60);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(195, 19);
             this.label59.TabIndex = 16;
@@ -401,40 +403,41 @@
             // 
             this.BirthdateTimePicker.Checked = false;
             this.BirthdateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.BirthdateTimePicker.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.BirthdateTimePicker.Location = new System.Drawing.Point(110, 24);
             this.BirthdateTimePicker.Name = "BirthdateTimePicker";
             this.BirthdateTimePicker.ShowCheckBox = true;
-            this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 29);
+            this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 25);
             this.BirthdateTimePicker.TabIndex = 1;
             // 
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(17, 93);
+            this.label56.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(17, 86);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(65, 19);
+            this.label56.Size = new System.Drawing.Size(63, 17);
             this.label56.TabIndex = 13;
             this.label56.Text = "Religion";
             // 
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(23, 55);
+            this.label57.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(23, 52);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(59, 19);
+            this.label57.Size = new System.Drawing.Size(57, 17);
             this.label57.TabIndex = 11;
             this.label57.Text = "Gender";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.Location = new System.Drawing.Point(5, 22);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(101, 19);
+            this.label58.Size = new System.Drawing.Size(97, 17);
             this.label58.TabIndex = 9;
             this.label58.Text = "Date Of Birth";
             // 
@@ -463,6 +466,7 @@
             this.CountrycomboBox.TabIndex = 1;
             this.CountrycomboBox.SelectedIndexChanged += new System.EventHandler(this.CountrycomboBox_SelectedIndexChanged);
             this.CountrycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountrycomboBox_KeyDown);
+            this.CountrycomboBox.Leave += new System.EventHandler(this.CountrycomboBox_Leave);
             // 
             // label14
             // 
@@ -561,6 +565,7 @@
             this.cmbRelationShip.TabIndex = 14;
             this.cmbRelationShip.SelectedIndexChanged += new System.EventHandler(this.cmbRelationShip_SelectedIndexChanged);
             this.cmbRelationShip.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRelationShip_KeyDown);
+            this.cmbRelationShip.Leave += new System.EventHandler(this.cmbRelationShip_Leave);
             // 
             // groupBox2
             // 
@@ -1374,6 +1379,7 @@
             this.cmbJobTitle.TabIndex = 7;
             this.cmbJobTitle.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitle_SelectedIndexChanged);
             this.cmbJobTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbJobTitle_KeyDown);
+            this.cmbJobTitle.Leave += new System.EventHandler(this.cmbJobTitle_Leave);
             // 
             // cmbCompanyName
             // 
@@ -1387,6 +1393,7 @@
             this.cmbCompanyName.TabIndex = 6;
             this.cmbCompanyName.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyName_SelectedIndexChanged);
             this.cmbCompanyName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCompanyName_KeyDown);
+            this.cmbCompanyName.Leave += new System.EventHandler(this.cmbCompanyName_Leave);
             // 
             // cmbEmailAddress
             // 
@@ -1400,6 +1407,7 @@
             this.cmbEmailAddress.TabIndex = 5;
             this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
             this.cmbEmailAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEmailAddress_KeyDown);
+            this.cmbEmailAddress.Leave += new System.EventHandler(this.cmbEmailAddress_Leave);
             this.cmbEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEmailAddress_Validating);
             // 
             // txtFatherName
@@ -1516,6 +1524,7 @@
             this.cmbProfession.TabIndex = 10;
             this.cmbProfession.SelectedIndexChanged += new System.EventHandler(this.cmbProfession_SelectedIndexChanged);
             this.cmbProfession.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProfession_KeyDown_1);
+            this.cmbProfession.Leave += new System.EventHandler(this.cmbProfession_Leave);
             // 
             // cmbSpecialization
             // 
@@ -1529,6 +1538,7 @@
             this.cmbSpecialization.TabIndex = 9;
             this.cmbSpecialization.SelectedIndexChanged += new System.EventHandler(this.cmbSpecialization_SelectedIndexChanged);
             this.cmbSpecialization.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSpecialization_KeyDown_1);
+            this.cmbSpecialization.Leave += new System.EventHandler(this.cmbSpecialization_Leave);
             // 
             // cmbAgeGroup
             // 
@@ -1542,6 +1552,7 @@
             this.cmbAgeGroup.TabIndex = 13;
             this.cmbAgeGroup.SelectedIndexChanged += new System.EventHandler(this.cmbAgeGroup_SelectedIndexChanged);
             this.cmbAgeGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbAgeGroup_KeyDown_1);
+            this.cmbAgeGroup.Leave += new System.EventHandler(this.cmbAgeGroup_Leave);
             // 
             // cmbHighestDegree
             // 
@@ -1555,6 +1566,7 @@
             this.cmbHighestDegree.TabIndex = 12;
             this.cmbHighestDegree.SelectedIndexChanged += new System.EventHandler(this.cmbHighestDegree_SelectedIndexChanged);
             this.cmbHighestDegree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbHighestDegree_KeyDown_1);
+            this.cmbHighestDegree.Leave += new System.EventHandler(this.cmbHighestDegree_Leave);
             // 
             // cmbEducationalLevel
             // 
@@ -1568,6 +1580,7 @@
             this.cmbEducationalLevel.TabIndex = 11;
             this.cmbEducationalLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationalLevel_SelectedIndexChanged);
             this.cmbEducationalLevel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEducationalLevel_KeyDown_1);
+            this.cmbEducationalLevel.Leave += new System.EventHandler(this.cmbEducationalLevel_Leave);
             // 
             // label8
             // 
@@ -1647,6 +1660,7 @@
             this.GroupNamecomboBox.TabIndex = 8;
             this.GroupNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.GroupNamecomboBox_SelectedIndexChanged);
             this.GroupNamecomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCategoryName_KeyDown_1);
+            this.GroupNamecomboBox.Leave += new System.EventHandler(this.GroupNamecomboBox_Leave);
             // 
             // label10
             // 

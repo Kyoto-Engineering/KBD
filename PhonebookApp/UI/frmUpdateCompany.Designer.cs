@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCompany));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label49 = new System.Windows.Forms.Label();
@@ -1175,6 +1176,7 @@
             this.Controls.Add(this.label50);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmUpdateCompany";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupCreation));
             this.groupNamelabel = new System.Windows.Forms.Label();
             this.groupNametextBox = new System.Windows.Forms.TextBox();
             this.savebutton = new System.Windows.Forms.Button();
@@ -133,6 +134,7 @@
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.groupNamelabel);
             this.Controls.Add(this.groupNametextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GroupCreation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GroupCreation";

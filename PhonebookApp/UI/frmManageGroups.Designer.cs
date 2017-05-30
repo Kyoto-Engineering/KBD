@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageGroups));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NewGroupCreationbutton = new System.Windows.Forms.Button();
             this.buttonAgeGroup = new System.Windows.Forms.Button();
             this.buttonProfession = new System.Windows.Forms.Button();
             this.buttonSpecialization = new System.Windows.Forms.Button();
@@ -36,7 +38,6 @@
             this.buttonEducationLevel = new System.Windows.Forms.Button();
             this.Categorybutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.NewGroupCreationbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,18 @@
             this.groupBox1.Size = new System.Drawing.Size(480, 360);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // NewGroupCreationbutton
+            // 
+            this.NewGroupCreationbutton.BackColor = System.Drawing.Color.OrangeRed;
+            this.NewGroupCreationbutton.ForeColor = System.Drawing.Color.White;
+            this.NewGroupCreationbutton.Location = new System.Drawing.Point(54, 48);
+            this.NewGroupCreationbutton.Name = "NewGroupCreationbutton";
+            this.NewGroupCreationbutton.Size = new System.Drawing.Size(134, 54);
+            this.NewGroupCreationbutton.TabIndex = 48;
+            this.NewGroupCreationbutton.Text = "New Group Creation";
+            this.NewGroupCreationbutton.UseVisualStyleBackColor = false;
+            this.NewGroupCreationbutton.Click += new System.EventHandler(this.NewGroupCreationbutton_Click);
             // 
             // buttonAgeGroup
             // 
@@ -140,18 +153,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Group Management";
             // 
-            // NewGroupCreationbutton
-            // 
-            this.NewGroupCreationbutton.BackColor = System.Drawing.Color.OrangeRed;
-            this.NewGroupCreationbutton.ForeColor = System.Drawing.Color.White;
-            this.NewGroupCreationbutton.Location = new System.Drawing.Point(54, 48);
-            this.NewGroupCreationbutton.Name = "NewGroupCreationbutton";
-            this.NewGroupCreationbutton.Size = new System.Drawing.Size(134, 54);
-            this.NewGroupCreationbutton.TabIndex = 48;
-            this.NewGroupCreationbutton.Text = "New Group Creation";
-            this.NewGroupCreationbutton.UseVisualStyleBackColor = false;
-            this.NewGroupCreationbutton.Click += new System.EventHandler(this.NewGroupCreationbutton_Click);
-            // 
             // frmManageGroups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +161,7 @@
             this.ClientSize = new System.Drawing.Size(728, 522);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmManageGroups";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageGroups";

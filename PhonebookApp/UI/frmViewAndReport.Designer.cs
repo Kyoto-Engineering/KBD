@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewAndReport));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ViewCompanybutton = new System.Windows.Forms.Button();
             this.reportButton = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@
             this.ClientSize = new System.Drawing.Size(687, 438);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmViewAndReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmViewAndReport";

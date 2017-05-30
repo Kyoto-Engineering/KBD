@@ -50,8 +50,8 @@ namespace PhonebookApp.UI
             FillProfession();
             FillSpecialization();
             EmailAddress();
-            nUserId = frmLogin.uId.ToString();           
-            FillGroupName();            
+            nUserId = frmLogin.uId.ToString();
+            FillGroupName();
             FillRADivisionCombo();
             FillGender();
             FillReligion();
@@ -166,7 +166,7 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         public void FillAgeGroup()
         {
             try
@@ -374,7 +374,7 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
 
 
         private void FillGender()
@@ -503,7 +503,7 @@ namespace PhonebookApp.UI
             //} 
             FillWorkingAddress();
         }
-       
+
         private void FillWorkingAddress()
         {
             try
@@ -753,7 +753,7 @@ namespace PhonebookApp.UI
             con.Open();
             String query =
                 "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId==@d5,JobTitleId=@d6,GroupId=@d7,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
-                PersonIdtextBox.Text + "'"; 
+                PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
             cmd.Parameters.Add(new SqlParameter("@d2",
@@ -848,7 +848,7 @@ namespace PhonebookApp.UI
                 string insertQ = "Update " + tableName +
                                  " set PostOfficeId=@d2,RFlatNo=@d3,RHouseNo==@d4,RRoadNo=@d5,RBlock=@d6,RArea=@d7,RContactNo=@d8,BuildingName=@d9,RoadName=@d10,LandMark=@d11,AdressQR=@d12 where ResidentialAddresses.PersonsId='" +
                                  PersonIdtextBox.Text + "'";
-                                 
+
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d2",
@@ -898,7 +898,7 @@ namespace PhonebookApp.UI
                 string query = "Update GroupMember set GroupId=@d1,UserId=@d2 where GroupMember.PersonsId='" +
                                PersonIdtextBox.Text + "'";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);               
+                cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@d2", nUserId);
                 rdr = cmd.ExecuteReader();
                 con.Close();
@@ -919,7 +919,7 @@ namespace PhonebookApp.UI
                           PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(Qury);
             cmd.Connection = con;
-            
+
             cmd.Parameters.Add(new SqlParameter("@d1",
                 string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d2",
@@ -938,17 +938,17 @@ namespace PhonebookApp.UI
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
-            cmbEmailAddress.Items.Clear();           
+            cmbEmailAddress.Items.Clear();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();           
+            cmbCompanyName.Items.Clear();
             cmbCompanyName.SelectedIndex = -1;
-            GroupNamecomboBox.Items.Clear();           
+            GroupNamecomboBox.Items.Clear();
             GroupNamecomboBox.SelectedIndex = -1;
-            cmbAgeGroup.Items.Clear();          
+            cmbAgeGroup.Items.Clear();
             cmbAgeGroup.SelectedIndex = -1;
-            cmbProfession.Items.Clear();            
+            cmbProfession.Items.Clear();
             cmbProfession.SelectedIndex = -1;
-            cmbEducationalLevel.Items.Clear();           
+            cmbEducationalLevel.Items.Clear();
             cmbEducationalLevel.SelectedIndex = -1;
             cmbHighestDegree.Items.Clear();
             cmbHighestDegree.SelectedIndex = -1;
@@ -956,7 +956,7 @@ namespace PhonebookApp.UI
             cmbJobTitle.SelectedIndex = -1;
             cmbSpecialization.Items.Clear();
             cmbSpecialization.SelectedIndex = -1;
-            cmbRelationShip.Items.Clear();          
+            cmbRelationShip.Items.Clear();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -974,25 +974,25 @@ namespace PhonebookApp.UI
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
-            cmbEmailAddress.Items.Clear();           
+            cmbEmailAddress.Items.Clear();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();          
+            cmbCompanyName.Items.Clear();
             cmbCompanyName.SelectedIndex = -1;
-            GroupNamecomboBox.Items.Clear();          
+            GroupNamecomboBox.Items.Clear();
             GroupNamecomboBox.SelectedIndex = -1;
-            cmbAgeGroup.Items.Clear();         
+            cmbAgeGroup.Items.Clear();
             cmbAgeGroup.SelectedIndex = -1;
-            cmbProfession.Items.Clear();        
+            cmbProfession.Items.Clear();
             cmbProfession.SelectedIndex = -1;
-            cmbEducationalLevel.Items.Clear();          
+            cmbEducationalLevel.Items.Clear();
             cmbEducationalLevel.SelectedIndex = -1;
-            cmbHighestDegree.Items.Clear();          
+            cmbHighestDegree.Items.Clear();
             cmbHighestDegree.SelectedIndex = -1;
-            cmbJobTitle.Items.Clear();          
+            cmbJobTitle.Items.Clear();
             cmbJobTitle.SelectedIndex = -1;
-            cmbSpecialization.Items.Clear();          
+            cmbSpecialization.Items.Clear();
             cmbSpecialization.SelectedIndex = -1;
-            cmbRelationShip.Items.Clear();        
+            cmbRelationShip.Items.Clear();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -1037,7 +1037,7 @@ namespace PhonebookApp.UI
             txtWAContactNo.Clear();
             LandmarktextBox.Clear();
             WABuildingNametextBox.Clear();
-            WARoadNametextBox.Clear();  
+            WARoadNametextBox.Clear();
             txtWAPostCode.Clear();
             WAPostOfficetextBox.Clear();
             WAThanatextBox.Clear();
@@ -1103,7 +1103,7 @@ namespace PhonebookApp.UI
 
                 if (rdr.Read())
                 {
-                  
+
                     companyId = Convert.ToInt64(rdr["CompanyId"]);
                 }
                 con.Close();
@@ -1112,7 +1112,7 @@ namespace PhonebookApp.UI
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
             FillWorkingAddress();
         }
 
@@ -1405,7 +1405,6 @@ namespace PhonebookApp.UI
                     //{
                     //    MessageBox.Show("Image Size is invalid");
                     //}
-
                 }
 
             }
@@ -1419,28 +1418,23 @@ namespace PhonebookApp.UI
         {
             if (CountrycomboBox.Text == "Bangladesh")
             {
-               
                 groupBox6.Hide();
                 groupBox2.Show();
                 groupBox3.Show();
                 groupBox7.Show();
                 groupBox7.Location = new Point(466, 531);
                 btnInsert.Location = new Point(1045, 540);
-                
+
             }
             else
             {
-                
                 groupBox2.Hide();
                 groupBox3.Hide();
                 groupBox6.Show();
                 groupBox7.Show();
-                groupBox6.Location = new Point(466, 12);             
+                groupBox6.Location = new Point(466, 12);
                 groupBox7.Location = new Point(466, 155);
-                btnInsert.Location=new Point(860,310);
-              
-             
-                
+                btnInsert.Location = new Point(860, 310);
             }
             try
             {
@@ -1456,7 +1450,7 @@ namespace PhonebookApp.UI
                 if (rdr.Read())
                 {
                     countryid = (rdr.GetString(0));
-                   
+
                 }
                 con.Close();
             }
@@ -1471,32 +1465,19 @@ namespace PhonebookApp.UI
             if (cmbEmailAddress.Text == "Not In The List")
             {
                 //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+
+                InputBoxValidation validation = delegate(string val)
+                {
+                    if (val == "")
+                        return "Value cannot be empty.";
+                    if (!(new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$")).IsMatch(val))
+                        return "Email address is not valid.";
+                    return "";
+                };
+
                 string input = null;
-                InputBox.Show("Please Input Email Here", "Inpute Here", ref input);
-                if (string.IsNullOrWhiteSpace(input))
+                if (InputBox.Show("Please Input Email Here", "Input Here", ref input, validation) == DialogResult.OK)
                 {
-                    cmbEmailAddress.SelectedIndex = -1;
-                }
-
-                else
-                {
-
-                    if (!string.IsNullOrWhiteSpace(input))
-                    {
-                        string emailId = input.Trim();
-                        Regex mRegxExpression;
-
-                        mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
-
-                        if (!mRegxExpression.IsMatch(emailId))
-                        {
-
-                            MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-
-                        }
-                    }
-
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
@@ -1513,7 +1494,6 @@ namespace PhonebookApp.UI
                     {
                         try
                         {
-
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
                             string query1 = "insert into EmailBank (Email, UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
@@ -1535,6 +1515,10 @@ namespace PhonebookApp.UI
                         }
                     }
                 }
+                else
+                {
+                    cmbEmailAddress.SelectedIndex = -1;
+                }
             }
             else
             {
@@ -1548,7 +1532,7 @@ namespace PhonebookApp.UI
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
-                       
+
                         bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
                     }
                     if ((rdr != null))

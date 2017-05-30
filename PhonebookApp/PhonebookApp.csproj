@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Models\CompanyAddress.cs" />
+    <Compile Include="Models\InputBox.cs" />
     <Compile Include="Models\PersonAddress.cs" />
     <Compile Include="Reports\BarCode.cs">
       <AutoGen>True</AutoGen>

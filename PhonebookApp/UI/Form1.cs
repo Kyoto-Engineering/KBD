@@ -166,7 +166,7 @@ namespace PhonebookApp
         {
             string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
             Qrdata +=
-                "Street:" + (string.IsNullOrEmpty(StreettextBox.Text) ? (object) DBNull.Value : StreettextBox.Text) +
+                "Street:" + (string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text) +
                 "\r\n";
 
             Qrdata +=
@@ -602,7 +602,7 @@ namespace PhonebookApp
                         cmbRAPost.Focus();
 
                     }
-                }               
+                }
             }
             else
             {
@@ -642,7 +642,7 @@ namespace PhonebookApp
             {
                 ct3 =
                     "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ForeignAddress.Street,\'\') + \', \',\'\') + isnull(nullif(ForeignAddress.State,\'\') + \', \',\'\') + isnull(nullif(ForeignAddress.PostalCode,\'\') + \', \',\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ForeignAddress ON Persons.PersonsId = ForeignAddress.PersonsId where Persons.PersonName='" + txtPersonName.Text + "'";
-         
+
             }
             cmd = new SqlCommand(ct3, con);
             rdr = cmd.ExecuteReader();
@@ -708,7 +708,7 @@ namespace PhonebookApp
                 address += string.IsNullOrWhiteSpace(PostalCodetextBox.Text) ? "" : (PostalCodetextBox.Text + ", ");
             }
             foreach (PersonAddress p in personAddresses)
-            {                          
+            {
                 if (p.Person == txtPersonName.Text && p.Address == address)
                 {
                     DialogResult dialogResult = MessageBox.Show("This Person name and Address already Exist.Do you Want to Continue? ", "Confirm",
@@ -716,14 +716,14 @@ namespace PhonebookApp
                     if (dialogResult == DialogResult.No)
                     {
                         if (CountrycomboBox.Text == "Bangladesh")
-                        {                          
+                        {
                             ResetResidentialAddress();
                         }
                         else
-                        {                       
-                            ResetForeignAddress();                          
+                        {
+                            ResetForeignAddress();
                         }
-                        txtPersonName.Clear();                     
+                        txtPersonName.Clear();
                         txtPersonName.Focus();
                         con.Close();
                         value = false;
@@ -751,7 +751,7 @@ namespace PhonebookApp
                         MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.No)
                     {
-                        txtPersonName.Clear();                       
+                        txtPersonName.Clear();
                         cmbCompanyName.SelectedIndex = -1;
                         ResetWorkingAddress();
                         companyId = null;
@@ -1368,32 +1368,19 @@ namespace PhonebookApp
             if (cmbEmailAddress.Text == "Not In The List")
             {
                 //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+
+                InputBoxValidation validation = delegate(string val)
+                {
+                    if (val == "")
+                        return "Value cannot be empty.";
+                    if (!(new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$")).IsMatch(val))
+                        return "Email address is not valid.";
+                    return "";
+                };
+
                 string input = null;
-                InputBox.Show("Please Input Email Here", "Inpute Here", ref input);
-                if (string.IsNullOrWhiteSpace(input))
+                if (InputBox.Show("Please Input Email Here", "Input Here", ref input, validation) == DialogResult.OK)
                 {
-                    cmbEmailAddress.SelectedIndex = -1;
-                }
-
-                else
-                {
-
-                    if (!string.IsNullOrWhiteSpace(input))
-                    {
-                        string emailId = input.Trim();
-                        Regex mRegxExpression;
-
-                        mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
-
-                        if (!mRegxExpression.IsMatch(emailId))
-                        {
-
-                            MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-
-                        }
-                    }
-
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
@@ -1430,6 +1417,33 @@ namespace PhonebookApp
                             MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
+
+                    //else
+                    //{
+
+                    //    //if (!string.IsNullOrWhiteSpace(input))
+                    //    //{
+                    //    //    string emailId = input.Trim();
+                    //    //    Regex mRegxExpression;
+
+                    //    //    mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                    //    //    if (!mRegxExpression.IsMatch(emailId))
+                    //    //    {
+
+                    //    //        MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    //        return;
+
+                    //    //    }
+                    //    //}
+
+
+                    //    }
+                }
+                else
+                {
+                    cmbEmailAddress.SelectedIndex = -1;
                 }
             }
             else
@@ -1544,7 +1558,7 @@ namespace PhonebookApp
 
             if (cmbSpecialization.Text == "Not In The List")
             {
-               // string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                // string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
                 string inputs = null;
                 InputBox.Show("Please Input Specialization Here", "Inpute Here", ref inputs);
                 if (string.IsNullOrWhiteSpace(inputs))

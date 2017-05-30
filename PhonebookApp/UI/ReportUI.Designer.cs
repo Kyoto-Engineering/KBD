@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportUI));
             this.letterOfIntroductionButton = new System.Windows.Forms.Button();
             this.gretingsCardButton = new System.Windows.Forms.Button();
             this.addressButton = new System.Windows.Forms.Button();
@@ -146,6 +147,7 @@
             this.ClientSize = new System.Drawing.Size(800, 441);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportUI";

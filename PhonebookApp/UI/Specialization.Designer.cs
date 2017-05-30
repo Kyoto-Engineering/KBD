@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Specialization));
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.txtSpecialization = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -85,6 +86,7 @@
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveSpecialization);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Specialization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Specialization";

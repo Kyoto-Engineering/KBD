@@ -554,7 +554,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(466, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(694, 272);
+            this.groupBox2.Size = new System.Drawing.Size(694, 278);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential  Address";
@@ -1724,7 +1724,6 @@
             this.Name = "UpdatePersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdatePersonInfo";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdatePersonInfo_FormClosed);
             this.Load += new System.EventHandler(this.UpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

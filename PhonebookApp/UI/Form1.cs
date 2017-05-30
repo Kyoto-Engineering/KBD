@@ -1367,7 +1367,9 @@ namespace PhonebookApp
         {
             if (cmbEmailAddress.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+                //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+                string input = null;
+                InputBox.Show("Please Input Email Here", "Inpute Here", ref input);
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     cmbEmailAddress.SelectedIndex = -1;
@@ -1542,7 +1544,9 @@ namespace PhonebookApp
 
             if (cmbSpecialization.Text == "Not In The List")
             {
-                string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+               // string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                string inputs = null;
+                InputBox.Show("Please Input Specialization Here", "Inpute Here", ref inputs);
                 if (string.IsNullOrWhiteSpace(inputs))
                 {
                     cmbSpecialization.SelectedIndex = -1;
@@ -1618,7 +1622,9 @@ namespace PhonebookApp
 
             if (cmbProfession.Text == "Not In The List")
             {
-                string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                //string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                string inputp = null;
+                InputBox.Show("Please Input Profession Here", "Inpute Here", ref inputp);
                 if (string.IsNullOrWhiteSpace(inputp))
                 {
                     cmbProfession.SelectedIndex = -1;
@@ -1694,7 +1700,9 @@ namespace PhonebookApp
 
             if (cmbEducationalLevel.Text == "Not In The List")
             {
-                string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                //string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                string inpute = null;
+                InputBox.Show("Please Input Education Level Here", "Inpute Here", ref inpute);
                 if (string.IsNullOrWhiteSpace(inpute))
                 {
                     cmbEducationalLevel.SelectedIndex = -1;
@@ -1771,7 +1779,9 @@ namespace PhonebookApp
 
             if (cmbHighestDegree.Text == "Not In The List")
             {
-                string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                //string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                string inputx = null;
+                InputBox.Show("Please Input Highest Degree Here", "Inpute Here", ref inputx);
                 if (string.IsNullOrWhiteSpace(inputx))
                 {
                     cmbHighestDegree.SelectedIndex = -1;
@@ -1847,7 +1857,9 @@ namespace PhonebookApp
 
             if (cmbAgeGroup.Text == "Not In The List")
             {
-                string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                //string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                string inputa = null;
+                InputBox.Show("Please Input Age Group Here", "Inpute Here", ref inputa);
                 if (string.IsNullOrWhiteSpace(inputa))
                 {
                     cmbAgeGroup.SelectedIndex = -1;
@@ -1922,7 +1934,9 @@ namespace PhonebookApp
 
             if (cmbJobTitle.Text == "Not In The List")
             {
-                string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                //string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                string inputj = null;
+                InputBox.Show("Please Input Job Title Here", "Inpute Here", ref inputj);
                 if (string.IsNullOrWhiteSpace(inputj))
                 {
                     cmbJobTitle.SelectedIndex = -1;
@@ -1997,7 +2011,9 @@ namespace PhonebookApp
 
             if (cmbRelationShip.Text == "Not In The List")
             {
-                string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                //string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                string inputr = null;
+                InputBox.Show("Please Input Relationship Here", "Inpute Here", ref inputr);
                 if (string.IsNullOrWhiteSpace(inputr))
                 {
                     cmbRelationShip.SelectedIndex = -1;
@@ -2871,7 +2887,9 @@ namespace PhonebookApp
         {
             if (ReligioncomboBox.Text == "Not In The List")
             {
-                string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                //string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                string inputReligion = null;
+                InputBox.Show("Please Input Religion Here", "Inpute Here", ref inputReligion);
                 if (string.IsNullOrWhiteSpace(inputReligion))
                 {
                     ReligioncomboBox.SelectedIndex = -1;

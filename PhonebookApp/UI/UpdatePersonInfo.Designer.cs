@@ -350,6 +350,7 @@
             this.ReligioncomboBox.Size = new System.Drawing.Size(193, 25);
             this.ReligioncomboBox.TabIndex = 3;
             this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
+            this.ReligioncomboBox.Leave += new System.EventHandler(this.ReligioncomboBox_Leave);
             // 
             // GendercomboBox
             // 
@@ -449,6 +450,7 @@
             this.CountrycomboBox.Size = new System.Drawing.Size(238, 21);
             this.CountrycomboBox.TabIndex = 1;
             this.CountrycomboBox.SelectedIndexChanged += new System.EventHandler(this.CountrycomboBox_SelectedIndexChanged);
+            this.CountrycomboBox.Leave += new System.EventHandler(this.CountrycomboBox_Leave);
             // 
             // label14
             // 
@@ -543,6 +545,7 @@
             this.cmbRelationShip.Size = new System.Drawing.Size(237, 21);
             this.cmbRelationShip.TabIndex = 14;
             this.cmbRelationShip.SelectedIndexChanged += new System.EventHandler(this.cmbRelationShip_SelectedIndexChanged);
+            this.cmbRelationShip.Leave += new System.EventHandler(this.cmbRelationShip_Leave);
             // 
             // groupBox2
             // 
@@ -1385,6 +1388,7 @@
             this.cmbJobTitle.Size = new System.Drawing.Size(235, 21);
             this.cmbJobTitle.TabIndex = 7;
             this.cmbJobTitle.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitle_SelectedIndexChanged);
+            this.cmbJobTitle.Leave += new System.EventHandler(this.cmbJobTitle_Leave);
             // 
             // cmbCompanyName
             // 
@@ -1397,6 +1401,7 @@
             this.cmbCompanyName.Size = new System.Drawing.Size(235, 21);
             this.cmbCompanyName.TabIndex = 6;
             this.cmbCompanyName.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyName_SelectedIndexChanged_1);
+            this.cmbCompanyName.Leave += new System.EventHandler(this.cmbCompanyName_Leave);
             // 
             // cmbEmailAddress
             // 
@@ -1409,6 +1414,7 @@
             this.cmbEmailAddress.Size = new System.Drawing.Size(235, 21);
             this.cmbEmailAddress.TabIndex = 5;
             this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
+            this.cmbEmailAddress.Leave += new System.EventHandler(this.cmbEmailAddress_Leave);
             // 
             // txtFatherName
             // 
@@ -1519,6 +1525,7 @@
             this.cmbProfession.Size = new System.Drawing.Size(235, 21);
             this.cmbProfession.TabIndex = 10;
             this.cmbProfession.SelectedIndexChanged += new System.EventHandler(this.cmbProfession_SelectedIndexChanged);
+            this.cmbProfession.Leave += new System.EventHandler(this.cmbProfession_Leave);
             // 
             // cmbSpecialization
             // 
@@ -1531,6 +1538,7 @@
             this.cmbSpecialization.Size = new System.Drawing.Size(235, 21);
             this.cmbSpecialization.TabIndex = 9;
             this.cmbSpecialization.SelectedIndexChanged += new System.EventHandler(this.cmbSpecialization_SelectedIndexChanged);
+            this.cmbSpecialization.Leave += new System.EventHandler(this.cmbSpecialization_Leave);
             // 
             // cmbAgeGroup
             // 
@@ -1543,6 +1551,7 @@
             this.cmbAgeGroup.Size = new System.Drawing.Size(235, 21);
             this.cmbAgeGroup.TabIndex = 13;
             this.cmbAgeGroup.SelectedIndexChanged += new System.EventHandler(this.cmbAgeGroup_SelectedIndexChanged);
+            this.cmbAgeGroup.Leave += new System.EventHandler(this.cmbAgeGroup_Leave);
             // 
             // cmbHighestDegree
             // 
@@ -1555,6 +1564,7 @@
             this.cmbHighestDegree.Size = new System.Drawing.Size(235, 21);
             this.cmbHighestDegree.TabIndex = 12;
             this.cmbHighestDegree.SelectedIndexChanged += new System.EventHandler(this.cmbHighestDegree_SelectedIndexChanged);
+            this.cmbHighestDegree.Leave += new System.EventHandler(this.cmbHighestDegree_Leave);
             // 
             // cmbEducationalLevel
             // 
@@ -1567,6 +1577,7 @@
             this.cmbEducationalLevel.Size = new System.Drawing.Size(235, 21);
             this.cmbEducationalLevel.TabIndex = 11;
             this.cmbEducationalLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationalLevel_SelectedIndexChanged);
+            this.cmbEducationalLevel.Leave += new System.EventHandler(this.cmbEducationalLevel_Leave);
             // 
             // label8
             // 
@@ -1645,6 +1656,7 @@
             this.GroupNamecomboBox.Size = new System.Drawing.Size(235, 21);
             this.GroupNamecomboBox.TabIndex = 8;
             this.GroupNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.GroupNamecomboBox_SelectedIndexChanged);
+            this.GroupNamecomboBox.Leave += new System.EventHandler(this.GroupNamecomboBox_Leave);
             // 
             // label10
             // 
@@ -1712,6 +1724,7 @@
             this.Name = "UpdatePersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdatePersonInfo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdatePersonInfo_FormClosed);
             this.Load += new System.EventHandler(this.UpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

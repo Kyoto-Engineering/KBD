@@ -402,14 +402,7 @@ return Qrdata;
             }           
         }
 
-        private void editButton_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void getDataButton_Click(object sender, EventArgs e)
-        {
-
-        }
+      
         private void ResetTradingAddress()
         {
 

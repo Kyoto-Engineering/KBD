@@ -56,7 +56,7 @@
             this.ViewCompanybutton.Name = "ViewCompanybutton";
             this.ViewCompanybutton.Size = new System.Drawing.Size(134, 70);
             this.ViewCompanybutton.TabIndex = 50;
-            this.ViewCompanybutton.Text = "View And Edit Companies";
+            this.ViewCompanybutton.Text = "View And Edit Company";
             this.ViewCompanybutton.UseVisualStyleBackColor = false;
             this.ViewCompanybutton.Click += new System.EventHandler(this.ViewCompanybutton_Click);
             // 
@@ -82,7 +82,7 @@
             this.personDetailsButton.Name = "personDetailsButton";
             this.personDetailsButton.Size = new System.Drawing.Size(134, 70);
             this.personDetailsButton.TabIndex = 48;
-            this.personDetailsButton.Text = "View All Contacts";
+            this.personDetailsButton.Text = "View And Edit Contact";
             this.personDetailsButton.UseVisualStyleBackColor = false;
             this.personDetailsButton.Click += new System.EventHandler(this.personDetailsButton_Click);
             // 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
+using PhonebookApp.Models;
 using QRCoder;
 
 namespace PhonebookApp.UI
@@ -867,39 +868,195 @@ namespace PhonebookApp.UI
             }
         }
 
+        private bool ValidateControlls()
+        {
+            bool validate = true;
+
+            if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
+            {
+                MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                CompanyNameTextBox.Focus();
+            }
+
+            else if (string.IsNullOrEmpty(cmbCompanytype.Text))
+            {
+                MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                cmbCompanytype.Focus();
+            }
+
+            else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
+            {
+                MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                IndustryCategorycomboBox.Focus();
+            }
+
+            else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
+            {
+                MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                cmbNatureOfClient.Focus();
+            }
+
+            else if (string.IsNullOrEmpty(cDivisionCombo.Text))
+            {
+                MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                cDivisionCombo.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
+            {
+                MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cDistCombo.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
+            {
+                MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cThanaCombo.Focus();
+            }
+
+            else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
+            {
+                MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cPostOfficeCombo.Focus();
+            }
+
+            else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
+            {
+                if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
+                {
+                    MessageBox.Show(@"Please select factory division", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    tDivisionCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select factory district", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    tDistrictCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
+                {
+                    MessageBox.Show(@"Please select factory Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    tThenaCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select factory Post Name", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    tPostCombo.Focus();
+                }
+            }
+            //else if (!ValidateCompany())
+            //{
+            //    validate = false;
+            //}
+
+            return validate;
+        }
+
+        private bool ValidateCompany()
+        {
+            List<CompanyAddress> companies = new List<CompanyAddress>();
+            bool value = true;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct3 =
+                "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName='" + CompanyNameTextBox.Text + "'";
+            cmd = new SqlCommand(ct3, con);
+            rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
+                {
+                    CompanyAddress x = new CompanyAddress();
+                    x.Company = rdr.GetString(0);
+                    x.Address = rdr.GetString(1);
+
+                    companies.Add(x);
+                }
+            }
+            string address = string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? "" : (cFlatNoTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? "" : (cHouseNoTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? "" : (cRoadNoTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(blocktextBox.Text) ? "" : (blocktextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? "" : (cAreaTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cLandmarktextBox.Text) ? "" : (cLandmarktextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cContactNoTextBox.Text) ? "" : (cContactNoTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cBuldingNameTextBox.Text) ? "" : (cBuldingNameTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cRoadNameTextBox.Text) ? "" : (cRoadNameTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cPostOfficeCombo.Text) ? "" : (cPostOfficeCombo.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cPostCodeTextBox.Text) ? "" : (cPostCodeTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cThanaCombo.Text) ? "" : (cThanaCombo.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cDistCombo.Text) ? "" : (cDistCombo.Text);
+            foreach (CompanyAddress p in companies)
+            {
+                if (p.Company == CompanyNameTextBox.Text && p.Address == address)
+                {
+                    MessageBox.Show(@"This Company Exists,Please Input another one" + "\n",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CompanyNameTextBox.Clear();
+
+                    con.Close();
+                    value = false;
+                    break;
+                }
+            }
+            return value;
+        }
+
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidateControlls())
             {
-                //1.Corporate Address Applicable  & Tradding Address not Applicable
-                if (notApplicableCheckBox.Checked)
+                try
                 {
-                    UpdateCompany();
-                    GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
-                }
-                //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
-                if (sameAsCorporatAddCheckBox.Checked)
-                {
-                    UpdateCompany();
-                    GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
-                    GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
-                    //UpdateTASameAsCA("TraddingAddresses");
-                }
-                //3.Corporate Address Applicable  & Tradding Address  Applicable
-                if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
-                {
-                    UpdateCompany();
-                    GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
-                    GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
-                }
-                
-                MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Reset();
+                    //1.Corporate Address Applicable  & Tradding Address not Applicable
+                    if (notApplicableCheckBox.Checked)
+                    {
+                        UpdateCompany();
+                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                    }
+                    //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
+                    if (sameAsCorporatAddCheckBox.Checked)
+                    {
+                        UpdateCompany();
+                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                        GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
+                        //UpdateTASameAsCA("TraddingAddresses");
+                    }
+                    //3.Corporate Address Applicable  & Tradding Address  Applicable
+                    if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
+                    {
+                        UpdateCompany();
+                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                        GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
+                    }
 
-            }
-            catch (FormatException formatException)
-            {
-                MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
+                    MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+
+                }
+                catch (FormatException formatException)
+                {
+                    MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
+                }
             }
         }
 

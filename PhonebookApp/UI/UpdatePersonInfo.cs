@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
+using PhonebookApp.Models;
 using QRCoder;
 
 namespace PhonebookApp.UI
@@ -26,11 +27,16 @@ namespace PhonebookApp.UI
         public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
         public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
+        private delegate void ChangeFocusDelegate(Control ctl);
         public UpdatePersonInfo()
         {
             InitializeComponent();
         }
 
+        private void changeFocus(Control ctl)
+        {
+            ctl.Focus();
+        }
         private void UpdatePersonInfo_Load(object sender, EventArgs e)
         {
             FillCountry();
@@ -544,114 +550,199 @@ namespace PhonebookApp.UI
             }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private bool ValidateControlls()
         {
-            if (CountrycomboBox.Text == "Bangladesh")
+            bool validate = true;
+
+            if (string.IsNullOrWhiteSpace(txtPersonName.Text))
+            {
+                MessageBox.Show("Please Enter Person Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                txtPersonName.Focus();
+            }
+
+            else if (string.IsNullOrWhiteSpace(GendercomboBox.Text))
+            {
+                MessageBox.Show("Please Select Gender", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                GendercomboBox.Focus();
+            }
+            else if (CountrycomboBox.Text == "Bangladesh")
             {
 
                 if (unKnownRA.Checked == false)
                 {
-                    UpdatePersonDetails();
-                    UpdateWorkingAddress("ResidentialAddresses");
-                    if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+
+                    if (string.IsNullOrEmpty(cmbRADivision.Text))
                     {
-                        UpdateInfo();
+                        MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        validate = false;
+                        cmbRADivision.Focus();
                     }
-                    MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    Reset1();
-                    //CountrycomboBox.SelectedItem = "Bangladesh";
-                    CountrycomboBox.Enabled = true;
-                    EmailAddress();
-                    cmbEmailAddress.ResetText();
-                    FillCompanyName();
-                    cmbCompanyName.ResetText();
-                    FillJobTitle();
-                    cmbJobTitle.ResetText();
-                    FillGroupName();
-                    GroupNamecomboBox.ResetText();
-                    FillSpecialization();
-                    cmbSpecialization.ResetText();
-                    FillProfession();
-                    cmbProfession.ResetText();
-                    FillEducationLevel();
-                    cmbEducationalLevel.ResetText();
-                    FillHighestDegree();
-                    cmbHighestDegree.ResetText();
-                    FillAgeGroup();
-                    cmbAgeGroup.ResetText();
-                    FillRelationShip();
-                    cmbRelationShip.ResetText();
-                    unKnownRA.Checked = false;
-                    groupBox7.Hide();
-                    btnInsert.Hide();
+                    else if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
+                    {
+                        MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        cmbRADistrict.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
+                    {
+                        MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        validate = false;
+                        cmbRAThana.Focus();
+                    }
+
+                    else if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
+                    {
+                        MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        cmbRAPost.Focus();
+
+                    }
+                }
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(StreettextBox.Text) &&
+                    string.IsNullOrWhiteSpace(StatetextBox.Text) &&
+                    string.IsNullOrWhiteSpace(PostalCodetextBox.Text))
+                {
+                    MessageBox.Show("Please enter Addresses!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    StreettextBox.Focus();
+                }
+            }
+            //if (!ValidatePersonAddress())
+            //{
+            //    validate = false;
+            //}
+            return validate;
+        }
+
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(cmbEmailAddress.Text) &&
+                string.IsNullOrEmpty(cmbCompanyName.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) &&
+                (unKnownRA.Checked))
+            {
+                MessageBox.Show(@"Please insert Email or Company or Phone Number or Address", @"Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (ValidateControlls())
+            {
+                if (CountrycomboBox.Text == "Bangladesh")
+                {
+                    if (unKnownRA.Checked == false)
+                    {
+                        UpdatePersonDetails();
+                        UpdateWorkingAddress("ResidentialAddresses");
+                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        {
+                            UpdateInfo();
+                        }
+                        MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Reset1();
+                        //CountrycomboBox.SelectedItem = "Bangladesh";
+                        CountrycomboBox.Enabled = true;
+                        EmailAddress();
+                        cmbEmailAddress.ResetText();
+                        FillCompanyName();
+                        cmbCompanyName.ResetText();
+                        FillJobTitle();
+                        cmbJobTitle.ResetText();
+                        FillGroupName();
+                        GroupNamecomboBox.ResetText();
+                        FillSpecialization();
+                        cmbSpecialization.ResetText();
+                        FillProfession();
+                        cmbProfession.ResetText();
+                        FillEducationLevel();
+                        cmbEducationalLevel.ResetText();
+                        FillHighestDegree();
+                        cmbHighestDegree.ResetText();
+                        FillAgeGroup();
+                        cmbAgeGroup.ResetText();
+                        FillRelationShip();
+                        cmbRelationShip.ResetText();
+                        unKnownRA.Checked = false;
+                        groupBox7.Hide();
+                        btnInsert.Hide();
+                    }
+                    else
+                    {
+                        UpdatePersonDetails();
+                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        {
+                            UpdateInfo();
+                        }
+
+                        MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Reset1();
+
+                        CountrycomboBox.Enabled = true;
+                        EmailAddress();
+                        cmbEmailAddress.ResetText();
+                        FillCompanyName();
+                        cmbCompanyName.ResetText();
+                        FillJobTitle();
+                        cmbJobTitle.ResetText();
+                        FillGroupName();
+                        GroupNamecomboBox.ResetText();
+                        FillSpecialization();
+                        cmbSpecialization.ResetText();
+                        FillProfession();
+                        cmbProfession.ResetText();
+                        FillEducationLevel();
+                        cmbEducationalLevel.ResetText();
+                        FillHighestDegree();
+                        cmbHighestDegree.ResetText();
+                        FillAgeGroup();
+                        cmbAgeGroup.ResetText();
+                        FillRelationShip();
+                        cmbRelationShip.ResetText();
+                        unKnownRA.Checked = false;
+                        groupBox7.Hide();
+                        btnInsert.Hide();
+
+                    }
+
                 }
                 else
                 {
                     UpdatePersonDetails();
+                    UpdateForeignAddresses("ForeignAddress");
                     if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
                     {
                         UpdateInfo();
                     }
-
-                    MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    Reset1();
-                    
+                    MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset2();
                     CountrycomboBox.Enabled = true;
+                    ResetWorkingAddress();
                     EmailAddress();
-                    cmbEmailAddress.ResetText();
                     FillCompanyName();
                     cmbCompanyName.ResetText();
                     FillJobTitle();
-                    cmbJobTitle.ResetText();
                     FillGroupName();
                     GroupNamecomboBox.ResetText();
                     FillSpecialization();
-                    cmbSpecialization.ResetText();
                     FillProfession();
-                    cmbProfession.ResetText();
                     FillEducationLevel();
-                    cmbEducationalLevel.ResetText();
                     FillHighestDegree();
-                    cmbHighestDegree.ResetText();
                     FillAgeGroup();
-                    cmbAgeGroup.ResetText();
                     FillRelationShip();
-                    cmbRelationShip.ResetText();
-                    unKnownRA.Checked = false;
                     groupBox7.Hide();
-                    btnInsert.Hide();
-                   
+                    groupBox3.Show();
                 }
-               
-            }
-            else
-            {
-                UpdatePersonDetails();
-                UpdateForeignAddresses("ForeignAddress");
-                if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-                {
-                    UpdateInfo();
-                }
-                MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Reset2();
-                CountrycomboBox.Enabled = true;
-                ResetWorkingAddress();
-                EmailAddress();
-                FillCompanyName();
-                cmbCompanyName.ResetText();
-                FillJobTitle();
-                FillGroupName();
-                GroupNamecomboBox.ResetText();
-                FillSpecialization();
-                FillProfession();
-                FillEducationLevel();
-                FillHighestDegree();
-                FillAgeGroup();
-                FillRelationShip();
-                groupBox7.Hide();
-                groupBox3.Show();
             }
         }
 
@@ -1001,10 +1092,8 @@ namespace PhonebookApp.UI
         private void cmbCompanyName_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ResetWorkingAddress();
-
             try
             {
-
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
@@ -1381,7 +1470,9 @@ namespace PhonebookApp.UI
         {
             if (cmbEmailAddress.Text == "Not In The List")
             {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+                //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+                string input = null;
+                InputBox.Show("Please Input Email Here", "Inpute Here", ref input);
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     cmbEmailAddress.SelectedIndex = -1;
@@ -1480,7 +1571,9 @@ namespace PhonebookApp.UI
         {
             if (cmbJobTitle.Text == "Not In The List")
             {
-                string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                //string inputj = Microsoft.VisualBasic.Interaction.InputBox("Please Input JobTitle  Here", "Input Here", "", -1, -1);
+                string inputj = null;
+                InputBox.Show("Please Input Job Title Here", "Inpute Here", ref inputj);
                 if (string.IsNullOrWhiteSpace(inputj))
                 {
                     cmbJobTitle.SelectedIndex = -1;
@@ -1584,7 +1677,9 @@ namespace PhonebookApp.UI
         {
             if (cmbSpecialization.Text == "Not In The List")
             {
-                string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                //string inputs = Microsoft.VisualBasic.Interaction.InputBox("Please Input Specialization  Here", "Input Here", "", -1, -1);
+                string inputs = null;
+                InputBox.Show("Please Input Specialization Here", "Inpute Here", ref inputs);
                 if (string.IsNullOrWhiteSpace(inputs))
                 {
                     cmbSpecialization.SelectedIndex = -1;
@@ -1659,7 +1754,9 @@ namespace PhonebookApp.UI
         {
             if (cmbProfession.Text == "Not In The List")
             {
-                string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                //string inputp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Profession  Here", "Input Here", "", -1, -1);
+                string inputp = null;
+                InputBox.Show("Please Input Profession Here", "Inpute Here", ref inputp);
                 if (string.IsNullOrWhiteSpace(inputp))
                 {
                     cmbProfession.SelectedIndex = -1;
@@ -1734,7 +1831,9 @@ namespace PhonebookApp.UI
         {
             if (cmbEducationalLevel.Text == "Not In The List")
             {
-                string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                //string inpute = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                string inpute = null;
+                InputBox.Show("Please Input Education Level Here", "Inpute Here", ref inpute);
                 if (string.IsNullOrWhiteSpace(inpute))
                 {
                     cmbEducationalLevel.SelectedIndex = -1;
@@ -1810,7 +1909,9 @@ namespace PhonebookApp.UI
         {
             if (cmbHighestDegree.Text == "Not In The List")
             {
-                string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                //string inputx = Microsoft.VisualBasic.Interaction.InputBox("Please Input Highest Degree  Here", "Input Here", "", -1, -1);
+                string inputx = null;
+                InputBox.Show("Please Input Highest Degree Here", "Inpute Here", ref inputx);
                 if (string.IsNullOrWhiteSpace(inputx))
                 {
                     cmbHighestDegree.SelectedIndex = -1;
@@ -1886,7 +1987,9 @@ namespace PhonebookApp.UI
         {
             if (cmbAgeGroup.Text == "Not In The List")
             {
-                string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                //string inputa = Microsoft.VisualBasic.Interaction.InputBox("Please Input EducationLevel  Here", "Input Here", "", -1, -1);
+                string inputa = null;
+                InputBox.Show("Please Input Age Group Here", "Inpute Here", ref inputa);
                 if (string.IsNullOrWhiteSpace(inputa))
                 {
                     cmbAgeGroup.SelectedIndex = -1;
@@ -1961,7 +2064,9 @@ namespace PhonebookApp.UI
         {
             if (cmbRelationShip.Text == "Not In The List")
             {
-                string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                //string inputr = Microsoft.VisualBasic.Interaction.InputBox("Please Input RelationShips  Here", "Input Here", "", -1, -1);
+                string inputr = null;
+                InputBox.Show("Please Input Relationship Here", "Inpute Here", ref inputr);
                 if (string.IsNullOrWhiteSpace(inputr))
                 {
                     cmbRelationShip.SelectedIndex = -1;
@@ -2085,7 +2190,9 @@ namespace PhonebookApp.UI
         {
             if (ReligioncomboBox.Text == "Not In The List")
             {
-                string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                //string inputReligion = Microsoft.VisualBasic.Interaction.InputBox("Please Input Religion  Here", "Input Here", "", -1, -1);
+                string inputReligion = null;
+                InputBox.Show("Please Input Religion Here", "Inpute Here", ref inputReligion);
                 if (string.IsNullOrWhiteSpace(inputReligion))
                 {
                     ReligioncomboBox.SelectedIndex = -1;
@@ -2154,6 +2261,111 @@ namespace PhonebookApp.UI
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void cmbCompanyName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
+            {
+                ResetWorkingAddress();
+                companyId = null;
+            }
+        }
+
+        private void cmbEmailAddress_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
+            {
+                bankEmailId = null;
+            }
+        }
+
+        private void cmbJobTitle_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbJobTitle.Text))
+            {
+                jobTitleId = null;
+            }
+        }
+
+        private void GroupNamecomboBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+            {
+                groupid = null;
+            }
+        }
+
+        private void cmbSpecialization_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbSpecialization.Text))
+            {
+                specializationId = null;
+            }
+        }
+
+        private void cmbProfession_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbProfession.Text))
+            {
+                professionId = null;
+            }
+        }
+
+        private void cmbEducationalLevel_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbEducationalLevel.Text))
+            {
+                educationLevelId = null;
+            }
+        }
+
+        private void cmbHighestDegree_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbHighestDegree.Text))
+            {
+                highestDegreeId = null;
+            }
+        }
+
+        private void cmbAgeGroup_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbAgeGroup.Text))
+            {
+                ageGroupId = null;
+            }
+        }
+
+        private void cmbRelationShip_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbRelationShip.Text))
+            {
+                relationshipId = null;
+            }
+        }
+
+        private void ReligioncomboBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ReligioncomboBox.Text))
+            {
+                religionId = null;
+            }
+        }
+
+        private void CountrycomboBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(CountrycomboBox.Text))
+            {
+                MessageBox.Show("Please Select Country Of Res", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), CountrycomboBox);
+            }
+        }
+
+        private void UpdatePersonInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            frmViewAndReport frm = new frmViewAndReport();
+            frm.Show();
         }
     }
 }

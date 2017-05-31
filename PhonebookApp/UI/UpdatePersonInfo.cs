@@ -844,10 +844,12 @@ namespace PhonebookApp.UI
                             FillRelationShip();
                             cmbRelationShip.ResetText();
                             unKnownRA.Checked = false;
-                            groupBox2.Hide();
+                            groupBox2.Show();
+                            groupBox2.Location=new Point(466,12);
                             groupBox3.Hide();
                             groupBox6.Hide();
-                            groupBox7.Hide();                      
+                            groupBox7.Show(); 
+                            groupBox7.Location=new Point(466,290);
                             btnInsert.Hide();
                         }
                     }
@@ -890,10 +892,12 @@ namespace PhonebookApp.UI
                             FillRelationShip();
                             cmbRelationShip.ResetText();
                             unKnownRA.Checked = false;
-                            groupBox2.Hide();
+                            groupBox2.Show();
+                            groupBox2.Location = new Point(466, 12);
                             groupBox3.Hide();
                             groupBox6.Hide();
-                            groupBox7.Hide();
+                            groupBox7.Show();
+                            groupBox7.Location = new Point(466, 290);
                             btnInsert.Hide();
 
                         }
@@ -931,8 +935,10 @@ namespace PhonebookApp.UI
                         FillRelationShip();
                         groupBox2.Hide();
                         groupBox3.Hide();
-                        groupBox6.Hide();
-                        groupBox7.Hide();
+                        groupBox6.Show();
+                        groupBox7.Location = new Point(466, 12);
+                        groupBox7.Show();
+                        groupBox7.Location = new Point(466, 155);
                         btnInsert.Hide();
                     }
                 }

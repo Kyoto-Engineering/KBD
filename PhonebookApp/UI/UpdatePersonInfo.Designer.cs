@@ -1374,7 +1374,7 @@
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 62);
             this.btnInsert.TabIndex = 24;
-            this.btnInsert.Text = "Save";
+            this.btnInsert.Text = "Update";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
@@ -1726,6 +1726,7 @@
             this.Name = "UpdatePersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdatePersonInfo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdatePersonInfo_FormClosed_1);
             this.Load += new System.EventHandler(this.UpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

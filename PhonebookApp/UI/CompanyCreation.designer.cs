@@ -1280,7 +1280,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CompanyCreation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClientRegistrationForm";
+            this.Text = "CompanyRegistrationForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientRegistrationForm_FormClosed);
             this.Load += new System.EventHandler(this.ClientRegistrationForm_Load);
             this.groupBox1.ResumeLayout(false);

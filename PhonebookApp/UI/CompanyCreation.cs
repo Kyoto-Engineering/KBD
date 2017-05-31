@@ -55,13 +55,13 @@ namespace PhonebookApp.UI
             cmd.Parameters.Add(new SqlParameter("@nidenti",
                 string.IsNullOrEmpty(IdentificationNotextBox.Text) ? (object)DBNull.Value : IdentificationNotextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@nweburl",
-                string.IsNullOrEmpty(WebSiteUrltextBox.Text) ? (object)DBNull.Value : WebSiteUrltextBox.Text));           
+                string.IsNullOrEmpty(WebSiteUrltextBox.Text) ? (object)DBNull.Value : WebSiteUrltextBox.Text));
             cmd.Parameters.AddWithValue("@d2", user_id);
             cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
             cmd.Parameters.AddWithValue("@d4", companytypeid);
             cmd.Parameters.AddWithValue("@d5", industryCategoryId);
             cmd.Parameters.AddWithValue("@d6", natureOfClientId);
-        
+
             companyid = (int)cmd.ExecuteScalar();
             con.Close();
         }
@@ -85,7 +85,7 @@ namespace PhonebookApp.UI
             cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(tBuldingNameTextBox.Text) ? (object)DBNull.Value : tBuldingNameTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(tRoadNameTextBox.Text) ? (object)DBNull.Value : tRoadNameTextBox.Text));
 
-            var Qrdata = GetQrdata(tDivisionCombo.Text,tDistrictCombo.Text,tThenaCombo.Text,tPostCombo.Text,tPostCodeTextBox.Text,tAreaTextBox.Text,FblocktextBox.Text,tLandmarktextBox.Text,tRoadNameTextBox.Text,tRoadNoTextBox.Text,tBuldingNameTextBox.Text,tHouseNoTextBox.Text,tFlatNoTextBox.Text,tContactNoTextBox.Text);
+            var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
@@ -110,7 +110,7 @@ namespace PhonebookApp.UI
         }
         private void SaveCorporateORTraddingAddress(string tblName1)
         {
-            string insertQ ;
+            string insertQ;
             con = new SqlConnection(cs.DBConn);
             con.Open();
             if (tblName1 == "CorporateAddresses")
@@ -120,45 +120,44 @@ namespace PhonebookApp.UI
                     "insert into CorporateAddresses (PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" +
                     "SELECT CONVERT(int, SCOPE_IDENTITY())";
             }
-            else 
-
+            else
             {
                 insertQ =
                     "insert into TraddingAddresses (PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" +
                     "SELECT CONVERT(int, SCOPE_IDENTITY())";
             }
             cmd = new SqlCommand(insertQ);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-                cmd.Parameters.AddWithValue("@d12", companyid);
-                cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
-                var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text,cPostOfficeCombo.Text,cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
-                QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
-                //qrCode.GetGraphic()
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                byte[] data = ms.GetBuffer();
-                SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
-                p.Value = data;
-                cmd.Parameters.Add(p);
-                string debugSQL = cmd.CommandText;
+            cmd.Connection = con;
+            cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+            cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+            cmd.Parameters.AddWithValue("@d12", companyid);
+            cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+            var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+            //qrCode.GetGraphic()
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] data = ms.GetBuffer();
+            SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+            p.Value = data;
+            cmd.Parameters.Add(p);
+            string debugSQL = cmd.CommandText;
 
-                foreach (SqlParameter param in cmd.Parameters)
-                {
-                    debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
-                }
-                
+            foreach (SqlParameter param in cmd.Parameters)
+            {
+                debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
+            }
+
             int aff = (int)cmd.ExecuteScalar();
             if (tblName1 == "CorporateAddresses")
             {
@@ -169,40 +168,40 @@ namespace PhonebookApp.UI
                 affectedRows2 = aff;
             }
 
-                con.Close();
-            }
-            
-        
+            con.Close();
+        }
 
 
-private string GetQrdata(string Division, string District, string Thana, string Post, string PostCode, string Area, string Block, string LandMark, string roadName, string RoadNo, string buildingName, string HouseNo, string FlatNo, string ContactNo)
-{
-string Qrdata = "Country:Bangladesh\r\n";
-Qrdata += "Division:" + Division + "\r\n";
-Qrdata += "District:" + District + "\r\n";
-Qrdata += "Thana:" + Thana + "\r\n";
-Qrdata += "Post:" + Post + "\r\n";
-Qrdata += "Post Code:" + PostCode + "\r\n";
-Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
-"\r\n";
-Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
-"\r\n";
-Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
-    ? ""
-: LandMark) + "\r\n";
-Qrdata += "Road Name:" +
-(string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
-Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
-Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
-    ? ""
-: buildingName) + "\r\n";
-Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
-"\r\n";
-Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
-"\r\n";
-Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
-return Qrdata;
-}
+
+
+        private string GetQrdata(string Division, string District, string Thana, string Post, string PostCode, string Area, string Block, string LandMark, string roadName, string RoadNo, string buildingName, string HouseNo, string FlatNo, string ContactNo)
+        {
+            string Qrdata = "Country:Bangladesh\r\n";
+            Qrdata += "Division:" + Division + "\r\n";
+            Qrdata += "District:" + District + "\r\n";
+            Qrdata += "Thana:" + Thana + "\r\n";
+            Qrdata += "Post:" + Post + "\r\n";
+            Qrdata += "Post Code:" + PostCode + "\r\n";
+            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
+            "\r\n";
+            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
+            "\r\n";
+            Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
+                ? ""
+            : LandMark) + "\r\n";
+            Qrdata += "Road Name:" +
+            (string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
+            Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
+            Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
+                ? ""
+            : buildingName) + "\r\n";
+            Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
+            "\r\n";
+            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
+            "\r\n";
+            Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
+            return Qrdata;
+        }
 
 
         private bool ValidateControlls()
@@ -239,56 +238,56 @@ return Qrdata;
 
                 validate = false;
                 cmbNatureOfClient.Focus();
-            }      
+            }
 
             else if (string.IsNullOrEmpty(cDivisionCombo.Text))
-                {
-                    MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    validate = false;
-                    cDivisionCombo.Focus();
-                }
-                else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
-                {
-                    MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    validate = false;
-                    cDistCombo.Focus();
-                }
-                else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
-                {
-                    MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    validate = false;
-                    cThanaCombo.Focus();
-                }
+                validate = false;
+                cDivisionCombo.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
+            {
+                MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cDistCombo.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
+            {
+                MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cThanaCombo.Focus();
+            }
 
-                else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
-                {
-                    MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    validate = false;
-                    cPostOfficeCombo.Focus();
-                }
+            else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
+            {
+                MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cPostOfficeCombo.Focus();
+            }
 
             else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
-             {
+            {
                 if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
                 {
                     MessageBox.Show(@"Please select factory division", @"Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     validate = false;
-                    tDivisionCombo.Focus();                    
+                    tDivisionCombo.Focus();
                 }
                 else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
                 {
                     MessageBox.Show(@"Please Select factory district", @"Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     validate = false;
-                    tDistrictCombo.Focus();                    
+                    tDistrictCombo.Focus();
                 }
                 else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
                 {
                     MessageBox.Show(@"Please select factory Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     validate = false;
-                    tThenaCombo.Focus();                   
+                    tThenaCombo.Focus();
                 }
                 else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
                 {
@@ -309,7 +308,7 @@ return Qrdata;
         private bool ValidateCompany()
         {
             List<CompanyAddress> companies = new List<CompanyAddress>();
-            bool value= true;
+            bool value = true;
             con = new SqlConnection(cs.DBConn);
             con.Open();
             string ct3 =
@@ -329,7 +328,7 @@ return Qrdata;
                 }
             }
             string address = string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? "" : (cFlatNoTextBox.Text + ", ");
-            address += string.IsNullOrWhiteSpace(cHouseNoTextBox.Text)? "": (cHouseNoTextBox.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? "" : (cHouseNoTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? "" : (cRoadNoTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(blocktextBox.Text) ? "" : (blocktextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? "" : (cAreaTextBox.Text + ", ");
@@ -343,29 +342,29 @@ return Qrdata;
             address += string.IsNullOrWhiteSpace(cDistCombo.Text) ? "" : (cDistCombo.Text);
             foreach (CompanyAddress p in companies)
             {
-                if (p.Company== CompanyNameTextBox.Text && p.Address == address)
+                if (p.Company == CompanyNameTextBox.Text && p.Address == address)
                 {
                     MessageBox.Show(@"This Company Exists,Please Input another one" + "\n",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     CompanyNameTextBox.Clear();
-                   
+
                     con.Close();
                     value = false;
                     break;
                 }
 
-           
+
             }
             return value;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-           if (ValidateControlls())
+            if (ValidateControlls())
             {
                 try
-                {                        
+                {
                     //1.Corporate Address Applicable  & Tradding Address not Applicable
                     if (notApplicableCheckBox.Checked)
                     {
@@ -378,7 +377,7 @@ return Qrdata;
                         SaveCompany();
                         SaveCorporateORTraddingAddress("CorporateAddresses");
                         SaveCorporateORTraddingAddress("TraddingAddresses");
-                        
+
 
                     }
                     //3.Corporate Address Applicable  & Tradding Address  Applicable
@@ -388,7 +387,7 @@ return Qrdata;
                         SaveCorporateORTraddingAddress("CorporateAddresses");
                         SaveTraddingAddress();
                     }
-                        
+
                     MessageBox.Show("Registration Completed Successfully",
                         "Record",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -399,10 +398,10 @@ return Qrdata;
                 {
                     MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
                 }
-            }           
+            }
         }
 
-      
+
         private void ResetTradingAddress()
         {
 
@@ -444,8 +443,8 @@ return Qrdata;
         private void Reset()
         {
             cmbCompanytype.SelectedIndex = -1;
-            cmbNatureOfClient.SelectedIndex = -1;          
-            IndustryCategorycomboBox.SelectedIndex = -1;           
+            cmbNatureOfClient.SelectedIndex = -1;
+            IndustryCategorycomboBox.SelectedIndex = -1;
             CompanyNameTextBox.Clear();
             EmailtextBox.Clear();
             ContactNotextBox.Clear();
@@ -476,7 +475,7 @@ return Qrdata;
             {
                 ResetTradingAddress();
             }
-           
+
             saveButton.Enabled = true;
 
         }
@@ -486,7 +485,7 @@ return Qrdata;
             Reset();
 
         }
-       
+
         private void label17_Click(object sender, EventArgs e)
         {
 
@@ -598,7 +597,7 @@ return Qrdata;
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
 
         public void FillIndustryCategory()
         {
@@ -674,7 +673,7 @@ return Qrdata;
         }
 
 
-      
+
         private void ClientRegistrationForm_Load(object sender, EventArgs e)
         {
             //userType1 = LoginForm.userType;
@@ -856,11 +855,11 @@ return Qrdata;
             }
         }
 
-       
 
-      
 
-      
+
+
+
 
         private void sameAsCorporatAddCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -1300,7 +1299,7 @@ return Qrdata;
 
         }
 
-       
+
 
         private void cellNumberTextBox_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -1310,7 +1309,7 @@ return Qrdata;
 
         }
 
-       
+
         private void notApplicableCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (notApplicableCheckBox.Checked)
@@ -1352,10 +1351,10 @@ return Qrdata;
             }
         }
 
-     
 
-      
-       
+
+
+
 
         private void ClientRegistrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -1364,10 +1363,10 @@ return Qrdata;
             frm.Show();
         }
 
-       
-       
 
-       
+
+
+
         private void cPostOfficeCombo_Enter(object sender, EventArgs e)
         {
             //if (string.IsNullOrWhiteSpace(cDivisionCombo.Text))
@@ -1414,11 +1413,11 @@ return Qrdata;
             //}
         }
 
-       
 
-       
 
-        
+
+
+
 
         private void tPostCombo_Enter(object sender, EventArgs e)
         {
@@ -1468,9 +1467,9 @@ return Qrdata;
             //}
         }
 
-     
 
-      
+
+
         private void cContactNoTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrEmpty(cContactNoTextBox.Text))
@@ -1859,35 +1858,36 @@ return Qrdata;
         {
             if (e.KeyCode == Keys.Enter)
             {
-               saveButton_Click(this, new EventArgs());
+                saveButton_Click(this, new EventArgs());
             }
         }
 
         private void CompanyNameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(CompanyNameTextBox.Text))
-            {try
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
-                rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                dataGridView1.Rows.Clear();
-                while (rdr.Read() == true)
+                try
                 {
-                    dataGridView1.Rows.Add(rdr[0], rdr[1]);
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
+                    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    dataGridView1.Rows.Clear();
+                    while (rdr.Read() == true)
+                    {
+                        dataGridView1.Rows.Add(rdr[0], rdr[1]);
+                    }
+
+                    con.Close();
+
+                    con.Close();
                 }
-
-                con.Close();
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

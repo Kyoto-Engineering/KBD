@@ -55,9 +55,6 @@ namespace PhonebookApp.UI
             con.Close();
         }
        
-
-       
-
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -92,23 +89,28 @@ namespace PhonebookApp.UI
                     byte[] data = (byte[])dr.Cells[19].Value;
                     MemoryStream ms = new MemoryStream(data);
                     frm.userPictureBox.Image = Image.FromStream(ms);
-                }
-
-               
+                }               
                 else
                 {
 
                     frm.userPictureBox.Image = null;
                 }
-
-
                 if (dr.Cells[1].Value.Equals("Bangladesh"))
                 {
                     frm.groupBox2.Show();
-                    frm.groupBox3.Show();
-                    frm.groupBox7.Show();
-                    frm.groupBox6.Hide();
-
+                    if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
+                    {
+                        frm.groupBox3.Hide();
+                        frm.groupBox7.Show();
+                        frm.groupBox7.Location = new Point(466, 295);
+                    }
+                    else
+                    {
+                        frm.groupBox3.Show();
+                        frm.groupBox3.Location = new Point(466, 290);
+                        frm.groupBox7.Show();
+                        frm.groupBox7.Location = new Point(466, 533);
+                    }
                     frm.txtRAFlatNo.Text = string.IsNullOrEmpty(dr.Cells[20].Value.ToString()) ? null : dr.Cells[20].Value.ToString();
                     frm.txtRAHouseNo.Text = string.IsNullOrEmpty(dr.Cells[21].Value.ToString()) ? null : dr.Cells[21].Value.ToString();
                     frm.txtRARoadNo.Text = string.IsNullOrEmpty(dr.Cells[22].Value.ToString()) ? null : dr.Cells[22].Value.ToString();
@@ -127,10 +129,10 @@ namespace PhonebookApp.UI
                 }
                 else
                 {
-                    frm.groupBox2.Visible = false;
-                    frm.groupBox3.Visible = false;
-                    frm.groupBox6.Visible = true;
-                    frm.groupBox7.Visible = true;
+                    frm.groupBox2.Hide();
+                    frm.groupBox3.Hide();
+                    frm.groupBox6.Show();
+                    frm.groupBox7.Show();
                     frm.groupBox6.Location = new Point(466, 12);
                     frm.groupBox7.Location = new Point(466, 155);
                     frm.StreettextBox.Text = string.IsNullOrEmpty(dr.Cells[45].Value.ToString()) ? null : dr.Cells[45].Value.ToString();
@@ -163,7 +165,7 @@ namespace PhonebookApp.UI
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            sda = new SqlDataAdapter("SELECT  A.CountryName, A.PersonName, A.NickName, A.FatherName, A.Email, S.CompanyName, A.JobTitleName, A.GroupName, A.Specialization, A.ProfessionName, A.EducationLevelName, A.HighestDegree, A.AgeGroupLevel, A.RelationShip, A.Website, A.SkypeId, A.WhatsAppId, A.ImoNumber, S.RFlatNo, S.RHouseNo, S.RRoadNo, S.RBlock, S.RArea, S.RContactNo,S.BuildingName,S.RoadName,S.LandMark, S.Division, S.District, S.Thana, S.PostOfficeName, S.PostCode, F.CFlatNo, F.CHouseNo, F.CRoadNo, F.CBlock, F.CArea, F.CContactNo, F.CLandmark,F.BuildingName,F.RoadName, F.PostOfficeName, F.PostCode, A.Street, A.State, A.PostalCode, A.DateOfBirth, A.ReligionName, A.GenderName, A.MaritalStatusName, A.MarriageAnniversaryDate FROM(SELECT Persons.PersonsId,Persons.PersonName,CountryName,Persons.NickName,Persons.FatherName,EmailBank.Email,JobTitle.JobTitleName,[Group].GroupName,Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName, HighestDegrees.HighestDegree, AgeGroup.AgeGroupLevel, RelationShips.RelationShip, Persons.Website, Persons.SkypeId, Persons.WhatsAppId, Persons.ImoNumber,ForeignAddress.Street, ForeignAddress.State, ForeignAddress.PostalCode, Persons.DateOfBirth, Religion.ReligionName, Gender.GenderName, MaritalStatus.MaritalStatusName, Persons.MarriageAnniversaryDate from Persons  LEFT JOIN  Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN   RelationShips ON Persons.RelationShipsId = RelationShips.RelationShipsId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId LEFT JOIN HighestDegrees ON Persons.HighestDegreeId = HighestDegrees.HighestDegreeId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN ForeignAddress ON Persons.PersonsId = ForeignAddress.PersonsId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN [Group] ON Persons.GroupId = [Group].GroupId LEFT JOIN Countries ON Persons.CountryId = Countries.CountryId LEFT JOIN Gender ON Persons.GenderId = Gender.GenderId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId )as A LEFT JOIN(SELECT Persons.PersonsId, Persons.PersonName,Company.CompanyName, ResidentialAddresses.RFlatNo, ResidentialAddresses.RHouseNo, ResidentialAddresses.RRoadNo, ResidentialAddresses.RBlock, ResidentialAddresses.RArea, ResidentialAddresses.RContactNo, ResidentialAddresses.BuildingName,ResidentialAddresses.RoadName,ResidentialAddresses.LandMark, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Persons INNER JOIN Company ON Persons.CompanyId = Company.CompanyId INNER JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID) AS S ON A.PersonsId=S.PersonsId LEFT JOIN(SELECT   Persons.PersonsId,Persons.PersonName, Company.CompanyName, CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CContactNo, CorporateAddresses.CLandmark,CorporateAddresses.BuildingName,CorporateAddresses.RoadName, Divisions.Division,Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN Persons INNER JOIN Company ON Persons.CompanyId = Company.CompanyId INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Districts INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID) as F ON A.PersonsId = F.PersonsId where A.PersonName like '" + SearchPersonNametextBox.Text + "%' order by A.PersonName asc", con);
+            sda = new SqlDataAdapter("SELECT  A.PersonsId, A.CountryName, A.PersonName, A.NickName, A.FatherName, A.Email, S.CompanyName, A.JobTitleName, A.GroupName, A.Specialization, A.ProfessionName, A.EducationLevelName, A.HighestDegree, A.AgeGroupLevel, A.RelationShip, A.Website, A.SkypeId, A.WhatsAppId, A.ImoNumber,A.Picture, S.RFlatNo, S.RHouseNo, S.RRoadNo, S.RBlock, S.RArea, S.RContactNo, S.BuildingName,S.RoadName,S.LandMark, S.Division, S.District, S.Thana, S.PostOfficeName, S.PostCode, F.CFlatNo, F.CHouseNo, F.CRoadNo, F.CBlock, F.CArea, F.CContactNo, F.CLandmark,F.BuildingName,F.RoadName, F.PostOfficeName, F.PostCode, A.Street, A.State, A.PostalCode, A.DateOfBirth, A.ReligionName, A.GenderName, A.MaritalStatusName, A.MarriageAnniversaryDate FROM(SELECT Persons.PersonsId,Persons.PersonName,CountryName,Persons.NickName,Persons.FatherName,EmailBank.Email,JobTitle.JobTitleName,[Group].GroupName,Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName, HighestDegrees.HighestDegree, AgeGroup.AgeGroupLevel, RelationShips.RelationShip, Persons.Website, Persons.SkypeId, Persons.WhatsAppId, Persons.ImoNumber,Persons.Picture, ForeignAddress.Street, ForeignAddress.State, ForeignAddress.PostalCode, Persons.DateOfBirth, Religion.ReligionName, Gender.GenderName, MaritalStatus.MaritalStatusName, Persons.MarriageAnniversaryDate from Persons  LEFT JOIN  Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN   RelationShips ON Persons.RelationShipsId = RelationShips.RelationShipsId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId LEFT JOIN HighestDegrees ON Persons.HighestDegreeId = HighestDegrees.HighestDegreeId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN ForeignAddress ON Persons.PersonsId = ForeignAddress.PersonsId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN [Group] ON Persons.GroupId = [Group].GroupId LEFT JOIN Countries ON Persons.CountryId = Countries.CountryId LEFT JOIN Gender ON Persons.GenderId = Gender.GenderId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId )as A LEFT JOIN(SELECT Persons.PersonsId, Persons.PersonName,Company.CompanyName, ResidentialAddresses.RFlatNo, ResidentialAddresses.RHouseNo, ResidentialAddresses.RRoadNo, ResidentialAddresses.RBlock, ResidentialAddresses.RArea, ResidentialAddresses.RContactNo, ResidentialAddresses.BuildingName,ResidentialAddresses.RoadName,ResidentialAddresses.LandMark, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Persons INNER JOIN Company ON Persons.CompanyId = Company.CompanyId INNER JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID) AS S ON A.PersonsId=S.PersonsId LEFT JOIN(SELECT   Persons.PersonsId,Persons.PersonName, Company.CompanyName, CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CContactNo,CorporateAddresses.CLandmark,CorporateAddresses.BuildingName,CorporateAddresses.RoadName, Divisions.Division,Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN Persons INNER JOIN Company ON Persons.CompanyId = Company.CompanyId INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Districts INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID) as F ON A.PersonsId = F.PersonsId where A.PersonName like '" + SearchPersonNametextBox.Text + "%' order by A.PersonName asc", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;

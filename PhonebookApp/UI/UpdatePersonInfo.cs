@@ -617,13 +617,178 @@ namespace PhonebookApp.UI
                     StreettextBox.Focus();
                 }
             }
-            //if (!ValidatePersonAddress())
-            //{
-            //    validate = false;
-            //}
+            if (!ValidatePersonAddress())
+            {
+                validate = false;
+            }
             return validate;
         }
 
+
+        private bool ValidatePersonAddress()
+        {
+            string ct3;
+            string address;
+            List<PersonAddress> personAddresses = new List<PersonAddress>();
+            bool value = true;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+                ct3 =
+                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonName='" +
+                    txtPersonName.Text + "' and Persons.PersonsId <>'" + PersonIdtextBox.Text + "'";
+
+            }
+            else
+            {
+                ct3 =
+                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ForeignAddress.Street,\'\') + \', \',\'\') + isnull(nullif(ForeignAddress.State,\'\') + \', \',\'\') + isnull(nullif(ForeignAddress.PostalCode,\'\') + \', \',\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ForeignAddress ON Persons.PersonsId = ForeignAddress.PersonsId where Persons.PersonName='" + txtPersonName.Text + "' and Persons.PersonsId <>'" + PersonIdtextBox.Text + "'";
+
+            }
+            cmd = new SqlCommand(ct3, con);
+            rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
+                {
+                    PersonAddress x = new PersonAddress();
+                    x.Person = rdr.GetString(0);
+
+                    if (!DBNull.Value.Equals(rdr["Email"]))
+                    {
+                        x.Email = rdr.GetString(1);
+                    }
+                    else
+                    {
+                        x.Email = null;
+                    }
+
+                    if (!DBNull.Value.Equals(rdr["CompanyName"]))
+                    {
+                        x.Company = rdr.GetString(2);
+                    }
+                    else
+                    {
+                        x.Company = null;
+                    }
+
+                    if (!DBNull.Value.Equals(rdr["WhatsAppId"]))
+                    {
+                        x.Phone = rdr.GetString(3);
+                    }
+                    else
+                    {
+                        x.Phone = null;
+                    }
+                    x.Address = rdr.GetString(4);
+
+                    personAddresses.Add(x);
+                }
+            }
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+                address = string.IsNullOrWhiteSpace(txtRAFlatNo.Text) ? "" : (txtRAFlatNo.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRAHouseNo.Text) ? "" : (txtRAHouseNo.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRARoadNo.Text) ? "" : (txtRARoadNo.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRABlock.Text) ? "" : (txtRABlock.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRAArea.Text) ? "" : (txtRAArea.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRAContactNo.Text) ? "" : (txtRAContactNo.Text + ", ");
+                address += string.IsNullOrWhiteSpace(buildingNameTextBox.Text) ? "" : (buildingNameTextBox.Text + ", ");
+                address += string.IsNullOrWhiteSpace(roadNameTextBox.Text) ? "" : (roadNameTextBox.Text + ", ");
+                address += string.IsNullOrWhiteSpace(nearestLandMarkTextBox.Text) ? "" : (nearestLandMarkTextBox.Text + ", ");
+                address += string.IsNullOrWhiteSpace(cmbRAPost.Text) ? "" : (cmbRAPost.Text + ", ");
+                address += string.IsNullOrWhiteSpace(txtRAPostCode.Text) ? "" : (txtRAPostCode.Text + ", ");
+                address += string.IsNullOrWhiteSpace(cmbRAThana.Text) ? "" : (cmbRAThana.Text + ", ");
+                address += string.IsNullOrWhiteSpace(cmbRADistrict.Text) ? "" : (cmbRADistrict.Text);
+            }
+            else
+            {
+                address = string.IsNullOrWhiteSpace(StreettextBox.Text) ? "" : (StreettextBox.Text + ", ");
+                address += string.IsNullOrWhiteSpace(StatetextBox.Text) ? "" : (StatetextBox.Text + ", ");
+                address += string.IsNullOrWhiteSpace(PostalCodetextBox.Text) ? "" : (PostalCodetextBox.Text + ", ");
+            }
+            foreach (PersonAddress p in personAddresses)
+            {
+                if (p.Person == txtPersonName.Text && p.Address == address)
+                {
+                    DialogResult dialogResult = MessageBox.Show("This Person name and Address already Exist.Do you Want to Continue? ", "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        if (CountrycomboBox.Text == "Bangladesh")
+                        {
+                            ResetResidentialAddress();
+                        }
+                        else
+                        {
+                            ResetForeignAddress();
+                        }
+                        txtPersonName.Clear();
+                        txtPersonName.Focus();
+                        con.Close();
+                        value = false;
+                        break;
+                    }
+                }
+
+                if (p.Person == txtPersonName.Text && p.Email == cmbEmailAddress.Text)
+                {
+                    DialogResult dialogResult = MessageBox.Show("This Person name and Email already Exist.Do you Want to Continue? ", "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        //MessageBox.Show(@"This Person name and Email Address already Exist,Please Input another one" + "\n",
+                        //    "Error",
+                        //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPersonName.Clear();
+                        cmbEmailAddress.SelectedIndex = -1;
+                        bankEmailId = null;
+                        txtPersonName.Focus();
+                        con.Close();
+                        value = false;
+                        break;
+                    }
+                }
+
+                if (p.Person == txtPersonName.Text && p.Company == cmbCompanyName.Text)
+                {
+                    DialogResult dialogResult = MessageBox.Show("This Person name and Company already Exist.Do you Want to Continue? ", "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        txtPersonName.Clear();
+                        cmbCompanyName.SelectedIndex = -1;
+                        ResetWorkingAddress();
+                        companyId = null;
+                        txtPersonName.Focus();
+                        con.Close();
+                        value = false;
+                        break;
+                    }
+                }
+                if (p.Person == txtPersonName.Text && p.Phone == txtWhatsApp.Text)
+                {
+                    DialogResult dialogResult = MessageBox.Show("This Person name and Company already Exist.Do you Want to Continue? ", "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        //MessageBox.Show(@"This Person name and Phone Number already Exist,Please Input another one" + "\n",
+                        //    "Error",
+                        //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPersonName.Clear();
+                        txtWhatsApp.Clear();
+                        txtPersonName.Focus();
+                        con.Close();
+                        value = false;
+                        break;
+                    }
+                }
+
+            }
+            return value;
+        }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -641,107 +806,135 @@ namespace PhonebookApp.UI
                 {
                     if (unKnownRA.Checked == false)
                     {
-                        UpdatePersonDetails();
-                        UpdateWorkingAddress("ResidentialAddresses");
-                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        DialogResult dialogResult = MessageBox.Show("Aru You sure want to Update this Contact? ",
+                            "Confirm",
+                            MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
                         {
-                            UpdateInfo();
+                            UpdatePersonDetails();
+                            UpdateWorkingAddress("ResidentialAddresses");
+                            if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                            {
+                                UpdateInfo();
+                            }
+                            MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Reset1();
+                            //CountrycomboBox.SelectedItem = "Bangladesh";
+                            CountrycomboBox.SelectedIndex = -1;
+                            CountrycomboBox.Enabled = false;
+                            EmailAddress();
+                            cmbEmailAddress.ResetText();
+                            FillCompanyName();
+                            cmbCompanyName.ResetText();
+                            FillJobTitle();
+                            cmbJobTitle.ResetText();
+                            FillGroupName();
+                            GroupNamecomboBox.ResetText();
+                            FillSpecialization();
+                            cmbSpecialization.ResetText();
+                            FillProfession();
+                            cmbProfession.ResetText();
+                            FillEducationLevel();
+                            cmbEducationalLevel.ResetText();
+                            FillHighestDegree();
+                            cmbHighestDegree.ResetText();
+                            FillAgeGroup();
+                            cmbAgeGroup.ResetText();
+                            FillRelationShip();
+                            cmbRelationShip.ResetText();
+                            unKnownRA.Checked = false;
+                            groupBox2.Hide();
+                            groupBox3.Hide();
+                            groupBox6.Hide();
+                            groupBox7.Hide();                      
+                            btnInsert.Hide();
                         }
-                        MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        Reset1();
-                        //CountrycomboBox.SelectedItem = "Bangladesh";
-                        CountrycomboBox.Enabled = true;
-                        EmailAddress();
-                        cmbEmailAddress.ResetText();
-                        FillCompanyName();
-                        cmbCompanyName.ResetText();
-                        FillJobTitle();
-                        cmbJobTitle.ResetText();
-                        FillGroupName();
-                        GroupNamecomboBox.ResetText();
-                        FillSpecialization();
-                        cmbSpecialization.ResetText();
-                        FillProfession();
-                        cmbProfession.ResetText();
-                        FillEducationLevel();
-                        cmbEducationalLevel.ResetText();
-                        FillHighestDegree();
-                        cmbHighestDegree.ResetText();
-                        FillAgeGroup();
-                        cmbAgeGroup.ResetText();
-                        FillRelationShip();
-                        cmbRelationShip.ResetText();
-                        unKnownRA.Checked = false;
-                        groupBox7.Hide();
-                        btnInsert.Hide();
                     }
                     else
                     {
+                        DialogResult dialogResult = MessageBox.Show("Aru You sure want to Update this Contact? ",
+                            "Confirm",
+                            MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            UpdatePersonDetails();
+                            if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                            {
+                                UpdateInfo();
+                            }
+
+                            MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Reset1();
+                            CountrycomboBox.SelectedIndex = -1;
+                            CountrycomboBox.Enabled = false;
+                            EmailAddress();
+                            cmbEmailAddress.ResetText();
+                            FillCompanyName();
+                            cmbCompanyName.ResetText();
+                            FillJobTitle();
+                            cmbJobTitle.ResetText();
+                            FillGroupName();
+                            GroupNamecomboBox.ResetText();
+                            FillSpecialization();
+                            cmbSpecialization.ResetText();
+                            FillProfession();
+                            cmbProfession.ResetText();
+                            FillEducationLevel();
+                            cmbEducationalLevel.ResetText();
+                            FillHighestDegree();
+                            cmbHighestDegree.ResetText();
+                            FillAgeGroup();
+                            cmbAgeGroup.ResetText();
+                            FillRelationShip();
+                            cmbRelationShip.ResetText();
+                            unKnownRA.Checked = false;
+                            groupBox2.Hide();
+                            groupBox3.Hide();
+                            groupBox6.Hide();
+                            groupBox7.Hide();
+                            btnInsert.Hide();
+
+                        }
+                    }
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Aru You sure want to Update this Contact? ", "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
                         UpdatePersonDetails();
+                        UpdateForeignAddresses("ForeignAddress");
                         if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
                         {
                             UpdateInfo();
                         }
-
                         MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                        Reset1();
-
-                        CountrycomboBox.Enabled = true;
+                        Reset2();
+                        CountrycomboBox.SelectedIndex = -1;
+                        CountrycomboBox.Enabled = false;
+                        ResetWorkingAddress();
                         EmailAddress();
-                        cmbEmailAddress.ResetText();
                         FillCompanyName();
                         cmbCompanyName.ResetText();
                         FillJobTitle();
-                        cmbJobTitle.ResetText();
                         FillGroupName();
                         GroupNamecomboBox.ResetText();
                         FillSpecialization();
-                        cmbSpecialization.ResetText();
                         FillProfession();
-                        cmbProfession.ResetText();
                         FillEducationLevel();
-                        cmbEducationalLevel.ResetText();
                         FillHighestDegree();
-                        cmbHighestDegree.ResetText();
                         FillAgeGroup();
-                        cmbAgeGroup.ResetText();
                         FillRelationShip();
-                        cmbRelationShip.ResetText();
-                        unKnownRA.Checked = false;
+                        groupBox2.Hide();
+                        groupBox3.Hide();
+                        groupBox6.Hide();
                         groupBox7.Hide();
                         btnInsert.Hide();
-
                     }
-
-                }
-                else
-                {
-                    UpdatePersonDetails();
-                    UpdateForeignAddresses("ForeignAddress");
-                    if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-                    {
-                        UpdateInfo();
-                    }
-                    MessageBox.Show("Updated successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset2();
-                    CountrycomboBox.Enabled = true;
-                    ResetWorkingAddress();
-                    EmailAddress();
-                    FillCompanyName();
-                    cmbCompanyName.ResetText();
-                    FillJobTitle();
-                    FillGroupName();
-                    GroupNamecomboBox.ResetText();
-                    FillSpecialization();
-                    FillProfession();
-                    FillEducationLevel();
-                    FillHighestDegree();
-                    FillAgeGroup();
-                    FillRelationShip();
-                    groupBox7.Hide();
-                    groupBox3.Show();
                 }
             }
         }
@@ -752,7 +945,7 @@ namespace PhonebookApp.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId==@d5,JobTitleId=@d6,GroupId=@d7,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
+                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId=@d5,JobTitleId=@d6,GroupId=@d7,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
                 PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -837,6 +1030,23 @@ namespace PhonebookApp.UI
             return Qrdata;
         }
 
+        private string GetFQrdata()
+        {
+            string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
+            Qrdata +=
+                "Street:" + (string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text) +
+                "\r\n";
+
+            Qrdata +=
+                "State:" + (string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text) +
+                "\r\n";
+            Qrdata +=
+                "Postal Code:" + (string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text) +
+                "\r\n";
+            return Qrdata;
+        }
+
+
         private void UpdateWorkingAddress(string tblName1)
         {
             string tableName = tblName1;
@@ -846,7 +1056,7 @@ namespace PhonebookApp.UI
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string insertQ = "Update " + tableName +
-                                 " set PostOfficeId=@d2,RFlatNo=@d3,RHouseNo==@d4,RRoadNo=@d5,RBlock=@d6,RArea=@d7,RContactNo=@d8,BuildingName=@d9,RoadName=@d10,LandMark=@d11,AdressQR=@d12 where ResidentialAddresses.PersonsId='" +
+                                 " set PostOfficeId=@d2,RFlatNo=@d3,RHouseNo=@d4,RRoadNo=@d5,RBlock=@d6,RArea=@d7,RContactNo=@d8,BuildingName=@d9,RoadName=@d10,LandMark=@d11,AdressQR=@d12 where ResidentialAddresses.PersonsId='" +
                                  PersonIdtextBox.Text + "'";
 
                 cmd = new SqlCommand(insertQ);
@@ -915,7 +1125,7 @@ namespace PhonebookApp.UI
             string tableName = tblName1;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qury = "Update " + tableName + " set Street=@d1,State=@d2,PostalCode@d3 where ForeignAddress.PersonsId='" +
+            string Qury = "Update " + tableName + " set Street=@d1,State=@d2,PostalCode=@d3,AdressQR=@d4 where ForeignAddress.PersonsId='" +
                           PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(Qury);
             cmd.Connection = con;
@@ -926,6 +1136,19 @@ namespace PhonebookApp.UI
                 string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d3",
                 string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text));
+
+            var Qrdata = GetFQrdata();
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+            //qrCode.GetGraphic()
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] data = ms.GetBuffer();
+            SqlParameter p = new SqlParameter("@d4", SqlDbType.VarBinary);
+            p.Value = data;
+            cmd.Parameters.Add(p);
             rdr = cmd.ExecuteReader();
             con.Close();
         }
@@ -1092,6 +1315,28 @@ namespace PhonebookApp.UI
         private void cmbCompanyName_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ResetWorkingAddress();
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+                groupBox6.Hide();
+                groupBox2.Show();
+                groupBox2.Location = new Point(466, 12);
+                groupBox3.Show();
+                groupBox3.Location = new Point(466, 290);
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 534);
+                btnInsert.Location = new Point(1045, 540);
+            }
+            else
+            {
+                groupBox2.Hide();
+                groupBox6.Show();
+                groupBox6.Location = new Point(466, 12);
+                groupBox3.Show();
+                groupBox3.Location = new Point(466, 155);
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 410);
+                btnInsert.Location=new Point(1045,416);
+            }
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -1418,23 +1663,51 @@ namespace PhonebookApp.UI
         {
             if (CountrycomboBox.Text == "Bangladesh")
             {
-                groupBox6.Hide();
-                groupBox2.Show();
-                groupBox3.Show();
-                groupBox7.Show();
-                groupBox7.Location = new Point(466, 531);
-                btnInsert.Location = new Point(1045, 540);
-
+                if (string.IsNullOrEmpty(cmbCompanyName.Text))
+                {
+                    groupBox6.Hide();
+                    groupBox2.Show();
+                    groupBox7.Location = new Point(466, 12);
+                    groupBox3.Hide();
+                    groupBox7.Show();
+                    groupBox7.Location = new Point(466, 295);
+                    btnInsert.Location = new Point(860, 440);
+                }
+                else
+                {
+                    groupBox6.Hide();
+                    groupBox2.Show();
+                    groupBox7.Location = new Point(466, 12);
+                    groupBox3.Show();
+                    groupBox3.Location = new Point(466, 290);
+                    groupBox7.Show();
+                    groupBox7.Location = new Point(466, 533);
+                    btnInsert.Location = new Point(1045, 540);
+                }
             }
             else
             {
-                groupBox2.Hide();
-                groupBox3.Hide();
-                groupBox6.Show();
-                groupBox7.Show();
-                groupBox6.Location = new Point(466, 12);
-                groupBox7.Location = new Point(466, 155);
-                btnInsert.Location = new Point(860, 310);
+                if (string.IsNullOrEmpty(cmbCompanyName.Text))
+                {
+                    groupBox2.Hide();
+                    groupBox3.Hide();
+                    groupBox6.Show();
+                    groupBox7.Show();
+                    groupBox6.Location = new Point(466, 12);
+                    groupBox7.Location = new Point(466, 155);
+                    btnInsert.Location = new Point(860, 310);
+                }
+                else
+                {
+                    groupBox2.Hide();
+                    groupBox6.Show();
+                    groupBox6.Location = new Point(466, 12);
+                    groupBox3.Show();
+                    groupBox3.Location = new Point(466, 155);
+                    groupBox7.Show();
+                    groupBox7.Location = new Point(466, 410);
+                    btnInsert.Location = new Point(1045, 416);
+                }
             }
             try
             {
@@ -2253,6 +2526,18 @@ namespace PhonebookApp.UI
             {
                 ResetWorkingAddress();
                 companyId = null;
+                if (CountrycomboBox.Text == "Bangladesh")
+                {
+                    groupBox3.Hide();
+                    groupBox7.Location = new Point(466, 295);
+                    btnInsert.Location = new Point(860, 440);
+                }
+                else
+                {
+                    groupBox3.Hide();
+                    groupBox7.Location = new Point(466, 155);
+                    btnInsert.Location=new Point(860,310);
+                }
             }
         }
 
@@ -2345,7 +2630,7 @@ namespace PhonebookApp.UI
             }
         }
 
-        private void UpdatePersonInfo_FormClosed(object sender, FormClosedEventArgs e)
+        private void UpdatePersonInfo_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             this.Hide();
             frmViewAndReport frm = new frmViewAndReport();

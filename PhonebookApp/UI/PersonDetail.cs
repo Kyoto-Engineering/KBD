@@ -127,12 +127,25 @@ namespace PhonebookApp.UI
                 }
                 else
                 {
-                    frm.groupBox2.Hide();
-                    frm.groupBox3.Hide();
-                    frm.groupBox6.Show();
-                    frm.groupBox7.Show();
-                    frm.groupBox6.Location = new Point(466, 12);
-                    frm.groupBox7.Location = new Point(466, 155);
+                    if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
+                    {
+                        frm.groupBox2.Hide();
+                        frm.groupBox3.Hide();
+                        frm.groupBox6.Show();
+                        frm.groupBox7.Show();
+                        frm.groupBox6.Location = new Point(466, 12);
+                        frm.groupBox7.Location = new Point(466, 155);
+                    }
+                    else
+                    {
+                        frm.groupBox2.Hide();
+                        frm.groupBox3.Show();
+                        frm.groupBox6.Show();
+                        frm.groupBox7.Show();
+                        frm.groupBox6.Location = new Point(466, 12);
+                        frm.groupBox3.Location = new Point(466, 155);
+                        frm.groupBox7.Location = new Point(466, 410);
+                    }
                     frm.StreettextBox.Text = string.IsNullOrEmpty(dr.Cells[48].Value.ToString()) ? null : dr.Cells[48].Value.ToString();
                     frm.StatetextBox.Text = string.IsNullOrEmpty(dr.Cells[49].Value.ToString()) ? null : dr.Cells[49].Value.ToString();
                     frm.PostalCodetextBox.Text = string.IsNullOrEmpty(dr.Cells[50].Value.ToString()) ? null : dr.Cells[50].Value.ToString();

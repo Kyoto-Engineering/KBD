@@ -1526,31 +1526,31 @@ namespace PhonebookApp
         private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            ResetWorkingAddress();
+            //ResetWorkingAddress();
 
 
 
-            try
-            {
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                if (rdr.Read())
-                {
-                    companyId = Convert.ToInt64(rdr["CompanyId"]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            FillWorkingAddress();
+            //    if (rdr.Read())
+            //    {
+            //        companyId = Convert.ToInt64(rdr["CompanyId"]);
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //FillWorkingAddress();
         }
 
         private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
@@ -2619,11 +2619,11 @@ namespace PhonebookApp
 
         private void cmbCompanyName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cmbJobTitle.Focus();
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    cmbJobTitle.Focus();
+            //    e.Handled = true;
+            //}
         }
 
         private void cmbJobTitle_KeyDown(object sender, KeyEventArgs e)
@@ -3152,11 +3152,11 @@ namespace PhonebookApp
 
         private void cmbCompanyName_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
-            {
-                ResetWorkingAddress();
-                companyId = null;
-            }
+            //if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
+            //{
+            //    ResetWorkingAddress();
+            //    companyId = null;
+            //}
 
         }
 
@@ -3247,6 +3247,13 @@ namespace PhonebookApp
                 MessageBox.Show("Please Select Country Of Res", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.BeginInvoke(new ChangeFocusDelegate(changeFocus), CountrycomboBox);
             }
+        }
+
+        private void CompanySelectionbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CompanySelectionGrid frmn = new CompanySelectionGrid();
+            frmn.Show();
         }
     }
 }

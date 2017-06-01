@@ -189,6 +189,12 @@
       <DependentUpon>LOI.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ReportByDistrict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportByDistrict.Designer.cs">
+      <DependentUpon>ReportByDistrict.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     <EmbeddedResource Include="Reports\LOI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LOI.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportByDistrict.resx">
+      <DependentUpon>ReportByDistrict.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>

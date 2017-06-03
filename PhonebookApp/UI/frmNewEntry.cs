@@ -27,8 +27,8 @@ namespace PhonebookApp.UI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm1 frm = new frm1();
-            frm.Show();
+            frm1 frmX = new frm1();
+            frmX.Show();
         }
 
         private void frmNewEntry_FormClosed(object sender, FormClosedEventArgs e)

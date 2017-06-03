@@ -32,6 +32,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.companyNametextBox = new System.Windows.Forms.TextBox();
             this.CompanySelectionbutton = new System.Windows.Forms.Button();
             this.label67 = new System.Windows.Forms.Label();
@@ -169,7 +170,6 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -265,6 +265,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // CompanyIdtextBox
+            // 
+            this.CompanyIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyIdtextBox.Location = new System.Drawing.Point(190, 148);
+            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
+            this.CompanyIdtextBox.Size = new System.Drawing.Size(11, 20);
+            this.CompanyIdtextBox.TabIndex = 104;
+            this.CompanyIdtextBox.Visible = false;
             // 
             // companyNametextBox
             // 
@@ -1743,15 +1752,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // CompanyIdtextBox
-            // 
-            this.CompanyIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyIdtextBox.Location = new System.Drawing.Point(190, 152);
-            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
-            this.CompanyIdtextBox.Size = new System.Drawing.Size(11, 20);
-            this.CompanyIdtextBox.TabIndex = 104;
-            this.CompanyIdtextBox.Visible = false;
             // 
             // frm1
             // 

@@ -471,7 +471,7 @@ namespace PhonebookApp
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,GroupId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -483,45 +483,45 @@ namespace PhonebookApp
             cmd.Parameters.AddWithValue("@d4", (object)bankEmailId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d5", (object)companyId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d6", (object)jobTitleId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d8", (object)specializationId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d9", (object)professionId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d10", (object)educationLevelId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d11", (object)highestDegreeId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d12", (object)ageGroupId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d13", (object)relationshipId ?? DBNull.Value);
-            cmd.Parameters.Add(new SqlParameter("@d14",
+            //cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d7", (object)specializationId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d8", (object)professionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d9", (object)educationLevelId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d10", (object)highestDegreeId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d11", (object)ageGroupId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d12", (object)relationshipId ?? DBNull.Value);
+            cmd.Parameters.Add(new SqlParameter("@d13",
                 string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
-            cmd.Parameters.Add(new SqlParameter("@d15",
+            cmd.Parameters.Add(new SqlParameter("@d14",
                 string.IsNullOrEmpty(txtSkypeId.Text) ? (object)DBNull.Value : txtSkypeId.Text));
-            cmd.Parameters.Add(new SqlParameter("@d16",
+            cmd.Parameters.Add(new SqlParameter("@d15",
                 string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
-            cmd.Parameters.Add(new SqlParameter("@d17",
+            cmd.Parameters.Add(new SqlParameter("@d16",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
 
-            cmd.Parameters.AddWithValue("@d18", (object)countryid ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d19", (object)religionId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d20", (object)genderId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d21", (object)maritalStatusId ?? DBNull.Value);
-            cmd.Parameters.Add(new SqlParameter("@d22",
+            cmd.Parameters.AddWithValue("@d17", (object)countryid ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d18", (object)religionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d19", (object)genderId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d20", (object)maritalStatusId ?? DBNull.Value);
+            cmd.Parameters.Add(new SqlParameter("@d21",
                 !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
-            cmd.Parameters.Add(new SqlParameter("@d23",
+            cmd.Parameters.Add(new SqlParameter("@d22",
                 !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
-            cmd.Parameters.AddWithValue("@d24", nUserId);
+            cmd.Parameters.AddWithValue("@d23", nUserId);
             if (userPictureBox.Image != null)
             {
                 MemoryStream ms = new MemoryStream();
                 Bitmap bmpImage = new Bitmap(userPictureBox.Image);
                 bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 byte[] data = ms.GetBuffer();
-                p = new SqlParameter("@d25", SqlDbType.VarBinary);
+                p = new SqlParameter("@d24", SqlDbType.VarBinary);
                 p.Value = data;
                 cmd.Parameters.Add(p);
             }
             else
             {
-                cmd.Parameters.Add("@d25", SqlDbType.VarBinary, -1);
-                cmd.Parameters["@d25"].Value = DBNull.Value;
+                cmd.Parameters.Add("@d24", SqlDbType.VarBinary, -1);
+                cmd.Parameters["@d24"].Value = DBNull.Value;
             }
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
@@ -3274,7 +3274,7 @@ namespace PhonebookApp
                     SqlConnection con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct2 =
-                        "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName, CorporateAddresses.RoadName, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Company.CompanyId='" +
+                        "SELECT Company.CompanyName, CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName, CorporateAddresses.RoadName, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Company.CompanyId='" +
                         companyId + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
@@ -3306,6 +3306,11 @@ namespace PhonebookApp
                 }
                 this.Visible = true;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }      
     }
 }

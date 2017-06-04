@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CompanySelectiongroupBox = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,6 +36,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchByCompanyNameGroupBox = new System.Windows.Forms.GroupBox();
             this.companyNameSearchtextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.CompanySelectiongroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SearchByCompanyNameGroupBox.SuspendLayout();
@@ -44,7 +45,7 @@
             // CompanySelectiongroupBox
             // 
             this.CompanySelectiongroupBox.Controls.Add(this.dataGridView1);
-            this.CompanySelectiongroupBox.Location = new System.Drawing.Point(33, 87);
+            this.CompanySelectiongroupBox.Location = new System.Drawing.Point(33, 155);
             this.CompanySelectiongroupBox.Name = "CompanySelectiongroupBox";
             this.CompanySelectiongroupBox.Size = new System.Drawing.Size(726, 340);
             this.CompanySelectiongroupBox.TabIndex = 0;
@@ -65,8 +66,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(17, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(695, 291);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -95,7 +97,7 @@
             // SearchByCompanyNameGroupBox
             // 
             this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
-            this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(94, 13);
+            this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(34, 81);
             this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
             this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);
             this.SearchByCompanyNameGroupBox.TabIndex = 1;
@@ -111,14 +113,26 @@
             this.companyNameSearchtextBox.TabIndex = 0;
             this.companyNameSearchtextBox.TextChanged += new System.EventHandler(this.companyNameSearchtextBox_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(220, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(304, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Company Selection Form";
+            // 
             // CompanySelectionGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 439);
+            this.ClientSize = new System.Drawing.Size(779, 509);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchByCompanyNameGroupBox);
             this.Controls.Add(this.CompanySelectiongroupBox);
             this.Name = "CompanySelectionGrid";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompanySelectionGrid";
             this.Load += new System.EventHandler(this.CompanySelectionGrid_Load);
             this.CompanySelectiongroupBox.ResumeLayout(false);
@@ -126,6 +140,7 @@
             this.SearchByCompanyNameGroupBox.ResumeLayout(false);
             this.SearchByCompanyNameGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,5 +153,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.GroupBox SearchByCompanyNameGroupBox;
         private System.Windows.Forms.TextBox companyNameSearchtextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

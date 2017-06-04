@@ -23,8 +23,9 @@ namespace PhonebookApp.UI
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
+        public string companyId;
         public string countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
-        public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
+        public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
         public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, rAdistrictid, wAdistrictid;
         private delegate void ChangeFocusDelegate(Control ctl);
@@ -44,7 +45,7 @@ namespace PhonebookApp.UI
             FillRelationShip();
             FillJobTitle();
             FillAgeGroup();
-            FillCompanyName();
+            //FillCompanyName();
             FillEducationLevel();
             FillHighestDegree();
             FillProfession();
@@ -241,66 +242,66 @@ namespace PhonebookApp.UI
         }
         public void FillCompanyName()
         {
-            try
-            {
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Company.CompanyName) from Company  order by Company.CompanyId";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select RTRIM(Company.CompanyName) from Company  order by Company.CompanyId";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                while (rdr.Read())
-                {
-                    cmbCompanyName.Items.Add(rdr[0]);
-                }
+            //    while (rdr.Read())
+            //    {
+            //        cmbCompanyName.Items.Add(rdr[0]);
+            //    }
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    cmd = con.CreateCommand();
 
-                cmd.CommandText =
-                    "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName,CorporateAddresses.RoadName,Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
-                    companyId + "'";
+            //    cmd.CommandText =
+            //        "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName,CorporateAddresses.RoadName,Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
+            //        companyId + "'";
 
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    txtWAFlatName.Text = rdr["CFlatNo"].ToString();
-                    txtWAHouseName.Text = rdr["CHouseNo"].ToString();
-                    txtWARoadNo.Text = rdr["CRoadNo"].ToString();
-                    txtWABlock.Text = rdr["CBlock"].ToString();
-                    txtWAArea.Text = rdr["CArea"].ToString();
-                    LandmarktextBox.Text = rdr["CLandmark"].ToString();
-                    txtWAContactNo.Text = rdr["CContactNo"].ToString();
-                    WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
-                    WARoadNametextBox.Text = rdr["RoadName"].ToString();
-                    WAdivisiontextBox.Text = rdr["Division"].ToString();
-                    WADistricttextBox.Text = rdr["District"].ToString();
-                    WAThanatextBox.Text = rdr["Thana"].ToString();
-                    WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
-                    txtWAPostCode.Text = rdr["PostCode"].ToString();
+            //    rdr = cmd.ExecuteReader();
+            //    if (rdr.Read())
+            //    {
+            //        txtWAFlatName.Text = rdr["CFlatNo"].ToString();
+            //        txtWAHouseName.Text = rdr["CHouseNo"].ToString();
+            //        txtWARoadNo.Text = rdr["CRoadNo"].ToString();
+            //        txtWABlock.Text = rdr["CBlock"].ToString();
+            //        txtWAArea.Text = rdr["CArea"].ToString();
+            //        LandmarktextBox.Text = rdr["CLandmark"].ToString();
+            //        txtWAContactNo.Text = rdr["CContactNo"].ToString();
+            //        WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
+            //        WARoadNametextBox.Text = rdr["RoadName"].ToString();
+            //        WAdivisiontextBox.Text = rdr["Division"].ToString();
+            //        WADistricttextBox.Text = rdr["District"].ToString();
+            //        WAThanatextBox.Text = rdr["Thana"].ToString();
+            //        WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
+            //        txtWAPostCode.Text = rdr["PostCode"].ToString();
 
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
+            //    }
+            //    if ((rdr != null))
+            //    {
+            //        rdr.Close();
+            //    }
+            //    if (con.State == ConnectionState.Open)
+            //    {
+            //        con.Close();
+            //    }
 
 
-                //con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+
+            //    //con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         public void FillProfession()
         {
@@ -475,80 +476,80 @@ namespace PhonebookApp.UI
 
         private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ResetWorkingAddress();
+            //ResetWorkingAddress();
 
 
 
-            try
-            {
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                if (rdr.Read())
-                {
-                    //companyId = (rdr.GetString(0));
-                    companyId = Convert.ToInt64(rdr["CompanyId"]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //} 
-            FillWorkingAddress();
+            //    if (rdr.Read())
+            //    {
+            //        //companyId = (rdr.GetString(0));
+            //        companyId = Convert.ToInt64(rdr["CompanyId"]);
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            ////} 
+            //FillWorkingAddress();
         }
 
-        private void FillWorkingAddress()
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
+        //private void FillWorkingAddress()
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(cs.DBConn);
+        //        con.Open();
+        //        cmd = con.CreateCommand();
 
-                cmd.CommandText =
-                    "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
-                    companyId + "'";
+        //        cmd.CommandText =
+        //            "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
+        //            companyId + "'";
 
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    txtWAFlatName.Text = rdr["CFlatNo"].ToString();
-                    txtWAHouseName.Text = rdr["CHouseNo"].ToString();
-                    txtWARoadNo.Text = rdr["CRoadNo"].ToString();
-                    txtWABlock.Text = rdr["CBlock"].ToString();
-                    txtWAArea.Text = rdr["CArea"].ToString();
-                    LandmarktextBox.Text = rdr["CLandmark"].ToString();
-                    txtWAContactNo.Text = rdr["CContactNo"].ToString();
+        //        rdr = cmd.ExecuteReader();
+        //        if (rdr.Read())
+        //        {
+        //            txtWAFlatName.Text = rdr["CFlatNo"].ToString();
+        //            txtWAHouseName.Text = rdr["CHouseNo"].ToString();
+        //            txtWARoadNo.Text = rdr["CRoadNo"].ToString();
+        //            txtWABlock.Text = rdr["CBlock"].ToString();
+        //            txtWAArea.Text = rdr["CArea"].ToString();
+        //            LandmarktextBox.Text = rdr["CLandmark"].ToString();
+        //            txtWAContactNo.Text = rdr["CContactNo"].ToString();
 
-                    WAdivisiontextBox.Text = rdr["Division"].ToString();
-                    WADistricttextBox.Text = rdr["District"].ToString();
-                    WAThanatextBox.Text = rdr["Thana"].ToString();
-                    WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
-                    txtWAPostCode.Text = rdr["PostCode"].ToString();
+        //            WAdivisiontextBox.Text = rdr["Division"].ToString();
+        //            WADistricttextBox.Text = rdr["District"].ToString();
+        //            WAThanatextBox.Text = rdr["Thana"].ToString();
+        //            WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
+        //            txtWAPostCode.Text = rdr["PostCode"].ToString();
 
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
+        //        }
+        //        if ((rdr != null))
+        //        {
+        //            rdr.Close();
+        //        }
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
+        //    }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private bool ValidateControlls()
         {
@@ -601,7 +602,6 @@ namespace PhonebookApp.UI
                             MessageBoxIcon.Error);
                         validate = false;
                         cmbRAPost.Focus();
-
                     }
                 }
             }
@@ -636,7 +636,7 @@ namespace PhonebookApp.UI
             if (CountrycomboBox.Text == "Bangladesh")
             {
                 ct3 =
-                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonName='" +
+                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId Left JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId Left JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID Left JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonName='" +
                     txtPersonName.Text + "' and Persons.PersonsId <>'" + PersonIdtextBox.Text + "'";
 
             }
@@ -682,8 +682,15 @@ namespace PhonebookApp.UI
                     {
                         x.Phone = null;
                     }
-                    x.Address = rdr.GetString(4);
-
+                    //x.Address = rdr.GetString(4);
+                    if (!DBNull.Value.Equals(rdr["Addresss"]))
+                    {
+                        x.Address = rdr.GetString(4);
+                    }
+                    else
+                    {
+                        x.Address = null;
+                    }
                     personAddresses.Add(x);
                 }
             }
@@ -750,6 +757,11 @@ namespace PhonebookApp.UI
                         value = false;
                         break;
                     }
+                    //else (dialogResult == DialogResult.Yes)
+                    //{
+                    //    value = true;
+                    //}
+                    
                 }
 
                 if (p.Person == txtPersonName.Text && p.Company == cmbCompanyName.Text)
@@ -825,8 +837,8 @@ namespace PhonebookApp.UI
                             CountrycomboBox.Enabled = false;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            FillCompanyName();
-                            cmbCompanyName.ResetText();
+                            //FillCompanyName();
+                            //cmbCompanyName.ResetText();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
                             FillGroupName();
@@ -873,8 +885,8 @@ namespace PhonebookApp.UI
                             CountrycomboBox.Enabled = false;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            FillCompanyName();
-                            cmbCompanyName.ResetText();
+                            //FillCompanyName();
+                            //cmbCompanyName.ResetText();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
                             FillGroupName();
@@ -922,17 +934,23 @@ namespace PhonebookApp.UI
                         CountrycomboBox.Enabled = false;
                         ResetWorkingAddress();
                         EmailAddress();
-                        FillCompanyName();
-                        cmbCompanyName.ResetText();
+                        //FillCompanyName();
+                        //cmbCompanyName.ResetText();
                         FillJobTitle();
                         FillGroupName();
                         GroupNamecomboBox.ResetText();
                         FillSpecialization();
+                        cmbSpecialization.ResetText();
                         FillProfession();
+                        cmbProfession.ResetText();
                         FillEducationLevel();
+                        cmbEducationalLevel.ResetText();
                         FillHighestDegree();
+                        cmbHighestDegree.ResetText();
                         FillAgeGroup();
+                        cmbAgeGroup.ResetText();
                         FillRelationShip();
+                        cmbRelationShip.ResetText();
                         groupBox2.Hide();
                         groupBox3.Hide();
                         groupBox6.Show();
@@ -951,7 +969,7 @@ namespace PhonebookApp.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId=@d5,JobTitleId=@d6,GroupId=@d7,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
+                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId=@d5,JobTitleId=@d6,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
                 PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -963,7 +981,7 @@ namespace PhonebookApp.UI
             cmd.Parameters.AddWithValue("@d4", (object)bankEmailId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d5", (object)companyId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d6", (object)jobTitleId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
+            //cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d8", (object)specializationId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d9", (object)professionId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d10", (object)educationLevelId ?? DBNull.Value);
@@ -1162,15 +1180,16 @@ namespace PhonebookApp.UI
         private void Reset1()
         {
             PersonIdtextBox.Clear();
-            relationshipId = bankEmailId = groupid = jobTitleId = companyId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
             cmbEmailAddress.Items.Clear();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();
-            cmbCompanyName.SelectedIndex = -1;
+            companyNametextBox.Clear();
+            //cmbCompanyName.Items.Clear();
+            //cmbCompanyName.SelectedIndex = -1;
             GroupNamecomboBox.Items.Clear();
             GroupNamecomboBox.SelectedIndex = -1;
             cmbAgeGroup.Items.Clear();
@@ -1198,15 +1217,16 @@ namespace PhonebookApp.UI
         private void Reset2()
         {
             PersonIdtextBox.Clear();
-            relationshipId = bankEmailId = groupid = jobTitleId = companyId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
             cmbEmailAddress.Items.Clear();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();
-            cmbCompanyName.SelectedIndex = -1;
+            companyNametextBox.Clear();
+            //cmbCompanyName.Items.Clear();
+            //cmbCompanyName.SelectedIndex = -1;
             GroupNamecomboBox.Items.Clear();
             GroupNamecomboBox.SelectedIndex = -1;
             cmbAgeGroup.Items.Clear();
@@ -1290,12 +1310,9 @@ namespace PhonebookApp.UI
                 Reset2Star();
                 groupBox5.Enabled = false;
                 ResetResidentialAddress();
-
-
             }
             else
             {
-
                 groupBox5.Enabled = true;
                 groupBox5.Enabled = true;
                 FillStar2();
@@ -1320,51 +1337,51 @@ namespace PhonebookApp.UI
 
         private void cmbCompanyName_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ResetWorkingAddress();
-            if (CountrycomboBox.Text == "Bangladesh")
-            {
-                groupBox6.Hide();
-                groupBox2.Show();
-                groupBox2.Location = new Point(466, 12);
-                groupBox3.Show();
-                groupBox3.Location = new Point(466, 290);
-                groupBox7.Show();
-                groupBox7.Location = new Point(466, 534);
-                btnInsert.Location = new Point(1045, 540);
-            }
-            else
-            {
-                groupBox2.Hide();
-                groupBox6.Show();
-                groupBox6.Location = new Point(466, 12);
-                groupBox3.Show();
-                groupBox3.Location = new Point(466, 155);
-                groupBox7.Show();
-                groupBox7.Location = new Point(466, 410);
-                btnInsert.Location=new Point(1045,416);
-            }
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //ResetWorkingAddress();
+            //if (CountrycomboBox.Text == "Bangladesh")
+            //{
+            //    groupBox6.Hide();
+            //    groupBox2.Show();
+            //    groupBox2.Location = new Point(466, 12);
+            //    groupBox3.Show();
+            //    groupBox3.Location = new Point(466, 290);
+            //    groupBox7.Show();
+            //    groupBox7.Location = new Point(466, 534);
+            //    btnInsert.Location = new Point(1045, 540);
+            //}
+            //else
+            //{
+            //    groupBox2.Hide();
+            //    groupBox6.Show();
+            //    groupBox6.Location = new Point(466, 12);
+            //    groupBox3.Show();
+            //    groupBox3.Location = new Point(466, 155);
+            //    groupBox7.Show();
+            //    groupBox7.Location = new Point(466, 410);
+            //    btnInsert.Location=new Point(1045,416);
+            //}
+            //try
+            //{
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                if (rdr.Read())
-                {
+            //    if (rdr.Read())
+            //    {
 
-                    companyId = Convert.ToInt64(rdr["CompanyId"]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //        companyId = Convert.ToInt64(rdr["CompanyId"]);
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
-            FillWorkingAddress();
+            //FillWorkingAddress();
         }
 
         private void cmbRADivision_SelectedIndexChanged(object sender, EventArgs e)
@@ -1455,7 +1472,6 @@ namespace PhonebookApp.UI
                 if (rdr.Read())
                 {
                     districtIdRA = (rdr.GetString(0));
-
                 }
 
                 if ((rdr != null))
@@ -1680,7 +1696,7 @@ namespace PhonebookApp.UI
         {
             if (CountrycomboBox.Text == "Bangladesh")
             {
-                if (string.IsNullOrEmpty(cmbCompanyName.Text))
+                if (string.IsNullOrEmpty(companyNametextBox.Text))
                 {
                     groupBox6.Hide();
                     groupBox2.Show();
@@ -1704,7 +1720,7 @@ namespace PhonebookApp.UI
             }
             else
             {
-                if (string.IsNullOrEmpty(cmbCompanyName.Text))
+                if (string.IsNullOrEmpty(companyNametextBox.Text))
                 {
                     groupBox2.Hide();
                     groupBox3.Hide();
@@ -2539,23 +2555,23 @@ namespace PhonebookApp.UI
 
         private void cmbCompanyName_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
-            {
-                ResetWorkingAddress();
-                companyId = null;
-                if (CountrycomboBox.Text == "Bangladesh")
-                {
-                    groupBox3.Hide();
-                    groupBox7.Location = new Point(466, 295);
-                    btnInsert.Location = new Point(860, 440);
-                }
-                else
-                {
-                    groupBox3.Hide();
-                    groupBox7.Location = new Point(466, 155);
-                    btnInsert.Location=new Point(860,310);
-                }
-            }
+            //if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
+            //{
+            //    ResetWorkingAddress();
+            //    companyId = null;
+            //    if (CountrycomboBox.Text == "Bangladesh")
+            //    {
+            //        groupBox3.Hide();
+            //        groupBox7.Location = new Point(466, 295);
+            //        btnInsert.Location = new Point(860, 440);
+            //    }
+            //    else
+            //    {
+            //        groupBox3.Hide();
+            //        groupBox7.Location = new Point(466, 155);
+            //        btnInsert.Location=new Point(860,310);
+            //    }
+            //}
         }
 
         private void cmbEmailAddress_Leave(object sender, EventArgs e)
@@ -2652,6 +2668,75 @@ namespace PhonebookApp.UI
             this.Hide();
             frmViewAndReport frm = new frmViewAndReport();
             frm.Show();
+        }
+
+        private void CompanySelectionbutton_Click(object sender, EventArgs e)
+        {
+            ResetWorkingAddress();
+            if (CountrycomboBox.Text == "Bangladesh")
+            {
+                groupBox3.Show();
+                groupBox3.Location = new Point(466, 290);
+                groupBox7.Show();
+                groupBox7.Location = new Point(466, 533);
+            }
+            else
+            {
+                groupBox3.Show();
+                groupBox6.Show();
+                groupBox7.Show();
+                groupBox6.Location = new Point(466, 12);
+                groupBox3.Location = new Point(466, 155);
+                groupBox7.Location = new Point(466, 410);
+            }
+            using (var form = new CompanySelectionGrid())
+            {
+                this.Visible = false;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string val = form.ReturnValue1;            //values preserved after close
+                    companyId = form.ReturnValue2;
+
+                    //Do something here with these values
+
+                    //for example
+                    this.companyNametextBox.Text = val;
+                    SqlConnection con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 =
+                        "SELECT Company.CompanyName, CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName, CorporateAddresses.RoadName, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Company left JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Company.CompanyId='" +
+                        companyId + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        this.txtWAFlatName.Text = rdr["CFlatNo"].ToString();
+                        this.txtWAHouseName.Text = rdr["CHouseNo"].ToString();
+                        this.txtWARoadNo.Text = rdr["CRoadNo"].ToString();
+                        this.txtWABlock.Text = rdr["CBlock"].ToString();
+                        this.txtWAArea.Text = rdr["CArea"].ToString();
+                        this.LandmarktextBox.Text = rdr["CLandmark"].ToString();
+                        this.txtWAContactNo.Text = rdr["CContactNo"].ToString();
+                        this.WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
+                        this.WARoadNametextBox.Text = rdr["RoadName"].ToString();
+                        this.WAdivisiontextBox.Text = rdr["Division"].ToString();
+                        this.WADistricttextBox.Text = rdr["District"].ToString();
+                        this.WAThanatextBox.Text = rdr["Thana"].ToString();
+                        this.WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
+                        this.txtWAPostCode.Text = rdr["PostCode"].ToString();
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                this.Visible = true;
+            }
         }
     }
 }

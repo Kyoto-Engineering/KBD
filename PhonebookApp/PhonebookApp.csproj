@@ -163,10 +163,34 @@
       <DependentUpon>EidGreetingsForResidentialAdd.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\EidGreetingsForResidentialAddDist.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForResidentialAddDist.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EidGreetingsForResidentialAddGroup.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForResidentialAddGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\EidGreetingsForWorkingAdd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EidGreetingsForWorkingAdd.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EidGreetingsForWorkingAddDist.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForWorkingAddDist.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EidGreetingsForWorkingAddGroup.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForWorkingAddGroup.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\GreetingCardsForResidentialAdd.cs">
@@ -377,9 +401,25 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForResidentialAdd.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForResidentialAddDist.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForResidentialAddDist.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForResidentialAddGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForResidentialAddGroup.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\EidGreetingsForWorkingAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForWorkingAdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForWorkingAddDist.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForWorkingAddDist.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForWorkingAddGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForWorkingAddGroup.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GreetingCardsForResidentialAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

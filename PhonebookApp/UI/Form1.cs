@@ -26,8 +26,9 @@ namespace PhonebookApp
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
+        public string companyId = null;
         public string rAdistrictid, countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
-        public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, companyId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
+        public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
         //public string nUserId;
         public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, wAdistrictid;
         private delegate void ChangeFocusDelegate(Control ctl);
@@ -343,7 +344,7 @@ namespace PhonebookApp
             //FillSpecialization();
             //EmailAddress();
             //CountrycomboBox.SelectedIndex = -1;
-            relationshipId = bankEmailId = groupid = jobTitleId = companyId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
@@ -353,10 +354,10 @@ namespace PhonebookApp
             //cmbEmailAddress.ResetText();
             //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();
+            //cmbCompanyName.Items.Clear();
             //cmbCompanyName.ResetText();
             //FillCompanyName();
-            cmbCompanyName.SelectedIndex = -1;
+            //cmbCompanyName.SelectedIndex = -1;
             GroupNamecomboBox.Items.Clear();
             //cmbCategoryName.ResetText();
             //FillCategory();
@@ -411,7 +412,7 @@ namespace PhonebookApp
             //FillAgeGroup();            
             //FillRelationShip();
             //CountrycomboBox.SelectedIndex = -1;
-            relationshipId = bankEmailId = groupid = jobTitleId = companyId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
@@ -420,10 +421,10 @@ namespace PhonebookApp
             //cmbEmailAddress.ResetText();
             //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
-            cmbCompanyName.Items.Clear();
+            //cmbCompanyName.Items.Clear();
             //cmbCompanyName.ResetText();
             //FillCompanyName();
-            cmbCompanyName.SelectedIndex = -1;
+            //cmbCompanyName.SelectedIndex = -1;
             GroupNamecomboBox.Items.Clear();
             //cmbCategoryName.ResetText();
             //FillCategory();
@@ -470,7 +471,7 @@ namespace PhonebookApp
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,GroupId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -482,45 +483,45 @@ namespace PhonebookApp
             cmd.Parameters.AddWithValue("@d4", (object)bankEmailId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d5", (object)companyId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d6", (object)jobTitleId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d8", (object)specializationId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d9", (object)professionId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d10", (object)educationLevelId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d11", (object)highestDegreeId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d12", (object)ageGroupId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d13", (object)relationshipId ?? DBNull.Value);
-            cmd.Parameters.Add(new SqlParameter("@d14",
+            //cmd.Parameters.AddWithValue("@d7", (object)groupid ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d7", (object)specializationId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d8", (object)professionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d9", (object)educationLevelId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d10", (object)highestDegreeId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d11", (object)ageGroupId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d12", (object)relationshipId ?? DBNull.Value);
+            cmd.Parameters.Add(new SqlParameter("@d13",
                 string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
-            cmd.Parameters.Add(new SqlParameter("@d15",
+            cmd.Parameters.Add(new SqlParameter("@d14",
                 string.IsNullOrEmpty(txtSkypeId.Text) ? (object)DBNull.Value : txtSkypeId.Text));
-            cmd.Parameters.Add(new SqlParameter("@d16",
+            cmd.Parameters.Add(new SqlParameter("@d15",
                 string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
-            cmd.Parameters.Add(new SqlParameter("@d17",
+            cmd.Parameters.Add(new SqlParameter("@d16",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
 
-            cmd.Parameters.AddWithValue("@d18", (object)countryid ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d19", (object)religionId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d20", (object)genderId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@d21", (object)maritalStatusId ?? DBNull.Value);
-            cmd.Parameters.Add(new SqlParameter("@d22",
+            cmd.Parameters.AddWithValue("@d17", (object)countryid ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d18", (object)religionId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d19", (object)genderId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@d20", (object)maritalStatusId ?? DBNull.Value);
+            cmd.Parameters.Add(new SqlParameter("@d21",
                 !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
-            cmd.Parameters.Add(new SqlParameter("@d23",
+            cmd.Parameters.Add(new SqlParameter("@d22",
                 !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
-            cmd.Parameters.AddWithValue("@d24", nUserId);
+            cmd.Parameters.AddWithValue("@d23", nUserId);
             if (userPictureBox.Image != null)
             {
                 MemoryStream ms = new MemoryStream();
                 Bitmap bmpImage = new Bitmap(userPictureBox.Image);
                 bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 byte[] data = ms.GetBuffer();
-                p = new SqlParameter("@d25", SqlDbType.VarBinary);
+                p = new SqlParameter("@d24", SqlDbType.VarBinary);
                 p.Value = data;
                 cmd.Parameters.Add(p);
             }
             else
             {
-                cmd.Parameters.Add("@d25", SqlDbType.VarBinary, -1);
-                cmd.Parameters["@d25"].Value = DBNull.Value;
+                cmd.Parameters.Add("@d24", SqlDbType.VarBinary, -1);
+                cmd.Parameters["@d24"].Value = DBNull.Value;
             }
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
@@ -634,7 +635,7 @@ namespace PhonebookApp
             if (CountrycomboBox.Text == "Bangladesh")
             {
                 ct3 =
-                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonName='" +
+                    "select Persons.PersonName, EmailBank.Email, Company.CompanyName, Persons.WhatsAppId, isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons Left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN Company ON Persons.CompanyId = Company.CompanyId left JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId left JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId left JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID left JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonName='" +
                     txtPersonName.Text + "'";
 
             }
@@ -680,8 +681,14 @@ namespace PhonebookApp
                     {
                         x.Phone = null;
                     }
-                    x.Address = rdr.GetString(4);
-
+                    if (!DBNull.Value.Equals(rdr["Addresss"]))
+                    {
+                        x.Address = rdr.GetString(4);
+                    }
+                    else
+                    {
+                        x.Address = null;
+                    }
                     personAddresses.Add(x);
                 }
             }
@@ -729,6 +736,8 @@ namespace PhonebookApp
                         value = false;
                         break;
                     }
+                    value = true;
+                    break;
                 }
 
                 if (p.Person == txtPersonName.Text && p.Email == cmbEmailAddress.Text)
@@ -745,14 +754,15 @@ namespace PhonebookApp
                     break;
                 }
 
-                if (p.Person == txtPersonName.Text && p.Company == cmbCompanyName.Text)
+                if (p.Person == txtPersonName.Text && p.Company == companyNametextBox.Text)
                 {
                     DialogResult dialogResult = MessageBox.Show("This Person name and Company already Exist.Do you Want to Continue? ", "Confirm",
                         MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.No)
                     {
                         txtPersonName.Clear();
-                        cmbCompanyName.SelectedIndex = -1;
+                        //cmbCompanyName.SelectedIndex = -1;
+                        companyNametextBox.Clear();
                         ResetWorkingAddress();
                         companyId = null;
                         txtPersonName.Focus();
@@ -760,6 +770,8 @@ namespace PhonebookApp
                         value = false;
                         break;
                     }
+                    value = true;
+                    break;
                 }
                 if (p.Person == txtPersonName.Text && p.Phone == txtWhatsApp.Text)
                 {
@@ -780,7 +792,7 @@ namespace PhonebookApp
 
         private void btnInsert_Click_1(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(cmbEmailAddress.Text) && string.IsNullOrEmpty(cmbCompanyName.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) && (unKnownRA.Checked))
+            if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(cmbEmailAddress.Text) && string.IsNullOrEmpty(companyNametextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) && (unKnownRA.Checked))
             {
                 MessageBox.Show(@"Please insert Email or Company or Phone Number or Address", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -809,8 +821,9 @@ namespace PhonebookApp
                             CountrycomboBox.Enabled = true;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            FillCompanyName();
-                            cmbCompanyName.ResetText();
+                            //FillCompanyName();
+                            //cmbCompanyName.ResetText();
+                            companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
                             FillGroupName();
@@ -854,8 +867,9 @@ namespace PhonebookApp
                             CountrycomboBox.Enabled = true;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            FillCompanyName();
-                            cmbCompanyName.ResetText();
+                            //FillCompanyName();
+                            //cmbCompanyName.ResetText();
+                            companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
                             FillGroupName();
@@ -901,8 +915,9 @@ namespace PhonebookApp
                         CountrycomboBox.Enabled = true;
                         ResetWorkingAddress();
                         EmailAddress();
-                        FillCompanyName();
-                        cmbCompanyName.ResetText();
+                        //FillCompanyName();
+                        //cmbCompanyName.ResetText();
+                        companyNametextBox.Clear();
                         FillJobTitle();
                         FillGroupName();
                         GroupNamecomboBox.ResetText();
@@ -1087,26 +1102,26 @@ namespace PhonebookApp
         }
         public void FillCompanyName()
         {
-            try
-            {
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Company.CompanyName) from Company  order by Company.CompanyId";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select RTRIM(Company.CompanyName) from Company  order by Company.CompanyId";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                while (rdr.Read())
-                {
-                    cmbCompanyName.Items.Add(rdr[0]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    while (rdr.Read())
+            //    {
+            //        cmbCompanyName.Items.Add(rdr[0]);
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         public void FillProfession()
         {
@@ -1526,31 +1541,31 @@ namespace PhonebookApp
         private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            ResetWorkingAddress();
+            //ResetWorkingAddress();
 
 
 
-            try
-            {
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
 
-                if (rdr.Read())
-                {
-                    companyId = Convert.ToInt64(rdr["CompanyId"]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            FillWorkingAddress();
+            //    if (rdr.Read())
+            //    {
+            //        companyId = Convert.ToInt64(rdr["CompanyId"]);
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //FillWorkingAddress();
         }
 
         private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
@@ -2215,189 +2230,6 @@ namespace PhonebookApp
             //}
         }
 
-        private void cmbRADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
-                cmd.Parameters["@find"].Value = cmbRADistrict.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    districtIdRA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-                cmbRADistrict.Text = cmbRADistrict.Text.Trim();
-                cmbRAThana.Items.Clear();
-                cmbRAThana.ResetText();
-                cmbRAPost.Items.Clear();
-                cmbRAPost.ResetText();
-                cmbRAPost.SelectedIndex = -1;
-                cmbRAPost.Enabled = false;
-                txtRAPostCode.Clear();
-                cmbRAThana.Enabled = true;
-                cmbRAThana.Focus();
-
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA + "' order by Thanas.D_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbRAThana.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbRAThana_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            //con = new SqlConnection(cs.DBConn);
-            //con.Open();
-
-            ////cmd = con.CreateCommand();
-            ////cmd.CommandText = "select D_ID from Districts WHERE District= '" + cmbRADistrict.Text + "'";
-            ////rdr = cmd.ExecuteReader();
-
-            //string ctkk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
-
-            //cmd = new SqlCommand(ctkk);
-            //cmd.Connection = con;
-            //cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "District"));
-            //cmd.Parameters["@find"].Value = cmbRADistrict.Text;
-            //rdr = cmd.ExecuteReader();
-            //if (rdr.Read())
-            //{
-
-            //    rAdistrictid = (rdr.GetString(0));
-            //}
-            //if ((rdr != null))
-            //{
-            //    rdr.Close();
-            //}
-            //if (con.State == ConnectionState.Open)
-            //{
-            //    con.Close();
-            //}
-
-
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdRA + "'";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
-                cmd.Parameters["@find"].Value = cmbRAThana.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    thanaIdRA = (rdr.GetString(0));
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-
-                cmbRAThana.Text = cmbRAThana.Text.Trim();
-                cmbRAPost.Items.Clear();
-                cmbRAPost.ResetText();
-                // cPostOfficeCombo.Text = "";
-                txtRAPostCode.Clear();
-                cmbRAPost.Enabled = true;
-                cmbRAPost.Focus();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                //string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdC + "' order by PostOffice.T_ID desc";
-                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.T_ID desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    cmbRAPost.Items.Add(rdr[0]);
-                }
-                con.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            cmbRAPost.SelectedIndex = -1;
-
-        }
-
-        private void cmbRAPost_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
-                cmd.Parameters["@find"].Value = cmbRAPost.Text;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    postofficeIdRA = (rdr.GetString(0));
-                    txtRAPostCode.Text = (rdr.GetString(1));
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void cmbRADivision_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
@@ -2449,7 +2281,7 @@ namespace PhonebookApp
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdRA + "' order by Districts.Division_ID desc";
+                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdRA + "' order by Districts.District asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -2469,6 +2301,181 @@ namespace PhonebookApp
             cmbRAPost.Enabled = false;
         }
 
+
+
+        private void cmbRADistrict_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                //string ctk = "SELECT  RTRIM(Districts.D_ID)  from Districts WHERE Districts.District=@find";
+                string ctk = "SELECT RTRIM(Districts.D_ID) FROM Districts INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Districts.District=@find1 and Divisions.Division=@find2";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find1", System.Data.SqlDbType.NVarChar, 50, "District"));
+                cmd.Parameters["@find1"].Value = cmbRADistrict.Text;
+                cmd.Parameters.Add(new SqlParameter("@find2", System.Data.SqlDbType.NVarChar, 50, "Division"));
+                cmd.Parameters["@find2"].Value = cmbRADivision.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    districtIdRA = (rdr.GetString(0));
+                    //divisionIdRA = (rdr.GetString(1));
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                cmbRADistrict.Text = cmbRADistrict.Text.Trim();
+                cmbRAThana.Items.Clear();
+                cmbRAThana.ResetText();
+                cmbRAPost.Items.Clear();
+                cmbRAPost.ResetText();
+                cmbRAPost.SelectedIndex = -1;
+                cmbRAPost.Enabled = false;
+                txtRAPostCode.Clear();
+                cmbRAThana.Enabled = true;
+                cmbRAThana.Focus();
+
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA + "' order by Thanas.Thana asc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbRAThana.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbRAThana_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                //string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + districtIdRA + "'";
+                string ctk = "SELECT RTRIM(Thanas.T_ID) FROM Thanas INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Thanas.Thana=@find1 and Districts.District=@find2 and Divisions.Division=@find3";
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find1", System.Data.SqlDbType.NVarChar, 50, "Thana"));
+                cmd.Parameters["@find1"].Value = cmbRAThana.Text;
+                cmd.Parameters.Add(new SqlParameter("@find2", System.Data.SqlDbType.NVarChar, 50, "District"));
+                cmd.Parameters["@find2"].Value = cmbRADistrict.Text;
+                cmd.Parameters.Add(new SqlParameter("@find3", System.Data.SqlDbType.NVarChar, 50, "Division"));
+                cmd.Parameters["@find3"].Value = cmbRADivision.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    thanaIdRA = (rdr.GetString(0));
+                    //districtIdRA = (rdr.GetString(1));
+                    //divisionIdRA = (rdr.GetString(2));
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+
+                cmbRAThana.Text = cmbRAThana.Text.Trim();
+                cmbRAPost.Items.Clear();
+                cmbRAPost.ResetText();
+                // cPostOfficeCombo.Text = "";
+                txtRAPostCode.Clear();
+                cmbRAPost.Enabled = true;
+                cmbRAPost.Focus();
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                //string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdC + "' order by PostOffice.T_ID desc";
+                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.PostOfficeName asc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbRAPost.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cmbRAPost.SelectedIndex = -1;
+
+        }
+
+        private void cmbRAPost_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                //string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
+                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) FROM PostOffice INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where PostOffice.PostOfficeName=@find1 and  Thanas.Thana=@find2 and Districts.District=@find3 and Divisions.Division=@find4"; 
+                cmd = new SqlCommand(ctk);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find1", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
+                cmd.Parameters["@find1"].Value = cmbRAPost.Text;
+                cmd.Parameters.Add(new SqlParameter("@find2", System.Data.SqlDbType.NVarChar, 50, "Thana"));
+                cmd.Parameters["@find2"].Value = cmbRAThana.Text;
+                cmd.Parameters.Add(new SqlParameter("@find3", System.Data.SqlDbType.NVarChar, 50, "District"));
+                cmd.Parameters["@find3"].Value = cmbRADistrict.Text;
+                cmd.Parameters.Add(new SqlParameter("@find4", System.Data.SqlDbType.NVarChar, 50, "Division"));
+                cmd.Parameters["@find4"].Value = cmbRADivision.Text;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    postofficeIdRA = (rdr.GetString(0));
+                    txtRAPostCode.Text = (rdr.GetString(1));
+                    //thanaIdRA = (rdr.GetString(2));
+                    //districtIdRA = (rdr.GetString(3));
+                    //divisionIdRA = (rdr.GetString(4));
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
         private void CountrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -2619,11 +2626,11 @@ namespace PhonebookApp
 
         private void cmbCompanyName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cmbJobTitle.Focus();
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    cmbJobTitle.Focus();
+            //    e.Handled = true;
+            //}
         }
 
         private void cmbJobTitle_KeyDown(object sender, KeyEventArgs e)
@@ -3152,11 +3159,11 @@ namespace PhonebookApp
 
         private void cmbCompanyName_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
-            {
-                ResetWorkingAddress();
-                companyId = null;
-            }
+            //if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
+            //{
+            //    ResetWorkingAddress();
+            //    companyId = null;
+            //}
 
         }
 
@@ -3248,6 +3255,63 @@ namespace PhonebookApp
                 this.BeginInvoke(new ChangeFocusDelegate(changeFocus), CountrycomboBox);
             }
         }
+
+        private void CompanySelectionbutton_Click(object sender, EventArgs e)
+        {
+            using (var form = new CompanySelectionGrid())
+            {
+                this.Visible = false;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                  string val = form.ReturnValue1;            //values preserved after close
+                    companyId = form.ReturnValue2;
+                    
+                    //Do something here with these values
+
+                    //for example
+                    this.companyNametextBox.Text = val;
+                    SqlConnection con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 =
+                        "SELECT Company.CompanyName, CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName, CorporateAddresses.RoadName, Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID INNER JOIN Divisions ON Districts.Division_ID = Divisions.Division_ID where Company.CompanyId='" +
+                        companyId + "'";
+                    cmd = new SqlCommand(ct2, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() && !rdr.IsDBNull(0))
+                    {
+                        this.txtWAFlatName.Text = rdr["CFlatNo"].ToString();
+                        this.txtWAHouseName.Text = rdr["CHouseNo"].ToString();
+                        this.txtWARoadNo.Text = rdr["CRoadNo"].ToString();
+                        this.txtWABlock.Text = rdr["CBlock"].ToString();
+                        this.txtWAArea.Text = rdr["CArea"].ToString();
+                        this.LandmarktextBox.Text = rdr["CLandmark"].ToString();
+                        this.txtWAContactNo.Text = rdr["CContactNo"].ToString();
+                        this.WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
+                        this.WARoadNametextBox.Text = rdr["RoadName"].ToString();
+                        this.WAdivisiontextBox.Text = rdr["Division"].ToString();
+                        this.WADistricttextBox.Text = rdr["District"].ToString();
+                        this.WAThanatextBox.Text = rdr["Thana"].ToString();
+                        this.WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
+                        this.txtWAPostCode.Text = rdr["PostCode"].ToString();
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                this.Visible = true;
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }      
     }
 }
 

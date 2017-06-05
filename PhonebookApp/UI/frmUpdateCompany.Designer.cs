@@ -190,6 +190,7 @@
             this.CompanyIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanyIdtextBox.Location = new System.Drawing.Point(168, 23);
             this.CompanyIdtextBox.Name = "CompanyIdtextBox";
+            this.CompanyIdtextBox.ReadOnly = true;
             this.CompanyIdtextBox.Size = new System.Drawing.Size(256, 29);
             this.CompanyIdtextBox.TabIndex = 87;
             // 
@@ -554,7 +555,7 @@
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.Red;
-            this.label45.Location = new System.Drawing.Point(376, 158);
+            this.label45.Location = new System.Drawing.Point(376, 154);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(20, 22);
             this.label45.TabIndex = 84;
@@ -647,7 +648,7 @@
             // tPostCodeTextBox
             // 
             this.tPostCodeTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPostCodeTextBox.Location = new System.Drawing.Point(402, 149);
+            this.tPostCodeTextBox.Location = new System.Drawing.Point(402, 147);
             this.tPostCodeTextBox.Name = "tPostCodeTextBox";
             this.tPostCodeTextBox.ReadOnly = true;
             this.tPostCodeTextBox.Size = new System.Drawing.Size(185, 26);
@@ -675,7 +676,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(303, 158);
+            this.label6.Location = new System.Drawing.Point(303, 152);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 19);
             this.label6.TabIndex = 29;

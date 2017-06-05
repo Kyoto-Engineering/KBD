@@ -24,7 +24,7 @@ namespace PhonebookApp.UI
         public string user_id, fullName, submittedBy, districtIdC, districtIdT, divisionIdC, divisionIdT, thanaIdC, thanaIdC2, thanaIdT, postofficeIdC, postOfficeIdT, userType1;
         public int companyid, companytypeid, clientTypeId, natureOfClientId, industrycategoryid, addressTypeId1, addressTypeId2, superviserId, bankEmailId, bankCPEmailId;
         public int cdistrict_id, tdistrict_id;
-        private int affectedRows1, affectedRows2;
+        public int affectedRows1, affectedRows2;
         public frmUpdateCompany()
         {
             InitializeComponent();
@@ -985,7 +985,7 @@ namespace PhonebookApp.UI
                     tPostCombo.Focus();
                 }
             }
-            else if (!ValidateCompany())
+            if (!ValidateCompany())
             {
                 validate = false;
             }
@@ -1000,7 +1000,7 @@ namespace PhonebookApp.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             string ct3 =
-                "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName='" + CompanyNameTextBox.Text + "' and Company.CompanyId <>'"+CompanyIdtextBox.Text+"'";
+                "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName='" + CompanyNameTextBox.Text + "' and Company.CompanyId <>'" + CompanyIdtextBox.Text + "'";
             cmd = new SqlCommand(ct3, con);
             rdr = cmd.ExecuteReader();
 
@@ -1030,9 +1030,9 @@ namespace PhonebookApp.UI
             address += string.IsNullOrWhiteSpace(cDistCombo.Text) ? "" : (cDistCombo.Text);
             foreach (CompanyAddress p in companies)
             {
-                if (p.Company == CompanyNameTextBox.Text && p.Address == address)
+                if (p.Company.Trim() == CompanyNameTextBox.Text.Trim() && p.Address == address)
                 {
-                    MessageBox.Show(@"This Company Exists,Please Input another one" + "\n",
+                    MessageBox.Show(@"This Company and Address already Exists,Please Input another one" + "\n",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     CompanyNameTextBox.Clear();
@@ -1041,6 +1041,8 @@ namespace PhonebookApp.UI
                     value = false;
                     break;
                 }
+
+
             }
             return value;
         }
@@ -1054,28 +1056,69 @@ namespace PhonebookApp.UI
                     //1.Corporate Address Applicable  & Tradding Address not Applicable
                     if (notApplicableCheckBox.Checked)
                     {
-                        UpdateCompany();
-                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                        DialogResult dialogResult = MessageBox.Show(@"Are You surely want to Update this company information? ",
+                            "Confirm",
+                            MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            UpdateCompany();
+                            GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string ct8 = "select RTRIM(TraddingAddresses.CompanyId) from TraddingAddresses where TraddingAddresses.CompanyId='" + CompanyIdtextBox.Text + "'";
+                            cmd = new SqlCommand(ct8, con);
+                            rdr = cmd.ExecuteReader();
+                            
+                            if (rdr.Read() && !rdr.IsDBNull(0))
+                            {
+                                con = new SqlConnection(cs.DBConn);
+                                con.Open();
+                                string query = "Delete from TraddingAddresses Where  TraddingAddresses.CompanyId='" +
+                                               CompanyIdtextBox.Text + "'";
+                                cmd = new SqlCommand(query, con);
+                                rdr = cmd.ExecuteReader();
+                               
+                            }
+                            con.Close();
+                            MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Reset();
+                        }
                     }
                     //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
-                    if (sameAsCorporatAddCheckBox.Checked)
+                    else if (sameAsCorporatAddCheckBox.Checked)
                     {
-                        UpdateCompany();
-                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
-                        GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
-                        //UpdateTASameAsCA("TraddingAddresses");
+                        DialogResult dialogResult = MessageBox.Show("Aru You sure want to Update this company information? ",
+                            "Confirm",
+                            MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            UpdateCompany();
+                            GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                            GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
+                            //UpdateTASameAsCA("TraddingAddresses");
+                            MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Reset();
+                        }
                     }
                     //3.Corporate Address Applicable  & Tradding Address  Applicable
-                    if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
+                    else if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
                     {
-                        UpdateCompany();
-                        GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
-                        GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
+                        DialogResult dialogResult = MessageBox.Show("Aru You sure want to Update this company information? ",
+                            "Confirm",
+                            MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            UpdateCompany();
+                            GetCompanyIdAndSaveOrUpdateCompanyAddress("CorporateAddresses");
+                            GetCompanyIdAndSaveOrUpdateCompanyAddress("TraddingAddresses");
+
+                            MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Reset();
+                        }
                     }
-
-                    MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
-
                 }
                 catch (FormatException formatException)
                 {
@@ -1132,6 +1175,7 @@ namespace PhonebookApp.UI
                 if (rdr.Read() && !rdr.IsDBNull(0))
                 {
                     UpdateCompanyAddress("CorporateAddresses");
+
                 }
                 else
                 {
@@ -1155,7 +1199,6 @@ namespace PhonebookApp.UI
                 }
             }
         }
-
         private void UpdateCompanyAddress(string tablName1)
         {
             string corporatTable = tablName1;
@@ -1193,7 +1236,7 @@ namespace PhonebookApp.UI
                     con.Close();
                 }
 
-                else if (corporatTable == "TraddingAddresses")
+                if (corporatTable == "TraddingAddresses")
                 {
                     if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
                     {
@@ -1204,32 +1247,32 @@ namespace PhonebookApp.UI
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.Add(new SqlParameter("@d4",
-                            string.IsNullOrEmpty(postOfficeIdT) ? (object) DBNull.Value : postOfficeIdT));
+                            string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
                         cmd.Parameters.Add(new SqlParameter("@d5",
-                            string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object) DBNull.Value : tFlatNoTextBox.Text));
+                            string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d6",
-                            string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object) DBNull.Value : tHouseNoTextBox.Text));
+                            string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d7",
-                            string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object) DBNull.Value : tRoadNoTextBox.Text));
+                            string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d8",
-                            string.IsNullOrEmpty(FblocktextBox.Text) ? (object) DBNull.Value : FblocktextBox.Text));
+                            string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d9",
-                            string.IsNullOrEmpty(tAreaTextBox.Text) ? (object) DBNull.Value : tAreaTextBox.Text));
+                            string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d10",
                             string.IsNullOrEmpty(tLandmarktextBox.Text)
-                                ? (object) DBNull.Value
+                                ? (object)DBNull.Value
                                 : tLandmarktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d11",
                             string.IsNullOrEmpty(tContactNoTextBox.Text)
-                                ? (object) DBNull.Value
+                                ? (object)DBNull.Value
                                 : tContactNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d12",
                             string.IsNullOrEmpty(tBuldingNameTextBox.Text)
-                                ? (object) DBNull.Value
+                                ? (object)DBNull.Value
                                 : tBuldingNameTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d13",
                             string.IsNullOrEmpty(tRoadNameTextBox.Text)
-                                ? (object) DBNull.Value
+                                ? (object)DBNull.Value
                                 : tRoadNameTextBox.Text));
                         var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
                         QRCodeGenerator qrGenerator = new QRCodeGenerator();
@@ -1247,7 +1290,8 @@ namespace PhonebookApp.UI
                         con.Close();
                     }
 
-                    else
+
+                    else if (sameAsCorporatAddCheckBox.Checked == true)
                     {
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -1255,17 +1299,45 @@ namespace PhonebookApp.UI
                                        " set PostOfficeId=@d4,TFlatNo=@d5,THouseNo=@d6,TRoadNo=@d7,TBlock=@d8,TArea=@d9,TLandmark=@d10,TContactNo=@d11,BuildingName=@d12,RoadName=@d13,AdressQR=@d14  Where  TraddingAddresses.CompanyId='" +
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
-                        cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                        cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d12", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                        cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
-                        var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+                        cmd.Parameters.Add(new SqlParameter("@d4",
+                            string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                        cmd.Parameters.Add(new SqlParameter("@d5",
+                            string.IsNullOrEmpty(cFlatNoTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cFlatNoTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d6",
+                            string.IsNullOrEmpty(cHouseNoTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cHouseNoTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d7",
+                            string.IsNullOrEmpty(cRoadNoTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cRoadNoTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d8",
+                            string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d9",
+                            string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d10",
+                            string.IsNullOrEmpty(cLandmarktextBox.Text)
+                                ? (object)DBNull.Value
+                                : cLandmarktextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d11",
+                            string.IsNullOrEmpty(cContactNoTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cContactNoTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d12",
+                            string.IsNullOrEmpty(cBuldingNameTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cBuldingNameTextBox.Text));
+                        cmd.Parameters.Add(new SqlParameter("@d13",
+                            string.IsNullOrEmpty(cRoadNameTextBox.Text)
+                                ? (object)DBNull.Value
+                                : cRoadNameTextBox.Text));
+                        var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text,
+                            cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text,
+                            cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text,
+                            cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text,
+                            cContactNoTextBox.Text);
                         QRCodeGenerator qrGenerator = new QRCodeGenerator();
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
@@ -1282,6 +1354,7 @@ namespace PhonebookApp.UI
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1291,29 +1364,42 @@ namespace PhonebookApp.UI
         private void SaveTraddingAddress(string tblName1)
         {
             string tableName = tblName1;
-            //if (tableName == "CorporateAddresses")
-            //{
-            //    con = new SqlConnection(cs.DBConn);
-            //    con.Open();
-            //    string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-            //    cmd = new SqlCommand(insertQ);
-            //    cmd.Connection = con;
-            //    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-            //    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-            //    cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
-            //    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-            //    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+            if (tableName == "CorporateAddresses")
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                cmd = new SqlCommand(insertQ);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+                cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
+                cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                //qrCode.GetGraphic()
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                byte[] data = ms.GetBuffer();
+                SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+                p.Value = data;
+                cmd.Parameters.Add(p);
+                affectedRows1 = (int)cmd.ExecuteScalar();
+                con.Close();
+            }
 
-            //    affectedRows1 = (int)cmd.ExecuteScalar();
-            //    con.Close();
-            //}
-         if (tableName == "TraddingAddresses")
+
+            if (tableName == "TraddingAddresses")
             {
                 if (sameAsCorporatAddCheckBox.Checked)
                 {
@@ -1325,28 +1411,28 @@ namespace PhonebookApp.UI
                     cmd = new SqlCommand(Qry);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d4",
-                        string.IsNullOrEmpty(postofficeIdC) ? (object) DBNull.Value : postofficeIdC));
+                        string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
                     cmd.Parameters.Add(new SqlParameter("@d5",
-                        string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object) DBNull.Value : cFlatNoTextBox.Text));
+                        string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d6",
-                        string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object) DBNull.Value : cHouseNoTextBox.Text));
+                        string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d7",
-                        string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object) DBNull.Value : cRoadNoTextBox.Text));
+                        string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d8",
-                        string.IsNullOrEmpty(blocktextBox.Text) ? (object) DBNull.Value : blocktextBox.Text));
+                        string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d9",
-                        string.IsNullOrEmpty(cAreaTextBox.Text) ? (object) DBNull.Value : cAreaTextBox.Text));
+                        string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d10",
-                        string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object) DBNull.Value : cLandmarktextBox.Text));
+                        string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d11",
-                        string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object) DBNull.Value : cContactNoTextBox.Text));
+                        string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
                     cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
                     cmd.Parameters.Add(new SqlParameter("@d13",
                         string.IsNullOrEmpty(cBuldingNameTextBox.Text)
-                            ? (object) DBNull.Value
+                            ? (object)DBNull.Value
                             : cBuldingNameTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d14",
-                        string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object) DBNull.Value : cRoadNameTextBox.Text));
+                        string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
                     var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
                     QRCodeGenerator qrGenerator = new QRCodeGenerator();
                     QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
@@ -1359,10 +1445,10 @@ namespace PhonebookApp.UI
                     SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
                     p.Value = data;
                     cmd.Parameters.Add(p);
-                    affectedRows2 = (int) cmd.ExecuteScalar();
+                    affectedRows2 = (int)cmd.ExecuteScalar();
                     con.Close();
                 }
-                else
+                else if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
@@ -1464,7 +1550,7 @@ namespace PhonebookApp.UI
             {
                 ResetTradingAddress();
             }
-            UpdateButton.Enabled = true;
+            UpdateButton.Hide();
 
         }
 

@@ -12,9 +12,9 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\KYOTO\Desktop\KBD\Ceo\</PublishUrl>
+    <PublishUrl>\\KYOTOSERVER\Share\Software Apps\Kyoto Business Directory\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -24,7 +24,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kyoto Business Directory</ProductName>
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
-    <ApplicationRevision>22</ApplicationRevision>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

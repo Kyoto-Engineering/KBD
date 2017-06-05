@@ -1210,6 +1210,7 @@ namespace PhonebookApp.UI
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
+            userPictureBox.Image = null;
             ResetResidentialAddress();
             ResetWorkingAddress();
             ResetAdditionalInformation();
@@ -1247,6 +1248,7 @@ namespace PhonebookApp.UI
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
+            userPictureBox.Image = null;
             ResetForeignAddress();
             ResetAdditionalInformation();
         }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CompanySelectiongroupBox = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,8 +66,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(17, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(695, 291);
             this.dataGridView1.TabIndex = 1;
@@ -97,6 +97,8 @@
             // SearchByCompanyNameGroupBox
             // 
             this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
+            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
             this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(34, 81);
             this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
             this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);

@@ -354,6 +354,7 @@ namespace PhonebookApp
             //cmbEmailAddress.ResetText();
             //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
+            companyNametextBox.Clear();
             //cmbCompanyName.Items.Clear();
             //cmbCompanyName.ResetText();
             //FillCompanyName();
@@ -394,6 +395,7 @@ namespace PhonebookApp
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
+            userPictureBox.Image = null;
             ResetResidentialAddress();
             ResetWorkingAddress();
             ResetAdditionalInformation();
@@ -421,6 +423,7 @@ namespace PhonebookApp
             //cmbEmailAddress.ResetText();
             //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
+            companyNametextBox.Clear();
             //cmbCompanyName.Items.Clear();
             //cmbCompanyName.ResetText();
             //FillCompanyName();
@@ -461,6 +464,7 @@ namespace PhonebookApp
             txtSkypeId.Clear();
             txtWhatsApp.Clear();
             txtImmo.Clear();
+            userPictureBox.Image = null;
             ResetForeignAddress();
             ResetAdditionalInformation();
         }

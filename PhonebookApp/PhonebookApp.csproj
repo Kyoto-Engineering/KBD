@@ -175,6 +175,12 @@
       <DependentUpon>EidGreetingsForResidentialAddGroup.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\EidGreetingsForResidentialAddRel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForResidentialAddRel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\EidGreetingsForWorkingAdd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,6 +197,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EidGreetingsForWorkingAddGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EidGreetingsForWorkingAddRel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EidGreetingsForWorkingAddRel.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\GreetingCardsForResidentialAdd.cs">
@@ -222,6 +234,18 @@
     </Compile>
     <Compile Include="Reports\ReportByDistrict.Designer.cs">
       <DependentUpon>ReportByDistrict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportByGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportByGroup.designer.cs">
+      <DependentUpon>ReportByGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportByMultiple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportByMultiple.designer.cs">
+      <DependentUpon>ReportByMultiple.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportViewer.cs">
       <SubType>Form</SubType>
@@ -415,6 +439,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForResidentialAddGroup.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForResidentialAddRel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForResidentialAddRel.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\EidGreetingsForWorkingAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForWorkingAdd.cs</LastGenOutput>
@@ -426,6 +454,10 @@
     <EmbeddedResource Include="Reports\EidGreetingsForWorkingAddGroup.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForWorkingAddGroup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EidGreetingsForWorkingAddRel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EidGreetingsForWorkingAddRel.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GreetingCardsForResidentialAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -445,6 +477,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportByDistrict.resx">
       <DependentUpon>ReportByDistrict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportByGroup.resx">
+      <DependentUpon>ReportByGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportByMultiple.resx">
+      <DependentUpon>ReportByMultiple.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>

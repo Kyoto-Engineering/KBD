@@ -32,7 +32,9 @@
             this.districtComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.getButton = new System.Windows.Forms.Button();
+            this.workingRadioButton = new System.Windows.Forms.RadioButton();
+            this.resedentialRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // divisionComboBox
@@ -71,22 +73,46 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "District";
             // 
-            // button1
+            // getButton
             // 
-            this.button1.Location = new System.Drawing.Point(264, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "GET";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.getButton.Location = new System.Drawing.Point(279, 177);
+            this.getButton.Name = "getButton";
+            this.getButton.Size = new System.Drawing.Size(75, 23);
+            this.getButton.TabIndex = 4;
+            this.getButton.Text = "GET";
+            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.Click += new System.EventHandler(this.getButton_Click);
+            // 
+            // workingRadioButton
+            // 
+            this.workingRadioButton.AutoSize = true;
+            this.workingRadioButton.Location = new System.Drawing.Point(248, 116);
+            this.workingRadioButton.Name = "workingRadioButton";
+            this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
+            this.workingRadioButton.TabIndex = 5;
+            this.workingRadioButton.TabStop = true;
+            this.workingRadioButton.Text = "Working Address";
+            this.workingRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // resedentialRadioButton
+            // 
+            this.resedentialRadioButton.AutoSize = true;
+            this.resedentialRadioButton.Location = new System.Drawing.Point(248, 140);
+            this.resedentialRadioButton.Name = "resedentialRadioButton";
+            this.resedentialRadioButton.Size = new System.Drawing.Size(118, 17);
+            this.resedentialRadioButton.TabIndex = 6;
+            this.resedentialRadioButton.TabStop = true;
+            this.resedentialRadioButton.Text = "Residential Address";
+            this.resedentialRadioButton.UseVisualStyleBackColor = true;
             // 
             // ReportByDistrict
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 261);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.resedentialRadioButton);
+            this.Controls.Add(this.workingRadioButton);
+            this.Controls.Add(this.getButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.districtComboBox);
@@ -105,6 +131,8 @@
         private System.Windows.Forms.ComboBox districtComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button getButton;
+        private System.Windows.Forms.RadioButton workingRadioButton;
+        private System.Windows.Forms.RadioButton resedentialRadioButton;
     }
 }

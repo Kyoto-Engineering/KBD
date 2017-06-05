@@ -27,24 +27,31 @@ namespace PhonebookApp.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmCategory frm=new frmCategory();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             UserManagementUI frm=new UserManagementUI();
-              frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmLogin frm=new frmLogin();
-             frm.Show();
+            this.Dispose();
+            frm.Show();
+            
         }
+
 
        
         private void button4_Click(object sender, EventArgs e)
@@ -98,9 +105,11 @@ namespace PhonebookApp.UI
 
         private void MemberAddedToGroupbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Group frm = new Group();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void personDetailsButton_Click_1(object sender, EventArgs e)
@@ -119,23 +128,29 @@ namespace PhonebookApp.UI
 
         private void NewEntrybutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+        
             frmNewEntry frm = new frmNewEntry();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void ManageGroupsbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmManageGroups frm = new frmManageGroups();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void ViewAndReportbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmViewAndReport frm = new frmViewAndReport();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true; ;
         }       
     }
 }

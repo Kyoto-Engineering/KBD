@@ -90,7 +90,6 @@
             this.Name = "Specialization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Specialization";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Specialization_FormClosed);
             this.Load += new System.EventHandler(this.Specialization_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -138,7 +138,6 @@
             this.Name = "GroupCreation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GroupCreation";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GroupCreation_FormClosed);
             this.Load += new System.EventHandler(this.GroupCreation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

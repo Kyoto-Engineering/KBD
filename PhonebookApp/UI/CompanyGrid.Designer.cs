@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyGrid));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SearchByCompanyNameGroupBox = new System.Windows.Forms.GroupBox();
-            this.companyNameSearchtextBox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +68,9 @@
             this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SearchByCompanyNameGroupBox = new System.Windows.Forms.GroupBox();
+            this.companyNameSearchtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SearchByCompanyNameGroupBox.SuspendLayout();
@@ -135,38 +135,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1226, 558);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(484, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 33);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "All Companies Details";
-            // 
-            // SearchByCompanyNameGroupBox
-            // 
-            this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
-            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
-            this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(23, 13);
-            this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
-            this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);
-            this.SearchByCompanyNameGroupBox.TabIndex = 3;
-            this.SearchByCompanyNameGroupBox.TabStop = false;
-            this.SearchByCompanyNameGroupBox.Text = "Search By Company Name";
-            // 
-            // companyNameSearchtextBox
-            // 
-            this.companyNameSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyNameSearchtextBox.Location = new System.Drawing.Point(26, 23);
-            this.companyNameSearchtextBox.Name = "companyNameSearchtextBox";
-            this.companyNameSearchtextBox.Size = new System.Drawing.Size(323, 29);
-            this.companyNameSearchtextBox.TabIndex = 0;
-            this.companyNameSearchtextBox.TextChanged += new System.EventHandler(this.companyNameSearchtextBox_TextChanged);
             // 
             // Column1
             // 
@@ -390,6 +358,38 @@
             this.Column37.Name = "Column37";
             this.Column37.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(484, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(283, 33);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "All Companies Details";
+            // 
+            // SearchByCompanyNameGroupBox
+            // 
+            this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
+            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
+            this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(23, 13);
+            this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
+            this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);
+            this.SearchByCompanyNameGroupBox.TabIndex = 3;
+            this.SearchByCompanyNameGroupBox.TabStop = false;
+            this.SearchByCompanyNameGroupBox.Text = "Search By Company Name";
+            // 
+            // companyNameSearchtextBox
+            // 
+            this.companyNameSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyNameSearchtextBox.Location = new System.Drawing.Point(26, 23);
+            this.companyNameSearchtextBox.Name = "companyNameSearchtextBox";
+            this.companyNameSearchtextBox.Size = new System.Drawing.Size(323, 29);
+            this.companyNameSearchtextBox.TabIndex = 0;
+            this.companyNameSearchtextBox.TextChanged += new System.EventHandler(this.companyNameSearchtextBox_TextChanged);
+            // 
             // CompanyGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +403,6 @@
             this.Name = "CompanyGrid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompanyGrid";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CompanyGrid_FormClosed);
             this.Load += new System.EventHandler(this.CompanyGrid_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

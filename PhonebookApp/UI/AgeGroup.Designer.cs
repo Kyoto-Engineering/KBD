@@ -92,7 +92,6 @@
             this.Name = "AgeGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgeGroup";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AgeGroup_FormClosed);
             this.Load += new System.EventHandler(this.AgeGroup_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

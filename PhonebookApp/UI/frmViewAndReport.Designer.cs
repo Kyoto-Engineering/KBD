@@ -110,7 +110,6 @@
             this.Name = "frmViewAndReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmViewAndReport";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmViewAndReport_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

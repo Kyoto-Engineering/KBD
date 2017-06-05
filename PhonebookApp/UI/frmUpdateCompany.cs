@@ -40,6 +40,11 @@ namespace PhonebookApp.UI
 
         private void frmCompany_Load(object sender, EventArgs e)
         {
+            LoadControls();
+        }
+
+        public void LoadControls()
+        {
             user_id = frmLogin.uId.ToString();
             FillCompanyType();
             FillIndustryCategory();
@@ -1083,6 +1088,7 @@ namespace PhonebookApp.UI
                             MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                             Reset();
+                            this.Close();
                         }
                     }
                     //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
@@ -1100,6 +1106,7 @@ namespace PhonebookApp.UI
                             MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                             Reset();
+                            this.Close();
                         }
                     }
                     //3.Corporate Address Applicable  & Tradding Address  Applicable
@@ -1117,6 +1124,7 @@ namespace PhonebookApp.UI
                             MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                             Reset();
+                            this.Close();
                         }
                     }
                 }

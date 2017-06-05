@@ -38,7 +38,12 @@ namespace PhonebookApp.UI
         {
             ctl.Focus();
         }
-        private void UpdatePersonInfo_Load(object sender, EventArgs e)
+        public void UpdatePersonInfo_Load(object sender, EventArgs e)
+        {
+            LoadControls();
+        }
+
+        public void LoadControls()
         {
             FillCountry();
             //CountrycomboBox.SelectedItem = "Bangladesh";
@@ -856,13 +861,14 @@ namespace PhonebookApp.UI
                             FillRelationShip();
                             cmbRelationShip.ResetText();
                             unKnownRA.Checked = false;
-                            groupBox2.Show();
+                            groupBox2.Visible = true;
                             groupBox2.Location=new Point(466,12);
-                            groupBox3.Hide();
-                            groupBox6.Hide();
-                            groupBox7.Show(); 
+                            groupBox3.Visible = false;
+                            groupBox6.Visible = false;
+                            groupBox7.Visible = true; 
                             groupBox7.Location=new Point(466,290);
-                            btnInsert.Hide();
+                            btnInsert.Visible = false;
+                            this.Close();
                         }
                     }
                     else
@@ -904,13 +910,13 @@ namespace PhonebookApp.UI
                             FillRelationShip();
                             cmbRelationShip.ResetText();
                             unKnownRA.Checked = false;
-                            groupBox2.Show();
+                            groupBox2.Visible = true;
                             groupBox2.Location = new Point(466, 12);
-                            groupBox3.Hide();
-                            groupBox6.Hide();
-                            groupBox7.Show();
+                            groupBox3.Visible = false;
+                            groupBox6.Visible = false;
+                            groupBox7.Visible = true;
                             groupBox7.Location = new Point(466, 290);
-                            btnInsert.Hide();
+                            btnInsert.Visible = false;
 
                         }
                     }
@@ -951,13 +957,14 @@ namespace PhonebookApp.UI
                         cmbAgeGroup.ResetText();
                         FillRelationShip();
                         cmbRelationShip.ResetText();
-                        groupBox2.Hide();
-                        groupBox3.Hide();
-                        groupBox6.Show();
+                        groupBox2.Visible = false;
+                        groupBox3.Visible = false;
+                        groupBox6.Visible = true;
                         groupBox7.Location = new Point(466, 12);
-                        groupBox7.Show();
+                        groupBox7.Visible = true;
                         groupBox7.Location = new Point(466, 155);
-                        btnInsert.Hide();
+                        btnInsert.Visible = false;
+                        this.Close();
                     }
                 }
             }

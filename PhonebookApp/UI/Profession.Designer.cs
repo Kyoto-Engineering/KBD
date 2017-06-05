@@ -91,7 +91,6 @@
             this.Name = "Profession";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profession";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Profession_FormClosed);
             this.Load += new System.EventHandler(this.Profession_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

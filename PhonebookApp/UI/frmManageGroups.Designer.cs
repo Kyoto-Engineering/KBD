@@ -165,7 +165,6 @@
             this.Name = "frmManageGroups";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageGroups";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmManageGroups_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

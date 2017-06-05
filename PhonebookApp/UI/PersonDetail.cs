@@ -84,9 +84,9 @@ namespace PhonebookApp.UI
             {
             
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
-                this.Hide();
+                
                 UpdatePersonInfo frm = new UpdatePersonInfo();
-                frm.Show();
+                frm.LoadControls();
                 frm.PersonIdtextBox.Text = dr.Cells[0].Value.ToString();
                 frm.CountrycomboBox.Text = dr.Cells[1].Value.ToString();
                 frm.txtPersonName.Text = dr.Cells[2].Value.ToString();
@@ -119,18 +119,18 @@ namespace PhonebookApp.UI
                 }
                 if (dr.Cells[1].Value.Equals("Bangladesh"))
                 {
-                    frm.groupBox2.Show();
+                    frm.groupBox2.Visible = true;
                     if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
                     {
-                        frm.groupBox3.Hide();
-                        frm.groupBox7.Show();
+                        frm.groupBox3.Visible = false;
+                        frm.groupBox7.Visible = true;
                         frm.groupBox7.Location = new Point(466, 295);
                     }
                     else
                     {
-                        frm.groupBox3.Show();
+                        frm.groupBox3.Visible = true;
                         frm.groupBox3.Location = new Point(466, 290);
-                        frm.groupBox7.Show();
+                        frm.groupBox7.Visible = false;
                         frm.groupBox7.Location = new Point(466, 533);
 
                         frm.txtWAFlatName.Text = string.IsNullOrEmpty(dr.Cells[34].Value.ToString()) ? null : dr.Cells[34].Value.ToString();
@@ -168,19 +168,19 @@ namespace PhonebookApp.UI
                 {
                     if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
                     {
-                        frm.groupBox2.Hide();
-                        frm.groupBox3.Hide();
-                        frm.groupBox6.Show();
-                        frm.groupBox7.Show();
+                        frm.groupBox2.Visible = false;
+                        frm.groupBox3.Visible = false;
+                        frm.groupBox6.Visible = true;
+                        frm.groupBox7.Visible = true;
                         frm.groupBox6.Location = new Point(466, 12);
                         frm.groupBox7.Location = new Point(466, 155);
                     }
                     else
                     {
-                        frm.groupBox2.Hide();
-                        frm.groupBox3.Show();
-                        frm.groupBox6.Show();
-                        frm.groupBox7.Show();
+                        frm.groupBox2.Visible = false;
+                        frm.groupBox3.Visible = true;
+                        frm.groupBox6.Visible = true;
+                        frm.groupBox7.Visible = true;
                         frm.groupBox6.Location = new Point(466, 12);
                         frm.groupBox3.Location = new Point(466, 155);
                         frm.groupBox7.Location = new Point(466, 410);
@@ -211,8 +211,11 @@ namespace PhonebookApp.UI
                 frm.maritalStatuscomboBox.Text = string.IsNullOrEmpty(dr.Cells[54].Value.ToString()) ? null : dr.Cells[54].Value.ToString();
                 frm.AnniversarydateTimePicker.Text = string.IsNullOrEmpty(dr.Cells[55].Value.ToString()) ? null : dr.Cells[55].Value.ToString();
                 frm.companyId = string.IsNullOrEmpty(dr.Cells[56].Value.ToString()) ? null : dr.Cells[56].Value.ToString();
-                frm.btnInsert.Show();
+                frm.btnInsert.Visible = true;
                 frm.btnInsert.Location = new Point(1045, 540);
+                this.Visible = false;
+                frm.ShowDialog();
+                this.Visible = true; 
             }
             catch (Exception ex)
             {

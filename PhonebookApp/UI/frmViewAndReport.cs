@@ -19,9 +19,11 @@ namespace PhonebookApp.UI
 
         private void personDetailsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             PersonDetail frmm = new PersonDetail();
-            frmm.Show();
+            this.Visible = false;
+            frmm.ShowDialog();
+            this.Visible = true; ;
         }
 
         private void frmViewAndReport_FormClosed(object sender, FormClosedEventArgs e)
@@ -33,16 +35,20 @@ namespace PhonebookApp.UI
 
         private void reportButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             ReportUI frm = new ReportUI();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true; ;
         }
 
         private void ViewCompanybutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             CompanyGrid frm = new CompanyGrid();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true; ;
         }
     }
 }

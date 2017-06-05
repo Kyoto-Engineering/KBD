@@ -19,23 +19,29 @@ namespace PhonebookApp.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             CompanyCreation frm = new CompanyCreation();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frm1 frmX = new frm1();
-            frmX.Show();
+            this.Visible = false;
+            frmX.ShowDialog();
+            this.Visible = true;
         }
 
         private void frmNewEntry_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             MainUI frm = new MainUI();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
     }
 }

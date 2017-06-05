@@ -2535,7 +2535,7 @@ namespace PhonebookApp
             textNickName.Enabled = true;
             txtFatherName.Enabled = true;
             cmbEmailAddress.Enabled = true;
-            cmbCompanyName.Enabled = true;
+            //cmbCompanyName.Enabled = true;
             GroupNamecomboBox.Enabled = true;
             cmbAgeGroup.Enabled = true;
             cmbProfession.Enabled = true;
@@ -2623,7 +2623,7 @@ namespace PhonebookApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cmbCompanyName.Focus();
+                //cmbCompanyName.Focus();
                 e.Handled = true;
             }
         }

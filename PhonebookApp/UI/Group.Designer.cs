@@ -366,7 +366,6 @@
             this.Name = "Group";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Group";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Group_FormClosed);
             this.Load += new System.EventHandler(this.Group_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);

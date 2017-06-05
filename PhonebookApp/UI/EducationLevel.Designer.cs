@@ -91,7 +91,6 @@
             this.Name = "EducationLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EducationLevel";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EducationLevel_FormClosed);
             this.Load += new System.EventHandler(this.EducationLevel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

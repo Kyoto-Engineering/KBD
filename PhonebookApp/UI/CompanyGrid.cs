@@ -79,9 +79,9 @@ namespace PhonebookApp.UI
             try
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
-                this.Hide();
+                
                 frmUpdateCompany frm=new frmUpdateCompany();
-                frm.Show();
+                frm.LoadControls();
                 frm.CompanyIdtextBox.Text = dr.Cells[0].Value.ToString();
                 frm.CompanyNameTextBox.Text = dr.Cells[1].Value.ToString();
                 frm.cmbCompanytype.Text = dr.Cells[2].Value.ToString();
@@ -119,6 +119,9 @@ namespace PhonebookApp.UI
                 frm.tThenaCombo.Text = dr.Cells[34].Value.ToString();
                 frm.tPostCombo.Text = dr.Cells[35].Value.ToString();
                 frm.tPostCodeTextBox.Text = dr.Cells[36].Value.ToString();
+                this.Visible = false;
+                frm.ShowDialog();
+                this.Visible = true; 
             }
             catch (Exception ex)
             {

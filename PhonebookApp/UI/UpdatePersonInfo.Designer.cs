@@ -1737,7 +1737,6 @@
             this.Name = "UpdatePersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdatePersonInfo";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdatePersonInfo_FormClosed_1);
             this.Load += new System.EventHandler(this.UpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

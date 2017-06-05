@@ -19,58 +19,75 @@ namespace PhonebookApp.UI
 
         private void buttonSpecialization_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Specialization frm = new Specialization();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void frmManageGroups_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             MainUI frm = new MainUI();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void buttonProfession_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Profession frm = new Profession();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void buttonAgeGroup_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             AgeGroup frm = new AgeGroup();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void Categorybutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmCategory frm = new frmCategory();
-            frm.Show();
+            //frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void buttonEducationLevel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            ////this.Hide();
             EducationLevel frm = new EducationLevel();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void buttonJobTitle_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             frmJobTitle frm = new frmJobTitle();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         private void NewGroupCreationbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             GroupCreation frm = new GroupCreation();
-            frm.Show();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
         }
 
         

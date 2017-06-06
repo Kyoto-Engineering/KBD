@@ -130,7 +130,7 @@ namespace PhonebookApp.UI
                     {
                         frm.groupBox3.Visible = true;
                         frm.groupBox3.Location = new Point(466, 290);
-                        frm.groupBox7.Visible = false;
+                        frm.groupBox7.Visible = true;
                         frm.groupBox7.Location = new Point(466, 533);
 
                         frm.txtWAFlatName.Text = string.IsNullOrEmpty(dr.Cells[34].Value.ToString()) ? null : dr.Cells[34].Value.ToString();

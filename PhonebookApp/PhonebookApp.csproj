@@ -27,7 +27,7 @@
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -636,7 +636,6 @@
   <ItemGroup>
     <None Include="Resources\user_up.png" />
     <None Include="Resources\Kyoto Google Plus  Profile.png" />
-    <None Include="Resources\Business Directory.png" />
     <None Include="Resources\business_directory_p6Q_icon.ico" />
     <Content Include="business_directory_p6Q_icon.ico" />
     <Content Include="Resources\Logo.png" />

@@ -918,7 +918,7 @@ namespace PhonebookApp.UI
                             groupBox7.Visible = true;
                             groupBox7.Location = new Point(466, 290);
                             btnInsert.Visible = false;
-
+                            this.Close();
                         }
                     }
                 }

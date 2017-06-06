@@ -1345,8 +1345,8 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private wmgCMS.WaterMarkTextBox tBlockTextBox;
-        private wmgCMS.WaterMarkTextBox cBlockTextBox;
+        //private wmgCMS.WaterMarkTextBox tBlockTextBox;
+        //private wmgCMS.WaterMarkTextBox cBlockTextBox;
         private System.Windows.Forms.CheckBox sameAsCorporatAddCheckBox;
         private System.Windows.Forms.CheckBox notApplicableCheckBox;
         private System.Windows.Forms.Label label40;
@@ -1363,8 +1363,8 @@
         private System.Windows.Forms.ComboBox cDivisionCombo;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.GroupBox groupBox4;
-        private wmgCMS.WaterMarkTextBox tBlockTextBox2;
-        private wmgCMS.WaterMarkTextBox cBlockTextBox1;
+        //private wmgCMS.WaterMarkTextBox tBlockTextBox2;
+        //private wmgCMS.WaterMarkTextBox cBlockTextBox1;
         private System.Windows.Forms.TextBox FblocktextBox;
         private System.Windows.Forms.TextBox blocktextBox;
         private System.Windows.Forms.GroupBox groupBox5;

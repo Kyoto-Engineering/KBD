@@ -36,6 +36,7 @@
             this.NewEntrybutton = new System.Windows.Forms.Button();
             this.MemberAddedToGroupbutton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.ViewAndReportbutton);
             this.groupBox1.Controls.Add(this.ManageGroupsbutton);
             this.groupBox1.Controls.Add(this.NewEntrybutton);
@@ -127,6 +129,19 @@
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(21, 245);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 66);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Manage Batches";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +171,6 @@
         private System.Windows.Forms.Button NewEntrybutton;
         private System.Windows.Forms.Button ManageGroupsbutton;
         private System.Windows.Forms.Button ViewAndReportbutton;
+        private System.Windows.Forms.Button button1;
     }
 }

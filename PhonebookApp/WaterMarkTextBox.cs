@@ -17,7 +17,11 @@ namespace wmgCMS
         public Color WaterMarkColor
         {
             get { return _waterMarkColor; }
-            set { _waterMarkColor = value; Invalidate();/*thanks to Bernhard Elbl for Invalidate()*/ }
+            set
+            {
+                _waterMarkColor = value; Invalidate();/*thanks to Bernhard Elbl
+                                                              for Invalidate()*/
+            }
         }
 
         private string _waterMarkText = "Water Mark";
@@ -45,11 +49,13 @@ namespace wmgCMS
         protected override void OnPaint(PaintEventArgs args)
         {
             // Use the same font that was defined in base class
-            System.Drawing.Font drawFont = new System.Drawing.Font(Font.FontFamily, Font.Size, Font.Style, Font.Unit);
+            System.Drawing.Font drawFont = new System.Drawing.Font(Font.FontFamily,
+                Font.Size, Font.Style, Font.Unit);
             //Create new brush with gray color or 
             SolidBrush drawBrush = new SolidBrush(WaterMarkColor);//use Water mark color
             //Draw Text or WaterMark
-            args.Graphics.DrawString((waterMarkTextEnabled ? WaterMarkText : Text), drawFont, drawBrush, new PointF(0.0F, 0.0F));
+            args.Graphics.DrawString((waterMarkTextEnabled ? WaterMarkText : Text),
+                drawFont, drawBrush, new PointF(0.0F, 0.0F));
             base.OnPaint(args);
         }
 
@@ -62,8 +68,10 @@ namespace wmgCMS
                 this.FontChanged += new System.EventHandler(this.WaterMark_FontChanged);
                 //No one of the above events will start immeddiatlly 
                 //TextBox control still in constructing, so,
-                //Font object (for example) couldn't be catched from within WaterMark_Toggle
-                //So, call WaterMark_Toggel through OnCreateControl after TextBox is totally created
+                //Font object (for example) couldn't be catched from within
+                //WaterMark_Toggle
+                //So, call WaterMark_Toggel through OnCreateControl after TextBox
+                //is totally created
                 //No doupt, it will be only one time call
 
                 //Old solution uses Timer.Tick event to check Create property
@@ -80,8 +88,10 @@ namespace wmgCMS
 
         private void EnableWaterMark()
         {
-            //Save current font until returning the UserPaint style to false (NOTE: It is a try and error advice)
-            oldFont = new System.Drawing.Font(Font.FontFamily, Font.Size, Font.Style, Font.Unit);
+            //Save current font until returning the UserPaint style to false (NOTE:
+            //It is a try and error advice)
+            oldFont = new System.Drawing.Font(Font.FontFamily, Font.Size, Font.Style,
+                Font.Unit);
             //Enable OnPaint event handler
             this.SetStyle(ControlStyles.UserPaint, true);
             this.waterMarkTextEnabled = true;
@@ -96,14 +106,16 @@ namespace wmgCMS
             this.SetStyle(ControlStyles.UserPaint, false);
             //Return back oldFont if existed
             if (oldFont != null)
-                this.Font = new System.Drawing.Font(oldFont.FontFamily, oldFont.Size, oldFont.Style, oldFont.Unit);
+                this.Font = new System.Drawing.Font(oldFont.FontFamily, oldFont.Size,
+                    oldFont.Style, oldFont.Unit);
         }
 
         private void WaterMark_FontChanged(object sender, EventArgs args)
         {
             if (waterMarkTextEnabled)
             {
-                oldFont = new System.Drawing.Font(Font.FontFamily, Font.Size, Font.Style, Font.Unit);
+                oldFont = new System.Drawing.Font(Font.FontFamily, Font.Size, Font.Style,
+                    Font.Unit);
                 Refresh();
             }
         }

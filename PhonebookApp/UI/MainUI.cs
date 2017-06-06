@@ -151,6 +151,14 @@ namespace PhonebookApp.UI
             this.Visible = false;
             frm.ShowDialog();
             this.Visible = true; ;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Batch frmb = new Batch();
+            this.Visible = false;
+            frmb.ShowDialog();
+            this.Visible = true; ;
         }       
     }
 }

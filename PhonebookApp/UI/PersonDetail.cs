@@ -215,6 +215,8 @@ namespace PhonebookApp.UI
                 frm.btnInsert.Location = new Point(1045, 540);
                 this.Visible = false;
                 frm.ShowDialog();
+                dataGridView1.Rows.Clear();
+                FillPersonDetailsGrid();
                 this.Visible = true; 
             }
             catch (Exception ex)

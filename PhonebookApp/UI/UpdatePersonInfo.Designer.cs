@@ -277,6 +277,7 @@
             this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PersonIdtextBox.Location = new System.Drawing.Point(156, 21);
             this.PersonIdtextBox.Name = "PersonIdtextBox";
+            this.PersonIdtextBox.ReadOnly = true;
             this.PersonIdtextBox.Size = new System.Drawing.Size(235, 20);
             this.PersonIdtextBox.TabIndex = 102;
             // 

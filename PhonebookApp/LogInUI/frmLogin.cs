@@ -97,9 +97,13 @@ namespace PhonebookApp.LogInUI
                     if (txtUserType.Text.Trim() == "Admin")
                     {
 
-                        this.Hide();
+                        
                         MainUI frm = new MainUI();
-                        frm.Show();
+                        this.Visible = false;
+                        frm.ShowDialog();
+                        this.Visible = true;
+                        txt1UserName.Clear();
+                        txt1Password.Clear();
 
                     }
                     //if (txtUserType.Text.Trim() == "User")
@@ -113,9 +117,13 @@ namespace PhonebookApp.LogInUI
                     if (txtUserType.Text.Trim() == "User")
                     {
 
-                        this.Hide();
+                        //this.Hide();
                         MainUI frm = new MainUI();
-                        frm.Show();
+                        this.Visible = false;
+                        frm.ShowDialog();
+                        this.Visible = true;
+                        txt1UserName.Clear();
+                        txt1Password.Clear();
 
                     }
                 }

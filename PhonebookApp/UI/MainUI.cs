@@ -46,9 +46,9 @@ namespace PhonebookApp.UI
         private void logOutButton_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            frmLogin frm=new frmLogin();
+            //frmLogin frm=new frmLogin();
             this.Dispose();
-            frm.Show();
+            //frm.Show();
             
         }
 

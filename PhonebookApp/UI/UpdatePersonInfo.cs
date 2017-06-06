@@ -769,14 +769,15 @@ namespace PhonebookApp.UI
                     
                 }
 
-                if (p.Person == txtPersonName.Text && p.Company == cmbCompanyName.Text)
+                if (p.Person == txtPersonName.Text && p.Company == companyNametextBox.Text)
                 {
                     DialogResult dialogResult = MessageBox.Show("This Person name and Company already Exist.Do you Want to Continue? ", "Confirm",
                         MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.No)
                     {
                         txtPersonName.Clear();
-                        cmbCompanyName.SelectedIndex = -1;
+                        //cmbCompanyName.SelectedIndex = -1;
+                        companyNametextBox.Clear();
                         ResetWorkingAddress();
                         companyId = null;
                         txtPersonName.Focus();
@@ -810,7 +811,7 @@ namespace PhonebookApp.UI
         private void btnInsert_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(cmbEmailAddress.Text) &&
-                string.IsNullOrEmpty(cmbCompanyName.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) &&
+                string.IsNullOrEmpty(companyNametextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) &&
                 (unKnownRA.Checked))
             {
                 MessageBox.Show(@"Please insert Email or Company or Phone Number or Address", @"Error",

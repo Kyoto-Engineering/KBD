@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdatePersonInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.CompanySelectionbutton = new System.Windows.Forms.Button();
             this.companyNametextBox = new System.Windows.Forms.TextBox();
             this.PersonIdtextBox = new System.Windows.Forms.TextBox();
@@ -138,7 +137,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.cmbJobTitle = new System.Windows.Forms.ComboBox();
-            this.cmbCompanyName = new System.Windows.Forms.ComboBox();
             this.cmbEmailAddress = new System.Windows.Forms.ComboBox();
             this.txtFatherName = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -182,7 +180,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CompanyIdtextBox);
             this.groupBox1.Controls.Add(this.CompanySelectionbutton);
             this.groupBox1.Controls.Add(this.companyNametextBox);
             this.groupBox1.Controls.Add(this.PersonIdtextBox);
@@ -205,7 +202,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnInsert);
             this.groupBox1.Controls.Add(this.cmbJobTitle);
-            this.groupBox1.Controls.Add(this.cmbCompanyName);
             this.groupBox1.Controls.Add(this.cmbEmailAddress);
             this.groupBox1.Controls.Add(this.txtFatherName);
             this.groupBox1.Controls.Add(this.label27);
@@ -242,15 +238,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
-            // 
-            // CompanyIdtextBox
-            // 
-            this.CompanyIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyIdtextBox.Location = new System.Drawing.Point(144, 168);
-            this.CompanyIdtextBox.Name = "CompanyIdtextBox";
-            this.CompanyIdtextBox.Size = new System.Drawing.Size(11, 20);
-            this.CompanyIdtextBox.TabIndex = 106;
-            this.CompanyIdtextBox.Visible = false;
             // 
             // CompanySelectionbutton
             // 
@@ -1404,18 +1391,6 @@
             this.cmbJobTitle.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitle_SelectedIndexChanged);
             this.cmbJobTitle.Leave += new System.EventHandler(this.cmbJobTitle_Leave);
             // 
-            // cmbCompanyName
-            // 
-            this.cmbCompanyName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCompanyName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCompanyName.FormattingEnabled = true;
-            this.cmbCompanyName.Location = new System.Drawing.Point(125, 168);
-            this.cmbCompanyName.Name = "cmbCompanyName";
-            this.cmbCompanyName.Size = new System.Drawing.Size(13, 21);
-            this.cmbCompanyName.TabIndex = 6;
-            this.cmbCompanyName.Visible = false;
-            // 
             // cmbEmailAddress
             // 
             this.cmbEmailAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1859,7 +1834,6 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button btnInsert;
         public System.Windows.Forms.ComboBox cmbJobTitle;
-        public System.Windows.Forms.ComboBox cmbCompanyName;
         public System.Windows.Forms.ComboBox cmbEmailAddress;
         public System.Windows.Forms.TextBox txtFatherName;
         private System.Windows.Forms.Label label27;
@@ -1899,6 +1873,5 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         public System.Windows.Forms.TextBox companyNametextBox;
         private System.Windows.Forms.Button CompanySelectionbutton;
-        public System.Windows.Forms.TextBox CompanyIdtextBox;
     }
 }

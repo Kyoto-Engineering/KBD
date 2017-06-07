@@ -20,7 +20,7 @@ namespace PhonebookApp.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         private SqlDataAdapter sda;
-        public int groupid, personid;
+        public int groupid, personid,companyid;
         public string user_id;
 
         public Group()
@@ -91,7 +91,7 @@ namespace PhonebookApp.UI
                 //INNER Join Query
                 //SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName,Category.CategoryName, Specializations.Specialization, Profession.ProfessionName,EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel FROM Persons INNER JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId INNER JOIN Category ON Persons.CategoryId = Category.CategoryId  INNER JOIN Company ON Persons.CompanyId = Company.CompanyId  INNER JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId  INNER JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId  INNER JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId INNER JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId INNER JOIN AgeGroup ON Persons.AgeGroupId=AgeGroup.AgeGroupId", con);
                 //Left Join Query
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName, Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName,convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate FROM Persons LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId LEFT JOIN Company ON Persons.CompanyId = Company.CompanyId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName, Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName,convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate, Company.CompanyId FROM Persons LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId LEFT JOIN Company ON Persons.CompanyId = Company.CompanyId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView.Rows.Clear();
@@ -111,6 +111,7 @@ namespace PhonebookApp.UI
                     dataGridView.Rows[n].Cells[10].Value = item[10].ToString();
                     dataGridView.Rows[n].Cells[11].Value = item[11].ToString();
                     dataGridView.Rows[n].Cells[12].Value = item[12].ToString();
+                    dataGridView.Rows[n].Cells[13].Value = item[13].ToString();
                     
                 }
             }
@@ -143,17 +144,18 @@ namespace PhonebookApp.UI
                             ListViewItem lst = new ListViewItem();
                             lst.Text = dr.Cells[0].Value.ToString();
                             lst.SubItems.Add(dr.Cells[1].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[2].Value.ToString());
+                            lst.SubItems.Add(dr.Cells[13].Value.ToString());
                             lst.SubItems.Add(dr.Cells[3].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[4].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[5].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[6].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[7].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[8].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[9].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[10].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[11].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[12].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[3].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[4].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[5].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[6].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[7].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[8].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[9].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[10].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[11].Value.ToString());
+                            //lst.SubItems.Add(dr.Cells[12].Value.ToString());
                             
                             listView.Items.Add(lst);
                         }
@@ -164,17 +166,18 @@ namespace PhonebookApp.UI
                             ListViewItem lst1 = new ListViewItem();
                             lst1.Text = dr.Cells[0].Value.ToString();
                             lst1.SubItems.Add(dr.Cells[1].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[2].Value.ToString());
+                            lst1.SubItems.Add(dr.Cells[13].Value.ToString());
                             lst1.SubItems.Add(dr.Cells[3].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[4].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[5].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[6].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[7].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[8].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[9].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[10].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[11].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[12].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[3].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[4].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[5].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[6].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[7].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[8].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[9].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[10].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[11].Value.ToString());
+                            //lst1.SubItems.Add(dr.Cells[12].Value.ToString());
                            
                             listView.Items.Add(lst1);
                         }
@@ -239,35 +242,37 @@ namespace PhonebookApp.UI
                 LoadGroupId();
                 try
                 {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct = "select PersonsId from GroupMember where GroupId='" + groupid +
-                                "' AND PersonsId='" + personid + "'";
-                    cmd = new SqlCommand(ct);
-                    cmd.Connection = con;
-                    rdr = cmd.ExecuteReader();
-
-                    if (rdr.Read())
+                    for (int i = 0; i <= listView.Items.Count - 1; i++)
                     {
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string ct = "select PersonsId from GroupMember where GroupId='" + groupid +
+                                    "' AND PersonsId='" + personid + "'";
+                        cmd = new SqlCommand(ct);
+                        cmd.Connection = con;
+                        rdr = cmd.ExecuteReader();
 
-                        MessageBox.Show("This Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
-                              MessageBoxIcon.Error);
-                        GroupNamecomboBox.SelectedIndex = -1;
-
-                        if ((rdr != null))
+                        if (rdr.Read())
                         {
-                            rdr.Close();
-                        }
-                        return;
-                    }
 
+                            MessageBox.Show("This Person Id: "+ personid +" Already Exists in these Group", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                            GroupNamecomboBox.SelectedIndex = -1;
+
+                            if ((rdr != null))
+                            {
+                                rdr.Close();
+                            }
+                            return;
+                        }
+                    }
                     SaveInfo();
 
                     MessageBox.Show("Submitted Successfully", "Information", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     GroupNamecomboBox.SelectedIndex = -1;
                     
-                    listView.Items.Clear();
+                    //listView.Items.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -285,6 +290,96 @@ namespace PhonebookApp.UI
         private void GroupNamecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            groupBox2.Visible = false;
+            groupBox3.Visible = false;
+            
+            //richTextBox1.Clear();
+            //richTextBox2.Clear();
+            personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+            companyid = Convert.ToInt32(string.IsNullOrEmpty(dataGridView.CurrentRow.Cells[13].Value.ToString()));
+
+            DataGridViewRow dr = dataGridView.SelectedRows[0];
+            if (string.IsNullOrEmpty(dr.Cells[0].Value.ToString()))
+            {
+                //richTextBox1.Text = "";
+                groupBox2.Visible = false;
+            }
+            else
+            {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "select isnull(nullif(ResidentialAddresses.RFlatNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RHouseNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RRoadNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RBlock,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RArea,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RContactNo,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(ResidentialAddresses.LandMark,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Persons INNER JOIN ResidentialAddresses ON Persons.PersonsId = ResidentialAddresses.PersonsId INNER JOIN PostOffice ON ResidentialAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Persons.PersonsId = '" + dr.Cells[0].Value.ToString() + "'";
+                    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (rdr.Read())
+                    {
+                        groupBox2.Visible = true;
+                        richTextBox1.Text = rdr.GetString(0);
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (string.IsNullOrEmpty(dr.Cells[13].Value.ToString()))
+            {
+                groupBox3.Visible = false;
+                //richTextBox2.Text = "";
+            }
+            else
+            {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "select isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyId = '" + dr.Cells[13].Value.ToString() + "'";
+                    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (rdr.Read())
+                    {
+                        groupBox3.Visible = true;
+                        richTextBox2.Text = rdr.GetString(0);
+                    }
+                   
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Please Select a row from the list which you  want to remove", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                for (int i = listView.Items.Count - 1; i >= 0; i--)
+                {
+                    if (listView.Items[i].Selected)
+                    {
+                        listView.Items[i].Remove();
+                    }
+                }
+            }
         }
     }
 }

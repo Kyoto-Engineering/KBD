@@ -99,7 +99,15 @@ namespace PhonebookApp.UI
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE FROM GroupMember WHERE PersonsId = @pid and GroupId=@gid";
+            cmd.Parameters.AddWithValue("@pid", personid);
+            cmd.Parameters.AddWithValue("@gid", groupid);
+            cmd.ExecuteNonQuery();
+       
         }
     }
 }

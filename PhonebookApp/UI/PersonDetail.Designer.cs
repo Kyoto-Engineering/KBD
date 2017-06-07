@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonDetail));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lk = new System.Windows.Forms.Label();
+            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,11 +92,6 @@
             this.Column54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lk = new System.Windows.Forms.Label();
-            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -168,8 +167,7 @@
             this.Column53,
             this.Column54,
             this.Column55,
-            this.Column56,
-            this.Column57});
+            this.Column56});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Olive;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,9 +185,50 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(456, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(406, 36);
+            this.label1.TabIndex = 2;
+            this.label1.Text = " List  of Person  Information";
+            // 
+            // lk
+            // 
+            this.lk.AutoSize = true;
+            this.lk.Location = new System.Drawing.Point(14, 44);
+            this.lk.Name = "lk";
+            this.lk.Size = new System.Drawing.Size(18, 15);
+            this.lk.TabIndex = 3;
+            this.lk.Text = "lg";
+            this.lk.Visible = false;
+            // 
+            // SearchPersonNametextBox
+            // 
+            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPersonNametextBox.Location = new System.Drawing.Point(52, 33);
+            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
+            this.SearchPersonNametextBox.Size = new System.Drawing.Size(265, 26);
+            this.SearchPersonNametextBox.TabIndex = 5;
+            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(89, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Search By Person Name";
+            // 
             // Column1
             // 
-            this.Column1.HeaderText = "PersonID";
+            this.Column1.HeaderText = "Person Id";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
@@ -237,339 +276,292 @@
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Group";
+            this.Column9.HeaderText = "Specialization";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
-            this.Column10.HeaderText = "Specialization";
+            this.Column10.HeaderText = "Profession";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Profession";
+            this.Column11.HeaderText = "Education Level";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
-            this.Column12.HeaderText = "Education Level";
+            this.Column12.HeaderText = "Highest Degree";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             // 
             // Column13
             // 
-            this.Column13.HeaderText = "Highest Degree";
+            this.Column13.HeaderText = "Age Group";
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
             // 
             // Column14
             // 
-            this.Column14.HeaderText = "Age Group";
+            this.Column14.HeaderText = "Relationship";
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
             // 
             // Column15
             // 
-            this.Column15.HeaderText = "Relationship";
+            this.Column15.HeaderText = "Website";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
             // 
             // Column16
             // 
-            this.Column16.HeaderText = "Website";
+            this.Column16.HeaderText = "Skype";
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
             // 
             // Column17
             // 
-            this.Column17.HeaderText = "Skype";
+            this.Column17.HeaderText = "Phone 1";
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
             // 
             // Column18
             // 
-            this.Column18.HeaderText = "Phone 1";
+            this.Column18.HeaderText = "Phone 2";
             this.Column18.Name = "Column18";
             this.Column18.ReadOnly = true;
             // 
             // Column19
             // 
-            this.Column19.HeaderText = "Phone 2";
+            this.Column19.HeaderText = "Picture";
             this.Column19.Name = "Column19";
             this.Column19.ReadOnly = true;
             // 
             // Column20
             // 
-            this.Column20.HeaderText = "Picture";
+            this.Column20.HeaderText = "Residential flat No";
             this.Column20.Name = "Column20";
             this.Column20.ReadOnly = true;
             // 
             // Column21
             // 
-            this.Column21.HeaderText = "Res Flat No";
+            this.Column21.HeaderText = "Residential House No";
             this.Column21.Name = "Column21";
             this.Column21.ReadOnly = true;
             // 
             // Column22
             // 
-            this.Column22.HeaderText = "Res House No";
+            this.Column22.HeaderText = "Residential Road No";
             this.Column22.Name = "Column22";
             this.Column22.ReadOnly = true;
             // 
             // Column23
             // 
-            this.Column23.HeaderText = "Res Road No";
+            this.Column23.HeaderText = "Residential Block";
             this.Column23.Name = "Column23";
             this.Column23.ReadOnly = true;
             // 
             // Column24
             // 
-            this.Column24.HeaderText = "Res Block";
+            this.Column24.HeaderText = "Residential Area";
             this.Column24.Name = "Column24";
             this.Column24.ReadOnly = true;
             // 
             // Column25
             // 
-            this.Column25.HeaderText = "Res Area";
+            this.Column25.HeaderText = "Residential Contact No";
             this.Column25.Name = "Column25";
             this.Column25.ReadOnly = true;
             // 
             // Column26
             // 
-            this.Column26.HeaderText = "Res Contact";
+            this.Column26.HeaderText = "Residential Building Name";
             this.Column26.Name = "Column26";
             this.Column26.ReadOnly = true;
             // 
             // Column27
             // 
-            this.Column27.HeaderText = "Res Building Name";
+            this.Column27.HeaderText = "Residential Road Name";
             this.Column27.Name = "Column27";
             this.Column27.ReadOnly = true;
             // 
             // Column28
             // 
-            this.Column28.HeaderText = "Res Road Name";
+            this.Column28.HeaderText = "Residential Nearest Landmark";
             this.Column28.Name = "Column28";
             this.Column28.ReadOnly = true;
             // 
             // Column29
             // 
-            this.Column29.HeaderText = "Res Nearest Landmark";
+            this.Column29.HeaderText = "Residential Division";
             this.Column29.Name = "Column29";
             this.Column29.ReadOnly = true;
             // 
             // Column30
             // 
-            this.Column30.HeaderText = "Res Division";
+            this.Column30.HeaderText = "Residential District";
             this.Column30.Name = "Column30";
             this.Column30.ReadOnly = true;
             // 
             // Column31
             // 
-            this.Column31.HeaderText = "Res District";
+            this.Column31.HeaderText = "Residential Thana";
             this.Column31.Name = "Column31";
             this.Column31.ReadOnly = true;
             // 
             // Column32
             // 
-            this.Column32.HeaderText = "Res Thana";
+            this.Column32.HeaderText = "Residential Post Office";
             this.Column32.Name = "Column32";
             this.Column32.ReadOnly = true;
             // 
             // Column33
             // 
-            this.Column33.HeaderText = "Res Post Office";
+            this.Column33.HeaderText = "Residential Post Code";
             this.Column33.Name = "Column33";
             this.Column33.ReadOnly = true;
             // 
             // Column34
             // 
-            this.Column34.HeaderText = "Res Post Code";
+            this.Column34.HeaderText = "Corporate Flat No";
             this.Column34.Name = "Column34";
             this.Column34.ReadOnly = true;
             // 
             // Column35
             // 
-            this.Column35.HeaderText = "Corpo Flat No";
+            this.Column35.HeaderText = "Corporate House No";
             this.Column35.Name = "Column35";
             this.Column35.ReadOnly = true;
             // 
             // Column36
             // 
-            this.Column36.HeaderText = "Corpo House No";
+            this.Column36.HeaderText = "Corporate Road No";
             this.Column36.Name = "Column36";
             this.Column36.ReadOnly = true;
             // 
             // Column37
             // 
-            this.Column37.HeaderText = "Corpo Road No";
+            this.Column37.HeaderText = "Corporate Block";
             this.Column37.Name = "Column37";
             this.Column37.ReadOnly = true;
             // 
             // Column38
             // 
-            this.Column38.HeaderText = "Corpo Block";
+            this.Column38.HeaderText = "Corporate Area";
             this.Column38.Name = "Column38";
             this.Column38.ReadOnly = true;
             // 
             // Column39
             // 
-            this.Column39.HeaderText = "Corpo Area";
+            this.Column39.HeaderText = "Corporate Contact No";
             this.Column39.Name = "Column39";
             this.Column39.ReadOnly = true;
             // 
             // Column40
             // 
-            this.Column40.HeaderText = "Corpo Contact No";
+            this.Column40.HeaderText = "Corporate Nearest Landmark";
             this.Column40.Name = "Column40";
             this.Column40.ReadOnly = true;
             // 
             // Column41
             // 
-            this.Column41.HeaderText = "Corpo Nearest Landmark";
+            this.Column41.HeaderText = "Corporate Building Name";
             this.Column41.Name = "Column41";
             this.Column41.ReadOnly = true;
             // 
             // Column42
             // 
-            this.Column42.HeaderText = "Corpo Building Name";
+            this.Column42.HeaderText = "Corporate Road Name";
             this.Column42.Name = "Column42";
             this.Column42.ReadOnly = true;
             // 
             // Column43
             // 
-            this.Column43.HeaderText = "Corpo Road Name";
+            this.Column43.HeaderText = "Corporate Division";
             this.Column43.Name = "Column43";
             this.Column43.ReadOnly = true;
             // 
             // Column44
             // 
-            this.Column44.HeaderText = "Corpo Division";
+            this.Column44.HeaderText = "Corporate District";
             this.Column44.Name = "Column44";
             this.Column44.ReadOnly = true;
             // 
             // Column45
             // 
-            this.Column45.HeaderText = "Corpo District";
+            this.Column45.HeaderText = "Corporate Thana";
             this.Column45.Name = "Column45";
             this.Column45.ReadOnly = true;
             // 
             // Column46
             // 
-            this.Column46.HeaderText = "Corpo Thana";
+            this.Column46.HeaderText = "Corporate Post Office";
             this.Column46.Name = "Column46";
             this.Column46.ReadOnly = true;
             // 
             // Column47
             // 
-            this.Column47.HeaderText = "Corpo Post Office";
+            this.Column47.HeaderText = "Corporate Post Code";
             this.Column47.Name = "Column47";
             this.Column47.ReadOnly = true;
             // 
             // Column48
             // 
-            this.Column48.HeaderText = "Corpo Post Code";
+            this.Column48.HeaderText = "Foreign Street";
             this.Column48.Name = "Column48";
             this.Column48.ReadOnly = true;
             // 
             // Column49
             // 
-            this.Column49.HeaderText = "Foreign Street";
+            this.Column49.HeaderText = "Foreign State";
             this.Column49.Name = "Column49";
             this.Column49.ReadOnly = true;
             // 
             // Column50
             // 
-            this.Column50.HeaderText = "Foreign State";
+            this.Column50.HeaderText = "Foreign Postal Code";
             this.Column50.Name = "Column50";
             this.Column50.ReadOnly = true;
             // 
             // Column51
             // 
-            this.Column51.HeaderText = "Foreign Postal Code";
+            this.Column51.HeaderText = "Date Of Birth";
             this.Column51.Name = "Column51";
             this.Column51.ReadOnly = true;
             // 
             // Column52
             // 
-            this.Column52.HeaderText = "Date Of Birth";
+            this.Column52.HeaderText = "Religion";
             this.Column52.Name = "Column52";
             this.Column52.ReadOnly = true;
             // 
             // Column53
             // 
-            this.Column53.HeaderText = "Religion";
+            this.Column53.HeaderText = "Gender";
             this.Column53.Name = "Column53";
             this.Column53.ReadOnly = true;
             // 
             // Column54
             // 
-            this.Column54.HeaderText = "Gender";
+            this.Column54.HeaderText = "Marital Status";
             this.Column54.Name = "Column54";
             this.Column54.ReadOnly = true;
             // 
             // Column55
             // 
-            this.Column55.HeaderText = "Marital Status";
+            this.Column55.HeaderText = "Marriage Anniversary Date";
             this.Column55.Name = "Column55";
             this.Column55.ReadOnly = true;
             // 
             // Column56
             // 
-            this.Column56.HeaderText = "Marrige Anniversary Date";
+            this.Column56.HeaderText = "CompanyId";
             this.Column56.Name = "Column56";
             this.Column56.ReadOnly = true;
-            // 
-            // Column57
-            // 
-            this.Column57.HeaderText = "CompanyId";
-            this.Column57.Name = "Column57";
-            this.Column57.ReadOnly = true;
-            this.Column57.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(456, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(406, 36);
-            this.label1.TabIndex = 2;
-            this.label1.Text = " List  of Person  Information";
-            // 
-            // lk
-            // 
-            this.lk.AutoSize = true;
-            this.lk.Location = new System.Drawing.Point(14, 44);
-            this.lk.Name = "lk";
-            this.lk.Size = new System.Drawing.Size(18, 15);
-            this.lk.TabIndex = 3;
-            this.lk.Text = "lg";
-            this.lk.Visible = false;
-            // 
-            // SearchPersonNametextBox
-            // 
-            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchPersonNametextBox.Location = new System.Drawing.Point(52, 33);
-            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
-            this.SearchPersonNametextBox.Size = new System.Drawing.Size(265, 26);
-            this.SearchPersonNametextBox.TabIndex = 5;
-            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(89, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Search By Person Name";
+            this.Column56.Visible = false;
             // 
             // PersonDetail
             // 
@@ -660,6 +652,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column54;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column55;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column56;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column57;
     }
 }

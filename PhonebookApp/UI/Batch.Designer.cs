@@ -29,23 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.cmbDispatchBy = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PersonIdtextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.DateForBatch = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbDispatchBy = new System.Windows.Forms.ComboBox();
-            this.removeButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PodwaterMarkTextBox = new wmgCMS.WaterMarkTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,12 +53,10 @@
             this.groupBox1.Controls.Add(this.removeButton);
             this.groupBox1.Controls.Add(this.cmbDispatchBy);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.PodwaterMarkTextBox);
             this.groupBox1.Controls.Add(this.submitButton);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.PersonIdtextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.DateForBatch);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
@@ -68,6 +64,42 @@
             this.groupBox1.Size = new System.Drawing.Size(481, 318);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // removeButton
+            // 
+            this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.removeButton.Location = new System.Drawing.Point(363, 192);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(84, 47);
+            this.removeButton.TabIndex = 49;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // cmbDispatchBy
+            // 
+            this.cmbDispatchBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDispatchBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbDispatchBy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDispatchBy.FormattingEnabled = true;
+            this.cmbDispatchBy.Location = new System.Drawing.Point(129, 67);
+            this.cmbDispatchBy.Name = "cmbDispatchBy";
+            this.cmbDispatchBy.Size = new System.Drawing.Size(150, 27);
+            this.cmbDispatchBy.TabIndex = 48;
+            this.cmbDispatchBy.SelectedIndexChanged += new System.EventHandler(this.cmbDispatchBy_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(4, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 22);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Dispatch By";
             // 
             // submitButton
             // 
@@ -98,7 +130,7 @@
             // PersonIdtextBox
             // 
             this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonIdtextBox.Location = new System.Drawing.Point(129, 146);
+            this.PersonIdtextBox.Location = new System.Drawing.Point(129, 107);
             this.PersonIdtextBox.Name = "PersonIdtextBox";
             this.PersonIdtextBox.Size = new System.Drawing.Size(150, 26);
             this.PersonIdtextBox.TabIndex = 41;
@@ -108,22 +140,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 148);
+            this.label2.Location = new System.Drawing.Point(6, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 40;
             this.label2.Text = "Person ID";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(56, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 22);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "POD";
             // 
             // DateForBatch
             // 
@@ -151,56 +172,9 @@
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Location = new System.Drawing.Point(526, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(380, 390);
+            this.groupBox2.Size = new System.Drawing.Size(380, 412);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(220, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(273, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Batch Creation Form";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(4, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 22);
-            this.label4.TabIndex = 47;
-            this.label4.Text = "Dispatch By";
-            // 
-            // cmbDispatchBy
-            // 
-            this.cmbDispatchBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbDispatchBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbDispatchBy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDispatchBy.FormattingEnabled = true;
-            this.cmbDispatchBy.Location = new System.Drawing.Point(129, 67);
-            this.cmbDispatchBy.Name = "cmbDispatchBy";
-            this.cmbDispatchBy.Size = new System.Drawing.Size(150, 27);
-            this.cmbDispatchBy.TabIndex = 48;
-            this.cmbDispatchBy.SelectedIndexChanged += new System.EventHandler(this.cmbDispatchBy_SelectedIndexChanged);
-            // 
-            // removeButton
-            // 
-            this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.removeButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.removeButton.Location = new System.Drawing.Point(363, 192);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(84, 47);
-            this.removeButton.TabIndex = 49;
-            this.removeButton.Text = "Remove";
-            this.removeButton.UseVisualStyleBackColor = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // listView1
             // 
@@ -213,7 +187,7 @@
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(3, 16);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(374, 371);
+            this.listView1.Size = new System.Drawing.Size(374, 393);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -234,21 +208,22 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 280;
             // 
-            // PodwaterMarkTextBox
+            // label3
             // 
-            this.PodwaterMarkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PodwaterMarkTextBox.Location = new System.Drawing.Point(129, 107);
-            this.PodwaterMarkTextBox.Name = "PodwaterMarkTextBox";
-            this.PodwaterMarkTextBox.Size = new System.Drawing.Size(150, 26);
-            this.PodwaterMarkTextBox.TabIndex = 45;
-            this.PodwaterMarkTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.PodwaterMarkTextBox.WaterMarkText = "If Any";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Green;
+            this.label3.Location = new System.Drawing.Point(220, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(273, 33);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Batch Creation Form";
             // 
             // Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 494);
+            this.ClientSize = new System.Drawing.Size(950, 494);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -272,10 +247,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox PersonIdtextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button submitButton;
-        private wmgCMS.WaterMarkTextBox PodwaterMarkTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbDispatchBy;

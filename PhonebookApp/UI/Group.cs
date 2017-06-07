@@ -34,7 +34,7 @@ namespace PhonebookApp.UI
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(GroupName) from [dbo].[Group]  order by GroupId";
+                string ct = "select RTRIM(GroupName) from [dbo].[Group]  order by GroupName asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -91,7 +91,7 @@ namespace PhonebookApp.UI
                 //INNER Join Query
                 //SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName,Category.CategoryName, Specializations.Specialization, Profession.ProfessionName,EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel FROM Persons INNER JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId INNER JOIN Category ON Persons.CategoryId = Category.CategoryId  INNER JOIN Company ON Persons.CompanyId = Company.CompanyId  INNER JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId  INNER JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId  INNER JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId INNER JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId INNER JOIN AgeGroup ON Persons.AgeGroupId=AgeGroup.AgeGroupId", con);
                 //Left Join Query
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName,[Group].GroupName, Specializations.Specialization, Profession.ProfessionName,EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName, convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate FROM Persons left JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId left JOIN [Group] ON Persons.GroupId = [Group].GroupId  left JOIN Company ON Persons.CompanyId = Company.CompanyId  left JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId  left JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId  left JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId left JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId left JOIN AgeGroup ON Persons.AgeGroupId=AgeGroup.AgeGroupId left JOIN Religion ON Persons.ReligionId=Religion.ReligionId left JOIN MaritalStatus ON Persons.MaritalStatusId=MaritalStatus.MaritalStatusId", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName, Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName,convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate FROM Persons LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId LEFT JOIN Company ON Persons.CompanyId = Company.CompanyId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView.Rows.Clear();
@@ -111,7 +111,7 @@ namespace PhonebookApp.UI
                     dataGridView.Rows[n].Cells[10].Value = item[10].ToString();
                     dataGridView.Rows[n].Cells[11].Value = item[11].ToString();
                     dataGridView.Rows[n].Cells[12].Value = item[12].ToString();
-                    dataGridView.Rows[n].Cells[13].Value = item[13].ToString();
+                    
                 }
             }
             catch (Exception ex)
@@ -154,7 +154,7 @@ namespace PhonebookApp.UI
                             lst.SubItems.Add(dr.Cells[10].Value.ToString());
                             lst.SubItems.Add(dr.Cells[11].Value.ToString());
                             lst.SubItems.Add(dr.Cells[12].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[13].Value.ToString());
+                            
                             listView.Items.Add(lst);
                         }
 
@@ -175,7 +175,7 @@ namespace PhonebookApp.UI
                             lst1.SubItems.Add(dr.Cells[10].Value.ToString());
                             lst1.SubItems.Add(dr.Cells[11].Value.ToString());
                             lst1.SubItems.Add(dr.Cells[12].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[13].Value.ToString());
+                           
                             listView.Items.Add(lst1);
                         }
 
@@ -250,7 +250,7 @@ namespace PhonebookApp.UI
                     if (rdr.Read())
                     {
 
-                        MessageBox.Show("This Group Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("This Member Already Exists in these Group", "Error", MessageBoxButtons.OK,
                               MessageBoxIcon.Error);
                         GroupNamecomboBox.SelectedIndex = -1;
 
@@ -266,6 +266,7 @@ namespace PhonebookApp.UI
                     MessageBox.Show("Submitted Successfully", "Information", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     GroupNamecomboBox.SelectedIndex = -1;
+                    
                     listView.Items.Clear();
                 }
                 catch (Exception ex)
@@ -283,7 +284,7 @@ namespace PhonebookApp.UI
 
         private void GroupNamecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -54,7 +54,7 @@ namespace PhonebookApp.UI
 
                         listView1.Items.Add(lst);
                         PersonIdtextBox.Text = "";
-                        PodwaterMarkTextBox.Enabled = false;
+                        cmbDispatchBy.Enabled = false;
                         return;
                     }
                     String Val = PersonIdtextBox.Text;
@@ -99,10 +99,9 @@ namespace PhonebookApp.UI
             }
 
             _con = new SqlConnection(_cs.DBConn);
-            string cd1 = "INSERT INTO Batch (POD,UserId,BatchTime) VALUES (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string cd1 = "INSERT INTO Batch (DispatchId,UserId,BatchTime) VALUES (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             _cmd = new SqlCommand(cd1, _con);
-            _cmd.Parameters.Add(new SqlParameter("@d1",
-            string.IsNullOrEmpty(PodwaterMarkTextBox.Text) ? (object)DBNull.Value : PodwaterMarkTextBox.Text));
+            _cmd.Parameters.AddWithValue("@d1", dispatchid);
             _cmd.Parameters.AddWithValue("@d2", user_id);
             _cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
             _con.Open();
@@ -124,8 +123,8 @@ namespace PhonebookApp.UI
                 }              
                 MessageBox.Show("Successfully Submitted.", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listView1.Items.Clear();
-                PodwaterMarkTextBox.Enabled = true;
-                PodwaterMarkTextBox.Clear();
+                cmbDispatchBy.Enabled = true;
+                cmbDispatchBy.SelectedIndex = -1;
             }
             catch (Exception ex)
             {

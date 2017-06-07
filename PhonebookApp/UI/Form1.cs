@@ -29,7 +29,6 @@ namespace PhonebookApp
         public string companyId = null;
         public string rAdistrictid, countryid, nUserId, postofficeIdWA, postofficeIdRA, divisionIdWA, divisionIdRA, districtIdRA, districtIdWA, thanaIdRA, thanaIdWA;
         public Nullable<Int64> groupid, relationshipId, bankEmailId, categoryId, jobTitleId, specializationId, professionId, ageGroupId, educationLevelId, highestDegreeId, religionId, genderId, maritalStatusId;
-        //public string nUserId;
         public int currentPersonId, affectedRows1, affectedRows2, affectedRows3, wAdistrictid;
         private delegate void ChangeFocusDelegate(Control ctl);
         public frm1()
@@ -37,9 +36,6 @@ namespace PhonebookApp
             InitializeComponent();
         }
 
-        // Regex emailValidation = new Regex((@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$"));
-
-        // Regex mobileNoValidation = new Regex(@"^(?:\+88|01)?\d{11}$");
 
         private void ForeignAddresses(string tblName1)
         {
@@ -74,35 +70,6 @@ namespace PhonebookApp
             con.Close();
         }
 
-
-        //private void WASameAsRA(string tblName1)
-        //{
-        //    string tableName = tblName1;
-        //    con = new SqlConnection(cs.DBConn);
-        //    con.Open();
-        //    string Qry = "insert into " + tableName +
-        //                 "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
-        //                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
-        //    cmd = new SqlCommand(Qry);
-        //    cmd.Connection = con;
-        //    cmd.Parameters.AddWithValue("@d1", currentPersonId);
-        //    cmd.Parameters.Add(new SqlParameter("@d2",
-        //        string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
-        //    cmd.Parameters.Add(new SqlParameter("@d3",
-        //        string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
-        //    cmd.Parameters.Add(new SqlParameter("@d4",
-        //        string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
-        //    cmd.Parameters.Add(new SqlParameter("@d5",
-        //        string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
-        //    cmd.Parameters.Add(new SqlParameter("@d6",
-        //        string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
-        //    cmd.Parameters.Add(new SqlParameter("@d7",
-        //        string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
-        //    cmd.Parameters.Add(new SqlParameter("@d8",
-        //        string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));
-        //    affectedRows2 = (int)cmd.ExecuteScalar();
-        //    con.Close();
-        //}
 
         private void SaveWorkingAddress(string tblName1)
         {
@@ -208,78 +175,6 @@ namespace PhonebookApp
             return Qrdata;
         }
 
-        //private void SaveWorkingAddre(string tblName1)
-        //{
-        //    string tableName = tblName1;
-        //    if (tableName == "CorporateAddresses")
-        //    {
-        //        con = new SqlConnection(cs.DBConn);
-        //        con.Open();
-        //        string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CContactNo,CompanyId) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-        //        cmd = new SqlCommand(insertQ);
-        //        cmd.Connection = con;
-        //        cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdRA) ? (object)DBNull.Value : postofficeIdRA));
-        //        cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text));
-
-        //        cmd.Parameters.AddWithValue("@d11", companyid);
-        //        affectedRows1 = (int)cmd.ExecuteScalar();
-        //        con.Close();
-        //    }
-        //    else if (tableName == "WorkingAddresses")
-        //    {
-        //        con = new SqlConnection(cs.DBConn);
-        //        con.Open();
-        //        string insertQ = "insert into " + tableName +
-        //                         "(PersonsId,PostOfficeId,WFlatNo,WHouseNo,WRoadNo,WBlock,WArea,WContactNo) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" +
-        //                         "SELECT CONVERT(int, SCOPE_IDENTITY())";
-        //        cmd = new SqlCommand(insertQ);
-        //        cmd.Connection = con;
-        //        cmd.Parameters.AddWithValue("@d1", currentPersonId);
-        //        cmd.Parameters.Add(new SqlParameter("@d2",
-        //            string.IsNullOrEmpty(postofficeIdWA) ? (object)DBNull.Value : postofficeIdWA));
-        //        cmd.Parameters.Add(new SqlParameter("@d3",
-        //            string.IsNullOrEmpty(txtWAFlatName.Text) ? (object)DBNull.Value : txtWAFlatName.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d4",
-        //            string.IsNullOrEmpty(txtWAHouseName.Text) ? (object)DBNull.Value : txtWAHouseName.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d5",
-        //            string.IsNullOrEmpty(txtWARoadNo.Text) ? (object)DBNull.Value : txtWARoadNo.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d6",
-        //            string.IsNullOrEmpty(txtWABlock.Text) ? (object)DBNull.Value : txtWABlock.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d7",
-        //            string.IsNullOrEmpty(txtWAArea.Text) ? (object)DBNull.Value : txtWAArea.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d8",
-        //            string.IsNullOrEmpty(txtWAContactNo.Text) ? (object)DBNull.Value : txtWAContactNo.Text));
-        //        affectedRows1 = (int)cmd.ExecuteScalar();
-        //        con.Close();
-        //    }
-
-        //    else if (tableName == "ForeignAddress")
-        //    {
-        //        con = new SqlConnection(cs.DBConn);
-        //        con.Open();
-        //        string Qury = "insert into " + tableName +
-        //                      "(PersonsId,Street,State,PostalCode) Values(@d1,@d2,@d3,@d4)" +
-        //                      "SELECT CONVERT(int, SCOPE_IDENTITY())";
-        //        cmd = new SqlCommand(Qury);
-        //        cmd.Connection = con;
-        //        cmd.Parameters.AddWithValue("@d1", currentPersonId);
-        //        cmd.Parameters.Add(new SqlParameter("@d2",
-        //            string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d3",
-        //            string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text));
-        //        cmd.Parameters.Add(new SqlParameter("@d4",
-        //            string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text));
-        //        affectedRows3 = (int)cmd.ExecuteScalar();
-        //        con.Close();
-        //    }
-
-        //}
-
         public void ResetForeignAddress()
         {
             StreettextBox.Clear();
@@ -334,62 +229,27 @@ namespace PhonebookApp
 
         private void Reset1()
         {
-            //FillRelationShip();
-            //FillJobTitle();
-            //FillAgeGroup();
-            //FillCompanyName();
-            //FillEducationLevel();
-            //FillHighestDegree();
-            //FillProfession();
-            //FillSpecialization();
-            //EmailAddress();
-            //CountrycomboBox.SelectedIndex = -1;
-            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
             cmbEmailAddress.Items.Clear();
-
-            //cmbEmailAddress.ResetText();
-            //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
             companyNametextBox.Clear();
-            //cmbCompanyName.Items.Clear();
-            //cmbCompanyName.ResetText();
-            //FillCompanyName();
-            //cmbCompanyName.SelectedIndex = -1;
-            GroupNamecomboBox.Items.Clear();
-            //cmbCategoryName.ResetText();
-            //FillCategory();
-            GroupNamecomboBox.SelectedIndex = -1;
             cmbAgeGroup.Items.Clear();
-            //cmbAgeGroup.ResetText();
-            //FillAgeGroup();
             cmbAgeGroup.SelectedIndex = -1;
             cmbProfession.Items.Clear();
-            //cmbProfession.ResetText();
-            //FillProfession();
             cmbProfession.SelectedIndex = -1;
             cmbEducationalLevel.Items.Clear();
-            //cmbEducationalLevel.ResetText();
-            //FillEducationLevel();
             cmbEducationalLevel.SelectedIndex = -1;
             cmbHighestDegree.Items.Clear();
-            //cmbHighestDegree.ResetText();
-            //FillHighestDegree();
             cmbHighestDegree.SelectedIndex = -1;
             cmbJobTitle.Items.Clear();
-            //cmbJobTitle.ResetText();
-            //FillJobTitle();
             cmbJobTitle.SelectedIndex = -1;
             cmbSpecialization.Items.Clear();
-            //cmbSpecialization.ResetText();
-            //FillSpecialization();
             cmbSpecialization.SelectedIndex = -1;
             cmbRelationShip.Items.Clear();
-            //cmbRelationShip.ResetText();
-            //FillRelationShip();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -403,62 +263,27 @@ namespace PhonebookApp
 
         private void Reset2()
         {
-            //EmailAddress();
-            //FillCompanyName();
-            //FillJobTitle();
-            //FillCategory();
-            //FillSpecialization();
-            //FillProfession();
-            //FillEducationLevel();
-            //FillHighestDegree();
-            //FillAgeGroup();            
-            //FillRelationShip();
-            //CountrycomboBox.SelectedIndex = -1;
-            relationshipId = bankEmailId = groupid = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
+            relationshipId = bankEmailId = jobTitleId = specializationId = professionId = ageGroupId = educationLevelId = highestDegreeId = religionId = genderId = maritalStatusId
                 = null;
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
             cmbEmailAddress.Items.Clear();
-            //cmbEmailAddress.ResetText();
-            //EmailAddress();
             cmbEmailAddress.SelectedIndex = -1;
             companyNametextBox.Clear();
-            //cmbCompanyName.Items.Clear();
-            //cmbCompanyName.ResetText();
-            //FillCompanyName();
-            //cmbCompanyName.SelectedIndex = -1;
-            GroupNamecomboBox.Items.Clear();
-            //cmbCategoryName.ResetText();
-            //FillCategory();
-            GroupNamecomboBox.SelectedIndex = -1;
             cmbAgeGroup.Items.Clear();
-            //cmbAgeGroup.ResetText();
-            //FillAgeGroup();
             cmbAgeGroup.SelectedIndex = -1;
             cmbProfession.Items.Clear();
-            //cmbProfession.ResetText();
-            //FillProfession();
             cmbProfession.SelectedIndex = -1;
             cmbEducationalLevel.Items.Clear();
-            //cmbEducationalLevel.ResetText();
-            //FillEducationLevel();
             cmbEducationalLevel.SelectedIndex = -1;
             cmbHighestDegree.Items.Clear();
-            //cmbHighestDegree.ResetText();
-            //FillHighestDegree();
             cmbHighestDegree.SelectedIndex = -1;
             cmbJobTitle.Items.Clear();
-            //cmbJobTitle.ResetText();
-            //FillJobTitle();
             cmbJobTitle.SelectedIndex = -1;
             cmbSpecialization.Items.Clear();
-            //cmbSpecialization.ResetText();
-            //FillSpecialization();
             cmbSpecialization.SelectedIndex = -1;
             cmbRelationShip.Items.Clear();
-            //cmbRelationShip.ResetText();
-            //FillRelationShip();
             cmbRelationShip.SelectedIndex = -1;
             txtWebsite.Clear();
             txtSkypeId.Clear();
@@ -532,27 +357,27 @@ namespace PhonebookApp
 
         }
 
-        private void SaveInfo()
-        {
-            try
-            {
+        //private void SaveInfo()
+        //{
+            //try
+            //{
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@d2", currentPersonId);
-                cmd.Parameters.AddWithValue("@d3", nUserId);
-                cmd.ExecuteNonQuery();
-                con.Close();
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            //    cmd = new SqlCommand(query, con);
+            //    cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);
+            //    cmd.Parameters.AddWithValue("@d2", currentPersonId);
+            //    cmd.Parameters.AddWithValue("@d3", nUserId);
+            //    cmd.ExecuteNonQuery();
+            //    con.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        //}
 
         private bool ValidateControlls()
         {
@@ -765,7 +590,6 @@ namespace PhonebookApp
                     if (dialogResult == DialogResult.No)
                     {
                         txtPersonName.Clear();
-                        //cmbCompanyName.SelectedIndex = -1;
                         companyNametextBox.Clear();
                         ResetWorkingAddress();
                         companyId = null;
@@ -813,10 +637,10 @@ namespace PhonebookApp
                         {
                             SavePersonDetails();
                             SaveWorkingAddress("ResidentialAddresses");
-                            if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-                            {
-                                SaveInfo();
-                            }
+                            //if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                            //{
+                            //    SaveInfo();
+                            //}
 
                             MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -825,13 +649,9 @@ namespace PhonebookApp
                             CountrycomboBox.Enabled = true;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            //FillCompanyName();
-                            //cmbCompanyName.ResetText();
                             companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
-                            FillGroupName();
-                            GroupNamecomboBox.ResetText();
                             FillSpecialization();
                             cmbSpecialization.ResetText();
                             FillProfession();
@@ -860,10 +680,10 @@ namespace PhonebookApp
                         try
                         {
                             SavePersonDetails();
-                            if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-                            {
-                                SaveInfo();
-                            }
+                            //if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                            //{
+                            //    SaveInfo();
+                            //}
                             MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                             Reset1();
@@ -871,13 +691,9 @@ namespace PhonebookApp
                             CountrycomboBox.Enabled = true;
                             EmailAddress();
                             cmbEmailAddress.ResetText();
-                            //FillCompanyName();
-                            //cmbCompanyName.ResetText();
                             companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
-                            FillGroupName();
-                            GroupNamecomboBox.ResetText();
                             FillSpecialization();
                             cmbSpecialization.ResetText();
                             FillProfession();
@@ -908,10 +724,10 @@ namespace PhonebookApp
                     {
                         SavePersonDetails();
                         ForeignAddresses("ForeignAddress");
-                        if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-                        {
-                            SaveInfo();
-                        }
+                        //if (!string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
+                        //{
+                        //    SaveInfo();
+                        //}
                         MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                         Reset2();
@@ -919,12 +735,8 @@ namespace PhonebookApp
                         CountrycomboBox.Enabled = true;
                         ResetWorkingAddress();
                         EmailAddress();
-                        //FillCompanyName();
-                        //cmbCompanyName.ResetText();
                         companyNametextBox.Clear();
                         FillJobTitle();
-                        FillGroupName();
-                        GroupNamecomboBox.ResetText();
                         FillSpecialization();
                         FillProfession();
                         FillEducationLevel();
@@ -1008,30 +820,7 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void FillCategory()
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(Category.CategoryName) from Category  order by Category.CategoryId";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    GroupNamecomboBox.Items.Add(rdr[0]);
-                }
-                GroupNamecomboBox.Items.Add("Not In The List");
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
         public void FillAgeGroup()
         {
             try
@@ -1104,29 +893,7 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void FillCompanyName()
-        {
-            //try
-            //{
-
-            //    con = new SqlConnection(cs.DBConn);
-            //    con.Open();
-            //    string ct = "select RTRIM(Company.CompanyName) from Company  order by Company.CompanyId";
-            //    cmd = new SqlCommand(ct);
-            //    cmd.Connection = con;
-            //    rdr = cmd.ExecuteReader();
-
-            //    while (rdr.Read())
-            //    {
-            //        cmbCompanyName.Items.Add(rdr[0]);
-            //    }
-            //    con.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
+        
         public void FillProfession()
         {
             try
@@ -1288,14 +1055,12 @@ namespace PhonebookApp
             FillRelationShip();
             FillJobTitle();
             FillAgeGroup();
-            FillCompanyName();
             FillEducationLevel();
             FillHighestDegree();
             FillProfession();
             FillSpecialization();
             EmailAddress();
             nUserId = frmLogin.uId.ToString();
-            FillGroupName();
             FillRADivisionCombo();
             FillGender();
             FillReligion();
@@ -1308,38 +1073,6 @@ namespace PhonebookApp
             btnInsert.Hide();
 
         }
-
-        public void FillGroupName()
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select RTRIM(GroupName) from [dbo].[Group]  order by GroupId";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    GroupNamecomboBox.Items.Add(rdr[0]);
-                }
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void frm1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Hide();
-            frmNewEntry frm = new frmNewEntry();
-            frm.Show();
-        }
-
         private void FillRelationShip()
         {
             try
@@ -1436,29 +1169,6 @@ namespace PhonebookApp
                             MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
-
-                    //else
-                    //{
-
-                    //    //if (!string.IsNullOrWhiteSpace(input))
-                    //    //{
-                    //    //    string emailId = input.Trim();
-                    //    //    Regex mRegxExpression;
-
-                    //    //    mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
-
-                    //    //    if (!mRegxExpression.IsMatch(emailId))
-                    //    //    {
-
-                    //    //        MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    //        return;
-
-                    //    //    }
-                    //    //}
-
-
-                    //    }
                 }
                 else
                 {
@@ -1495,82 +1205,52 @@ namespace PhonebookApp
             }
         }
 
-        private void FillWorkingAddress()
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
+        //private void FillWorkingAddress()
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(cs.DBConn);
+        //        con.Open();
+        //        cmd = con.CreateCommand();
 
-                cmd.CommandText =
-                    "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName,CorporateAddresses.RoadName,Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
-                    companyId + "'";
+        //        cmd.CommandText =
+        //            "SELECT CorporateAddresses.CFlatNo, CorporateAddresses.CHouseNo, CorporateAddresses.CRoadNo, CorporateAddresses.CBlock, CorporateAddresses.CArea, CorporateAddresses.CLandmark, CorporateAddresses.CContactNo, CorporateAddresses.BuildingName,CorporateAddresses.RoadName,Divisions.Division, Districts.District, Thanas.Thana, PostOffice.PostOfficeName, PostOffice.PostCode FROM PostOffice INNER JOIN CorporateAddresses ON PostOffice.PostOfficeId = CorporateAddresses.PostOfficeId INNER JOIN Divisions INNER JOIN Districts ON Divisions.Division_ID = Districts.Division_ID INNER JOIN Thanas ON Districts.D_ID = Thanas.D_ID ON PostOffice.T_ID = Thanas.T_ID where CompanyId= '" +
+        //            companyId + "'";
 
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    txtWAFlatName.Text = rdr["CFlatNo"].ToString();
-                    txtWAHouseName.Text = rdr["CHouseNo"].ToString();
-                    txtWARoadNo.Text = rdr["CRoadNo"].ToString();
-                    txtWABlock.Text = rdr["CBlock"].ToString();
-                    txtWAArea.Text = rdr["CArea"].ToString();
-                    LandmarktextBox.Text = rdr["CLandmark"].ToString();
-                    txtWAContactNo.Text = rdr["CContactNo"].ToString();
-                    WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
-                    WARoadNametextBox.Text = rdr["RoadName"].ToString();
-                    WAdivisiontextBox.Text = rdr["Division"].ToString();
-                    WADistricttextBox.Text = rdr["District"].ToString();
-                    WAThanatextBox.Text = rdr["Thana"].ToString();
-                    WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
-                    txtWAPostCode.Text = rdr["PostCode"].ToString();
+        //        rdr = cmd.ExecuteReader();
+        //        if (rdr.Read())
+        //        {
+        //            txtWAFlatName.Text = rdr["CFlatNo"].ToString();
+        //            txtWAHouseName.Text = rdr["CHouseNo"].ToString();
+        //            txtWARoadNo.Text = rdr["CRoadNo"].ToString();
+        //            txtWABlock.Text = rdr["CBlock"].ToString();
+        //            txtWAArea.Text = rdr["CArea"].ToString();
+        //            LandmarktextBox.Text = rdr["CLandmark"].ToString();
+        //            txtWAContactNo.Text = rdr["CContactNo"].ToString();
+        //            WABuildingNametextBox.Text = rdr["BuildingName"].ToString();
+        //            WARoadNametextBox.Text = rdr["RoadName"].ToString();
+        //            WAdivisiontextBox.Text = rdr["Division"].ToString();
+        //            WADistricttextBox.Text = rdr["District"].ToString();
+        //            WAThanatextBox.Text = rdr["Thana"].ToString();
+        //            WAPostOfficetextBox.Text = rdr["PostOfficeName"].ToString();
+        //            txtWAPostCode.Text = rdr["PostCode"].ToString();
 
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
+        //        }
+        //        if ((rdr != null))
+        //        {
+        //            rdr.Close();
+        //        }
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
+        //    }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //ResetWorkingAddress();
-
-
-
-            //try
-            //{
-
-            //    con = new SqlConnection(cs.DBConn);
-            //    con.Open();
-            //    string ct = "select CompanyId from Company  where  Company.CompanyName='" + cmbCompanyName.Text + "' ";
-            //    cmd = new SqlCommand(ct);
-            //    cmd.Connection = con;
-            //    rdr = cmd.ExecuteReader();
-
-            //    if (rdr.Read())
-            //    {
-            //        companyId = Convert.ToInt64(rdr["CompanyId"]);
-            //    }
-            //    con.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //FillWorkingAddress();
-        }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2117,88 +1797,6 @@ namespace PhonebookApp
             }
         }
 
-        //private void unKnownCheckBox_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (unKnownCheckBox.Checked)
-        //    {
-
-        //        if (sameAsRACheckBox.Checked)
-        //        {
-        //            sameAsRACheckBox.CheckedChanged -= sameAsRACheckBox_CheckedChanged;
-        //            sameAsRACheckBox.Checked = false;
-        //            sameAsRACheckBox.CheckedChanged += sameAsRACheckBox_CheckedChanged;
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-        //        else
-        //        {
-
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        if (sameAsRACheckBox.Checked)
-        //        {
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-        //        else
-        //        {
-
-        //            groupBox4.Enabled = true;
-        //            ResetWorkingAddress();
-        //            FilStar();
-        //        }
-        //    }
-        //}
-
-        //private void sameAsRACheckBox_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (sameAsRACheckBox.Checked)
-        //    {
-
-        //        if (unKnownCheckBox.Checked)
-        //        {
-        //            unKnownCheckBox.CheckedChanged -= unKnownCheckBox_CheckedChanged;
-        //            unKnownCheckBox.Checked = false;
-        //            unKnownCheckBox.CheckedChanged += unKnownCheckBox_CheckedChanged;
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-        //        else
-        //        {
-
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        if (unKnownCheckBox.Checked)
-        //        {
-        //            groupBox4.Enabled = false;
-        //            ResetWorkingAddress();
-        //            ResetStar();
-        //        }
-        //        else
-        //        {
-
-        //            groupBox4.Enabled = true;
-        //            ResetWorkingAddress();
-        //            FilStar();
-        //        }
-        //    }
-        //}
-
         private void FillStar2()
         {
             label32.Visible = true;
@@ -2215,24 +1813,7 @@ namespace PhonebookApp
             label42.Visible = false;
             label44.Visible = false;
         }
-        private void unKnownRA_CheckedChanged(object sender, EventArgs e)
-        {
-            //if (unKnownRA.Checked == true)
-            //{
-            //    Reset2Star();
-            //    groupBox5.Enabled = false;
-            //    ResetResidentialAddress();
-            //    sameAsRACheckBox.Visible = false;
-
-            //}
-            //else
-            //{
-            //    sameAsRACheckBox.Visible = true;
-            //    groupBox5.Enabled = true;
-            //    groupBox5.Enabled = true;
-            //    FillStar2();
-            //}
-        }
+        
 
         private void cmbRADivision_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -2326,7 +1907,6 @@ namespace PhonebookApp
                 if (rdr.Read())
                 {
                     districtIdRA = (rdr.GetString(0));
-                    //divisionIdRA = (rdr.GetString(1));
                 }
 
                 if ((rdr != null))
@@ -2390,8 +1970,6 @@ namespace PhonebookApp
                 if (rdr.Read())
                 {
                     thanaIdRA = (rdr.GetString(0));
-                    //districtIdRA = (rdr.GetString(1));
-                    //divisionIdRA = (rdr.GetString(2));
                 }
 
                 if ((rdr != null))
@@ -2407,7 +1985,6 @@ namespace PhonebookApp
                 cmbRAThana.Text = cmbRAThana.Text.Trim();
                 cmbRAPost.Items.Clear();
                 cmbRAPost.ResetText();
-                // cPostOfficeCombo.Text = "";
                 txtRAPostCode.Clear();
                 cmbRAPost.Enabled = true;
                 cmbRAPost.Focus();
@@ -2459,9 +2036,6 @@ namespace PhonebookApp
                 {
                     postofficeIdRA = (rdr.GetString(0));
                     txtRAPostCode.Text = (rdr.GetString(1));
-                    //thanaIdRA = (rdr.GetString(2));
-                    //districtIdRA = (rdr.GetString(3));
-                    //divisionIdRA = (rdr.GetString(4));
                 }
                 if ((rdr != null))
                 {
@@ -2535,8 +2109,6 @@ namespace PhonebookApp
             textNickName.Enabled = true;
             txtFatherName.Enabled = true;
             cmbEmailAddress.Enabled = true;
-            //cmbCompanyName.Enabled = true;
-            GroupNamecomboBox.Enabled = true;
             cmbAgeGroup.Enabled = true;
             cmbProfession.Enabled = true;
             cmbEducationalLevel.Enabled = true;
@@ -2565,11 +2137,6 @@ namespace PhonebookApp
 
         }
 
-        private void txtWAContactNo_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
-                e.Handled = true;
-        }
 
         private void txtWhatsApp_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -2628,25 +2195,8 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbCompanyName_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    cmbJobTitle.Focus();
-            //    e.Handled = true;
-            //}
-        }
 
         private void cmbJobTitle_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                GroupNamecomboBox.Focus();
-                e.Handled = true;
-            }
-        }
-
-        private void cmbCategoryName_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -2654,6 +2204,7 @@ namespace PhonebookApp
                 e.Handled = true;
             }
         }
+
 
         private void cmbSpecialization_KeyDown_1(object sender, KeyEventArgs e)
         {
@@ -3066,36 +2617,6 @@ namespace PhonebookApp
             }
         }
 
-        private void GroupNamecomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
-
-                cmd.CommandText = "SELECT GroupId from [dbo].[Group] WHERE GroupName= '" + GroupNamecomboBox.Text + "'";
-                rdr = cmd.ExecuteReader();
-
-                if (rdr.Read())
-                {
-                    groupid = rdr.GetInt32(0);
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
 
         private void unKnownRA_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -3161,15 +2682,6 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbCompanyName_Leave(object sender, EventArgs e)
-        {
-            //if (string.IsNullOrWhiteSpace(cmbCompanyName.Text))
-            //{
-            //    ResetWorkingAddress();
-            //    companyId = null;
-            //}
-
-        }
 
         private void cmbEmailAddress_Leave(object sender, EventArgs e)
         {
@@ -3187,13 +2699,7 @@ namespace PhonebookApp
             }
         }
 
-        private void GroupNamecomboBox_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
-            {
-                groupid = null;
-            }
-        }
+
 
         private void cmbSpecialization_Leave(object sender, EventArgs e)
         {
@@ -3312,15 +2818,6 @@ namespace PhonebookApp
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }      
     }
 }
 

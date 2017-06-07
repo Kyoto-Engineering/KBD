@@ -43,7 +43,6 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,7 +57,6 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupNamelabel = new System.Windows.Forms.Label();
             this.addbutton = new System.Windows.Forms.Button();
             this.submitbutton = new System.Windows.Forms.Button();
@@ -88,12 +86,11 @@
             this.Column10,
             this.Column11,
             this.Column12,
-            this.Column13,
-            this.Column14});
-            this.dataGridView.Location = new System.Drawing.Point(284, 104);
+            this.Column13});
+            this.dataGridView.Location = new System.Drawing.Point(85, 91);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(902, 213);
+            this.dataGridView.Size = new System.Drawing.Size(1072, 257);
             this.dataGridView.TabIndex = 0;
             // 
             // Column1
@@ -129,57 +126,51 @@
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Group";
+            this.Column6.HeaderText = "Specialization";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Specialization";
+            this.Column7.HeaderText = "Profession";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Profession";
+            this.Column8.HeaderText = "Education Level";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Educational Level";
+            this.Column9.HeaderText = "Age Group";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
-            this.Column10.HeaderText = "Age Group Level";
+            this.Column10.HeaderText = "Date Of Birth";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Date Of Birth";
+            this.Column11.HeaderText = "Religion";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
-            this.Column12.HeaderText = "Religion";
+            this.Column12.HeaderText = "Marital Status";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             // 
             // Column13
             // 
-            this.Column13.HeaderText = "MaritalStatus";
+            this.Column13.HeaderText = "Marriage Anniversary Date";
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Marriage Anniversary Date";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
             // 
             // listView
             // 
@@ -197,13 +188,12 @@
             this.columnHeader10,
             this.columnHeader11,
             this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14});
+            this.columnHeader13});
             this.listView.GridLines = true;
-            this.listView.Location = new System.Drawing.Point(284, 389);
+            this.listView.Location = new System.Drawing.Point(85, 434);
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(902, 188);
+            this.listView.Size = new System.Drawing.Size(1072, 248);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -216,7 +206,7 @@
             // 
             this.columnHeader2.Text = "Person Name";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 110;
+            this.columnHeader2.Width = 111;
             // 
             // columnHeader3
             // 
@@ -238,56 +228,52 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Group";
+            this.columnHeader6.Text = "Specialization";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 85;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Specialization";
+            this.columnHeader7.Text = "Profession";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 95;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Profession";
+            this.columnHeader8.Text = "Education Level";
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 75;
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "Educational Level";
+            this.columnHeader9.Text = "Age Group";
             this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 100;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Age Group Level";
+            this.columnHeader10.Text = "Date Of Birth";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader10.Width = 95;
+            this.columnHeader10.Width = 90;
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Date Of Birth";
+            this.columnHeader11.Text = "Religion";
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "Religion";
+            this.columnHeader12.Text = "Marital Status";
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Marital Status";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Marriage Anniversary Date";
+            this.columnHeader13.Text = "Marriage Anniversary Date";
+            this.columnHeader13.Width = 90;
             // 
             // groupNamelabel
             // 
             this.groupNamelabel.AutoSize = true;
             this.groupNamelabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupNamelabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.groupNamelabel.Location = new System.Drawing.Point(21, 307);
+            this.groupNamelabel.Location = new System.Drawing.Point(345, 376);
             this.groupNamelabel.Name = "groupNamelabel";
             this.groupNamelabel.Size = new System.Drawing.Size(116, 22);
             this.groupNamelabel.TabIndex = 5;
@@ -298,7 +284,7 @@
             this.addbutton.BackColor = System.Drawing.Color.Yellow;
             this.addbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbutton.ForeColor = System.Drawing.Color.Black;
-            this.addbutton.Location = new System.Drawing.Point(147, 167);
+            this.addbutton.Location = new System.Drawing.Point(85, 359);
             this.addbutton.Name = "addbutton";
             this.addbutton.Size = new System.Drawing.Size(108, 63);
             this.addbutton.TabIndex = 6;
@@ -311,7 +297,7 @@
             this.submitbutton.BackColor = System.Drawing.Color.Blue;
             this.submitbutton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitbutton.ForeColor = System.Drawing.Color.White;
-            this.submitbutton.Location = new System.Drawing.Point(167, 389);
+            this.submitbutton.Location = new System.Drawing.Point(1069, 365);
             this.submitbutton.Name = "submitbutton";
             this.submitbutton.Size = new System.Drawing.Size(88, 53);
             this.submitbutton.TabIndex = 7;
@@ -323,7 +309,7 @@
             // 
             this.GroupNamecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupNamecomboBox.FormattingEnabled = true;
-            this.GroupNamecomboBox.Location = new System.Drawing.Point(23, 339);
+            this.GroupNamecomboBox.Location = new System.Drawing.Point(467, 375);
             this.GroupNamecomboBox.Name = "GroupNamecomboBox";
             this.GroupNamecomboBox.Size = new System.Drawing.Size(257, 27);
             this.GroupNamecomboBox.TabIndex = 8;
@@ -354,7 +340,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1235, 620);
+            this.ClientSize = new System.Drawing.Size(1235, 703);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GroupNamecomboBox);
             this.Controls.Add(this.submitbutton);
@@ -398,7 +384,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -412,6 +397,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }

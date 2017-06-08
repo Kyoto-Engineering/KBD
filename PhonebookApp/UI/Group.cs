@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
+using PhonebookApp.Models;
 
 namespace PhonebookApp.UI
 {
@@ -23,7 +24,7 @@ namespace PhonebookApp.UI
         private SqlDataAdapter sda;
         public int groupid, personid, companyid;
         public string user_id;
-        public HashSet<ListViewItem> tags = new HashSet<ListViewItem>();
+        public List<Item> items=new List<Item>();
         public Group()
         {
             InitializeComponent();
@@ -158,15 +159,18 @@ namespace PhonebookApp.UI
                     //ListViewItem item = ListView.FindItemWithText(personid.ToString());
                     if (listView.Items.Count == 0)
                     {
+                        Item x = new Item();
                         ListViewItem lst = new ListViewItem();
-                        lst.Text = dr.Cells[0].Value.ToString();
+                       x.PersonId= lst.Text = dr.Cells[0].Value.ToString();
                         lst.SubItems.Add(dr.Cells[1].Value.ToString());
                         lst.SubItems.Add(dr.Cells[13].Value.ToString());
                         lst.SubItems.Add(dr.Cells[3].Value.ToString());
-                        lst.SubItems.Add(groupid.ToString());
+                        lst.SubItems.Add(x.GroupId = groupid.ToString());
+                        
 
+                        items.Add(x);
                         listView.Items.Add(lst);
-                        tags.Add(lst);
+                      
                     }
                   
                    
@@ -182,15 +186,17 @@ namespace PhonebookApp.UI
 
                     else 
                     {
+                        Item x = new Item();
                         ListViewItem lst1 = new ListViewItem();
-                        lst1.Text = dr.Cells[0].Value.ToString();
+                        x.PersonId=lst1.Text = dr.Cells[0].Value.ToString();
                         lst1.SubItems.Add(dr.Cells[1].Value.ToString());
                         lst1.SubItems.Add(dr.Cells[13].Value.ToString());
                         lst1.SubItems.Add(dr.Cells[3].Value.ToString());
-                        lst1.SubItems.Add(groupid.ToString());
-                        if (tags.Add(lst1))
+                        lst1.SubItems.Add(x.GroupId = groupid.ToString());
+                        if (GetValue(x))
                         {
                             listView.Items.Add(lst1);
+                            items.Add(x);
                         }
                         else
                         {
@@ -201,21 +207,6 @@ namespace PhonebookApp.UI
                     }
 
 
-                    //if (dataGridView.SelectedRows.Count > 0)
-                    //{
-                    //    try
-                    //    {
-                    //        for (int i = 0; i <= dataGridView.SelectedRows.Count - 1; i++)
-                    //        {
-                    //            DataGridViewRow dr = dataGridView.SelectedRows[0];              
-
-                    //else
-                    //{
-                    //    MessageBox.Show("You Can Not Add Same Item More than one times", "error",
-                    //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    return;
-
-                    //}
                 }
             
 
@@ -224,11 +215,22 @@ namespace PhonebookApp.UI
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            //else
-            //{
-            //    MessageBox.Show("There is no row selected, please select row and Click Add Button!");
-            //}
+            
+        }
 
+        private bool GetValue(Item x)
+        {
+            bool xz = true;
+            foreach (Item z in items)
+            {
+                if (z.GroupId == x.GroupId && z.PersonId == x.PersonId)
+                {
+                    xz = false;
+
+                    break;
+                }
+            }
+            return xz;
         }
 
         private void SaveInfo()
@@ -396,14 +398,24 @@ namespace PhonebookApp.UI
             if (listView.SelectedItems.Count < 1)
             {
                 MessageBox.Show("Please Select a row from the list which you  want to remove", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+
             }
             else
             {
+               
+                   
                 for (int i = listView.Items.Count - 1; i >= 0; i--)
                 {
                     if (listView.Items[i].Selected)
                     {
+                        foreach (Item zx in items)
+                        {
+                            if (zx.PersonId == listView.Items[i].SubItems[0].Text && zx.GroupId == listView.Items[i].SubItems[4].Text)
+                            {
+                                items.Remove(zx);
+                                break;
+                            }
+                        }
                         listView.Items[i].Remove();
                     }
                 }

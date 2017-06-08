@@ -215,6 +215,7 @@ namespace PhonebookApp.UI
                 frm.btnInsert.Location = new Point(1045, 540);
                 this.Visible = false;
                 frm.ShowDialog();
+                SearchPersonNametextBox.Clear();
                 dataGridView1.Rows.Clear();
                 FillPersonDetailsGrid();
                 this.Visible = true; 

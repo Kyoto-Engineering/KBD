@@ -328,6 +328,24 @@ namespace PhonebookApp
             cmd.Parameters.Add(new SqlParameter("@d16",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
 
+            //if (!string.IsNullOrEmpty(txtWhatsApp.Text))
+            //{
+            //    cmd.Parameters.Add(new SqlParameter("@d15", string.IsNullOrEmpty(CountryCodetextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : CountryCodetextBox.Text + txtWhatsApp.Text));
+            //}
+            //else
+            //{
+            //    cmd.Parameters.Add(new SqlParameter("@d15", (object)DBNull.Value));
+            //}
+
+            //if (!string.IsNullOrEmpty(txtImmo.Text))
+            //{
+            //    cmd.Parameters.Add(new SqlParameter("@d16", string.IsNullOrEmpty(CountryCodetextBox2.Text) && string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : CountryCodetextBox2.Text + txtImmo.Text));
+            //}
+            //else
+            //{
+            //    cmd.Parameters.Add(new SqlParameter("@d16", (object)DBNull.Value));
+            //}
+
             cmd.Parameters.AddWithValue("@d17", (object)countryid ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d18", (object)religionId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d19", (object)genderId ?? DBNull.Value);
@@ -404,7 +422,7 @@ namespace PhonebookApp
 
                     if (string.IsNullOrEmpty(cmbRADivision.Text))
                     {
-                        MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK,
+                        MessageBox.Show(@"Please select Residential division", @"Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
 
                         validate = false;
@@ -412,21 +430,21 @@ namespace PhonebookApp
                     }
                     else if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
                     {
-                        MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK,
+                        MessageBox.Show(@"Please Select Residential district", @"Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         validate = false;
                         cmbRADistrict.Focus();
                     }
                     else if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
                     {
-                        MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(@"Please select Residential Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         validate = false;
                         cmbRAThana.Focus();
                     }
 
                     else if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
                     {
-                        MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK,
+                        MessageBox.Show(@"Please Select Residential Post Office", @"Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         validate = false;
                         cmbRAPost.Focus();
@@ -1151,7 +1169,7 @@ namespace PhonebookApp
                         {
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 = "insert into EmailBank (Email, UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                            string query1 = "insert into EmailBank (Email,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query1, con);
                             cmd.Parameters.AddWithValue("@d1", input);
                             cmd.Parameters.AddWithValue("@d2", nUserId);
@@ -2080,27 +2098,59 @@ namespace PhonebookApp
                 additionalInfobutton.Show();
                 additionalInfobutton.Location = new Point(650, 420);
             }
+
             try
             {
-
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
-                            CountrycomboBox.Text + "' ";
-                cmd = new SqlCommand(ct);
+                string ctk = "SELECT  RTRIM(Countries.CountryId),RTRIM(Countries.CountryCode) from Countries WHERE Countries.CountryName=@find";
+                cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "CountryName"));
+                cmd.Parameters["@find"].Value = CountrycomboBox.Text;
                 rdr = cmd.ExecuteReader();
-
                 if (rdr.Read())
                 {
                     countryid = (rdr.GetString(0));
+                    CountryCodetextBox.Text = (rdr.GetString(1));
+                    CountryCodetextBox2.Text = (rdr.GetString(1));
                 }
-                con.Close();
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //try
+            //{
+
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string ct = "select RTRIM(CountryId) from Countries  where  Countries.CountryName='" +
+            //                CountrycomboBox.Text + "' ";
+            //    cmd = new SqlCommand(ct);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
+
+            //    if (rdr.Read())
+            //    {
+            //        countryid = (rdr.GetString(0));
+            //    }
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void enableAll()
@@ -2140,14 +2190,54 @@ namespace PhonebookApp
 
         private void txtWhatsApp_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+            //    e.Handled = true;
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
                 e.Handled = true;
+
+            if (!string.IsNullOrEmpty(txtWhatsApp.Text))
+            {
+                decimal sum = 0;
+                decimal num;
+                num = Convert.ToDecimal(txtWhatsApp.Text);
+                while (num > 0)
+                {
+                    sum = sum + (num / 10);
+                    num = num / 10;
+                }
+
+                if (sum == 0)
+                {
+                    txtWhatsApp.Clear();
+                }
+            }
         }
 
         private void txtImmo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+            //    e.Handled = true;
+
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
                 e.Handled = true;
+
+            if (!string.IsNullOrEmpty(txtImmo.Text))
+            {
+                decimal sum = 0;
+                decimal num;
+                num = Convert.ToDecimal(txtImmo.Text);
+                while (num > 0)
+                {
+                    sum = sum + (num / 10);
+                    num = num / 10;
+                }
+
+                if (sum == 0)
+                {
+                    txtImmo.Clear();
+                }
+            }
+
         }
 
         private void CountrycomboBox_KeyDown(object sender, KeyEventArgs e)
@@ -2308,7 +2398,6 @@ namespace PhonebookApp
 
         }
 
-
         private void txtRAFlatNo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -2458,7 +2547,6 @@ namespace PhonebookApp
                 }
             }
         }
-
         private void ReligioncomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ReligioncomboBox.Text == "Not In The List")
@@ -2617,7 +2705,6 @@ namespace PhonebookApp
             }
         }
 
-
         private void unKnownRA_CheckedChanged_1(object sender, EventArgs e)
         {
 
@@ -2635,56 +2722,15 @@ namespace PhonebookApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var _with1 = openFileDialog1;
-
-                _with1.Filter = ("Image Files |*.png;*.bmp; *.jpg;*.jpeg; *.gif;");
-                _with1.FilterIndex = 4;
-
-                openFileDialog1.FileName = "";
-                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
-                //{
-                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    if (Image.FromFile(openFileDialog1.FileName).Height != 300)
-                    {
-                        MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    else if (Image.FromFile(openFileDialog1.FileName).Width != 300)
-                    {
-                        MessageBox.Show("Width Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    else
-                    {
-                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
-                        //{
-
-                        userPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
-                        pictureBrowseButton.Focus();
-                    }
-                    //else
-                    //{
-                    //    MessageBox.Show("Image Size is invalid");
-                    //}
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
         private void cmbEmailAddress_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text) && !cmbEmailAddress.Items.Contains(cmbEmailAddress.Text))
+            {
+                MessageBox.Show(@"Please Select Email From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbEmailAddress.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbEmailAddress);
+            }
+                       
             if (string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
             {
                 bankEmailId = null;
@@ -2693,6 +2739,14 @@ namespace PhonebookApp
 
         private void cmbJobTitle_Leave(object sender, EventArgs e)
         {
+
+            if (!string.IsNullOrWhiteSpace(cmbJobTitle.Text) && !cmbJobTitle.Items.Contains(cmbJobTitle.Text))
+            {
+                MessageBox.Show(@"Please Select Job Title From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbJobTitle.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbJobTitle);
+            }
+                      
             if (string.IsNullOrWhiteSpace(cmbJobTitle.Text))
             {
                 jobTitleId = null;
@@ -2703,6 +2757,13 @@ namespace PhonebookApp
 
         private void cmbSpecialization_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbSpecialization.Text) &&
+                !cmbSpecialization.Items.Contains(cmbSpecialization.Text))
+            {
+                MessageBox.Show(@"Please Select Specialization From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbSpecialization.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbSpecialization);
+            }
             if (string.IsNullOrWhiteSpace(cmbSpecialization.Text))
             {
                 specializationId = null;
@@ -2711,6 +2772,14 @@ namespace PhonebookApp
 
         private void cmbProfession_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbProfession.Text) &&
+                !cmbProfession.Items.Contains(cmbProfession.Text))
+            {
+                MessageBox.Show(@"Please Select Profession From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbProfession.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbProfession);
+            }
+
             if (string.IsNullOrWhiteSpace(cmbProfession.Text))
             {
                 professionId = null;
@@ -2719,6 +2788,13 @@ namespace PhonebookApp
 
         private void cmbEducationalLevel_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbEducationalLevel.Text) &&
+                !cmbEducationalLevel.Items.Contains(cmbEducationalLevel.Text))
+            {
+                MessageBox.Show(@"Please Select Educational Level From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbEducationalLevel.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbEducationalLevel);
+            }
             if (string.IsNullOrWhiteSpace(cmbEducationalLevel.Text))
             {
                 educationLevelId = null;
@@ -2727,6 +2803,14 @@ namespace PhonebookApp
 
         private void cmbHighestDegree_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbHighestDegree.Text) &&
+                !cmbHighestDegree.Items.Contains(cmbHighestDegree.Text))
+            {
+                MessageBox.Show(@"Please Select Highest Degree From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbHighestDegree.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbHighestDegree);
+            }
+
             if (string.IsNullOrWhiteSpace(cmbHighestDegree.Text))
             {
                 highestDegreeId = null;
@@ -2735,6 +2819,14 @@ namespace PhonebookApp
 
         private void cmbAgeGroup_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbAgeGroup.Text) &&
+                !cmbAgeGroup.Items.Contains(cmbAgeGroup.Text))
+            {
+                MessageBox.Show(@"Please Select Age Group From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbAgeGroup.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbAgeGroup);
+            }
+
             if (string.IsNullOrWhiteSpace(cmbAgeGroup.Text))
             {
                 ageGroupId = null;
@@ -2743,6 +2835,14 @@ namespace PhonebookApp
 
         private void cmbRelationShip_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(cmbRelationShip.Text) &&
+                !cmbRelationShip.Items.Contains(cmbRelationShip.Text))
+            {
+                MessageBox.Show(@"Please Select RelationShip From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbRelationShip.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbRelationShip);
+            }
+
             if (string.IsNullOrWhiteSpace(cmbRelationShip.Text))
             {
                 relationshipId = null;
@@ -2751,6 +2851,14 @@ namespace PhonebookApp
 
         private void ReligioncomboBox_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(ReligioncomboBox.Text) &&
+                !ReligioncomboBox.Items.Contains(ReligioncomboBox.Text))
+            {
+                MessageBox.Show(@"Please Select RelationShip From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ReligioncomboBox.ResetText();
+                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), ReligioncomboBox);
+            }
+            
             if (string.IsNullOrWhiteSpace(ReligioncomboBox.Text))
             {
                 religionId = null;
@@ -2815,6 +2923,53 @@ namespace PhonebookApp
                     }
                 }
                 this.Visible = true;
+            }
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _with1 = openFileDialog1;
+
+                _with1.Filter = ("Image Files |*.png;*.bmp; *.jpg;*.jpeg; *.gif;");
+                _with1.FilterIndex = 4;
+
+                openFileDialog1.FileName = "";
+                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                //{
+                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                    {
+                        MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Image.FromFile(openFileDialog1.FileName).Width != 300)
+                    {
+                        MessageBox.Show("Width Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
+                        //{
+
+                        userPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                        //pictureBrowseButton.Focus();
+                    }
+                    //else
+                    //{
+                    //    MessageBox.Show("Image Size is invalid");
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

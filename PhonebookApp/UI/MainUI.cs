@@ -161,6 +161,14 @@ namespace PhonebookApp.UI
             this.Visible = true; ;
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            RemoveFromGroup rfg = new RemoveFromGroup();
+            this.Visible = false;
+            rfg.ShowDialog();
+            this.Visible = true; ;
+        }
+
         //private void button2_Click_1(object sender, EventArgs e)
         //{
         //    RemoveFromGroup rfg = new RemoveFromGroup();

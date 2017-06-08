@@ -99,15 +99,31 @@ namespace PhonebookApp.UI
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection(cs.DBConn);
-            con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "DELETE FROM GroupMember WHERE PersonsId = @pid and GroupId=@gid";
-            cmd.Parameters.AddWithValue("@pid", personid);
-            cmd.Parameters.AddWithValue("@gid", groupid);
-            cmd.ExecuteNonQuery();
-       
+            if (dataGridView.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Please Select a row from the list which you  want to remove", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+                foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                {
+                    dataGridView.Rows.RemoveAt(row.Index);
+                }
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "DELETE FROM GroupMember WHERE PersonsId = @pid and GroupId=@gid";
+                cmd.Parameters.AddWithValue("@pid", personid);
+                cmd.Parameters.AddWithValue("@gid", groupid);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Remove This Contact from Group Successfully", "Information", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                //GroupNamecomboBox.SelectedIndex = -1;
+            }
         }
     }
 }

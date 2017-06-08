@@ -37,6 +37,7 @@
             this.NewEntrybutton = new System.Windows.Forms.Button();
             this.MemberAddedToGroupbutton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.ViewAndReportbutton);
             this.groupBox1.Controls.Add(this.ManageGroupsbutton);
@@ -142,6 +144,18 @@
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(193, 233);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 69);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "Member Remove";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,5 +186,6 @@
         private System.Windows.Forms.Button ManageGroupsbutton;
         private System.Windows.Forms.Button ViewAndReportbutton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

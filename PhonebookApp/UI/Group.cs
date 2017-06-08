@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
 
@@ -20,9 +21,9 @@ namespace PhonebookApp.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         private SqlDataAdapter sda;
-        public int groupid, personid,companyid;
+        public int groupid, personid, companyid;
         public string user_id;
-
+        public HashSet<ListViewItem> tags = new HashSet<ListViewItem>();
         public Group()
         {
             InitializeComponent();
@@ -91,7 +92,9 @@ namespace PhonebookApp.UI
                 //INNER Join Query
                 //SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName,Category.CategoryName, Specializations.Specialization, Profession.ProfessionName,EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel FROM Persons INNER JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId INNER JOIN Category ON Persons.CategoryId = Category.CategoryId  INNER JOIN Company ON Persons.CompanyId = Company.CompanyId  INNER JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId  INNER JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId  INNER JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId INNER JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId INNER JOIN AgeGroup ON Persons.AgeGroupId=AgeGroup.AgeGroupId", con);
                 //Left Join Query
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName, Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName,convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate, Company.CompanyId FROM Persons LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId LEFT JOIN Company ON Persons.CompanyId = Company.CompanyId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId", con);
+                SqlDataAdapter sda = new SqlDataAdapter(
+                    "SELECT Persons.PersonsId, Persons.PersonName, EmailBank.Email, Company.CompanyName, JobTitle.JobTitleName, Specializations.Specialization, Profession.ProfessionName, EducationLevel.EducationLevelName,AgeGroup.AgeGroupLevel, convert(varchar, Persons.DateOfBirth,101) As DateOfBirth, Religion.ReligionName, MaritalStatus.MaritalStatusName,convert(varchar, Persons.MarriageAnniversaryDate,101) As MarriageAnniversaryDate, Company.CompanyId FROM Persons LEFT JOIN EmailBank ON Persons.EmailBankId = EmailBank.EmailBankId LEFT JOIN Company ON Persons.CompanyId = Company.CompanyId LEFT JOIN JobTitle ON Persons.JobTitleId = JobTitle.JobTitleId LEFT JOIN Specializations ON Persons.SpecializationsId = Specializations.SpecializationsId LEFT JOIN Profession ON Persons.ProfessionId = Profession.ProfessionId LEFT JOIN EducationLevel ON Persons.EducationLevelId = EducationLevel.EducationLevelId LEFT JOIN AgeGroup ON Persons.AgeGroupId = AgeGroup.AgeGroupId LEFT JOIN Religion ON Persons.ReligionId = Religion.ReligionId LEFT JOIN MaritalStatus ON Persons.MaritalStatusId = MaritalStatus.MaritalStatusId",
+                    con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView.Rows.Clear();
@@ -112,7 +115,7 @@ namespace PhonebookApp.UI
                     dataGridView.Rows[n].Cells[11].Value = item[11].ToString();
                     dataGridView.Rows[n].Cells[12].Value = item[12].ToString();
                     dataGridView.Rows[n].Cells[13].Value = item[13].ToString();
-                    
+
                 }
             }
             catch (Exception ex)
@@ -120,6 +123,7 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void Group_Load(object sender, EventArgs e)
         {
             user_id = frmLogin.uId.ToString();
@@ -131,75 +135,99 @@ namespace PhonebookApp.UI
 
         private void addbutton_Click(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedRows.Count > 0)
+
+            if (string.IsNullOrWhiteSpace(GroupNamecomboBox.Text))
             {
+                MessageBox.Show(@"Please select Group Name!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(@"Please Select Row!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                LoadGroupId();
                 try
                 {
-                    for (int i = 0; i <= dataGridView.SelectedRows.Count - 1; i++)
+                    //for (int i = 0; i <= dataGridView.SelectedRows.Count - 1; i++)
+                    //{
+                    DataGridViewRow dr = dataGridView.SelectedRows[0];
+                    personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+                    //ListViewItem item = ListView.FindItemWithText(personid.ToString());
+                    if (listView.Items.Count == 0)
                     {
-                        DataGridViewRow dr = dataGridView.SelectedRows[0];
-                        personid = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
-                        if (listView.Items.Count == 0)
-                        {
-                            ListViewItem lst = new ListViewItem();
-                            lst.Text = dr.Cells[0].Value.ToString();
-                            lst.SubItems.Add(dr.Cells[1].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[13].Value.ToString());
-                            lst.SubItems.Add(dr.Cells[3].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[3].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[4].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[5].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[6].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[7].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[8].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[9].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[10].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[11].Value.ToString());
-                            //lst.SubItems.Add(dr.Cells[12].Value.ToString());
-                            
-                            listView.Items.Add(lst);
-                        }
+                        ListViewItem lst = new ListViewItem();
+                        lst.Text = dr.Cells[0].Value.ToString();
+                        lst.SubItems.Add(dr.Cells[1].Value.ToString());
+                        lst.SubItems.Add(dr.Cells[13].Value.ToString());
+                        lst.SubItems.Add(dr.Cells[3].Value.ToString());
+                        lst.SubItems.Add(groupid.ToString());
 
+                        listView.Items.Add(lst);
+                        tags.Add(lst);
+                    }
+                  
+                   
 
-                        else if (listView.FindItemWithText(personid.ToString()) == null)
+                    //foreach(ListViewItem item in listView.Items)
+                    //{
+                    //    // HashSet.Add() returns false if it already contains the key.
+                    //     {}
+                    //    duplicates.Add(item);
+                    //}
+
+                  
+
+                    else 
+                    {
+                        ListViewItem lst1 = new ListViewItem();
+                        lst1.Text = dr.Cells[0].Value.ToString();
+                        lst1.SubItems.Add(dr.Cells[1].Value.ToString());
+                        lst1.SubItems.Add(dr.Cells[13].Value.ToString());
+                        lst1.SubItems.Add(dr.Cells[3].Value.ToString());
+                        lst1.SubItems.Add(groupid.ToString());
+                        if (tags.Add(lst1))
                         {
-                            ListViewItem lst1 = new ListViewItem();
-                            lst1.Text = dr.Cells[0].Value.ToString();
-                            lst1.SubItems.Add(dr.Cells[1].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[13].Value.ToString());
-                            lst1.SubItems.Add(dr.Cells[3].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[3].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[4].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[5].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[6].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[7].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[8].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[9].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[10].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[11].Value.ToString());
-                            //lst1.SubItems.Add(dr.Cells[12].Value.ToString());
-                           
                             listView.Items.Add(lst1);
                         }
-
                         else
                         {
                             MessageBox.Show("You Can Not Add Same Item More than one times", "error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-
                         }
+                        
                     }
+
+
+                    //if (dataGridView.SelectedRows.Count > 0)
+                    //{
+                    //    try
+                    //    {
+                    //        for (int i = 0; i <= dataGridView.SelectedRows.Count - 1; i++)
+                    //        {
+                    //            DataGridViewRow dr = dataGridView.SelectedRows[0];              
+
+                    //else
+                    //{
+                    //    MessageBox.Show("You Can Not Add Same Item More than one times", "error",
+                    //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+
+                    //}
                 }
-                catch (Exception ex)
+            
+
+            catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("There is no row selected, please select row and Click Add Button!");
-            }
+            //else
+            //{
+            //    MessageBox.Show("There is no row selected, please select row and Click Add Button!");
+            //}
 
         }
 
@@ -255,7 +283,7 @@ namespace PhonebookApp.UI
                         if (rdr.Read())
                         {
 
-                            MessageBox.Show("This Person Id: "+ personid +" Already Exists in these Group", "Error", MessageBoxButtons.OK,
+                            MessageBox.Show("Person Id: "+ personid +" Already Exists in this Group", "Error", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                             GroupNamecomboBox.SelectedIndex = -1;
 

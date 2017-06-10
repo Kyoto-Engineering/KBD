@@ -49,6 +49,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupNamelabel = new System.Windows.Forms.Label();
             this.addbutton = new System.Windows.Forms.Button();
             this.submitbutton = new System.Windows.Forms.Button();
@@ -60,11 +61,16 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.removeButton = new System.Windows.Forms.Button();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.PersonSearchtextBox = new System.Windows.Forms.TextBox();
+            this.CompanySearchtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -88,7 +94,7 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView.Location = new System.Drawing.Point(421, 97);
+            this.dataGridView.Location = new System.Drawing.Point(421, 121);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -192,10 +198,10 @@
             this.columnHeader5});
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
-            this.listView.Location = new System.Drawing.Point(421, 434);
+            this.listView.Location = new System.Drawing.Point(421, 456);
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(726, 248);
+            this.listView.Size = new System.Drawing.Size(726, 231);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -222,12 +228,16 @@
             this.columnHeader4.Text = "Company Name";
             this.columnHeader4.Width = 270;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Group Id";
+            // 
             // groupNamelabel
             // 
             this.groupNamelabel.AutoSize = true;
             this.groupNamelabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupNamelabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.groupNamelabel.Location = new System.Drawing.Point(620, 383);
+            this.groupNamelabel.Location = new System.Drawing.Point(620, 405);
             this.groupNamelabel.Name = "groupNamelabel";
             this.groupNamelabel.Size = new System.Drawing.Size(116, 22);
             this.groupNamelabel.TabIndex = 5;
@@ -238,7 +248,7 @@
             this.addbutton.BackColor = System.Drawing.Color.Yellow;
             this.addbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbutton.ForeColor = System.Drawing.Color.Black;
-            this.addbutton.Location = new System.Drawing.Point(421, 365);
+            this.addbutton.Location = new System.Drawing.Point(421, 386);
             this.addbutton.Name = "addbutton";
             this.addbutton.Size = new System.Drawing.Size(93, 57);
             this.addbutton.TabIndex = 6;
@@ -251,7 +261,7 @@
             this.submitbutton.BackColor = System.Drawing.Color.Blue;
             this.submitbutton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitbutton.ForeColor = System.Drawing.Color.White;
-            this.submitbutton.Location = new System.Drawing.Point(1069, 365);
+            this.submitbutton.Location = new System.Drawing.Point(1069, 392);
             this.submitbutton.Name = "submitbutton";
             this.submitbutton.Size = new System.Drawing.Size(88, 53);
             this.submitbutton.TabIndex = 7;
@@ -263,7 +273,7 @@
             // 
             this.GroupNamecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupNamecomboBox.FormattingEnabled = true;
-            this.GroupNamecomboBox.Location = new System.Drawing.Point(742, 380);
+            this.GroupNamecomboBox.Location = new System.Drawing.Point(742, 402);
             this.GroupNamecomboBox.Name = "GroupNamecomboBox";
             this.GroupNamecomboBox.Size = new System.Drawing.Size(257, 27);
             this.GroupNamecomboBox.TabIndex = 8;
@@ -272,20 +282,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(43, 16);
+            this.label1.Location = new System.Drawing.Point(22, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 33);
+            this.label1.Size = new System.Drawing.Size(291, 31);
             this.label1.TabIndex = 9;
             this.label1.Text = "Contact Added to Group";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(421, 12);
+            this.groupBox1.Location = new System.Drawing.Point(421, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 58);
+            this.groupBox1.Size = new System.Drawing.Size(334, 49);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -294,7 +304,7 @@
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(26, 91);
+            this.groupBox2.Location = new System.Drawing.Point(26, 120);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(367, 114);
             this.groupBox2.TabIndex = 11;
@@ -315,7 +325,7 @@
             this.groupBox3.Controls.Add(this.richTextBox2);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Red;
-            this.groupBox3.Location = new System.Drawing.Point(26, 220);
+            this.groupBox3.Location = new System.Drawing.Point(26, 249);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(367, 128);
             this.groupBox3.TabIndex = 12;
@@ -344,9 +354,45 @@
             this.removeButton.UseVisualStyleBackColor = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
-            // columnHeader5
+            // groupBox4
             // 
-            this.columnHeader5.Text = "Group Id";
+            this.groupBox4.Controls.Add(this.PersonSearchtextBox);
+            this.groupBox4.Location = new System.Drawing.Point(421, 58);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(299, 57);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Search By Person Name";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.CompanySearchtextBox);
+            this.groupBox5.Location = new System.Drawing.Point(760, 58);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(306, 57);
+            this.groupBox5.TabIndex = 15;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Search By Company Name";
+            // 
+            // PersonSearchtextBox
+            // 
+            this.PersonSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonSearchtextBox.Location = new System.Drawing.Point(14, 20);
+            this.PersonSearchtextBox.Name = "PersonSearchtextBox";
+            this.PersonSearchtextBox.Size = new System.Drawing.Size(265, 26);
+            this.PersonSearchtextBox.TabIndex = 0;
+            this.PersonSearchtextBox.TextChanged += new System.EventHandler(this.PersonSearchtextBox_TextChanged);
+            this.PersonSearchtextBox.Leave += new System.EventHandler(this.PersonSearchtextBox_Leave);
+            // 
+            // CompanySearchtextBox
+            // 
+            this.CompanySearchtextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanySearchtextBox.Location = new System.Drawing.Point(12, 20);
+            this.CompanySearchtextBox.Name = "CompanySearchtextBox";
+            this.CompanySearchtextBox.Size = new System.Drawing.Size(283, 26);
+            this.CompanySearchtextBox.TabIndex = 1;
+            this.CompanySearchtextBox.TextChanged += new System.EventHandler(this.CompanySearchtextBox_TextChanged);
+            this.CompanySearchtextBox.Leave += new System.EventHandler(this.CompanySearchtextBox_Leave);
             // 
             // Group
             // 
@@ -354,6 +400,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(1235, 703);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -374,6 +422,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +465,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox PersonSearchtextBox;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox CompanySearchtextBox;
     }
 }

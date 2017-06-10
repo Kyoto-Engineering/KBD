@@ -351,9 +351,9 @@ namespace PhonebookApp
             cmd.Parameters.AddWithValue("@d19", (object)genderId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d20", (object)maritalStatusId ?? DBNull.Value);
             cmd.Parameters.Add(new SqlParameter("@d21",
-                !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value));
+                !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value.Date));
             cmd.Parameters.Add(new SqlParameter("@d22",
-                !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value));
+                !AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value.Date));
             cmd.Parameters.AddWithValue("@d23", nUserId);
             if (userPictureBox.Image != null)
             {

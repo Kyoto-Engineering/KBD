@@ -40,7 +40,7 @@ namespace PhonebookApp.UI
         }
         public void UpdatePersonInfo_Load(object sender, EventArgs e)
         {
-            LoadControls();
+            //LoadControls();
         }
 
         public void LoadControls()

@@ -44,12 +44,17 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RefNowaterMarkTextBox = new wmgCMS.WaterMarkTextBox();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RefNowaterMarkTextBox);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.removeButton);
             this.groupBox1.Controls.Add(this.cmbDispatchBy);
             this.groupBox1.Controls.Add(this.label4);
@@ -61,7 +66,7 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(481, 318);
+            this.groupBox1.Size = new System.Drawing.Size(495, 409);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -70,7 +75,7 @@
             this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.removeButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.removeButton.Location = new System.Drawing.Point(363, 192);
+            this.removeButton.Location = new System.Drawing.Point(363, 211);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(84, 47);
             this.removeButton.TabIndex = 49;
@@ -84,7 +89,7 @@
             this.cmbDispatchBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDispatchBy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDispatchBy.FormattingEnabled = true;
-            this.cmbDispatchBy.Location = new System.Drawing.Point(129, 67);
+            this.cmbDispatchBy.Location = new System.Drawing.Point(145, 69);
             this.cmbDispatchBy.Name = "cmbDispatchBy";
             this.cmbDispatchBy.Size = new System.Drawing.Size(150, 27);
             this.cmbDispatchBy.TabIndex = 48;
@@ -106,7 +111,7 @@
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.submitButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitButton.ForeColor = System.Drawing.Color.Fuchsia;
-            this.submitButton.Location = new System.Drawing.Point(363, 248);
+            this.submitButton.Location = new System.Drawing.Point(363, 267);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(84, 45);
             this.submitButton.TabIndex = 43;
@@ -119,7 +124,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Yellow;
-            this.button1.Location = new System.Drawing.Point(363, 132);
+            this.button1.Location = new System.Drawing.Point(363, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 49);
             this.button1.TabIndex = 42;
@@ -130,7 +135,7 @@
             // PersonIdtextBox
             // 
             this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonIdtextBox.Location = new System.Drawing.Point(129, 107);
+            this.PersonIdtextBox.Location = new System.Drawing.Point(145, 109);
             this.PersonIdtextBox.Name = "PersonIdtextBox";
             this.PersonIdtextBox.Size = new System.Drawing.Size(150, 26);
             this.PersonIdtextBox.TabIndex = 41;
@@ -151,7 +156,7 @@
             this.DateForBatch.Enabled = false;
             this.DateForBatch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateForBatch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateForBatch.Location = new System.Drawing.Point(129, 22);
+            this.DateForBatch.Location = new System.Drawing.Point(145, 24);
             this.DateForBatch.Name = "DateForBatch";
             this.DateForBatch.Size = new System.Drawing.Size(150, 32);
             this.DateForBatch.TabIndex = 36;
@@ -172,7 +177,7 @@
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Location = new System.Drawing.Point(526, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(380, 412);
+            this.groupBox2.Size = new System.Drawing.Size(453, 412);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -181,13 +186,14 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(3, 16);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(374, 393);
+            this.listView1.Size = new System.Drawing.Size(447, 393);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -206,7 +212,7 @@
             // 
             this.columnHeader3.Text = "Name";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 280;
+            this.columnHeader3.Width = 220;
             // 
             // label3
             // 
@@ -219,11 +225,37 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Batch Creation Form";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(4, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 22);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Reference No";
+            // 
+            // RefNowaterMarkTextBox
+            // 
+            this.RefNowaterMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefNowaterMarkTextBox.Location = new System.Drawing.Point(145, 148);
+            this.RefNowaterMarkTextBox.Name = "RefNowaterMarkTextBox";
+            this.RefNowaterMarkTextBox.Size = new System.Drawing.Size(150, 26);
+            this.RefNowaterMarkTextBox.TabIndex = 51;
+            this.RefNowaterMarkTextBox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.RefNowaterMarkTextBox.WaterMarkText = "If Any";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Reference No";
+            this.columnHeader4.Width = 130;
+            // 
             // Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 494);
+            this.ClientSize = new System.Drawing.Size(1003, 526);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -257,5 +289,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private wmgCMS.WaterMarkTextBox RefNowaterMarkTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

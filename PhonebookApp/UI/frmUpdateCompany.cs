@@ -40,7 +40,7 @@ namespace PhonebookApp.UI
 
         private void frmCompany_Load(object sender, EventArgs e)
         {
-            LoadControls();
+            //LoadControls();
         }
 
         public void LoadControls()

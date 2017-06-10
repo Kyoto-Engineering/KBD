@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
 using PhonebookApp.Models;
+using wmgCMS;
 
 namespace PhonebookApp.UI
 {
@@ -36,6 +37,18 @@ namespace PhonebookApp.UI
                 PersonIdtextBox.Focus();
                 return;
             }
+            //if (!string.IsNullOrWhiteSpace(RefNowaterMarkTextBox.Text))
+            //{
+            //    _con = new SqlConnection(_cs.DBConn);
+            //    _con.Open();
+            //    string cd = "Update Persons set RefNo=@d1 where Persons.PersonsId='"+ PersonIdtextBox.Text +"'";
+            //    _cmd = new SqlCommand(cd, _con);               
+            //    _cmd.Parameters.AddWithValue("@d1", RefNowaterMarkTextBox.Text);
+            //    rdr = _cmd.ExecuteReader();
+            //    _con.Close();
+            //}
+
+
             try
             {
                 _con = new SqlConnection(_cs.DBConn);
@@ -51,9 +64,10 @@ namespace PhonebookApp.UI
                         ListViewItem lst = new ListViewItem();
                         lst.SubItems.Add(PersonIdtextBox.Text);
                         lst.SubItems.Add(rdr.GetString(0));
-
+                        lst.SubItems.Add(RefNowaterMarkTextBox.Text);
                         listView1.Items.Add(lst);
-                        PersonIdtextBox.Text = "";
+                        PersonIdtextBox.Clear();
+                        RefNowaterMarkTextBox.ResetText();
                         cmbDispatchBy.Enabled = false;
                         return;
                     }
@@ -64,9 +78,10 @@ namespace PhonebookApp.UI
                         ListViewItem lst1 = new ListViewItem();
                         lst1.SubItems.Add(PersonIdtextBox.Text);
                         lst1.SubItems.Add(rdr.GetString(0));
+                        lst1.SubItems.Add(RefNowaterMarkTextBox.Text);
                         listView1.Items.Add(lst1);
-                        PersonIdtextBox.Text = "";
-
+                        PersonIdtextBox.Clear();
+                        RefNowaterMarkTextBox.ResetText();
                         return;
                     }
                     else
@@ -97,7 +112,7 @@ namespace PhonebookApp.UI
                 PersonIdtextBox.Focus();
                 return;
             }
-
+            
             _con = new SqlConnection(_cs.DBConn);
             string cd1 = "INSERT INTO Batch (DispatchId,UserId,BatchTime) VALUES (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             _cmd = new SqlCommand(cd1, _con);
@@ -112,10 +127,11 @@ namespace PhonebookApp.UI
                 for (int i = 0; i <= listView1.Items.Count - 1; i++)
                 {
                     _con = new SqlConnection(_cs.DBConn);
-                    string cd = "INSERT INTO DetailsOfBatch (BatchID,PersonsId) VALUES (@d1,@d2)";
+                    string cd = "INSERT INTO DetailsOfBatch (BatchID,PersonsId,RefNo) VALUES (@d1,@d2,@d3)";
                     _cmd = new SqlCommand(cd, _con);
                     _cmd.Parameters.AddWithValue("@d1", Batchid);
-                    _cmd.Parameters.AddWithValue("d2", listView1.Items[i].SubItems[1].Text);
+                    _cmd.Parameters.AddWithValue("@d2", listView1.Items[i].SubItems[1].Text);
+                    _cmd.Parameters.AddWithValue("@d3", listView1.Items[i].SubItems[3].Text);
                     _con.Open();
                     _cmd.ExecuteNonQuery();
                     _con.Close();

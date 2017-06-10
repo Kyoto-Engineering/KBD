@@ -150,7 +150,7 @@ namespace PhonebookApp.UI
             frmViewAndReport frm = new frmViewAndReport();
             this.Visible = false;
             frm.ShowDialog();
-            this.Visible = true; ;
+            this.Visible = true; 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -158,7 +158,7 @@ namespace PhonebookApp.UI
             Batch frmb = new Batch();
             this.Visible = false;
             frmb.ShowDialog();
-            this.Visible = true; ;
+            this.Visible = true; 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -166,7 +166,7 @@ namespace PhonebookApp.UI
             RemoveFromGroup rfg = new RemoveFromGroup();
             this.Visible = false;
             rfg.ShowDialog();
-            this.Visible = true; ;
+            this.Visible = true; 
         }
 
         //private void button2_Click_1(object sender, EventArgs e)

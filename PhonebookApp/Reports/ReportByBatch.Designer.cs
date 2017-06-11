@@ -61,6 +61,7 @@
             this.batchIdCombobox.Name = "batchIdCombobox";
             this.batchIdCombobox.Size = new System.Drawing.Size(121, 21);
             this.batchIdCombobox.TabIndex = 2;
+            this.batchIdCombobox.SelectedIndexChanged += new System.EventHandler(this.batchIdCombobox_SelectedIndexChanged);
             // 
             // PortraitRadioButton
             // 

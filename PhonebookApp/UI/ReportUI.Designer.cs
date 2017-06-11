@@ -38,6 +38,7 @@
             this.allAddressButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TestButton);
             this.groupBox1.Controls.Add(this.allAddressButton);
@@ -91,7 +93,7 @@
             this.groupBox1.Controls.Add(this.gretingsCardButton);
             this.groupBox1.Location = new System.Drawing.Point(73, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(569, 249);
+            this.groupBox1.Size = new System.Drawing.Size(569, 259);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -101,7 +103,7 @@
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(378, 123);
+            this.button1.Location = new System.Drawing.Point(378, 104);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 62);
             this.button1.TabIndex = 6;
@@ -114,7 +116,7 @@
             this.TestButton.BackColor = System.Drawing.Color.Blue;
             this.TestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestButton.ForeColor = System.Drawing.Color.White;
-            this.TestButton.Location = new System.Drawing.Point(197, 123);
+            this.TestButton.Location = new System.Drawing.Point(199, 104);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(151, 62);
             this.TestButton.TabIndex = 5;
@@ -127,7 +129,7 @@
             this.allAddressButton.BackColor = System.Drawing.Color.Blue;
             this.allAddressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allAddressButton.ForeColor = System.Drawing.Color.White;
-            this.allAddressButton.Location = new System.Drawing.Point(27, 123);
+            this.allAddressButton.Location = new System.Drawing.Point(27, 104);
             this.allAddressButton.Name = "allAddressButton";
             this.allAddressButton.Size = new System.Drawing.Size(164, 62);
             this.allAddressButton.TabIndex = 3;
@@ -154,6 +156,19 @@
             this.label1.Size = new System.Drawing.Size(107, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "Reports";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Blue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(27, 181);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 65);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Batch Report";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ReportUI
             // 
@@ -187,5 +202,6 @@
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

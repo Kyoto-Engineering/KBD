@@ -78,7 +78,7 @@ namespace PhonebookApp.Reports
             paramField1.Name = "BatchNum";
 
             //set the parameter value
-            paramDiscreteValue1.Value = batchid;
+            paramDiscreteValue1.Value = batchIdCombobox.Text;
 
             //add the parameter value in the ParameterField object
             paramField1.CurrentValues.Add(paramDiscreteValue1);

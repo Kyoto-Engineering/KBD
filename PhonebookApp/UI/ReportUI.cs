@@ -364,51 +364,9 @@ namespace PhonebookApp.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ParameterField paramField1 = new ParameterField();
-
-
-            //creating an object of ParameterFields class
-            ParameterFields paramFields1 = new ParameterFields();
-
-            //creating an object of ParameterDiscreteValue class
-            ParameterDiscreteValue paramDiscreteValue1 = new ParameterDiscreteValue();
-
-            //set the parameter field name
-            paramField1.Name = "BatchId";
-
-            //set the parameter value
-            paramDiscreteValue1.Value = BatchId;
-
-            //add the parameter value in the ParameterField object
-            paramField1.CurrentValues.Add(paramDiscreteValue1);
-
-            //add the parameter in the ParameterFields object
-            paramFields1.Add(paramField1);
-            ReportViewer f3 = new ReportViewer();
-            TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
-            TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
-            ConnectionInfo reportConInfo = new ConnectionInfo();
-            Tables tables = default(Tables);
-            //	Table table = default(Table);
-            var with1 = reportConInfo;
-            with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22";
-            with1.UserID = "sa";
-            with1.Password = "SystemAdministrator";
-            BatchReport cr = new BatchReport();
-            tables = cr.Database.Tables;
-            foreach (Table table in tables)
-            {
-                reportLogonInfo = table.LogOnInfo;
-                reportLogonInfo.ConnectionInfo = reportConInfo;
-                table.ApplyLogOnInfo(reportLogonInfo);
-            }
-
-            f3.crystalReportViewer1.ParameterFieldInfo = paramFields1;
-            f3.crystalReportViewer1.ReportSource = cr;
+            ReportByBatch f2=new ReportByBatch();
             this.Visible = false;
-
-            f3.ShowDialog();
+            f2.ShowDialog();
             this.Visible = true;
         }
 

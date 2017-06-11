@@ -96,6 +96,7 @@
             this.Controls.Add(this.getButton);
             this.Name = "ReportByBatch";
             this.Text = "ReportByBatch";
+            this.Load += new System.EventHandler(this.ReportByBatch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

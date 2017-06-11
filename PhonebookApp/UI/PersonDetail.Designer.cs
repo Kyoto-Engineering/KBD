@@ -554,6 +554,7 @@
             this.SearchPersonNametextBox.Size = new System.Drawing.Size(221, 26);
             this.SearchPersonNametextBox.TabIndex = 5;
             this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
+            this.SearchPersonNametextBox.Leave += new System.EventHandler(this.SearchPersonNametextBox_Leave);
             // 
             // label2
             // 
@@ -569,8 +570,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.SearchByPersonIdtextBox);
-            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(294, 41);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(178, 55);
@@ -586,6 +587,7 @@
             this.SearchByPersonIdtextBox.Size = new System.Drawing.Size(155, 29);
             this.SearchByPersonIdtextBox.TabIndex = 0;
             this.SearchByPersonIdtextBox.TextChanged += new System.EventHandler(this.SearchByPersonIdtextBox_TextChanged);
+            this.SearchByPersonIdtextBox.Leave += new System.EventHandler(this.SearchByPersonIdtextBox_Leave);
             // 
             // PersonDetail
             // 

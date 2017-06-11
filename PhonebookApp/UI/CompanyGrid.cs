@@ -184,5 +184,15 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void companyNameSearchtextBox_Leave(object sender, EventArgs e)
+        {
+            SearchByCompanyIdtextBox.Clear();
+        }
+
+        private void SearchByCompanyIdtextBox_Leave(object sender, EventArgs e)
+        {
+            companyNameSearchtextBox.Clear();
+        }
     }
 }

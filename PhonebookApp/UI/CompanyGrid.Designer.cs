@@ -392,6 +392,7 @@
             this.companyNameSearchtextBox.Size = new System.Drawing.Size(270, 29);
             this.companyNameSearchtextBox.TabIndex = 0;
             this.companyNameSearchtextBox.TextChanged += new System.EventHandler(this.companyNameSearchtextBox_TextChanged);
+            this.companyNameSearchtextBox.Leave += new System.EventHandler(this.companyNameSearchtextBox_Leave);
             // 
             // groupBox2
             // 
@@ -413,6 +414,7 @@
             this.SearchByCompanyIdtextBox.Size = new System.Drawing.Size(155, 29);
             this.SearchByCompanyIdtextBox.TabIndex = 0;
             this.SearchByCompanyIdtextBox.TextChanged += new System.EventHandler(this.SearchByCompanyIdtextBox_TextChanged);
+            this.SearchByCompanyIdtextBox.Leave += new System.EventHandler(this.SearchByCompanyIdtextBox_Leave);
             // 
             // CompanyGrid
             // 

@@ -303,5 +303,15 @@ namespace PhonebookApp.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void SearchPersonNametextBox_Leave(object sender, EventArgs e)
+        {
+            SearchByPersonIdtextBox.Clear();
+        }
+
+        private void SearchByPersonIdtextBox_Leave(object sender, EventArgs e)
+        {
+            SearchPersonNametextBox.Clear();
+        }
     }
 }

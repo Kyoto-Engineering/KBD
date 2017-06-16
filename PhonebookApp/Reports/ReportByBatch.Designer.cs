@@ -73,6 +73,7 @@
             this.PortraitRadioButton.TabStop = true;
             this.PortraitRadioButton.Text = "Batch Report for Portrait";
             this.PortraitRadioButton.UseVisualStyleBackColor = true;
+            this.PortraitRadioButton.CheckedChanged += new System.EventHandler(this.PortraitRadioButton_CheckedChanged);
             // 
             // LandscapeRadioButton
             // 

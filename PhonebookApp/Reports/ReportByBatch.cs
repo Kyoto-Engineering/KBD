@@ -191,5 +191,10 @@ namespace PhonebookApp.Reports
         {
 
         }
+
+        private void PortraitRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

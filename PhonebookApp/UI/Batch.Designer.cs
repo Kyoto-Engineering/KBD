@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RefNowaterMarkTextBox = new wmgCMS.WaterMarkTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
             this.cmbDispatchBy = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,10 +45,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.RefNowaterMarkTextBox = new wmgCMS.WaterMarkTextBox();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,27 @@
             this.groupBox1.Size = new System.Drawing.Size(495, 409);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // RefNowaterMarkTextBox
+            // 
+            this.RefNowaterMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefNowaterMarkTextBox.Location = new System.Drawing.Point(145, 112);
+            this.RefNowaterMarkTextBox.Name = "RefNowaterMarkTextBox";
+            this.RefNowaterMarkTextBox.Size = new System.Drawing.Size(150, 26);
+            this.RefNowaterMarkTextBox.TabIndex = 51;
+            this.RefNowaterMarkTextBox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.RefNowaterMarkTextBox.WaterMarkText = "If Any";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(4, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 22);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Reference No";
             // 
             // removeButton
             // 
@@ -135,21 +156,23 @@
             // PersonIdtextBox
             // 
             this.PersonIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonIdtextBox.Location = new System.Drawing.Point(145, 109);
+            this.PersonIdtextBox.Location = new System.Drawing.Point(145, 154);
             this.PersonIdtextBox.Name = "PersonIdtextBox";
             this.PersonIdtextBox.Size = new System.Drawing.Size(150, 26);
             this.PersonIdtextBox.TabIndex = 41;
+            this.PersonIdtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PersonIdtextBox_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 109);
+            this.label2.Location = new System.Drawing.Point(6, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 40;
             this.label2.Text = "Person ID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // DateForBatch
             // 
@@ -166,7 +189,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(57, 28);
+            this.label14.Location = new System.Drawing.Point(6, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(54, 22);
             this.label14.TabIndex = 37;
@@ -214,6 +237,11 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 220;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Reference No";
+            this.columnHeader4.Width = 130;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -224,32 +252,6 @@
             this.label3.Size = new System.Drawing.Size(273, 33);
             this.label3.TabIndex = 2;
             this.label3.Text = "Batch Creation Form";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(4, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 22);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Reference No";
-            // 
-            // RefNowaterMarkTextBox
-            // 
-            this.RefNowaterMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefNowaterMarkTextBox.Location = new System.Drawing.Point(145, 148);
-            this.RefNowaterMarkTextBox.Name = "RefNowaterMarkTextBox";
-            this.RefNowaterMarkTextBox.Size = new System.Drawing.Size(150, 26);
-            this.RefNowaterMarkTextBox.TabIndex = 51;
-            this.RefNowaterMarkTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.RefNowaterMarkTextBox.WaterMarkText = "If Any";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Reference No";
-            this.columnHeader4.Width = 130;
             // 
             // Batch
             // 

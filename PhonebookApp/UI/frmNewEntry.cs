@@ -43,5 +43,21 @@ namespace PhonebookApp.UI
             frm.ShowDialog();
             this.Visible = true;
         }
+
+        private void SearchContactbutton_Click(object sender, EventArgs e)
+        {
+            PersonDetail frmm = new PersonDetail();
+            this.Visible = false;
+            frmm.ShowDialog();
+            this.Visible = true; 
+        }
+
+        private void SearchCompanybutton_Click(object sender, EventArgs e)
+        {
+            CompanyGrid frm = new CompanyGrid();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true; 
+        }
     }
 }

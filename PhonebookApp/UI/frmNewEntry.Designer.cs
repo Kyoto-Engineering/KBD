@@ -33,16 +33,20 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.SearchCompanybutton = new System.Windows.Forms.Button();
+            this.SearchContactbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.SearchCompanybutton);
+            this.groupBox1.Controls.Add(this.SearchContactbutton);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(116, 116);
+            this.groupBox1.Location = new System.Drawing.Point(116, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 142);
+            this.groupBox1.Size = new System.Drawing.Size(375, 220);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -83,6 +87,32 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "New Entry";
             // 
+            // SearchCompanybutton
+            // 
+            this.SearchCompanybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.SearchCompanybutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchCompanybutton.ForeColor = System.Drawing.Color.Yellow;
+            this.SearchCompanybutton.Location = new System.Drawing.Point(22, 131);
+            this.SearchCompanybutton.Name = "SearchCompanybutton";
+            this.SearchCompanybutton.Size = new System.Drawing.Size(128, 69);
+            this.SearchCompanybutton.TabIndex = 40;
+            this.SearchCompanybutton.Text = "Search Company";
+            this.SearchCompanybutton.UseVisualStyleBackColor = false;
+            this.SearchCompanybutton.Click += new System.EventHandler(this.SearchCompanybutton_Click);
+            // 
+            // SearchContactbutton
+            // 
+            this.SearchContactbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.SearchContactbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchContactbutton.ForeColor = System.Drawing.Color.Yellow;
+            this.SearchContactbutton.Location = new System.Drawing.Point(221, 131);
+            this.SearchContactbutton.Name = "SearchContactbutton";
+            this.SearchContactbutton.Size = new System.Drawing.Size(121, 69);
+            this.SearchContactbutton.TabIndex = 39;
+            this.SearchContactbutton.Text = "Search Contact";
+            this.SearchContactbutton.UseVisualStyleBackColor = false;
+            this.SearchContactbutton.Click += new System.EventHandler(this.SearchContactbutton_Click);
+            // 
             // frmNewEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,5 +137,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SearchCompanybutton;
+        private System.Windows.Forms.Button SearchContactbutton;
     }
 }

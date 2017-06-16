@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace PhonebookApp.DbGateway
 {
   public   class ConnectionGateway
-    {
+    
         protected SqlConnection connection;
 
         public ConnectionGateway()

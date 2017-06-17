@@ -527,12 +527,12 @@ namespace PhonebookApp.UI
 
         private void PersonSearchtextBox_Leave(object sender, EventArgs e)
         {
-            PersonSearchtextBox.Clear();
+            //PersonSearchtextBox.Clear();
         }
 
         private void CompanySearchtextBox_Leave(object sender, EventArgs e)
         {
-            CompanySearchtextBox.Clear();
+            //CompanySearchtextBox.Clear();
         }
     }
 }

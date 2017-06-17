@@ -414,6 +414,14 @@ namespace PhonebookApp
                 validate = false;
                 GendercomboBox.Focus();
             }
+            else if (!string.IsNullOrWhiteSpace(companyNametextBox.Text))
+            {
+                if (string.IsNullOrWhiteSpace(cmbJobTitle.Text))
+                MessageBox.Show("Please Select Job Title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                cmbJobTitle.Focus();
+            }
+
             else if (CountrycomboBox.Text == "Bangladesh")
             {
 

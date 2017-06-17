@@ -428,6 +428,12 @@
     <Compile Include="UI\ReportUI.Designer.cs">
       <DependentUpon>ReportUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReturnMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReturnMail.Designer.cs">
+      <DependentUpon>ReturnMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Specialization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -620,6 +626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportUI.resx">
       <DependentUpon>ReportUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReturnMail.resx">
+      <DependentUpon>ReturnMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Specialization.resx">
       <DependentUpon>Specialization.cs</DependentUpon>

@@ -327,25 +327,6 @@ namespace PhonebookApp
                 string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
             cmd.Parameters.Add(new SqlParameter("@d16",
                 string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
-
-            //if (!string.IsNullOrEmpty(txtWhatsApp.Text))
-            //{
-            //    cmd.Parameters.Add(new SqlParameter("@d15", string.IsNullOrEmpty(CountryCodetextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : CountryCodetextBox.Text + txtWhatsApp.Text));
-            //}
-            //else
-            //{
-            //    cmd.Parameters.Add(new SqlParameter("@d15", (object)DBNull.Value));
-            //}
-
-            //if (!string.IsNullOrEmpty(txtImmo.Text))
-            //{
-            //    cmd.Parameters.Add(new SqlParameter("@d16", string.IsNullOrEmpty(CountryCodetextBox2.Text) && string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : CountryCodetextBox2.Text + txtImmo.Text));
-            //}
-            //else
-            //{
-            //    cmd.Parameters.Add(new SqlParameter("@d16", (object)DBNull.Value));
-            //}
-
             cmd.Parameters.AddWithValue("@d17", (object)countryid ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d18", (object)religionId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@d19", (object)genderId ?? DBNull.Value);
@@ -375,28 +356,6 @@ namespace PhonebookApp
 
         }
 
-        //private void SaveInfo()
-        //{
-            //try
-            //{
-
-            //    con = new SqlConnection(cs.DBConn);
-            //    con.Open();
-            //    string query = "insert into GroupMember(GroupId,PersonsId,UserId) values(@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-            //    cmd = new SqlCommand(query, con);
-            //    cmd.Parameters.AddWithValue("@d1", (object)groupid ?? DBNull.Value);
-            //    cmd.Parameters.AddWithValue("@d2", currentPersonId);
-            //    cmd.Parameters.AddWithValue("@d3", nUserId);
-            //    cmd.ExecuteNonQuery();
-            //    con.Close();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        //}
-
         private bool ValidateControlls()
         {
             bool validate = true;
@@ -414,10 +373,10 @@ namespace PhonebookApp
                 validate = false;
                 GendercomboBox.Focus();
             }
-            else if (!string.IsNullOrWhiteSpace(companyNametextBox.Text))
+            else if (!string.IsNullOrWhiteSpace(companyNametextBox.Text) && string.IsNullOrWhiteSpace(cmbJobTitle.Text))
             {
-                if (string.IsNullOrWhiteSpace(cmbJobTitle.Text))
-                MessageBox.Show("Please Select Job Title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+                MessageBox.Show(@"Please Select Job Title", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
                 cmbJobTitle.Focus();
             }

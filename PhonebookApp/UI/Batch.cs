@@ -131,7 +131,9 @@ namespace PhonebookApp.UI
                     _cmd = new SqlCommand(cd, _con);
                     _cmd.Parameters.AddWithValue("@d1", Batchid);
                     _cmd.Parameters.AddWithValue("@d2", listView1.Items[i].SubItems[1].Text);
-                    _cmd.Parameters.AddWithValue("@d3", listView1.Items[i].SubItems[3].Text);
+                    //_cmd.Parameters.AddWithValue("@d3", (object)listView1.Items[i].SubItems[3].Text ?? DBNull.Value);
+                    _cmd.Parameters.Add(new SqlParameter("@d3", (listView1.Items[i].SubItems[3].Text=="") ? (Object)DBNull.Value : listView1.Items[i].SubItems[3].Text));
+                    
                     _con.Open();
                     _cmd.ExecuteNonQuery();
                     _con.Close();

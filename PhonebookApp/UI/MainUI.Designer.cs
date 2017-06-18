@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ViewAndReportbutton = new System.Windows.Forms.Button();
             this.ManageGroupsbutton = new System.Windows.Forms.Button();
             this.NewEntrybutton = new System.Windows.Forms.Button();
             this.MemberAddedToGroupbutton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,18 @@
             this.groupBox1.Size = new System.Drawing.Size(361, 352);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(193, 233);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 69);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "Member Remove";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
@@ -144,28 +156,19 @@
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(193, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 69);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "Member Remove";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1038, 641);
             this.ControlBox = false;
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

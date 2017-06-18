@@ -62,8 +62,8 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.PersonSearchtextBox = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CompanySearchtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -364,6 +364,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search By Person Name";
             // 
+            // PersonSearchtextBox
+            // 
+            this.PersonSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonSearchtextBox.Location = new System.Drawing.Point(14, 20);
+            this.PersonSearchtextBox.Name = "PersonSearchtextBox";
+            this.PersonSearchtextBox.Size = new System.Drawing.Size(265, 26);
+            this.PersonSearchtextBox.TabIndex = 0;
+            this.PersonSearchtextBox.TextChanged += new System.EventHandler(this.PersonSearchtextBox_TextChanged);
+            this.PersonSearchtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PersonSearchtextBox_KeyDown);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.CompanySearchtextBox);
@@ -374,16 +384,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search By Company Name";
             // 
-            // PersonSearchtextBox
-            // 
-            this.PersonSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonSearchtextBox.Location = new System.Drawing.Point(14, 20);
-            this.PersonSearchtextBox.Name = "PersonSearchtextBox";
-            this.PersonSearchtextBox.Size = new System.Drawing.Size(265, 26);
-            this.PersonSearchtextBox.TabIndex = 0;
-            this.PersonSearchtextBox.TextChanged += new System.EventHandler(this.PersonSearchtextBox_TextChanged);
-            this.PersonSearchtextBox.Leave += new System.EventHandler(this.PersonSearchtextBox_Leave);
-            // 
             // CompanySearchtextBox
             // 
             this.CompanySearchtextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,7 +392,7 @@
             this.CompanySearchtextBox.Size = new System.Drawing.Size(283, 26);
             this.CompanySearchtextBox.TabIndex = 1;
             this.CompanySearchtextBox.TextChanged += new System.EventHandler(this.CompanySearchtextBox_TextChanged);
-            this.CompanySearchtextBox.Leave += new System.EventHandler(this.CompanySearchtextBox_Leave);
+            this.CompanySearchtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompanySearchtextBox_KeyDown);
             // 
             // Group
             // 

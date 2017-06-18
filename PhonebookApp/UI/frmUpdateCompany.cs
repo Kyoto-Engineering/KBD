@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1137,12 +1138,13 @@ namespace PhonebookApp.UI
 
         public void UpdateCompany()
         {
+            SqlParameter p;
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string query =
-                    "update Company set CompanyName=@d1,Email=@nemail,ContactNo=@nphone,IdentificationNo=@nidenti,WebSiteUrl=@nweburl, UserId=@d2, DateAndTime=@d3,CompanyTypeId=@d4,IndustryCategoryId=@d5,NatureOfCompanyId=@d6  Where Company.CompanyId='" +
+                    "update Company set CompanyName=@d1,Email=@nemail,ContactNo=@nphone,IdentificationNo=@nidenti,WebSiteUrl=@nweburl, UserId=@d2, DateAndTime=@d3,CompanyTypeId=@d4,IndustryCategoryId=@d5,NatureOfCompanyId=@d6,CPicture=@d7  Where Company.CompanyId='" +
                     CompanyIdtextBox.Text + "'";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", CompanyNameTextBox.Text);
@@ -1161,6 +1163,21 @@ namespace PhonebookApp.UI
                 cmd.Parameters.AddWithValue("@d4", companytypeid);
                 cmd.Parameters.AddWithValue("@d5", industrycategoryid);
                 cmd.Parameters.AddWithValue("@d6", natureOfClientId);
+                if (pictureBox1.Image != null)
+                {
+                    MemoryStream ms = new MemoryStream();
+                    Bitmap bmpImage = new Bitmap(pictureBox1.Image);
+                    bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] data = ms.GetBuffer();
+                    p = new SqlParameter("@d7", SqlDbType.VarBinary);
+                    p.Value = data;
+                    cmd.Parameters.Add(p);
+                }
+                else
+                {
+                    cmd.Parameters.Add("@d7", SqlDbType.VarBinary, -1);
+                    cmd.Parameters["@d7"].Value = DBNull.Value;
+                }
                 rdr = cmd.ExecuteReader();
                 con.Close();
             }
@@ -1560,6 +1577,53 @@ namespace PhonebookApp.UI
             }
             UpdateButton.Hide();
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _with1 = openFileDialog1;
+
+                _with1.Filter = ("Image Files |*.png;*.bmp; *.jpg;*.jpeg; *.gif;");
+                _with1.FilterIndex = 4;
+
+                openFileDialog1.FileName = "";
+                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                //{
+                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (Image.FromFile(openFileDialog1.FileName).Height != 300)
+                    {
+                        MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Image.FromFile(openFileDialog1.FileName).Width != 300)
+                    {
+                        MessageBox.Show("Width Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
+                        //{
+
+                        pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+                        //pictureBrowseButton.Focus();
+                    }
+                    //else
+                    //{
+                    //    MessageBox.Show("Image Size is invalid");
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

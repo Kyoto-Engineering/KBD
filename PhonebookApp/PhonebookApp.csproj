@@ -77,7 +77,6 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
       <Private>True</Private>
@@ -149,6 +148,11 @@
     <Compile Include="Models\InputBox.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\PersonAddress.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\BarCode.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -574,14 +578,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\frmUpdateCompany.resx">
       <DependentUpon>frmUpdateCompany.cs</DependentUpon>
     </EmbeddedResource>
@@ -698,6 +697,8 @@
     <None Include="Resources\Kyoto Google Plus  Profile.png" />
     <None Include="Resources\business_directory_p6Q_icon.ico" />
     <Content Include="business_directory_p6Q_icon.ico" />
+    <None Include="Resources\Business Directory.png" />
+    <None Include="Resources\12.jpg" />
     <Content Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyCreation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +133,9 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -140,11 +146,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label67);
+            this.groupBox1.Controls.Add(this.label66);
+            this.groupBox1.Controls.Add(this.label65);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.groupBox1.Location = new System.Drawing.Point(6, 30);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -154,14 +165,59 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.Blue;
+            this.label67.Location = new System.Drawing.Point(443, 81);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(233, 13);
+            this.label67.TabIndex = 104;
+            this.label67.Text = "Only .JPG, .JPEG, .PNG, .BMP is Supported";
+            this.label67.Click += new System.EventHandler(this.label67_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.ForeColor = System.Drawing.Color.Yellow;
+            this.label66.Location = new System.Drawing.Point(451, 58);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(212, 19);
+            this.label66.TabIndex = 103;
+            this.label66.Text = "Size Must Be 300 by 300 Pixel";
+            this.label66.Click += new System.EventHandler(this.label66_Click);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.ForeColor = System.Drawing.Color.Blue;
+            this.label65.Location = new System.Drawing.Point(498, 32);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(107, 19);
+            this.label65.TabIndex = 102;
+            this.label65.Text = "Upload Picture";
+            this.label65.Click += new System.EventHandler(this.label65_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox1.Image = global::PhonebookApp.Properties.Resources._12;
+            this.pictureBox1.Location = new System.Drawing.Point(491, 101);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(131, 130);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dataGridView1);
             this.groupBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.LawnGreen;
-            this.groupBox6.Location = new System.Drawing.Point(487, 13);
+            this.groupBox6.Location = new System.Drawing.Point(682, 13);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(755, 233);
+            this.groupBox6.Size = new System.Drawing.Size(562, 230);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "View Similar Companies";
@@ -176,12 +232,12 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(24, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Size = new System.Drawing.Size(709, 186);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 186);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -221,7 +277,7 @@
             this.groupBox5.Controls.Add(this.CompanyNameTextBox);
             this.groupBox5.Location = new System.Drawing.Point(10, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(453, 297);
+            this.groupBox5.Size = new System.Drawing.Size(430, 297);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
@@ -230,7 +286,7 @@
             this.WebSiteUrltextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WebSiteUrltextBox.Location = new System.Drawing.Point(168, 262);
             this.WebSiteUrltextBox.Name = "WebSiteUrltextBox";
-            this.WebSiteUrltextBox.Size = new System.Drawing.Size(256, 29);
+            this.WebSiteUrltextBox.Size = new System.Drawing.Size(235, 29);
             this.WebSiteUrltextBox.TabIndex = 8;
             this.WebSiteUrltextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WebSiteUrltextBox_KeyDown);
             this.WebSiteUrltextBox.Leave += new System.EventHandler(this.WebSiteUrltextBox_Leave);
@@ -250,6 +306,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(5, 231);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 19);
@@ -261,7 +318,7 @@
             this.IdentificationNotextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdentificationNotextBox.Location = new System.Drawing.Point(168, 228);
             this.IdentificationNotextBox.Name = "IdentificationNotextBox";
-            this.IdentificationNotextBox.Size = new System.Drawing.Size(256, 29);
+            this.IdentificationNotextBox.Size = new System.Drawing.Size(235, 29);
             this.IdentificationNotextBox.TabIndex = 7;
             this.IdentificationNotextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IdentificationNotextBox_KeyDown);
             // 
@@ -269,6 +326,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(5, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 19);
@@ -281,7 +339,7 @@
             this.ContactNotextBox.Location = new System.Drawing.Point(168, 194);
             this.ContactNotextBox.MaxLength = 11;
             this.ContactNotextBox.Name = "ContactNotextBox";
-            this.ContactNotextBox.Size = new System.Drawing.Size(256, 29);
+            this.ContactNotextBox.Size = new System.Drawing.Size(235, 29);
             this.ContactNotextBox.TabIndex = 6;
             this.ContactNotextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContactNotextBox_KeyDown);
             this.ContactNotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ContactNotextBox_KeyPress);
@@ -290,6 +348,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(5, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 19);
@@ -301,7 +360,7 @@
             this.EmailtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailtextBox.Location = new System.Drawing.Point(168, 160);
             this.EmailtextBox.Name = "EmailtextBox";
-            this.EmailtextBox.Size = new System.Drawing.Size(256, 29);
+            this.EmailtextBox.Size = new System.Drawing.Size(235, 29);
             this.EmailtextBox.TabIndex = 5;
             this.EmailtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmailtextBox_KeyDown);
             this.EmailtextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailtextBox_Validating);
@@ -344,7 +403,7 @@
             this.cmbNatureOfClient.Location = new System.Drawing.Point(168, 128);
             this.cmbNatureOfClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbNatureOfClient.Name = "cmbNatureOfClient";
-            this.cmbNatureOfClient.Size = new System.Drawing.Size(256, 27);
+            this.cmbNatureOfClient.Size = new System.Drawing.Size(235, 27);
             this.cmbNatureOfClient.TabIndex = 4;
             this.cmbNatureOfClient.SelectedIndexChanged += new System.EventHandler(this.cmbNatureOfClient_SelectedIndexChanged_1);
             this.cmbNatureOfClient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbNatureOfClient_KeyDown);
@@ -365,6 +424,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(5, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 19);
@@ -380,7 +440,7 @@
             this.IndustryCategorycomboBox.FormattingEnabled = true;
             this.IndustryCategorycomboBox.Location = new System.Drawing.Point(168, 92);
             this.IndustryCategorycomboBox.Name = "IndustryCategorycomboBox";
-            this.IndustryCategorycomboBox.Size = new System.Drawing.Size(256, 30);
+            this.IndustryCategorycomboBox.Size = new System.Drawing.Size(235, 30);
             this.IndustryCategorycomboBox.TabIndex = 3;
             this.IndustryCategorycomboBox.SelectedIndexChanged += new System.EventHandler(this.IndustryCategorycomboBox_SelectedIndexChanged);
             this.IndustryCategorycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IndustryCategorycomboBox_KeyDown);
@@ -389,6 +449,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(6, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 19);
@@ -404,7 +465,7 @@
             this.cmbCompanytype.FormattingEnabled = true;
             this.cmbCompanytype.Location = new System.Drawing.Point(168, 56);
             this.cmbCompanytype.Name = "cmbCompanytype";
-            this.cmbCompanytype.Size = new System.Drawing.Size(256, 30);
+            this.cmbCompanytype.Size = new System.Drawing.Size(235, 30);
             this.cmbCompanytype.TabIndex = 2;
             this.cmbCompanytype.SelectedIndexChanged += new System.EventHandler(this.cmbCompanytype_SelectedIndexChanged);
             this.cmbCompanytype.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCompanytype_KeyDown);
@@ -413,6 +474,7 @@
             // 
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.ForeColor = System.Drawing.Color.Black;
             this.lblCategoryName.Location = new System.Drawing.Point(5, 25);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(116, 19);
@@ -424,7 +486,7 @@
             this.CompanyNameTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanyNameTextBox.Location = new System.Drawing.Point(168, 22);
             this.CompanyNameTextBox.Name = "CompanyNameTextBox";
-            this.CompanyNameTextBox.Size = new System.Drawing.Size(256, 29);
+            this.CompanyNameTextBox.Size = new System.Drawing.Size(235, 29);
             this.CompanyNameTextBox.TabIndex = 1;
             this.CompanyNameTextBox.TextChanged += new System.EventHandler(this.CompanyNameTextBox_TextChanged);
             this.CompanyNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompanyNameTextBox_KeyDown);
@@ -1265,6 +1327,10 @@
             this.newButton.UseVisualStyleBackColor = false;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CompanyCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1283,6 +1349,8 @@
             this.Text = "CompanyRegistrationForm";
             this.Load += new System.EventHandler(this.ClientRegistrationForm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox5.ResumeLayout(false);
@@ -1403,5 +1471,10 @@
         private System.Windows.Forms.TextBox cBuldingNameTextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
     }
 }

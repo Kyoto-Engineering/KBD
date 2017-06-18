@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCompany));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label49 = new System.Windows.Forms.Label();
             this.CompanyIdtextBox = new System.Windows.Forms.TextBox();
             this.WebSiteUrltextBox = new System.Windows.Forms.TextBox();
@@ -125,8 +129,10 @@
             this.sameAsCorporatAddCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -148,6 +154,10 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label67);
+            this.groupBox5.Controls.Add(this.label66);
+            this.groupBox5.Controls.Add(this.label65);
+            this.groupBox5.Controls.Add(this.pictureBox1);
             this.groupBox5.Controls.Add(this.label49);
             this.groupBox5.Controls.Add(this.CompanyIdtextBox);
             this.groupBox5.Controls.Add(this.WebSiteUrltextBox);
@@ -171,9 +181,53 @@
             this.groupBox5.Controls.Add(this.CompanyNameTextBox);
             this.groupBox5.Location = new System.Drawing.Point(10, 11);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(437, 346);
+            this.groupBox5.Size = new System.Drawing.Size(437, 490);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.Blue;
+            this.label67.Location = new System.Drawing.Point(12, 415);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(246, 15);
+            this.label67.TabIndex = 112;
+            this.label67.Text = "Only .JPG, .JPEG, .PNG, .BMP is Supported";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.ForeColor = System.Drawing.Color.Yellow;
+            this.label66.Location = new System.Drawing.Point(20, 392);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(163, 15);
+            this.label66.TabIndex = 111;
+            this.label66.Text = "Size Must Be 300 by 300 Pixel";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.Blue;
+            this.label65.Location = new System.Drawing.Point(67, 366);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(97, 16);
+            this.label65.TabIndex = 110;
+            this.label65.Text = "Upload Picture";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(264, 344);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 130);
+            this.pictureBox1.TabIndex = 109;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label49
             // 
@@ -1168,6 +1222,10 @@
             this.label50.TabIndex = 3;
             this.label50.Text = "Update Company Information";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmUpdateCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1186,6 +1244,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1295,6 +1354,11 @@
         private System.Windows.Forms.Label label49;
         public System.Windows.Forms.TextBox CompanyIdtextBox;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }

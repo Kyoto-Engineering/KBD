@@ -864,50 +864,50 @@ namespace PhonebookApp.UI
             con.Close();
 
         }
-        private string GetQrdata()
-        {
-            string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
-            Qrdata += "Division:" + cmbRADivision.Text + "\r\n";
-            Qrdata += "District:" + cmbRADistrict.Text + "\r\n";
-            Qrdata += "Thana:" + cmbRAThana.Text + "\r\n";
-            Qrdata += "Post:" + cmbRAPost.Text + "\r\n";
-            Qrdata += "Post Code:" + txtRAPostCode.Text + "\r\n";
-            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text) +
-                      "\r\n";
-            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text) +
-                      "\r\n";
-            Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(nearestLandMarkTextBox.Text)
-                          ? (object)DBNull.Value
-                          : nearestLandMarkTextBox.Text) + "\r\n";
-            Qrdata += "Road Name:" +
-                      (string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text) + "\r\n";
-            Qrdata += "Road#:" + (string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text) + "\r\n";
-            Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingNameTextBox.Text)
-                          ? (object)DBNull.Value
-                          : buildingNameTextBox.Text) + "\r\n";
-            Qrdata += "Holding#:" + (string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text) +
-                      "\r\n";
-            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text) +
-                      "\r\n";
-            Qrdata += "Contact#:" + (string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text);
-            return Qrdata;
-        }
+        //private string GetQrdata()
+        //{
+        //    string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
+        //    Qrdata += "Division:" + cmbRADivision.Text + "\r\n";
+        //    Qrdata += "District:" + cmbRADistrict.Text + "\r\n";
+        //    Qrdata += "Thana:" + cmbRAThana.Text + "\r\n";
+        //    Qrdata += "Post:" + cmbRAPost.Text + "\r\n";
+        //    Qrdata += "Post Code:" + txtRAPostCode.Text + "\r\n";
+        //    Qrdata += "Area / Village :" + (string.IsNullOrEmpty(txtRAArea.Text) ? (object)DBNull.Value : txtRAArea.Text) +
+        //              "\r\n";
+        //    Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(txtRABlock.Text) ? (object)DBNull.Value : txtRABlock.Text) +
+        //              "\r\n";
+        //    Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(nearestLandMarkTextBox.Text)
+        //                  ? (object)DBNull.Value
+        //                  : nearestLandMarkTextBox.Text) + "\r\n";
+        //    Qrdata += "Road Name:" +
+        //              (string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text) + "\r\n";
+        //    Qrdata += "Road#:" + (string.IsNullOrEmpty(txtRARoadNo.Text) ? (object)DBNull.Value : txtRARoadNo.Text) + "\r\n";
+        //    Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingNameTextBox.Text)
+        //                  ? (object)DBNull.Value
+        //                  : buildingNameTextBox.Text) + "\r\n";
+        //    Qrdata += "Holding#:" + (string.IsNullOrEmpty(txtRAHouseNo.Text) ? (object)DBNull.Value : txtRAHouseNo.Text) +
+        //              "\r\n";
+        //    Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(txtRAFlatNo.Text) ? (object)DBNull.Value : txtRAFlatNo.Text) +
+        //              "\r\n";
+        //    Qrdata += "Contact#:" + (string.IsNullOrEmpty(txtRAContactNo.Text) ? (object)DBNull.Value : txtRAContactNo.Text);
+        //    return Qrdata;
+        //}
 
-        private string GetFQrdata()
-        {
-            string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
-            Qrdata +=
-                "Street:" + (string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text) +
-                "\r\n";
+        //private string GetFQrdata()
+        //{
+        //    string Qrdata = "Country:" + CountrycomboBox.Text + "\r\n";
+        //    Qrdata +=
+        //        "Street:" + (string.IsNullOrEmpty(StreettextBox.Text) ? (object)DBNull.Value : StreettextBox.Text) +
+        //        "\r\n";
 
-            Qrdata +=
-                "State:" + (string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text) +
-                "\r\n";
-            Qrdata +=
-                "Postal Code:" + (string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text) +
-                "\r\n";
-            return Qrdata;
-        }
+        //    Qrdata +=
+        //        "State:" + (string.IsNullOrEmpty(StatetextBox.Text) ? (object)DBNull.Value : StatetextBox.Text) +
+        //        "\r\n";
+        //    Qrdata +=
+        //        "Postal Code:" + (string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text) +
+        //        "\r\n";
+        //    return Qrdata;
+        //}
 
 
         private void UpdateWorkingAddress(string tblName1)
@@ -919,7 +919,7 @@ namespace PhonebookApp.UI
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string insertQ = "Update " + tableName +
-                                 " set PostOfficeId=@d2,RFlatNo=@d3,RHouseNo=@d4,RRoadNo=@d5,RBlock=@d6,RArea=@d7,RContactNo=@d8,BuildingName=@d9,RoadName=@d10,LandMark=@d11,AdressQR=@d12 where ResidentialAddresses.PersonsId='" +
+                                 " set PostOfficeId=@d2,RFlatNo=@d3,RHouseNo=@d4,RRoadNo=@d5,RBlock=@d6,RArea=@d7,RContactNo=@d8,BuildingName=@d9,RoadName=@d10,LandMark=@d11 where ResidentialAddresses.PersonsId='" +
                                  PersonIdtextBox.Text + "'";
 
                 cmd = new SqlCommand(insertQ);
@@ -944,18 +944,18 @@ namespace PhonebookApp.UI
                     string.IsNullOrEmpty(roadNameTextBox.Text) ? (object)DBNull.Value : roadNameTextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@d11",
                     string.IsNullOrEmpty(nearestLandMarkTextBox.Text) ? (object)DBNull.Value : nearestLandMarkTextBox.Text));
-                var Qrdata = GetQrdata();
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
-                QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
-                //qrCode.GetGraphic()
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                byte[] data = ms.GetBuffer();
-                SqlParameter p = new SqlParameter("@d12", SqlDbType.VarBinary);
-                p.Value = data;
-                cmd.Parameters.Add(p);
+                //var Qrdata = GetQrdata();
+                //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+                //QRCode qrCode = new QRCode(qrCodeData);
+                //Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+                ////qrCode.GetGraphic()
+                //System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                //qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                //byte[] data = ms.GetBuffer();
+                //SqlParameter p = new SqlParameter("@d12", SqlDbType.VarBinary);
+                //p.Value = data;
+                //cmd.Parameters.Add(p);
                 rdr = cmd.ExecuteReader();
                 con.Close();
             }
@@ -988,7 +988,7 @@ namespace PhonebookApp.UI
             string tableName = tblName1;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qury = "Update " + tableName + " set Street=@d1,State=@d2,PostalCode=@d3,AdressQR=@d4 where ForeignAddress.PersonsId='" +
+            string Qury = "Update " + tableName + " set Street=@d1,State=@d2,PostalCode=@d3 where ForeignAddress.PersonsId='" +
                           PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(Qury);
             cmd.Connection = con;
@@ -1000,18 +1000,18 @@ namespace PhonebookApp.UI
             cmd.Parameters.Add(new SqlParameter("@d3",
                 string.IsNullOrEmpty(PostalCodetextBox.Text) ? (object)DBNull.Value : PostalCodetextBox.Text));
 
-            var Qrdata = GetFQrdata();
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
-            //qrCode.GetGraphic()
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            byte[] data = ms.GetBuffer();
-            SqlParameter p = new SqlParameter("@d4", SqlDbType.VarBinary);
-            p.Value = data;
-            cmd.Parameters.Add(p);
+            //var Qrdata = GetFQrdata();
+            //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+            //QRCode qrCode = new QRCode(qrCodeData);
+            //Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+            ////qrCode.GetGraphic()
+            //System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            //qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            //byte[] data = ms.GetBuffer();
+            //SqlParameter p = new SqlParameter("@d4", SqlDbType.VarBinary);
+            //p.Value = data;
+            //cmd.Parameters.Add(p);
             rdr = cmd.ExecuteReader();
             con.Close();
         }

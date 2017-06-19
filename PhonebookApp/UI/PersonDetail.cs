@@ -304,12 +304,12 @@ namespace PhonebookApp.UI
             }
         }
 
-        private void SearchPersonNametextBox_Leave(object sender, EventArgs e)
+        private void SearchPersonNametextBox_KeyDown(object sender, KeyEventArgs e)
         {
             SearchByPersonIdtextBox.Clear();
         }
 
-        private void SearchByPersonIdtextBox_Leave(object sender, EventArgs e)
+        private void SearchByPersonIdtextBox_KeyDown(object sender, KeyEventArgs e)
         {
             SearchPersonNametextBox.Clear();
         }

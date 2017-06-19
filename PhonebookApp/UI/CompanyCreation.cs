@@ -87,7 +87,7 @@ namespace PhonebookApp.UI
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string Qry = "insert into TraddingAddresses (PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            string Qry = "insert into TraddingAddresses (PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(Qry);
             cmd.Connection = con;
             cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
@@ -102,28 +102,28 @@ namespace PhonebookApp.UI
             cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(tBuldingNameTextBox.Text) ? (object)DBNull.Value : tBuldingNameTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(tRoadNameTextBox.Text) ? (object)DBNull.Value : tRoadNameTextBox.Text));
 
-            var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
-            //qrCode.GetGraphic()
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            byte[] data = ms.GetBuffer();
-            SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
-            p.Value = data;
-            cmd.Parameters.Add(p);
-            string debugSQL = cmd.CommandText;
+            //var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
+            //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+            //QRCode qrCode = new QRCode(qrCodeData);
+            //Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+            ////qrCode.GetGraphic()
+            //System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            //qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            //byte[] data = ms.GetBuffer();
+            //SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+            //p.Value = data;
+            //cmd.Parameters.Add(p);
+            //string debugSQL = cmd.CommandText;
 
-            foreach (SqlParameter param in cmd.Parameters)
-            {
-                debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
-            }
+            //foreach (SqlParameter param in cmd.Parameters)
+            //{
+            //    debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
+            //}
 
             affectedRows2 = (int)cmd.ExecuteScalar();
             con.Close();
-            ms.Dispose();
+            //ms.Dispose();
         }
         private void SaveCorporateORTraddingAddress(string tblName1)
         {
@@ -134,13 +134,13 @@ namespace PhonebookApp.UI
             {
 
                 insertQ =
-                    "insert into CorporateAddresses (PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" +
+                    "insert into CorporateAddresses (PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" +
                     "SELECT CONVERT(int, SCOPE_IDENTITY())";
             }
             else
             {
                 insertQ =
-                    "insert into TraddingAddresses (PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName,AdressQR) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" +
+                    "insert into TraddingAddresses (PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" +
                     "SELECT CONVERT(int, SCOPE_IDENTITY())";
             }
             cmd = new SqlCommand(insertQ);
@@ -156,24 +156,24 @@ namespace PhonebookApp.UI
             cmd.Parameters.AddWithValue("@d12", companyid);
             cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
-            var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
-            //qrCode.GetGraphic()
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            byte[] data = ms.GetBuffer();
-            SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
-            p.Value = data;
-            cmd.Parameters.Add(p);
-            string debugSQL = cmd.CommandText;
+            //var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
+            //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
+            //QRCode qrCode = new QRCode(qrCodeData);
+            //Bitmap qrCodeImage = qrCode.GetGraphic(10, Color.Black, Color.White, true);
+            ////qrCode.GetGraphic()
+            //System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            //qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            //byte[] data = ms.GetBuffer();
+            //SqlParameter p = new SqlParameter("@d15", SqlDbType.VarBinary);
+            //p.Value = data;
+            //cmd.Parameters.Add(p);
+            //string debugSQL = cmd.CommandText;
 
-            foreach (SqlParameter param in cmd.Parameters)
-            {
-                debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
-            }
+            //foreach (SqlParameter param in cmd.Parameters)
+            //{
+            //    debugSQL = debugSQL.Replace(param.ParameterName, param.Value.ToString());
+            //}
 
             int aff = (int)cmd.ExecuteScalar();
             if (tblName1 == "CorporateAddresses")
@@ -191,34 +191,34 @@ namespace PhonebookApp.UI
 
 
 
-        private string GetQrdata(string Division, string District, string Thana, string Post, string PostCode, string Area, string Block, string LandMark, string roadName, string RoadNo, string buildingName, string HouseNo, string FlatNo, string ContactNo)
-        {
-            string Qrdata = "Country:Bangladesh\r\n";
-            Qrdata += "Division:" + Division + "\r\n";
-            Qrdata += "District:" + District + "\r\n";
-            Qrdata += "Thana:" + Thana + "\r\n";
-            Qrdata += "Post:" + Post + "\r\n";
-            Qrdata += "Post Code:" + PostCode + "\r\n";
-            Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
-            "\r\n";
-            Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
-            "\r\n";
-            Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
-                ? ""
-            : LandMark) + "\r\n";
-            Qrdata += "Road Name:" +
-            (string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
-            Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
-            Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
-                ? ""
-            : buildingName) + "\r\n";
-            Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
-            "\r\n";
-            Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
-            "\r\n";
-            Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
-            return Qrdata;
-        }
+        //private string GetQrdata(string Division, string District, string Thana, string Post, string PostCode, string Area, string Block, string LandMark, string roadName, string RoadNo, string buildingName, string HouseNo, string FlatNo, string ContactNo)
+        //{
+        //    string Qrdata = "Country:Bangladesh\r\n";
+        //    Qrdata += "Division:" + Division + "\r\n";
+        //    Qrdata += "District:" + District + "\r\n";
+        //    Qrdata += "Thana:" + Thana + "\r\n";
+        //    Qrdata += "Post:" + Post + "\r\n";
+        //    Qrdata += "Post Code:" + PostCode + "\r\n";
+        //    Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
+        //    "\r\n";
+        //    Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
+        //    "\r\n";
+        //    Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
+        //        ? ""
+        //    : LandMark) + "\r\n";
+        //    Qrdata += "Road Name:" +
+        //    (string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
+        //    Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
+        //    Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
+        //        ? ""
+        //    : buildingName) + "\r\n";
+        //    Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
+        //    "\r\n";
+        //    Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
+        //    "\r\n";
+        //    Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
+        //    return Qrdata;
+        //}
 
 
         private bool ValidateControlls()

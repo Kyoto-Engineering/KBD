@@ -13,10 +13,10 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\KYOTOSERVER\Share\Software Apps\Kyoto Business Directory\</PublishUrl>
+    <PublishUrl>C:\Users\Kowsar\Desktop\kowsar\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -26,9 +26,8 @@
     <ProductName>Kyoto Business Directory</ProductName>
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>40</ApplicationRevision>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -697,8 +696,9 @@
     <None Include="Resources\Kyoto Google Plus  Profile.png" />
     <None Include="Resources\business_directory_p6Q_icon.ico" />
     <Content Include="business_directory_p6Q_icon.ico" />
-    <None Include="Resources\Business Directory.png" />
     <None Include="Resources\12.jpg" />
+    <None Include="Resources\BusinessDirectory.png" />
+    <None Include="Resources\imgcom.jpg" />
     <Content Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>

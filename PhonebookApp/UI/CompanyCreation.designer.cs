@@ -202,7 +202,8 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox1.Image = global::PhonebookApp.Properties.Resources._12;
+            this.pictureBox1.BackgroundImage = global::PhonebookApp.Properties.Resources.imgcom;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(491, 101);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 130);

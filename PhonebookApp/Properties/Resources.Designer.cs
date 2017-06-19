@@ -61,16 +61,6 @@ namespace PhonebookApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _12 {
-            get {
-                object obj = ResourceManager.GetObject("12", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon business_directory_p6Q_icon {
@@ -86,6 +76,16 @@ namespace PhonebookApp.Properties {
         internal static System.Drawing.Bitmap BusinessDirectory {
             get {
                 object obj = ResourceManager.GetObject("BusinessDirectory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgcom {
+            get {
+                object obj = ResourceManager.GetObject("imgcom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

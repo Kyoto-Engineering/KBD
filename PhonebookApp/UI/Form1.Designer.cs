@@ -32,6 +32,10 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
+            this.CountryCodetextBox = new System.Windows.Forms.TextBox();
+            this.txtWebsite = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.companyNametextBox = new System.Windows.Forms.TextBox();
             this.CompanySelectionbutton = new System.Windows.Forms.Button();
             this.label67 = new System.Windows.Forms.Label();
@@ -136,7 +140,6 @@
             this.txtWhatsApp = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbJobTitle = new System.Windows.Forms.ComboBox();
-            this.cmbEmailAddress = new System.Windows.Forms.ComboBox();
             this.txtFatherName = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtSkypeId = new System.Windows.Forms.TextBox();
@@ -163,10 +166,8 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtWebsite = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.CountryCodetextBox = new System.Windows.Forms.TextBox();
-            this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -203,6 +204,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.CountryCodetextBox2);
             this.groupBox1.Controls.Add(this.CountryCodetextBox);
             this.groupBox1.Controls.Add(this.txtWebsite);
@@ -227,7 +230,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnInsert);
             this.groupBox1.Controls.Add(this.cmbJobTitle);
-            this.groupBox1.Controls.Add(this.cmbEmailAddress);
             this.groupBox1.Controls.Add(this.txtFatherName);
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.txtSkypeId);
@@ -259,6 +261,45 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // CountryCodetextBox2
+            // 
+            this.CountryCodetextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryCodetextBox2.Location = new System.Drawing.Point(176, 380);
+            this.CountryCodetextBox2.Name = "CountryCodetextBox2";
+            this.CountryCodetextBox2.ReadOnly = true;
+            this.CountryCodetextBox2.Size = new System.Drawing.Size(60, 20);
+            this.CountryCodetextBox2.TabIndex = 107;
+            // 
+            // CountryCodetextBox
+            // 
+            this.CountryCodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryCodetextBox.Location = new System.Drawing.Point(176, 357);
+            this.CountryCodetextBox.Name = "CountryCodetextBox";
+            this.CountryCodetextBox.ReadOnly = true;
+            this.CountryCodetextBox.Size = new System.Drawing.Size(60, 20);
+            this.CountryCodetextBox.TabIndex = 106;
+            // 
+            // txtWebsite
+            // 
+            this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWebsite.Location = new System.Drawing.Point(181, 406);
+            this.txtWebsite.Name = "txtWebsite";
+            this.txtWebsite.Size = new System.Drawing.Size(239, 20);
+            this.txtWebsite.TabIndex = 104;
+            this.txtWebsite.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(81, 411);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(63, 13);
+            this.label29.TabIndex = 105;
+            this.label29.Text = "Web Site ";
+            this.label29.Visible = false;
             // 
             // companyNametextBox
             // 
@@ -1395,21 +1436,6 @@
             this.cmbJobTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbJobTitle_KeyDown);
             this.cmbJobTitle.Leave += new System.EventHandler(this.cmbJobTitle_Leave);
             // 
-            // cmbEmailAddress
-            // 
-            this.cmbEmailAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbEmailAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEmailAddress.FormattingEnabled = true;
-            this.cmbEmailAddress.Location = new System.Drawing.Point(176, 119);
-            this.cmbEmailAddress.Name = "cmbEmailAddress";
-            this.cmbEmailAddress.Size = new System.Drawing.Size(241, 21);
-            this.cmbEmailAddress.TabIndex = 5;
-            this.cmbEmailAddress.SelectedIndexChanged += new System.EventHandler(this.cmbEmailAddress_SelectedIndexChanged);
-            this.cmbEmailAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEmailAddress_KeyDown);
-            this.cmbEmailAddress.Leave += new System.EventHandler(this.cmbEmailAddress_Leave);
-            this.cmbEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEmailAddress_Validating);
-            // 
             // txtFatherName
             // 
             this.txtFatherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1674,44 +1700,25 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // txtWebsite
+            // button1
             // 
-            this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWebsite.Location = new System.Drawing.Point(181, 406);
-            this.txtWebsite.Name = "txtWebsite";
-            this.txtWebsite.Size = new System.Drawing.Size(239, 20);
-            this.txtWebsite.TabIndex = 104;
-            this.txtWebsite.Visible = false;
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(420, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 23);
+            this.button1.TabIndex = 108;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label29
+            // textBox1
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(81, 411);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(63, 13);
-            this.label29.TabIndex = 105;
-            this.label29.Text = "Web Site ";
-            this.label29.Visible = false;
-            // 
-            // CountryCodetextBox
-            // 
-            this.CountryCodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox.Location = new System.Drawing.Point(176, 357);
-            this.CountryCodetextBox.Name = "CountryCodetextBox";
-            this.CountryCodetextBox.ReadOnly = true;
-            this.CountryCodetextBox.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox.TabIndex = 106;
-            // 
-            // CountryCodetextBox2
-            // 
-            this.CountryCodetextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox2.Location = new System.Drawing.Point(176, 380);
-            this.CountryCodetextBox2.Name = "CountryCodetextBox2";
-            this.CountryCodetextBox2.ReadOnly = true;
-            this.CountryCodetextBox2.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox2.TabIndex = 107;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(175, 120);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(241, 20);
+            this.textBox1.TabIndex = 109;
             // 
             // frm1
             // 
@@ -1779,7 +1786,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtFatherName;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox cmbEmailAddress;
         private System.Windows.Forms.ComboBox cmbJobTitle;
         private System.Windows.Forms.TextBox txtImmo;
         private System.Windows.Forms.Label label13;
@@ -1891,6 +1897,8 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox CountryCodetextBox;
         private System.Windows.Forms.TextBox CountryCodetextBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -234,8 +234,7 @@ namespace PhonebookApp
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
-            cmbEmailAddress.Items.Clear();
-            cmbEmailAddress.SelectedIndex = -1;
+          textBox1.Clear();
             companyNametextBox.Clear();
             cmbAgeGroup.Items.Clear();
             cmbAgeGroup.SelectedIndex = -1;
@@ -268,8 +267,7 @@ namespace PhonebookApp
             txtPersonName.Clear();
             textNickName.Clear();
             txtFatherName.Clear();
-            cmbEmailAddress.Items.Clear();
-            cmbEmailAddress.SelectedIndex = -1;
+textBox1.Clear();
             companyNametextBox.Clear();
             cmbAgeGroup.Items.Clear();
             cmbAgeGroup.SelectedIndex = -1;
@@ -554,13 +552,13 @@ namespace PhonebookApp
                     break;
                 }
 
-                if (p.Person == txtPersonName.Text && p.Email == cmbEmailAddress.Text)
+                if (p.Person == txtPersonName.Text && p.Email == textBox1.Text)
                 {
                     MessageBox.Show(@"This Person name and Email Address already Exist,Please Input another one" + "\n",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPersonName.Clear();
-                    cmbEmailAddress.SelectedIndex = -1;
+                    textBox1.Clear();
                     bankEmailId = null;
                     txtPersonName.Focus();
                     con.Close();
@@ -605,7 +603,7 @@ namespace PhonebookApp
 
         private void btnInsert_Click_1(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(cmbEmailAddress.Text) && string.IsNullOrEmpty(companyNametextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) && (unKnownRA.Checked))
+            if (!string.IsNullOrEmpty(txtPersonName.Text) && string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(companyNametextBox.Text) && string.IsNullOrEmpty(txtWhatsApp.Text) && (unKnownRA.Checked))
             {
                 MessageBox.Show(@"Please insert Email or Company or Phone Number or Address", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -632,8 +630,8 @@ namespace PhonebookApp
                             Reset1();
                             CountrycomboBox.SelectedItem = "Bangladesh";
                             CountrycomboBox.Enabled = true;
-                            EmailAddress();
-                            cmbEmailAddress.ResetText();
+                            //EmailAddress();
+                            textBox1.Clear();
                             companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
@@ -674,8 +672,8 @@ namespace PhonebookApp
                             Reset1();
                             CountrycomboBox.SelectedItem = "Bangladesh";
                             CountrycomboBox.Enabled = true;
-                            EmailAddress();
-                            cmbEmailAddress.ResetText();
+                            //EmailAddress();
+                            textBox1.Clear();
                             companyNametextBox.Clear();
                             FillJobTitle();
                             cmbJobTitle.ResetText();
@@ -719,7 +717,7 @@ namespace PhonebookApp
                         CountrycomboBox.SelectedItem = "Bangladesh";
                         CountrycomboBox.Enabled = true;
                         ResetWorkingAddress();
-                        EmailAddress();
+                        //EmailAddress();
                         companyNametextBox.Clear();
                         FillJobTitle();
                         FillSpecialization();
@@ -1044,7 +1042,7 @@ namespace PhonebookApp
             FillHighestDegree();
             FillProfession();
             FillSpecialization();
-            EmailAddress();
+            //EmailAddress();
             nUserId = frmLogin.uId.ToString();
             FillRADivisionCombo();
             FillGender();
@@ -1079,116 +1077,116 @@ namespace PhonebookApp
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void EmailAddress()
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctt = "select Email from EmailBank";
-                cmd = new SqlCommand(ctt);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    cmbEmailAddress.Items.Add(rdr.GetValue(0).ToString());
-                }
-                cmbEmailAddress.Items.Add("Not In The List");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void cmbEmailAddress_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbEmailAddress.Text == "Not In The List")
-            {
-                //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
+        //private void EmailAddress()
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(cs.DBConn);
+        //        con.Open();
+        //        string ctt = "select Email from EmailBank";
+        //        cmd = new SqlCommand(ctt);
+        //        cmd.Connection = con;
+        //        rdr = cmd.ExecuteReader();
+        //        while (rdr.Read())
+        //        {
+        //            cmbEmailAddress.Items.Add(rdr.GetValue(0).ToString());
+        //        }
+        //        cmbEmailAddress.Items.Add("Not In The List");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+        //private void cmbEmailAddress_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbEmailAddress.Text == "Not In The List")
+        //    {
+        //        //string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Email  Here", "Input Here", "", -1, -1);
 
-                InputBoxValidation validation = delegate(string val)
-                {
-                    if (val == "")
-                        return "Value cannot be empty.";
-                    if (!(new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$")).IsMatch(val))
-                        return "Email address is not valid.";
-                    return "";
-                };
+        //        InputBoxValidation validation = delegate(string val)
+        //        {
+        //            if (val == "")
+        //                return "Value cannot be empty.";
+        //            if (!(new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$")).IsMatch(val))
+        //                return "Email address is not valid.";
+        //            return "";
+        //        };
 
-                string input = null;
-                if (InputBox.Show("Please Input Email Here", "Input Here", ref input, validation) == DialogResult.OK)
-                {
+        //        string input = null;
+        //        if (InputBox.Show("Please Input Email Here", "Input Here", ref input, validation) == DialogResult.OK)
+        //        {
 
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct2 = "select Email from EmailBank where Email='" + input + "'";
-                    cmd = new SqlCommand(ct2, con);
-                    rdr = cmd.ExecuteReader();
-                    if (rdr.Read() && !rdr.IsDBNull(0))
-                    {
-                        MessageBox.Show("This Email  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.Close();
-                        cmbEmailAddress.SelectedIndex = -1;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            string query1 = "insert into EmailBank (Email,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
-                            cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
-                            cmd.Parameters.AddWithValue("@d2", nUserId);
-                            cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
-                            cmd.ExecuteNonQuery();
+        //            con = new SqlConnection(cs.DBConn);
+        //            con.Open();
+        //            string ct2 = "select Email from EmailBank where Email='" + input + "'";
+        //            cmd = new SqlCommand(ct2, con);
+        //            rdr = cmd.ExecuteReader();
+        //            if (rdr.Read() && !rdr.IsDBNull(0))
+        //            {
+        //                MessageBox.Show("This Email  Already Exists,Please Select From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                con.Close();
+        //                cmbEmailAddress.SelectedIndex = -1;
+        //            }
+        //            else
+        //            {
+        //                try
+        //                {
+        //                    con = new SqlConnection(cs.DBConn);
+        //                    con.Open();
+        //                    string query1 = "insert into EmailBank (Email,UserId,DateAndTime) values (@d1,@d2,@d3)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+        //                    cmd = new SqlCommand(query1, con);
+        //                    cmd.Parameters.AddWithValue("@d1", input);
+        //                    cmd.Parameters.AddWithValue("@d2", nUserId);
+        //                    cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
+        //                    cmd.ExecuteNonQuery();
 
-                            con.Close();
-                            cmbEmailAddress.Items.Clear();
-                            EmailAddress();
-                            cmbEmailAddress.SelectedText = input;
+        //                    con.Close();
+        //                    cmbEmailAddress.Items.Clear();
+        //                    EmailAddress();
+        //                    cmbEmailAddress.SelectedText = input;
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                else
-                {
-                    cmbEmailAddress.SelectedIndex = -1;
-                }
-            }
-            else
-            {
-                try
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT EmailBankId from EmailBank WHERE Email= '" + cmbEmailAddress.Text + "'";
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            cmbEmailAddress.SelectedIndex = -1;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            con = new SqlConnection(cs.DBConn);
+        //            con.Open();
+        //            cmd = con.CreateCommand();
+        //            cmd.CommandText = "SELECT EmailBankId from EmailBank WHERE Email= '" + cmbEmailAddress.Text + "'";
 
-                    rdr = cmd.ExecuteReader();
-                    if (rdr.Read())
-                    {
-                        bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
-                    }
-                    if ((rdr != null))
-                    {
-                        rdr.Close();
-                    }
-                    if (con.State == ConnectionState.Open)
-                    {
-                        con.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        //            rdr = cmd.ExecuteReader();
+        //            if (rdr.Read())
+        //            {
+        //                bankEmailId = Convert.ToInt64(rdr["EmailBankId"]);
+        //            }
+        //            if ((rdr != null))
+        //            {
+        //                rdr.Close();
+        //            }
+        //            if (con.State == ConnectionState.Open)
+        //            {
+        //                con.Close();
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
 
         //private void FillWorkingAddress()
         //{
@@ -2125,7 +2123,7 @@ namespace PhonebookApp
             txtPersonName.Enabled = true;
             textNickName.Enabled = true;
             txtFatherName.Enabled = true;
-            cmbEmailAddress.Enabled = true;
+            textBox1.Enabled = true;
             cmbAgeGroup.Enabled = true;
             cmbProfession.Enabled = true;
             cmbEducationalLevel.Enabled = true;
@@ -2238,7 +2236,7 @@ namespace PhonebookApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cmbEmailAddress.Focus();
+                textBox1.Focus();
                 e.Handled = true;
             }
         }
@@ -2491,29 +2489,29 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbEmailAddress_Validating(object sender, CancelEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
-            {
+        //private void cmbEmailAddress_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
+        //    {
 
 
-                string emailId = cmbEmailAddress.Text.Trim();
-                Regex mRegxExpression;
-                mRegxExpression =
-                    new Regex(
-                        @"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
-                if (!mRegxExpression.IsMatch(emailId))
-                {
+        //        string emailId = cmbEmailAddress.Text.Trim();
+        //        Regex mRegxExpression;
+        //        mRegxExpression =
+        //            new Regex(
+        //                @"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+        //        if (!mRegxExpression.IsMatch(emailId))
+        //        {
 
-                    MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    cmbEmailAddress.SelectedIndex = -1;
-                    cmbEmailAddress.ResetText();
-                    cmbEmailAddress.Focus();
+        //            MessageBox.Show("Please type a valid email Address.", "MojoCRM", MessageBoxButtons.OK,
+        //                MessageBoxIcon.Error);
+        //            cmbEmailAddress.SelectedIndex = -1;
+        //            cmbEmailAddress.ResetText();
+        //            cmbEmailAddress.Focus();
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
         private void ReligioncomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ReligioncomboBox.Text == "Not In The List")
@@ -2689,20 +2687,20 @@ namespace PhonebookApp
             }
         }
 
-        private void cmbEmailAddress_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text) && !cmbEmailAddress.Items.Contains(cmbEmailAddress.Text))
-            {
-                MessageBox.Show(@"Please Select Email From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cmbEmailAddress.ResetText();
-                this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbEmailAddress);
-            }
+        //private void cmbEmailAddress_Leave(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(cmbEmailAddress.Text) && !cmbEmailAddress.Items.Contains(cmbEmailAddress.Text))
+        //    {
+        //        MessageBox.Show(@"Please Select Email From List", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        cmbEmailAddress.ResetText();
+        //        this.BeginInvoke(new ChangeFocusDelegate(changeFocus), cmbEmailAddress);
+        //    }
                        
-            if (string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
-            {
-                bankEmailId = null;
-            }
-        }
+        //    if (string.IsNullOrWhiteSpace(cmbEmailAddress.Text))
+        //    {
+        //        bankEmailId = null;
+        //    }
+        //}
 
         private void cmbJobTitle_Leave(object sender, EventArgs e)
         {
@@ -2937,6 +2935,27 @@ namespace PhonebookApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var form = new EmailSelectionGrid())
+            {
+                this.Visible = false;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    bankEmailId = Convert.ToInt32(form.ReturnValue1);            //values preserved after close
+                    string val = form.ReturnValue2;
+
+                    //Do something here with these values
+
+                    //for example
+                    this.textBox1.Text = val;
+                  
+                }
+                this.Visible = true;
             }
         }
 

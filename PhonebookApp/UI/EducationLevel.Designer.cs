@@ -50,6 +50,7 @@
             // 
             this.txtEducationLevel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEducationLevel.Location = new System.Drawing.Point(22, 31);
+            this.txtEducationLevel.MaxLength = 90;
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.Size = new System.Drawing.Size(367, 29);
             this.txtEducationLevel.TabIndex = 1;

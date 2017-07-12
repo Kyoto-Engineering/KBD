@@ -56,6 +56,7 @@
             // 
             this.txtIndustryCategory.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIndustryCategory.Location = new System.Drawing.Point(195, 36);
+            this.txtIndustryCategory.MaxLength = 200;
             this.txtIndustryCategory.Name = "txtIndustryCategory";
             this.txtIndustryCategory.Size = new System.Drawing.Size(268, 29);
             this.txtIndustryCategory.TabIndex = 0;

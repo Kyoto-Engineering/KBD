@@ -51,6 +51,7 @@
             // 
             this.txtJobTitle.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtJobTitle.Location = new System.Drawing.Point(22, 31);
+            this.txtJobTitle.MaxLength = 90;
             this.txtJobTitle.Name = "txtJobTitle";
             this.txtJobTitle.Size = new System.Drawing.Size(367, 29);
             this.txtJobTitle.TabIndex = 1;

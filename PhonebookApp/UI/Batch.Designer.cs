@@ -74,6 +74,7 @@
             // 
             this.RefNowaterMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefNowaterMarkTextBox.Location = new System.Drawing.Point(145, 112);
+            this.RefNowaterMarkTextBox.MaxLength = 90;
             this.RefNowaterMarkTextBox.Name = "RefNowaterMarkTextBox";
             this.RefNowaterMarkTextBox.Size = new System.Drawing.Size(150, 26);
             this.RefNowaterMarkTextBox.TabIndex = 51;

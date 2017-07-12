@@ -286,6 +286,7 @@
             // 
             this.WebSiteUrltextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WebSiteUrltextBox.Location = new System.Drawing.Point(168, 262);
+            this.WebSiteUrltextBox.MaxLength = 90;
             this.WebSiteUrltextBox.Name = "WebSiteUrltextBox";
             this.WebSiteUrltextBox.Size = new System.Drawing.Size(235, 29);
             this.WebSiteUrltextBox.TabIndex = 8;
@@ -318,6 +319,7 @@
             // 
             this.IdentificationNotextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdentificationNotextBox.Location = new System.Drawing.Point(168, 228);
+            this.IdentificationNotextBox.MaxLength = 90;
             this.IdentificationNotextBox.Name = "IdentificationNotextBox";
             this.IdentificationNotextBox.Size = new System.Drawing.Size(235, 29);
             this.IdentificationNotextBox.TabIndex = 7;
@@ -360,6 +362,7 @@
             // 
             this.EmailtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailtextBox.Location = new System.Drawing.Point(168, 160);
+            this.EmailtextBox.MaxLength = 90;
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(235, 29);
             this.EmailtextBox.TabIndex = 5;
@@ -486,6 +489,7 @@
             // 
             this.CompanyNameTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanyNameTextBox.Location = new System.Drawing.Point(168, 22);
+            this.CompanyNameTextBox.MaxLength = 90;
             this.CompanyNameTextBox.Name = "CompanyNameTextBox";
             this.CompanyNameTextBox.Size = new System.Drawing.Size(235, 29);
             this.CompanyNameTextBox.TabIndex = 1;
@@ -540,6 +544,7 @@
             // 
             this.tRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tRoadNameTextBox.Location = new System.Drawing.Point(133, 129);
+            this.tRoadNameTextBox.MaxLength = 250;
             this.tRoadNameTextBox.Name = "tRoadNameTextBox";
             this.tRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
             this.tRoadNameTextBox.TabIndex = 5;
@@ -548,6 +553,7 @@
             // 
             this.tBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBuldingNameTextBox.Location = new System.Drawing.Point(133, 73);
+            this.tBuldingNameTextBox.MaxLength = 250;
             this.tBuldingNameTextBox.Name = "tBuldingNameTextBox";
             this.tBuldingNameTextBox.Size = new System.Drawing.Size(162, 26);
             this.tBuldingNameTextBox.TabIndex = 3;
@@ -576,6 +582,7 @@
             // 
             this.tLandmarktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tLandmarktextBox.Location = new System.Drawing.Point(136, 225);
+            this.tLandmarktextBox.MaxLength = 250;
             this.tLandmarktextBox.Name = "tLandmarktextBox";
             this.tLandmarktextBox.Size = new System.Drawing.Size(162, 26);
             this.tLandmarktextBox.TabIndex = 14;
@@ -594,6 +601,7 @@
             // 
             this.FblocktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FblocktextBox.Location = new System.Drawing.Point(134, 158);
+            this.FblocktextBox.MaxLength = 250;
             this.FblocktextBox.Name = "FblocktextBox";
             this.FblocktextBox.Size = new System.Drawing.Size(161, 26);
             this.FblocktextBox.TabIndex = 6;
@@ -779,6 +787,7 @@
             // 
             this.tAreaTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tAreaTextBox.Location = new System.Drawing.Point(402, 180);
+            this.tAreaTextBox.MaxLength = 250;
             this.tAreaTextBox.Name = "tAreaTextBox";
             this.tAreaTextBox.Size = new System.Drawing.Size(184, 26);
             this.tAreaTextBox.TabIndex = 13;
@@ -810,6 +819,7 @@
             // 
             this.tRoadNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tRoadNoTextBox.Location = new System.Drawing.Point(133, 101);
+            this.tRoadNoTextBox.MaxLength = 250;
             this.tRoadNoTextBox.Name = "tRoadNoTextBox";
             this.tRoadNoTextBox.Size = new System.Drawing.Size(162, 26);
             this.tRoadNoTextBox.TabIndex = 4;
@@ -819,6 +829,7 @@
             // 
             this.tHouseNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tHouseNoTextBox.Location = new System.Drawing.Point(133, 45);
+            this.tHouseNoTextBox.MaxLength = 250;
             this.tHouseNoTextBox.Name = "tHouseNoTextBox";
             this.tHouseNoTextBox.Size = new System.Drawing.Size(162, 26);
             this.tHouseNoTextBox.TabIndex = 2;
@@ -828,6 +839,7 @@
             // 
             this.tFlatNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tFlatNoTextBox.Location = new System.Drawing.Point(134, 15);
+            this.tFlatNoTextBox.MaxLength = 250;
             this.tFlatNoTextBox.Name = "tFlatNoTextBox";
             this.tFlatNoTextBox.Size = new System.Drawing.Size(162, 26);
             this.tFlatNoTextBox.TabIndex = 1;
@@ -921,6 +933,7 @@
             // 
             this.cRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cRoadNameTextBox.Location = new System.Drawing.Point(137, 148);
+            this.cRoadNameTextBox.MaxLength = 250;
             this.cRoadNameTextBox.Name = "cRoadNameTextBox";
             this.cRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
             this.cRoadNameTextBox.TabIndex = 5;
@@ -929,6 +942,7 @@
             // 
             this.cBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBuldingNameTextBox.Location = new System.Drawing.Point(137, 87);
+            this.cBuldingNameTextBox.MaxLength = 250;
             this.cBuldingNameTextBox.Name = "cBuldingNameTextBox";
             this.cBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
             this.cBuldingNameTextBox.TabIndex = 3;
@@ -957,6 +971,7 @@
             // 
             this.cLandmarktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cLandmarktextBox.Location = new System.Drawing.Point(435, 231);
+            this.cLandmarktextBox.MaxLength = 250;
             this.cLandmarktextBox.Name = "cLandmarktextBox";
             this.cLandmarktextBox.Size = new System.Drawing.Size(161, 26);
             this.cLandmarktextBox.TabIndex = 14;
@@ -975,6 +990,7 @@
             // 
             this.blocktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blocktextBox.Location = new System.Drawing.Point(137, 181);
+            this.blocktextBox.MaxLength = 250;
             this.blocktextBox.Name = "blocktextBox";
             this.blocktextBox.Size = new System.Drawing.Size(162, 26);
             this.blocktextBox.TabIndex = 6;
@@ -1146,6 +1162,7 @@
             // 
             this.cAreaTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cAreaTextBox.Location = new System.Drawing.Point(413, 197);
+            this.cAreaTextBox.MaxLength = 250;
             this.cAreaTextBox.Name = "cAreaTextBox";
             this.cAreaTextBox.Size = new System.Drawing.Size(184, 26);
             this.cAreaTextBox.TabIndex = 13;
@@ -1187,6 +1204,7 @@
             // 
             this.cRoadNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cRoadNoTextBox.Location = new System.Drawing.Point(137, 117);
+            this.cRoadNoTextBox.MaxLength = 250;
             this.cRoadNoTextBox.Name = "cRoadNoTextBox";
             this.cRoadNoTextBox.Size = new System.Drawing.Size(161, 26);
             this.cRoadNoTextBox.TabIndex = 4;
@@ -1196,6 +1214,7 @@
             // 
             this.cHouseNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cHouseNoTextBox.Location = new System.Drawing.Point(133, 56);
+            this.cHouseNoTextBox.MaxLength = 250;
             this.cHouseNoTextBox.Name = "cHouseNoTextBox";
             this.cHouseNoTextBox.Size = new System.Drawing.Size(169, 26);
             this.cHouseNoTextBox.TabIndex = 2;
@@ -1205,6 +1224,7 @@
             // 
             this.cFlatNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cFlatNoTextBox.Location = new System.Drawing.Point(133, 28);
+            this.cFlatNoTextBox.MaxLength = 250;
             this.cFlatNoTextBox.Name = "cFlatNoTextBox";
             this.cFlatNoTextBox.Size = new System.Drawing.Size(169, 26);
             this.cFlatNoTextBox.TabIndex = 1;

@@ -32,6 +32,8 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
             this.CountryCodetextBox = new System.Windows.Forms.TextBox();
             this.txtWebsite = new System.Windows.Forms.TextBox();
@@ -166,8 +168,6 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -220,7 +220,6 @@
             this.groupBox1.Controls.Add(this.additionalInfobutton);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.cmbRelationShip);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -253,6 +252,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox1.Location = new System.Drawing.Point(14, 33);
@@ -261,6 +261,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(175, 120);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(241, 20);
+            this.textBox1.TabIndex = 109;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(420, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 23);
+            this.button1.TabIndex = 108;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CountryCodetextBox2
             // 
@@ -284,6 +304,7 @@
             // 
             this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWebsite.Location = new System.Drawing.Point(181, 406);
+            this.txtWebsite.MaxLength = 200;
             this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(239, 20);
             this.txtWebsite.TabIndex = 104;
@@ -552,6 +573,7 @@
             // 
             this.PostalCodetextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PostalCodetextBox.Location = new System.Drawing.Point(168, 89);
+            this.PostalCodetextBox.MaxLength = 200;
             this.PostalCodetextBox.Name = "PostalCodetextBox";
             this.PostalCodetextBox.Size = new System.Drawing.Size(214, 26);
             this.PostalCodetextBox.TabIndex = 3;
@@ -572,6 +594,7 @@
             // 
             this.StatetextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StatetextBox.Location = new System.Drawing.Point(168, 57);
+            this.StatetextBox.MaxLength = 200;
             this.StatetextBox.Name = "StatetextBox";
             this.StatetextBox.Size = new System.Drawing.Size(214, 26);
             this.StatetextBox.TabIndex = 2;
@@ -592,6 +615,7 @@
             // 
             this.StreettextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StreettextBox.Location = new System.Drawing.Point(168, 25);
+            this.StreettextBox.MaxLength = 200;
             this.StreettextBox.Name = "StreettextBox";
             this.StreettextBox.Size = new System.Drawing.Size(214, 26);
             this.StreettextBox.TabIndex = 1;
@@ -692,6 +716,7 @@
             // 
             this.nearestLandMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nearestLandMarkTextBox.Location = new System.Drawing.Point(454, 211);
+            this.nearestLandMarkTextBox.MaxLength = 150;
             this.nearestLandMarkTextBox.Name = "nearestLandMarkTextBox";
             this.nearestLandMarkTextBox.Size = new System.Drawing.Size(196, 26);
             this.nearestLandMarkTextBox.TabIndex = 86;
@@ -710,6 +735,7 @@
             // 
             this.roadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roadNameTextBox.Location = new System.Drawing.Point(125, 129);
+            this.roadNameTextBox.MaxLength = 150;
             this.roadNameTextBox.Name = "roadNameTextBox";
             this.roadNameTextBox.Size = new System.Drawing.Size(179, 26);
             this.roadNameTextBox.TabIndex = 84;
@@ -728,6 +754,7 @@
             // 
             this.buildingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildingNameTextBox.Location = new System.Drawing.Point(126, 73);
+            this.buildingNameTextBox.MaxLength = 150;
             this.buildingNameTextBox.Name = "buildingNameTextBox";
             this.buildingNameTextBox.Size = new System.Drawing.Size(179, 26);
             this.buildingNameTextBox.TabIndex = 82;
@@ -746,6 +773,7 @@
             // 
             this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRABlock.Location = new System.Drawing.Point(125, 158);
+            this.txtRABlock.MaxLength = 150;
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(179, 26);
             this.txtRABlock.TabIndex = 4;
@@ -909,6 +937,7 @@
             // 
             this.txtRAArea.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAArea.Location = new System.Drawing.Point(454, 182);
+            this.txtRAArea.MaxLength = 100;
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(196, 26);
             this.txtRAArea.TabIndex = 5;
@@ -948,6 +977,7 @@
             // 
             this.txtRARoadNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRARoadNo.Location = new System.Drawing.Point(126, 101);
+            this.txtRARoadNo.MaxLength = 150;
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(179, 26);
             this.txtRARoadNo.TabIndex = 3;
@@ -957,6 +987,7 @@
             // 
             this.txtRAHouseNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAHouseNo.Location = new System.Drawing.Point(126, 45);
+            this.txtRAHouseNo.MaxLength = 150;
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(179, 26);
             this.txtRAHouseNo.TabIndex = 2;
@@ -966,6 +997,7 @@
             // 
             this.txtRAFlatNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAFlatNo.Location = new System.Drawing.Point(126, 17);
+            this.txtRAFlatNo.MaxLength = 150;
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(179, 26);
             this.txtRAFlatNo.TabIndex = 1;
@@ -1384,6 +1416,7 @@
             // 
             this.txtImmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImmo.Location = new System.Drawing.Point(237, 380);
+            this.txtImmo.MaxLength = 20;
             this.txtImmo.Name = "txtImmo";
             this.txtImmo.Size = new System.Drawing.Size(182, 20);
             this.txtImmo.TabIndex = 18;
@@ -1405,6 +1438,7 @@
             // 
             this.txtWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWhatsApp.Location = new System.Drawing.Point(237, 357);
+            this.txtWhatsApp.MaxLength = 20;
             this.txtWhatsApp.Name = "txtWhatsApp";
             this.txtWhatsApp.Size = new System.Drawing.Size(182, 20);
             this.txtWhatsApp.TabIndex = 17;
@@ -1440,6 +1474,7 @@
             // 
             this.txtFatherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFatherName.Location = new System.Drawing.Point(176, 96);
+            this.txtFatherName.MaxLength = 90;
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(241, 20);
             this.txtFatherName.TabIndex = 4;
@@ -1460,6 +1495,7 @@
             // 
             this.txtSkypeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSkypeId.Location = new System.Drawing.Point(176, 335);
+            this.txtSkypeId.MaxLength = 200;
             this.txtSkypeId.Name = "txtSkypeId";
             this.txtSkypeId.Size = new System.Drawing.Size(242, 20);
             this.txtSkypeId.TabIndex = 16;
@@ -1502,6 +1538,7 @@
             // 
             this.textNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNickName.Location = new System.Drawing.Point(176, 73);
+            this.textNickName.MaxLength = 90;
             this.textNickName.Name = "textNickName";
             this.textNickName.Size = new System.Drawing.Size(240, 20);
             this.textNickName.TabIndex = 3;
@@ -1658,6 +1695,7 @@
             // 
             this.txtPersonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersonName.Location = new System.Drawing.Point(176, 49);
+            this.txtPersonName.MaxLength = 90;
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(240, 20);
             this.txtPersonName.TabIndex = 2;
@@ -1699,26 +1737,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(420, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 23);
-            this.button1.TabIndex = 108;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(175, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 109;
             // 
             // frm1
             // 

@@ -50,6 +50,7 @@
             // 
             this.txtSpecialization.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSpecialization.Location = new System.Drawing.Point(22, 31);
+            this.txtSpecialization.MaxLength = 90;
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.Size = new System.Drawing.Size(367, 29);
             this.txtSpecialization.TabIndex = 1;

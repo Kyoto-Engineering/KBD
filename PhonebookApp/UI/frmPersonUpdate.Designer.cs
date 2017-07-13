@@ -137,11 +137,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.Updatebutton);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.cmbRelationShip);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -1231,7 +1231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
-            this.ClientSize = new System.Drawing.Size(1228, 741);
+            this.ClientSize = new System.Drawing.Size(1228, 733);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label11);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

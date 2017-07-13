@@ -53,6 +53,7 @@
             // 
             this.groupNametextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupNametextBox.Location = new System.Drawing.Point(302, 114);
+            this.groupNametextBox.MaxLength = 100;
             this.groupNametextBox.Name = "groupNametextBox";
             this.groupNametextBox.Size = new System.Drawing.Size(311, 29);
             this.groupNametextBox.TabIndex = 1;
@@ -94,6 +95,7 @@
             // definitionrichTextBox
             // 
             this.definitionrichTextBox.Location = new System.Drawing.Point(302, 161);
+            this.definitionrichTextBox.MaxLength = 500;
             this.definitionrichTextBox.Name = "definitionrichTextBox";
             this.definitionrichTextBox.Size = new System.Drawing.Size(311, 121);
             this.definitionrichTextBox.TabIndex = 2;
@@ -115,6 +117,7 @@
             // 
             this.purposetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.purposetextBox.Location = new System.Drawing.Point(302, 303);
+            this.purposetextBox.MaxLength = 200;
             this.purposetextBox.Name = "purposetextBox";
             this.purposetextBox.Size = new System.Drawing.Size(311, 29);
             this.purposetextBox.TabIndex = 3;

@@ -51,6 +51,7 @@
             // 
             this.txtRelationship.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRelationship.Location = new System.Drawing.Point(22, 31);
+            this.txtRelationship.MaxLength = 90;
             this.txtRelationship.Name = "txtRelationship";
             this.txtRelationship.Size = new System.Drawing.Size(367, 29);
             this.txtRelationship.TabIndex = 1;

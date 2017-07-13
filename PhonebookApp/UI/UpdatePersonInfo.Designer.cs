@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdatePersonInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
+            this.CountryCodetextBox = new System.Windows.Forms.TextBox();
+            this.txtWebsite = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.CompanySelectionbutton = new System.Windows.Forms.Button();
             this.companyNametextBox = new System.Windows.Forms.TextBox();
             this.PersonIdtextBox = new System.Windows.Forms.TextBox();
@@ -163,10 +167,6 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.cachedLOI1 = new PhonebookApp.Reports.CachedLOI();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtWebsite = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.CountryCodetextBox = new System.Windows.Forms.TextBox();
-            this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -194,9 +194,7 @@
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.CountrycomboBox);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.cmbRelationShip);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.txtImmo);
             this.groupBox1.Controls.Add(this.label13);
@@ -228,6 +226,8 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox1.Location = new System.Drawing.Point(12, 35);
@@ -236,6 +236,46 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // CountryCodetextBox2
+            // 
+            this.CountryCodetextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryCodetextBox2.Location = new System.Drawing.Point(149, 402);
+            this.CountryCodetextBox2.Name = "CountryCodetextBox2";
+            this.CountryCodetextBox2.ReadOnly = true;
+            this.CountryCodetextBox2.Size = new System.Drawing.Size(60, 20);
+            this.CountryCodetextBox2.TabIndex = 109;
+            // 
+            // CountryCodetextBox
+            // 
+            this.CountryCodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryCodetextBox.Location = new System.Drawing.Point(149, 378);
+            this.CountryCodetextBox.Name = "CountryCodetextBox";
+            this.CountryCodetextBox.ReadOnly = true;
+            this.CountryCodetextBox.Size = new System.Drawing.Size(60, 20);
+            this.CountryCodetextBox.TabIndex = 108;
+            // 
+            // txtWebsite
+            // 
+            this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWebsite.Location = new System.Drawing.Point(154, 428);
+            this.txtWebsite.MaxLength = 200;
+            this.txtWebsite.Name = "txtWebsite";
+            this.txtWebsite.Size = new System.Drawing.Size(238, 20);
+            this.txtWebsite.TabIndex = 106;
+            this.txtWebsite.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(54, 435);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(63, 13);
+            this.label29.TabIndex = 107;
+            this.label29.Text = "Web Site ";
+            this.label29.Visible = false;
             // 
             // CompanySelectionbutton
             // 
@@ -494,6 +534,7 @@
             // 
             this.PostalCodetextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PostalCodetextBox.Location = new System.Drawing.Point(168, 89);
+            this.PostalCodetextBox.MaxLength = 200;
             this.PostalCodetextBox.Name = "PostalCodetextBox";
             this.PostalCodetextBox.Size = new System.Drawing.Size(214, 26);
             this.PostalCodetextBox.TabIndex = 3;
@@ -513,6 +554,7 @@
             // 
             this.StatetextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StatetextBox.Location = new System.Drawing.Point(168, 57);
+            this.StatetextBox.MaxLength = 200;
             this.StatetextBox.Name = "StatetextBox";
             this.StatetextBox.Size = new System.Drawing.Size(214, 26);
             this.StatetextBox.TabIndex = 2;
@@ -532,6 +574,7 @@
             // 
             this.StreettextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StreettextBox.Location = new System.Drawing.Point(168, 25);
+            this.StreettextBox.MaxLength = 200;
             this.StreettextBox.Name = "StreettextBox";
             this.StreettextBox.Size = new System.Drawing.Size(214, 26);
             this.StreettextBox.TabIndex = 1;
@@ -630,6 +673,7 @@
             // 
             this.nearestLandMarkTextBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nearestLandMarkTextBox.Location = new System.Drawing.Point(158, 212);
+            this.nearestLandMarkTextBox.MaxLength = 150;
             this.nearestLandMarkTextBox.Name = "nearestLandMarkTextBox";
             this.nearestLandMarkTextBox.Size = new System.Drawing.Size(174, 25);
             this.nearestLandMarkTextBox.TabIndex = 86;
@@ -648,6 +692,7 @@
             // 
             this.roadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roadNameTextBox.Location = new System.Drawing.Point(158, 127);
+            this.roadNameTextBox.MaxLength = 150;
             this.roadNameTextBox.Name = "roadNameTextBox";
             this.roadNameTextBox.Size = new System.Drawing.Size(172, 25);
             this.roadNameTextBox.TabIndex = 84;
@@ -666,6 +711,7 @@
             // 
             this.buildingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildingNameTextBox.Location = new System.Drawing.Point(158, 72);
+            this.buildingNameTextBox.MaxLength = 150;
             this.buildingNameTextBox.Name = "buildingNameTextBox";
             this.buildingNameTextBox.Size = new System.Drawing.Size(172, 25);
             this.buildingNameTextBox.TabIndex = 82;
@@ -684,6 +730,7 @@
             // 
             this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRABlock.Location = new System.Drawing.Point(158, 157);
+            this.txtRABlock.MaxLength = 150;
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 25);
             this.txtRABlock.TabIndex = 4;
@@ -849,6 +896,7 @@
             // 
             this.txtRAArea.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAArea.Location = new System.Drawing.Point(454, 174);
+            this.txtRAArea.MaxLength = 100;
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(196, 25);
             this.txtRAArea.TabIndex = 5;
@@ -887,6 +935,7 @@
             // 
             this.txtRARoadNo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRARoadNo.Location = new System.Drawing.Point(158, 99);
+            this.txtRARoadNo.MaxLength = 150;
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 25);
             this.txtRARoadNo.TabIndex = 3;
@@ -895,6 +944,7 @@
             // 
             this.txtRAHouseNo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAHouseNo.Location = new System.Drawing.Point(158, 44);
+            this.txtRAHouseNo.MaxLength = 150;
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 25);
             this.txtRAHouseNo.TabIndex = 2;
@@ -903,6 +953,7 @@
             // 
             this.txtRAFlatNo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAFlatNo.Location = new System.Drawing.Point(158, 17);
+            this.txtRAFlatNo.MaxLength = 150;
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 25);
             this.txtRAFlatNo.TabIndex = 1;
@@ -1322,6 +1373,7 @@
             // 
             this.txtImmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImmo.Location = new System.Drawing.Point(210, 402);
+            this.txtImmo.MaxLength = 20;
             this.txtImmo.Name = "txtImmo";
             this.txtImmo.Size = new System.Drawing.Size(182, 20);
             this.txtImmo.TabIndex = 18;
@@ -1342,6 +1394,7 @@
             // 
             this.txtWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWhatsApp.Location = new System.Drawing.Point(210, 378);
+            this.txtWhatsApp.MaxLength = 20;
             this.txtWhatsApp.Name = "txtWhatsApp";
             this.txtWhatsApp.Size = new System.Drawing.Size(182, 20);
             this.txtWhatsApp.TabIndex = 17;
@@ -1401,6 +1454,7 @@
             // 
             this.txtFatherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFatherName.Location = new System.Drawing.Point(149, 118);
+            this.txtFatherName.MaxLength = 90;
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(243, 20);
             this.txtFatherName.TabIndex = 4;
@@ -1420,6 +1474,7 @@
             // 
             this.txtSkypeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSkypeId.Location = new System.Drawing.Point(149, 355);
+            this.txtSkypeId.MaxLength = 200;
             this.txtSkypeId.Name = "txtSkypeId";
             this.txtSkypeId.Size = new System.Drawing.Size(243, 20);
             this.txtSkypeId.TabIndex = 16;
@@ -1461,6 +1516,7 @@
             // 
             this.textNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNickName.Location = new System.Drawing.Point(149, 94);
+            this.textNickName.MaxLength = 90;
             this.textNickName.Name = "textNickName";
             this.textNickName.Size = new System.Drawing.Size(242, 20);
             this.textNickName.TabIndex = 3;
@@ -1611,6 +1667,7 @@
             // 
             this.txtPersonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersonName.Location = new System.Drawing.Point(149, 71);
+            this.txtPersonName.MaxLength = 90;
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(242, 20);
             this.txtPersonName.TabIndex = 2;
@@ -1651,45 +1708,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // txtWebsite
-            // 
-            this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWebsite.Location = new System.Drawing.Point(154, 428);
-            this.txtWebsite.Name = "txtWebsite";
-            this.txtWebsite.Size = new System.Drawing.Size(238, 20);
-            this.txtWebsite.TabIndex = 106;
-            this.txtWebsite.Visible = false;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(54, 435);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(63, 13);
-            this.label29.TabIndex = 107;
-            this.label29.Text = "Web Site ";
-            this.label29.Visible = false;
-            // 
-            // CountryCodetextBox
-            // 
-            this.CountryCodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox.Location = new System.Drawing.Point(149, 378);
-            this.CountryCodetextBox.Name = "CountryCodetextBox";
-            this.CountryCodetextBox.ReadOnly = true;
-            this.CountryCodetextBox.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox.TabIndex = 108;
-            // 
-            // CountryCodetextBox2
-            // 
-            this.CountryCodetextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox2.Location = new System.Drawing.Point(149, 402);
-            this.CountryCodetextBox2.Name = "CountryCodetextBox2";
-            this.CountryCodetextBox2.ReadOnly = true;
-            this.CountryCodetextBox2.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox2.TabIndex = 109;
             // 
             // UpdatePersonInfo
             // 

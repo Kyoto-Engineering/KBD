@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyCreation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
@@ -94,6 +95,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cRoadNameTextBox = new System.Windows.Forms.TextBox();
             this.cBuldingNameTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -146,6 +149,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label67);
             this.groupBox1.Controls.Add(this.label66);
             this.groupBox1.Controls.Add(this.label65);
@@ -165,12 +169,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(441, 28);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(235, 23);
+            this.checkBox1.TabIndex = 105;
+            this.checkBox1.Text = "Company Has Multiple Branch";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.ForeColor = System.Drawing.Color.Blue;
-            this.label67.Location = new System.Drawing.Point(443, 81);
+            this.label67.Location = new System.Drawing.Point(443, 109);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(233, 13);
             this.label67.TabIndex = 104;
@@ -181,7 +196,7 @@
             // 
             this.label66.AutoSize = true;
             this.label66.ForeColor = System.Drawing.Color.Yellow;
-            this.label66.Location = new System.Drawing.Point(451, 58);
+            this.label66.Location = new System.Drawing.Point(451, 86);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(212, 19);
             this.label66.TabIndex = 103;
@@ -192,7 +207,7 @@
             // 
             this.label65.AutoSize = true;
             this.label65.ForeColor = System.Drawing.Color.Blue;
-            this.label65.Location = new System.Drawing.Point(498, 32);
+            this.label65.Location = new System.Drawing.Point(498, 60);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(107, 19);
             this.label65.TabIndex = 102;
@@ -204,7 +219,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox1.BackgroundImage = global::PhonebookApp.Properties.Resources.imgcom;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(491, 101);
+            this.pictureBox1.Location = new System.Drawing.Point(491, 129);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 130);
             this.pictureBox1.TabIndex = 5;
@@ -887,6 +902,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label49);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.cRoadNameTextBox);
             this.groupBox2.Controls.Add(this.cBuldingNameTextBox);
             this.groupBox2.Controls.Add(this.label38);
@@ -929,10 +946,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Corporate Address";
             // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.White;
+            this.label49.Location = new System.Drawing.Point(16, 30);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(101, 19);
+            this.label49.TabIndex = 102;
+            this.label49.Text = "Branch Name";
+            this.label49.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(138, 28);
+            this.textBox1.MaxLength = 250;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(169, 26);
+            this.textBox1.TabIndex = 101;
+            this.textBox1.Visible = false;
+            // 
             // cRoadNameTextBox
             // 
             this.cRoadNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cRoadNameTextBox.Location = new System.Drawing.Point(137, 148);
+            this.cRoadNameTextBox.Location = new System.Drawing.Point(136, 179);
             this.cRoadNameTextBox.MaxLength = 250;
             this.cRoadNameTextBox.Name = "cRoadNameTextBox";
             this.cRoadNameTextBox.Size = new System.Drawing.Size(162, 26);
@@ -941,7 +980,7 @@
             // cBuldingNameTextBox
             // 
             this.cBuldingNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBuldingNameTextBox.Location = new System.Drawing.Point(137, 87);
+            this.cBuldingNameTextBox.Location = new System.Drawing.Point(136, 119);
             this.cBuldingNameTextBox.MaxLength = 250;
             this.cBuldingNameTextBox.Name = "cBuldingNameTextBox";
             this.cBuldingNameTextBox.Size = new System.Drawing.Size(165, 26);
@@ -951,7 +990,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(37, 155);
+            this.label38.Location = new System.Drawing.Point(32, 180);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(93, 19);
             this.label38.TabIndex = 100;
@@ -961,7 +1000,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(20, 94);
+            this.label39.Location = new System.Drawing.Point(15, 122);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(112, 19);
             this.label39.TabIndex = 99;
@@ -989,7 +1028,7 @@
             // blocktextBox
             // 
             this.blocktextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blocktextBox.Location = new System.Drawing.Point(137, 181);
+            this.blocktextBox.Location = new System.Drawing.Point(136, 211);
             this.blocktextBox.MaxLength = 250;
             this.blocktextBox.Name = "blocktextBox";
             this.blocktextBox.Size = new System.Drawing.Size(162, 26);
@@ -1104,7 +1143,7 @@
             // cContactNoTextBox
             // 
             this.cContactNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cContactNoTextBox.Location = new System.Drawing.Point(137, 220);
+            this.cContactNoTextBox.Location = new System.Drawing.Point(138, 243);
             this.cContactNoTextBox.MaxLength = 11;
             this.cContactNoTextBox.Name = "cContactNoTextBox";
             this.cContactNoTextBox.Size = new System.Drawing.Size(159, 26);
@@ -1118,7 +1157,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(63, 223);
+            this.label26.Location = new System.Drawing.Point(58, 250);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(69, 19);
             this.label26.TabIndex = 40;
@@ -1203,7 +1242,7 @@
             // cRoadNoTextBox
             // 
             this.cRoadNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cRoadNoTextBox.Location = new System.Drawing.Point(137, 117);
+            this.cRoadNoTextBox.Location = new System.Drawing.Point(136, 148);
             this.cRoadNoTextBox.MaxLength = 250;
             this.cRoadNoTextBox.Name = "cRoadNoTextBox";
             this.cRoadNoTextBox.Size = new System.Drawing.Size(161, 26);
@@ -1213,7 +1252,7 @@
             // cHouseNoTextBox
             // 
             this.cHouseNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cHouseNoTextBox.Location = new System.Drawing.Point(133, 56);
+            this.cHouseNoTextBox.Location = new System.Drawing.Point(136, 90);
             this.cHouseNoTextBox.MaxLength = 250;
             this.cHouseNoTextBox.Name = "cHouseNoTextBox";
             this.cHouseNoTextBox.Size = new System.Drawing.Size(169, 26);
@@ -1223,7 +1262,7 @@
             // cFlatNoTextBox
             // 
             this.cFlatNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cFlatNoTextBox.Location = new System.Drawing.Point(133, 28);
+            this.cFlatNoTextBox.Location = new System.Drawing.Point(136, 59);
             this.cFlatNoTextBox.MaxLength = 250;
             this.cFlatNoTextBox.Name = "cFlatNoTextBox";
             this.cFlatNoTextBox.Size = new System.Drawing.Size(169, 26);
@@ -1235,7 +1274,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(8, 188);
+            this.label14.Location = new System.Drawing.Point(0, 204);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(132, 19);
             this.label14.TabIndex = 7;
@@ -1246,7 +1285,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(72, 122);
+            this.label15.Location = new System.Drawing.Point(68, 151);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 19);
             this.label15.TabIndex = 6;
@@ -1257,7 +1296,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(55, 59);
+            this.label16.Location = new System.Drawing.Point(50, 84);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 19);
             this.label16.TabIndex = 5;
@@ -1268,7 +1307,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(23, 30);
+            this.label17.Location = new System.Drawing.Point(18, 55);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(103, 19);
             this.label17.TabIndex = 4;
@@ -1497,5 +1536,8 @@
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

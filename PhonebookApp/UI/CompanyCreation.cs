@@ -313,6 +313,13 @@ namespace PhonebookApp.UI
                     validate = false;
                     tPostCombo.Focus();
                 }
+                else if (checkBox1.Checked && string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show(@"Please Write Branch Name", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    validate = false;
+                    textBox1.Focus();
+                }
             }
             else if (!ValidateCompany())
             {
@@ -329,7 +336,7 @@ namespace PhonebookApp.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             string ct3 =
-                "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName='" + CompanyNameTextBox.Text + "'";
+                "select Company.CompanyName,isnull(nullif(CorporateAddresses.Branch,\'\') + \', \',\'\')+isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName='" + CompanyNameTextBox.Text + "'";
             cmd = new SqlCommand(ct3, con);
             rdr = cmd.ExecuteReader();
 
@@ -344,7 +351,8 @@ namespace PhonebookApp.UI
                     companies.Add(x);
                 }
             }
-            string address = string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? "" : (cFlatNoTextBox.Text + ", ");
+            string address = string.IsNullOrWhiteSpace(textBox1.Text) ? "" : (textBox1.Text + ", ");
+            address += string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? "" : (cFlatNoTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? "" : (cHouseNoTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? "" : (cRoadNoTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(blocktextBox.Text) ? "" : (blocktextBox.Text + ", ");
@@ -459,6 +467,7 @@ namespace PhonebookApp.UI
 
         private void Reset()
         {
+            checkBox1.Checked = false;
             cmbCompanytype.SelectedIndex = -1;
             cmbNatureOfClient.SelectedIndex = -1;
             IndustryCategorycomboBox.SelectedIndex = -1;
@@ -1895,7 +1904,7 @@ namespace PhonebookApp.UI
                     con.Open();
                     cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "select Company.CompanyName,isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
+                    cmd.CommandText = "select Company.CompanyName,isnull(nullif(CorporateAddresses.Branch,\'\') + \', \',\'\')+isnull(nullif(CorporateAddresses.CFlatNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CHouseNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CRoadNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CBlock,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CArea,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CLandmark,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.CContactNo,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.BuildingName,\'\') + \', \',\'\') + isnull(nullif(CorporateAddresses.RoadName,\'\') + \', \',\'\') + isnull(nullif(PostOffice.PostOfficeName,\'\') + \', \',\'\') + CONVERT(varchar(10), PostOffice.PostCode) + \', \'+isnull(nullif(Thanas.Thana,\'\')+ \', \',\'\') +isnull(nullif(Districts.District,\'\'),\'\') as Addresss FROM Company INNER JOIN CorporateAddresses ON Company.CompanyId = CorporateAddresses.CompanyId INNER JOIN PostOffice ON CorporateAddresses.PostOfficeId = PostOffice.PostOfficeId INNER JOIN Thanas ON PostOffice.T_ID = Thanas.T_ID INNER JOIN Districts ON Thanas.D_ID = Districts.D_ID where Company.CompanyName like '" + CompanyNameTextBox.Text + "%' order by Company.CompanyId asc";
                     rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                     dataGridView1.Rows.Clear();
                     while (rdr.Read() == true)
@@ -2064,6 +2073,21 @@ namespace PhonebookApp.UI
         private void label67_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                label49.Visible = true;
+                textBox1.Visible = true;
+            }
+            else
+            {
+                label49.Visible = false;
+                textBox1.Visible = false;
+                textBox1.Clear();
+            }
         }
     }
 }

@@ -170,6 +170,11 @@
       <DependentUpon>BatchReportL.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\CompanyDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyDetails.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Document.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -253,6 +258,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LOI.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PersonsWithCompany.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonsWithCompany.rpt</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportByBatch.cs">
       <SubType>Form</SubType>
@@ -482,6 +492,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BatchReportL.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CompanyDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CompanyDetails.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Document.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Document.cs</LastGenOutput>
@@ -537,6 +551,10 @@
     <EmbeddedResource Include="Reports\LOI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LOI.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PersonsWithCompany.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PersonsWithCompany.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportByBatch.resx">
       <DependentUpon>ReportByBatch.cs</DependentUpon>

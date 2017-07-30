@@ -27,7 +27,7 @@
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>48</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

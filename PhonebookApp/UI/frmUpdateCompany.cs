@@ -622,7 +622,7 @@ namespace PhonebookApp.UI
                     con.Close();
                 }
 
-                tDistrictCombo.Text = cDistCombo.Text.Trim();
+                tDistrictCombo.Text = tDistrictCombo.Text.Trim();
                 tThenaCombo.Items.Clear();
                 tThenaCombo.ResetText();
                 tPostCombo.Items.Clear();

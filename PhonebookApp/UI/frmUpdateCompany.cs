@@ -902,7 +902,7 @@ namespace PhonebookApp.UI
         {
             bool validate = true;
 
-            if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
+            if (string.IsNullOrWhiteSpace(CompanyNameTextBox.Text))
             {
                 MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -910,7 +910,7 @@ namespace PhonebookApp.UI
                 CompanyNameTextBox.Focus();
             }
 
-            else if (string.IsNullOrEmpty(cmbCompanytype.Text))
+            else if (string.IsNullOrWhiteSpace(cmbCompanytype.Text))
             {
                 MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -918,7 +918,7 @@ namespace PhonebookApp.UI
                 cmbCompanytype.Focus();
             }
 
-            else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
+            else if (string.IsNullOrWhiteSpace(IndustryCategorycomboBox.Text))
             {
                 MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -926,7 +926,7 @@ namespace PhonebookApp.UI
                 IndustryCategorycomboBox.Focus();
             }
 
-            else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
+            else if (string.IsNullOrWhiteSpace(cmbNatureOfClient.Text))
             {
                 MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -934,7 +934,7 @@ namespace PhonebookApp.UI
                 cmbNatureOfClient.Focus();
             }
 
-            else if (string.IsNullOrEmpty(cDivisionCombo.Text))
+            else if (string.IsNullOrWhiteSpace(cDivisionCombo.Text))
             {
                 MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -960,7 +960,12 @@ namespace PhonebookApp.UI
                 validate = false;
                 cPostOfficeCombo.Focus();
             }
-
+            else if(checkBox1.Checked  && string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show(@"Please Insert Branch or untick the checkbox ", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validate = false;
+                textBox1.Focus();
+            }
             else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
             {
                 if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
@@ -1149,15 +1154,15 @@ namespace PhonebookApp.UI
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", CompanyNameTextBox.Text);
                 cmd.Parameters.Add(new SqlParameter("@nemail",
-                    string.IsNullOrEmpty(EmailtextBox.Text) ? (object)DBNull.Value : EmailtextBox.Text));
+                    string.IsNullOrWhiteSpace(EmailtextBox.Text) ? (object)DBNull.Value : EmailtextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@nphone",
-                    string.IsNullOrEmpty(ContactNotextBox.Text) ? (object)DBNull.Value : ContactNotextBox.Text));
+                    string.IsNullOrWhiteSpace(ContactNotextBox.Text) ? (object)DBNull.Value : ContactNotextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@nidenti",
-                    string.IsNullOrEmpty(IdentificationNotextBox.Text)
+                    string.IsNullOrWhiteSpace(IdentificationNotextBox.Text)
                         ? (object)DBNull.Value
                         : IdentificationNotextBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@nweburl",
-                    string.IsNullOrEmpty(WebSiteUrltextBox.Text) ? (object)DBNull.Value : WebSiteUrltextBox.Text));
+                    string.IsNullOrWhiteSpace(WebSiteUrltextBox.Text) ? (object)DBNull.Value : WebSiteUrltextBox.Text));
                 cmd.Parameters.AddWithValue("@d2", user_id);
                 cmd.Parameters.AddWithValue("@d3", DateTime.UtcNow.ToLocalTime());
                 cmd.Parameters.AddWithValue("@d4", companytypeid);
@@ -1233,18 +1238,19 @@ namespace PhonebookApp.UI
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string query = "Update " + corporatTable + " set PostOfficeId=@d4,CFlatNo=@d5,CHouseNo=@d6,CRoadNo=@d7,CBlock=@d8,CArea=@d9,CLandmark=@d10,CContactNo=@d11,BuildingName=@d12,RoadName=@d13  Where  CorporateAddresses.CompanyId='" + CompanyIdtextBox.Text + "'";
+                    string query = "Update " + corporatTable + " set PostOfficeId=@d4,CFlatNo=@d5,CHouseNo=@d6,CRoadNo=@d7,CBlock=@d8,CArea=@d9,CLandmark=@d10,CContactNo=@d11,BuildingName=@d12,RoadName=@d13 ,Branch=@d14 Where  CorporateAddresses.CompanyId='" + CompanyIdtextBox.Text + "'";
                     cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d12", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrWhiteSpace(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrWhiteSpace(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrWhiteSpace(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrWhiteSpace(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d12", string.IsNullOrWhiteSpace(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrWhiteSpace(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrWhiteSpace(textBox1.Text) ? (object)DBNull.Value : textBox1.Text));
                     //var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
                     //QRCodeGenerator qrGenerator = new QRCodeGenerator();
                     //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
@@ -1272,31 +1278,31 @@ namespace PhonebookApp.UI
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.Add(new SqlParameter("@d4",
-                            string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
+                            string.IsNullOrWhiteSpace(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
                         cmd.Parameters.Add(new SqlParameter("@d5",
-                            string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
+                            string.IsNullOrWhiteSpace(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d6",
-                            string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
+                            string.IsNullOrWhiteSpace(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d7",
-                            string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
+                            string.IsNullOrWhiteSpace(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d8",
-                            string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
+                            string.IsNullOrWhiteSpace(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d9",
-                            string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
+                            string.IsNullOrWhiteSpace(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d10",
-                            string.IsNullOrEmpty(tLandmarktextBox.Text)
+                            string.IsNullOrWhiteSpace(tLandmarktextBox.Text)
                                 ? (object)DBNull.Value
                                 : tLandmarktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d11",
-                            string.IsNullOrEmpty(tContactNoTextBox.Text)
+                            string.IsNullOrWhiteSpace(tContactNoTextBox.Text)
                                 ? (object)DBNull.Value
                                 : tContactNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d12",
-                            string.IsNullOrEmpty(tBuldingNameTextBox.Text)
+                            string.IsNullOrWhiteSpace(tBuldingNameTextBox.Text)
                                 ? (object)DBNull.Value
                                 : tBuldingNameTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d13",
-                            string.IsNullOrEmpty(tRoadNameTextBox.Text)
+                            string.IsNullOrWhiteSpace(tRoadNameTextBox.Text)
                                 ? (object)DBNull.Value
                                 : tRoadNameTextBox.Text));
                         //var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
@@ -1325,37 +1331,37 @@ namespace PhonebookApp.UI
                                        CompanyIdtextBox.Text + "'";
                         cmd = new SqlCommand(query, con);
                         cmd.Parameters.Add(new SqlParameter("@d4",
-                            string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                            string.IsNullOrWhiteSpace(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
                         cmd.Parameters.Add(new SqlParameter("@d5",
-                            string.IsNullOrEmpty(cFlatNoTextBox.Text)
+                            string.IsNullOrWhiteSpace(cFlatNoTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cFlatNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d6",
-                            string.IsNullOrEmpty(cHouseNoTextBox.Text)
+                            string.IsNullOrWhiteSpace(cHouseNoTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cHouseNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d7",
-                            string.IsNullOrEmpty(cRoadNoTextBox.Text)
+                            string.IsNullOrWhiteSpace(cRoadNoTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cRoadNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d8",
-                            string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                            string.IsNullOrWhiteSpace(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d9",
-                            string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                            string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d10",
-                            string.IsNullOrEmpty(cLandmarktextBox.Text)
+                            string.IsNullOrWhiteSpace(cLandmarktextBox.Text)
                                 ? (object)DBNull.Value
                                 : cLandmarktextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d11",
-                            string.IsNullOrEmpty(cContactNoTextBox.Text)
+                            string.IsNullOrWhiteSpace(cContactNoTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cContactNoTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d12",
-                            string.IsNullOrEmpty(cBuldingNameTextBox.Text)
+                            string.IsNullOrWhiteSpace(cBuldingNameTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cBuldingNameTextBox.Text));
                         cmd.Parameters.Add(new SqlParameter("@d13",
-                            string.IsNullOrEmpty(cRoadNameTextBox.Text)
+                            string.IsNullOrWhiteSpace(cRoadNameTextBox.Text)
                                 ? (object)DBNull.Value
                                 : cRoadNameTextBox.Text));
                         //var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text,
@@ -1393,20 +1399,21 @@ namespace PhonebookApp.UI
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                string insertQ = "insert into " + tableName + "(PostOfficeId,CFlatNo,CHouseNo,CRoadNo,CBlock,CArea,CLandmark,CContactNo,CompanyId,BuildingName,RoadName,Branch) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                 cmd = new SqlCommand(insertQ);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
-                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrWhiteSpace(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrWhiteSpace(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrWhiteSpace(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrWhiteSpace(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
                 cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
-                cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrWhiteSpace(cBuldingNameTextBox.Text) ? (object)DBNull.Value : cBuldingNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrWhiteSpace(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@d15", string.IsNullOrWhiteSpace(textBox1.Text) ? (object)DBNull.Value : textBox1.Text));
                 //var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
                 //QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
@@ -1436,28 +1443,28 @@ namespace PhonebookApp.UI
                     cmd = new SqlCommand(Qry);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d4",
-                        string.IsNullOrEmpty(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
+                        string.IsNullOrWhiteSpace(postofficeIdC) ? (object)DBNull.Value : postofficeIdC));
                     cmd.Parameters.Add(new SqlParameter("@d5",
-                        string.IsNullOrEmpty(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
+                        string.IsNullOrWhiteSpace(cFlatNoTextBox.Text) ? (object)DBNull.Value : cFlatNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d6",
-                        string.IsNullOrEmpty(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
+                        string.IsNullOrWhiteSpace(cHouseNoTextBox.Text) ? (object)DBNull.Value : cHouseNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d7",
-                        string.IsNullOrEmpty(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
+                        string.IsNullOrWhiteSpace(cRoadNoTextBox.Text) ? (object)DBNull.Value : cRoadNoTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d8",
-                        string.IsNullOrEmpty(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
+                        string.IsNullOrWhiteSpace(blocktextBox.Text) ? (object)DBNull.Value : blocktextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d9",
-                        string.IsNullOrEmpty(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
+                        string.IsNullOrWhiteSpace(cAreaTextBox.Text) ? (object)DBNull.Value : cAreaTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d10",
-                        string.IsNullOrEmpty(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
+                        string.IsNullOrWhiteSpace(cLandmarktextBox.Text) ? (object)DBNull.Value : cLandmarktextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d11",
-                        string.IsNullOrEmpty(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
+                        string.IsNullOrWhiteSpace(cContactNoTextBox.Text) ? (object)DBNull.Value : cContactNoTextBox.Text));
                     cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
                     cmd.Parameters.Add(new SqlParameter("@d13",
-                        string.IsNullOrEmpty(cBuldingNameTextBox.Text)
+                        string.IsNullOrWhiteSpace(cBuldingNameTextBox.Text)
                             ? (object)DBNull.Value
                             : cBuldingNameTextBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@d14",
-                        string.IsNullOrEmpty(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
+                        string.IsNullOrWhiteSpace(cRoadNameTextBox.Text) ? (object)DBNull.Value : cRoadNameTextBox.Text));
                     //var Qrdata = GetQrdata(cDivisionCombo.Text, cDistCombo.Text, cThanaCombo.Text, cPostOfficeCombo.Text, cPostCodeTextBox.Text, cAreaTextBox.Text, blocktextBox.Text, cLandmarktextBox.Text, cRoadNameTextBox.Text, cRoadNoTextBox.Text, cBuldingNameTextBox.Text, cHouseNoTextBox.Text, cFlatNoTextBox.Text, cContactNoTextBox.Text);
                     //QRCodeGenerator qrGenerator = new QRCodeGenerator();
                     //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
@@ -1480,17 +1487,17 @@ namespace PhonebookApp.UI
                     string Qry = "insert into " + tableName + "(PostOfficeId,TFlatNo,THouseNo,TRoadNo,TBlock,TArea,TLandmark,TContactNo,CompanyId,BuildingName,RoadName) Values(@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
                     cmd = new SqlCommand(Qry);
                     cmd.Connection = con;
-                    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
-                    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrEmpty(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrEmpty(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrEmpty(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrEmpty(tLandmarktextBox.Text) ? (object)DBNull.Value : tLandmarktextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrEmpty(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrWhiteSpace(postOfficeIdT) ? (object)DBNull.Value : postOfficeIdT));
+                    cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrWhiteSpace(tFlatNoTextBox.Text) ? (object)DBNull.Value : tFlatNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrWhiteSpace(tHouseNoTextBox.Text) ? (object)DBNull.Value : tHouseNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d7", string.IsNullOrWhiteSpace(tRoadNoTextBox.Text) ? (object)DBNull.Value : tRoadNoTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d8", string.IsNullOrWhiteSpace(FblocktextBox.Text) ? (object)DBNull.Value : FblocktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d9", string.IsNullOrWhiteSpace(tAreaTextBox.Text) ? (object)DBNull.Value : tAreaTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d10", string.IsNullOrWhiteSpace(tLandmarktextBox.Text) ? (object)DBNull.Value : tLandmarktextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d11", string.IsNullOrWhiteSpace(tContactNoTextBox.Text) ? (object)DBNull.Value : tContactNoTextBox.Text));
                     cmd.Parameters.AddWithValue("@d12", CompanyIdtextBox.Text);
-                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrEmpty(tBuldingNameTextBox.Text) ? (object)DBNull.Value : tBuldingNameTextBox.Text));
-                    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrEmpty(tRoadNameTextBox.Text) ? (object)DBNull.Value : tRoadNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d13", string.IsNullOrWhiteSpace(tBuldingNameTextBox.Text) ? (object)DBNull.Value : tBuldingNameTextBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@d14", string.IsNullOrWhiteSpace(tRoadNameTextBox.Text) ? (object)DBNull.Value : tRoadNameTextBox.Text));
                     //var Qrdata = GetQrdata(tDivisionCombo.Text, tDistrictCombo.Text, tThenaCombo.Text, tPostCombo.Text, tPostCodeTextBox.Text, tAreaTextBox.Text, FblocktextBox.Text, tLandmarktextBox.Text, tRoadNameTextBox.Text, tRoadNoTextBox.Text, tBuldingNameTextBox.Text, tHouseNoTextBox.Text, tFlatNoTextBox.Text, tContactNoTextBox.Text);
                     //QRCodeGenerator qrGenerator = new QRCodeGenerator();
                     //QRCodeData qrCodeData = qrGenerator.CreateQrCode(Qrdata, QRCodeGenerator.ECCLevel.Q);
@@ -1517,24 +1524,24 @@ namespace PhonebookApp.UI
         //    Qrdata += "Thana:" + Thana + "\r\n";
         //    Qrdata += "Post:" + Post + "\r\n";
         //    Qrdata += "Post Code:" + PostCode + "\r\n";
-        //    Qrdata += "Area / Village :" + (string.IsNullOrEmpty(Area) ? "" : Area) +
+        //    Qrdata += "Area / Village :" + (string.IsNullOrWhiteSpace(Area) ? "" : Area) +
         //              "\r\n";
-        //    Qrdata += "Block/Sector/Zone:" + (string.IsNullOrEmpty(Block) ? "" : Block) +
+        //    Qrdata += "Block/Sector/Zone:" + (string.IsNullOrWhiteSpace(Block) ? "" : Block) +
         //              "\r\n";
-        //    Qrdata += "Nearest Landmark:" + (string.IsNullOrEmpty(LandMark)
+        //    Qrdata += "Nearest Landmark:" + (string.IsNullOrWhiteSpace(LandMark)
         //                  ? ""
         //                  : LandMark) + "\r\n";
         //    Qrdata += "Road Name:" +
-        //              (string.IsNullOrEmpty(roadName) ? "" : roadName) + "\r\n";
-        //    Qrdata += "Road#:" + (string.IsNullOrEmpty(RoadNo) ? "" : RoadNo) + "\r\n";
-        //    Qrdata += "Building Name:" + (string.IsNullOrEmpty(buildingName)
+        //              (string.IsNullOrWhiteSpace(roadName) ? "" : roadName) + "\r\n";
+        //    Qrdata += "Road#:" + (string.IsNullOrWhiteSpace(RoadNo) ? "" : RoadNo) + "\r\n";
+        //    Qrdata += "Building Name:" + (string.IsNullOrWhiteSpace(buildingName)
         //                  ? ""
         //                  : buildingName) + "\r\n";
-        //    Qrdata += "Holding#:" + (string.IsNullOrEmpty(HouseNo) ? "" : HouseNo) +
+        //    Qrdata += "Holding#:" + (string.IsNullOrWhiteSpace(HouseNo) ? "" : HouseNo) +
         //              "\r\n";
-        //    Qrdata += "Flat or Level#:" + (string.IsNullOrEmpty(FlatNo) ? "" : FlatNo) +
+        //    Qrdata += "Flat or Level#:" + (string.IsNullOrWhiteSpace(FlatNo) ? "" : FlatNo) +
         //              "\r\n";
-        //    Qrdata += "Contact#:" + (string.IsNullOrEmpty(ContactNo) ? "" : ContactNo);
+        //    Qrdata += "Contact#:" + (string.IsNullOrWhiteSpace(ContactNo) ? "" : ContactNo);
         //    return Qrdata;
         //}
 
@@ -1576,6 +1583,7 @@ namespace PhonebookApp.UI
                 ResetTradingAddress();
             }
             UpdateButton.Hide();
+            checkBox1.Checked = false;
 
         }
 
@@ -1623,6 +1631,21 @@ namespace PhonebookApp.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                label51.Visible = true;
+                textBox1.Visible = true;
+            }
+            else
+            {
+                label51.Visible = false;
+                textBox1.Visible = false;
+                textBox1.Clear();
             }
         }
 

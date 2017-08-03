@@ -1,0 +1,24 @@
+declare @selector  int
+declare @cid int
+declare @temp int
+set @temp=0
+set @selector=1
+while @selector <=1293
+begin
+INSERT INTO Persons
+(PersonName, EmailBankId, CompanyId, JobTitleId, SpecializationsId, WhatsAppId, ImoNumber, CountryId, ReligionId, GenderId,UserId)
+SELECT        [Contact Person], EmailBankId, Cid, JobTitleId, SpecializationsId,[Mobile No#1], [Mobile No#2],18, ReligionId, GenderId,5
+FROM            Intregrated$ where ID=@selector
+set @cid= SCOPE_IDENTITY()
+if(@cid<>@temp)
+begin
+update Intregrated$ set Pid=@cid 
+where ID=@selector
+set @temp=@cid
+end
+else
+begin
+set @temp=0
+end
+set @selector =@selector+1
+end

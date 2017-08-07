@@ -254,6 +254,11 @@
       <DependentUpon>GreetingCards.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ListofAllCompanies.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListofAllCompanies.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Reports\LOI.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -549,6 +554,10 @@
     <EmbeddedResource Include="Reports\GreetingCards.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GreetingCards.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListofAllCompanies.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListofAllCompanies.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\LOI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

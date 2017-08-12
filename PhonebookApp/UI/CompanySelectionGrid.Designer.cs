@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CompanySelectiongroupBox = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +37,7 @@
             this.SearchByCompanyNameGroupBox = new System.Windows.Forms.GroupBox();
             this.companyNameSearchtextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.NewComCreationButton = new System.Windows.Forms.Button();
             this.CompanySelectiongroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SearchByCompanyNameGroupBox.SuspendLayout();
@@ -50,7 +51,7 @@
             this.CompanySelectiongroupBox.Size = new System.Drawing.Size(726, 340);
             this.CompanySelectiongroupBox.TabIndex = 0;
             this.CompanySelectiongroupBox.TabStop = false;
-            this.CompanySelectiongroupBox.Text = "Company Selection";
+            this.CompanySelectiongroupBox.Text = "Company Selection (Existing Companies)";
             // 
             // dataGridView1
             // 
@@ -66,8 +67,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(17, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(695, 291);
             this.dataGridView1.TabIndex = 1;
@@ -125,11 +126,24 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Company Selection Form";
             // 
+            // NewComCreationButton
+            // 
+            this.NewComCreationButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.NewComCreationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewComCreationButton.Location = new System.Drawing.Point(499, 81);
+            this.NewComCreationButton.Name = "NewComCreationButton";
+            this.NewComCreationButton.Size = new System.Drawing.Size(123, 52);
+            this.NewComCreationButton.TabIndex = 3;
+            this.NewComCreationButton.Text = "New Company Creation";
+            this.NewComCreationButton.UseVisualStyleBackColor = false;
+            this.NewComCreationButton.Click += new System.EventHandler(this.NewComCreationButton_Click);
+            // 
             // CompanySelectionGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 509);
+            this.Controls.Add(this.NewComCreationButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchByCompanyNameGroupBox);
             this.Controls.Add(this.CompanySelectiongroupBox);
@@ -156,5 +170,6 @@
         private System.Windows.Forms.GroupBox SearchByCompanyNameGroupBox;
         private System.Windows.Forms.TextBox companyNameSearchtextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button NewComCreationButton;
     }
 }

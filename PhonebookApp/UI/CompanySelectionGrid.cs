@@ -130,6 +130,15 @@ namespace PhonebookApp.UI
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
+
+        private void NewComCreationButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CompanyCreation f2 = new CompanyCreation();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
             //else
             //{
             //    dataGridView1.Rows.Clear();

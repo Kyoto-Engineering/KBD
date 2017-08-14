@@ -33,21 +33,21 @@
             this.gretingsCardButton = new System.Windows.Forms.Button();
             this.addressButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AllContactListButton = new System.Windows.Forms.Button();
-            this.AllComListButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.TestButton = new System.Windows.Forms.Button();
             this.allAddressButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.CompanyWithEmailButton = new System.Windows.Forms.Button();
+            this.PerWithCompanyButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // letterOfIntroductionButton
             // 
-            this.letterOfIntroductionButton.BackColor = System.Drawing.Color.Blue;
+            this.letterOfIntroductionButton.BackColor = System.Drawing.Color.CadetBlue;
             this.letterOfIntroductionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letterOfIntroductionButton.ForeColor = System.Drawing.Color.White;
             this.letterOfIntroductionButton.Location = new System.Drawing.Point(27, 19);
@@ -60,7 +60,7 @@
             // 
             // gretingsCardButton
             // 
-            this.gretingsCardButton.BackColor = System.Drawing.Color.Blue;
+            this.gretingsCardButton.BackColor = System.Drawing.Color.CadetBlue;
             this.gretingsCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gretingsCardButton.ForeColor = System.Drawing.Color.White;
             this.gretingsCardButton.Location = new System.Drawing.Point(199, 19);
@@ -73,7 +73,7 @@
             // 
             // addressButton
             // 
-            this.addressButton.BackColor = System.Drawing.Color.Blue;
+            this.addressButton.BackColor = System.Drawing.Color.CadetBlue;
             this.addressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressButton.ForeColor = System.Drawing.Color.White;
             this.addressButton.Location = new System.Drawing.Point(385, 19);
@@ -86,8 +86,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.AllContactListButton);
-            this.groupBox1.Controls.Add(this.AllComListButton);
+            this.groupBox1.Controls.Add(this.PerWithCompanyButton);
+            this.groupBox1.Controls.Add(this.CompanyWithEmailButton);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TestButton);
@@ -102,35 +102,9 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // AllContactListButton
-            // 
-            this.AllContactListButton.BackColor = System.Drawing.Color.Blue;
-            this.AllContactListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllContactListButton.ForeColor = System.Drawing.Color.White;
-            this.AllContactListButton.Location = new System.Drawing.Point(392, 194);
-            this.AllContactListButton.Name = "AllContactListButton";
-            this.AllContactListButton.Size = new System.Drawing.Size(165, 60);
-            this.AllContactListButton.TabIndex = 11;
-            this.AllContactListButton.Text = "All Contacts List";
-            this.AllContactListButton.UseVisualStyleBackColor = false;
-            this.AllContactListButton.Click += new System.EventHandler(this.AllContactListButton_Click);
-            // 
-            // AllComListButton
-            // 
-            this.AllComListButton.BackColor = System.Drawing.Color.Blue;
-            this.AllComListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllComListButton.ForeColor = System.Drawing.Color.White;
-            this.AllComListButton.Location = new System.Drawing.Point(214, 194);
-            this.AllComListButton.Name = "AllComListButton";
-            this.AllComListButton.Size = new System.Drawing.Size(161, 65);
-            this.AllComListButton.TabIndex = 10;
-            this.AllComListButton.Text = "All Companies List";
-            this.AllComListButton.UseVisualStyleBackColor = false;
-            this.AllComListButton.Click += new System.EventHandler(this.AllComListButton_Click);
-            // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Blue;
+            this.button2.BackColor = System.Drawing.Color.CadetBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(27, 194);
@@ -143,10 +117,10 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(392, 109);
+            this.button1.Location = new System.Drawing.Point(385, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 62);
             this.button1.TabIndex = 6;
@@ -156,10 +130,10 @@
             // 
             // TestButton
             // 
-            this.TestButton.BackColor = System.Drawing.Color.Blue;
+            this.TestButton.BackColor = System.Drawing.Color.CadetBlue;
             this.TestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestButton.ForeColor = System.Drawing.Color.White;
-            this.TestButton.Location = new System.Drawing.Point(214, 109);
+            this.TestButton.Location = new System.Drawing.Point(199, 109);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(165, 62);
             this.TestButton.TabIndex = 5;
@@ -169,7 +143,7 @@
             // 
             // allAddressButton
             // 
-            this.allAddressButton.BackColor = System.Drawing.Color.Blue;
+            this.allAddressButton.BackColor = System.Drawing.Color.CadetBlue;
             this.allAddressButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allAddressButton.ForeColor = System.Drawing.Color.White;
             this.allAddressButton.Location = new System.Drawing.Point(27, 107);
@@ -199,6 +173,32 @@
             this.label1.Size = new System.Drawing.Size(107, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "Reports";
+            // 
+            // CompanyWithEmailButton
+            // 
+            this.CompanyWithEmailButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.CompanyWithEmailButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyWithEmailButton.ForeColor = System.Drawing.Color.White;
+            this.CompanyWithEmailButton.Location = new System.Drawing.Point(199, 194);
+            this.CompanyWithEmailButton.Name = "CompanyWithEmailButton";
+            this.CompanyWithEmailButton.Size = new System.Drawing.Size(165, 65);
+            this.CompanyWithEmailButton.TabIndex = 8;
+            this.CompanyWithEmailButton.Text = "Company With Email";
+            this.CompanyWithEmailButton.UseVisualStyleBackColor = false;
+            this.CompanyWithEmailButton.Click += new System.EventHandler(this.CompanyWithEmailButton_Click_1);
+            // 
+            // PerWithCompanyButton
+            // 
+            this.PerWithCompanyButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.PerWithCompanyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PerWithCompanyButton.ForeColor = System.Drawing.Color.White;
+            this.PerWithCompanyButton.Location = new System.Drawing.Point(385, 194);
+            this.PerWithCompanyButton.Name = "PerWithCompanyButton";
+            this.PerWithCompanyButton.Size = new System.Drawing.Size(172, 65);
+            this.PerWithCompanyButton.TabIndex = 9;
+            this.PerWithCompanyButton.Text = "Persons With Company Email";
+            this.PerWithCompanyButton.UseVisualStyleBackColor = false;
+            this.PerWithCompanyButton.Click += new System.EventHandler(this.PerWithCompanyButton_Click);
             // 
             // ReportUI
             // 
@@ -233,7 +233,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button AllComListButton;
-        private System.Windows.Forms.Button AllContactListButton;
+        private System.Windows.Forms.Button PerWithCompanyButton;
+        private System.Windows.Forms.Button CompanyWithEmailButton;
     }
 }

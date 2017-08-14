@@ -61,12 +61,12 @@
             // 
             // savebutton
             // 
-            this.savebutton.BackColor = System.Drawing.Color.Blue;
+            this.savebutton.BackColor = System.Drawing.Color.CadetBlue;
             this.savebutton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebutton.ForeColor = System.Drawing.Color.White;
+            this.savebutton.ForeColor = System.Drawing.Color.Black;
             this.savebutton.Location = new System.Drawing.Point(409, 360);
             this.savebutton.Name = "savebutton";
-            this.savebutton.Size = new System.Drawing.Size(104, 64);
+            this.savebutton.Size = new System.Drawing.Size(104, 66);
             this.savebutton.TabIndex = 4;
             this.savebutton.Text = "Save";
             this.savebutton.UseVisualStyleBackColor = false;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(822, 491);
             this.Controls.Add(this.purposetextBox);
             this.Controls.Add(this.label3);

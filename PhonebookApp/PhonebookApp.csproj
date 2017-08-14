@@ -8,12 +8,12 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhonebookApp</RootNamespace>
-    <AssemblyName>Kyoto Business Directory Plus</AssemblyName>
+    <AssemblyName>Kyoto Business Directory</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\KYOTOSERVER\Share\Softwares\Kyoto Business Directory Plus\</PublishUrl>
+    <PublishUrl>\\KYOTOSERVER\Share\Software Apps\Kyoto Business Directory\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -27,7 +27,7 @@
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -68,7 +68,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>business_directory_plus_53X_icon.ico</ApplicationIcon>
+    <ApplicationIcon>business_directory_DUm_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -743,13 +743,15 @@
   <ItemGroup>
     <None Include="Resources\user_up.png" />
     <None Include="Resources\Kyoto Google Plus  Profile.png" />
-    <None Include="Resources\business_directory_p6Q_icon.ico" />
+    <Content Include="business_directory_DUm_icon.ico" />
     <Content Include="business_directory_p6Q_icon.ico" />
     <None Include="Resources\12.jpg" />
     <None Include="Resources\BusinessDirectory.png" />
     <None Include="Resources\imgcom.jpg" />
     <None Include="Resources\Business Directory Plus.png" />
     <Content Include="business_directory_plus_53X_icon.ico" />
+    <Content Include="Resources\business_directory_DUm_icon.ico" />
+    <Content Include="Resources\business_directory_p6Q_icon.ico" />
     <Content Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>

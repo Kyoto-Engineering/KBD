@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportByGroup));
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.getButton = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             // groupComboBox
             // 
             this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(264, 36);
+            this.groupComboBox.Location = new System.Drawing.Point(184, 36);
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(121, 21);
             this.groupComboBox.TabIndex = 0;
@@ -47,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(173, 39);
+            this.label1.Location = new System.Drawing.Point(93, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
@@ -55,7 +56,7 @@
             // 
             // getButton
             // 
-            this.getButton.Location = new System.Drawing.Point(279, 131);
+            this.getButton.Location = new System.Drawing.Point(198, 185);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 4;
@@ -66,7 +67,7 @@
             // workingRadioButton
             // 
             this.workingRadioButton.AutoSize = true;
-            this.workingRadioButton.Location = new System.Drawing.Point(248, 70);
+            this.workingRadioButton.Location = new System.Drawing.Point(184, 71);
             this.workingRadioButton.Name = "workingRadioButton";
             this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
             this.workingRadioButton.TabIndex = 5;
@@ -77,7 +78,7 @@
             // resedentialRadioButton
             // 
             this.resedentialRadioButton.AutoSize = true;
-            this.resedentialRadioButton.Location = new System.Drawing.Point(248, 94);
+            this.resedentialRadioButton.Location = new System.Drawing.Point(184, 94);
             this.resedentialRadioButton.Name = "resedentialRadioButton";
             this.resedentialRadioButton.Size = new System.Drawing.Size(118, 17);
             this.resedentialRadioButton.TabIndex = 6;
@@ -89,12 +90,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 261);
+            this.BackColor = System.Drawing.Color.Cornsilk;
+            this.ClientSize = new System.Drawing.Size(452, 281);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByGroup";
             this.Text = "ReportByGroup";
             this.Load += new System.EventHandler(this.ReportByGroup_Load);

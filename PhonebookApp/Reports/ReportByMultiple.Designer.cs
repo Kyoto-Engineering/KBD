@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportByMultiple));
             this.religionComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.getButton = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             // religionComboBox
             // 
             this.religionComboBox.FormattingEnabled = true;
-            this.religionComboBox.Location = new System.Drawing.Point(264, 30);
+            this.religionComboBox.Location = new System.Drawing.Point(156, 30);
             this.religionComboBox.Name = "religionComboBox";
             this.religionComboBox.Size = new System.Drawing.Size(121, 21);
             this.religionComboBox.TabIndex = 1;
@@ -47,15 +48,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 38);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(59, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Religion";
+            this.label2.Text = "Religion     :";
             // 
             // getButton
             // 
-            this.getButton.Location = new System.Drawing.Point(279, 128);
+            this.getButton.Location = new System.Drawing.Point(171, 193);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 4;
@@ -66,7 +68,7 @@
             // workingRadioButton
             // 
             this.workingRadioButton.AutoSize = true;
-            this.workingRadioButton.Location = new System.Drawing.Point(248, 67);
+            this.workingRadioButton.Location = new System.Drawing.Point(156, 77);
             this.workingRadioButton.Name = "workingRadioButton";
             this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
             this.workingRadioButton.TabIndex = 5;
@@ -77,7 +79,7 @@
             // resedentialRadioButton
             // 
             this.resedentialRadioButton.AutoSize = true;
-            this.resedentialRadioButton.Location = new System.Drawing.Point(248, 91);
+            this.resedentialRadioButton.Location = new System.Drawing.Point(156, 110);
             this.resedentialRadioButton.Name = "resedentialRadioButton";
             this.resedentialRadioButton.Size = new System.Drawing.Size(118, 17);
             this.resedentialRadioButton.TabIndex = 6;
@@ -89,12 +91,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 261);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(429, 289);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.religionComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByMultiple";
             this.Text = "ReportByMultiple";
             this.Load += new System.EventHandler(this.ReportByMultiple_Load);

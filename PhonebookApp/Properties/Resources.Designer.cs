@@ -73,6 +73,16 @@ namespace PhonebookApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Business_Directory_Plus {
+            get {
+                object obj = ResourceManager.GetObject("Business Directory Plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BusinessDirectory {
             get {
                 object obj = ResourceManager.GetObject("BusinessDirectory", resourceCulture);

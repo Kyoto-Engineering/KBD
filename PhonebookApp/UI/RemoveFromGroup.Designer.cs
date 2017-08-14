@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoveFromGroup));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GroupNamecomboBox = new System.Windows.Forms.ComboBox();
             this.groupNamelabel = new System.Windows.Forms.Label();
@@ -85,7 +86,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.DarkKhaki;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -189,9 +190,9 @@
             // 
             // removeButton
             // 
-            this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeButton.BackColor = System.Drawing.Color.SandyBrown;
             this.removeButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.removeButton.ForeColor = System.Drawing.Color.Black;
             this.removeButton.Location = new System.Drawing.Point(177, 208);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(113, 56);
@@ -204,10 +205,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1129, 519);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RemoveFromGroup";
             this.Text = "RemoveFromGroup";
             this.Load += new System.EventHandler(this.RemoveFromGroup_Load);

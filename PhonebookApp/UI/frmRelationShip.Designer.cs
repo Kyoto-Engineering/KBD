@@ -40,7 +40,7 @@
             // 
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryName.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblCategoryName.ForeColor = System.Drawing.Color.Black;
             this.lblCategoryName.Location = new System.Drawing.Point(21, 16);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(112, 22);
@@ -68,7 +68,7 @@
             // 
             // btnSaveRelationship
             // 
-            this.btnSaveRelationship.BackColor = System.Drawing.Color.Lime;
+            this.btnSaveRelationship.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btnSaveRelationship.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveRelationship.ForeColor = System.Drawing.Color.Blue;
             this.btnSaveRelationship.Location = new System.Drawing.Point(281, 171);
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Chocolate;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(468, 292);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);

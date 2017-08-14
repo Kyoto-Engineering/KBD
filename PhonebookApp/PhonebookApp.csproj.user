@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>\\KYOTOSERVER\Share\Software Apps\Kyoto Business Directory\|\\KYOTOSERVER\Share\Softwares\Kyoto Business Directory\|C:\Users\Kowsar\Desktop\kowsar\|D:\Kyoto Business Directory\|C:\Users\KYOTO\Desktop\KBD\Ceo\</PublishUrlHistory>
+    <PublishUrlHistory>\\KYOTOSERVER\Share\Softwares\Kyoto Business Directory Plus\|\\KYOTOSERVER\Share\Software\Kyoto Business Directory Plus\|\\KYOTOSERVER\Share\Software Apps\Kyoto Business Directory\|\\KYOTOSERVER\Share\Softwares\Kyoto Business Directory\|C:\Users\Kowsar\Desktop\kowsar\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory />

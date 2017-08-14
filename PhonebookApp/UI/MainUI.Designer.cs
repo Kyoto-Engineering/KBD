@@ -48,9 +48,9 @@
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(431, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 31);
+            this.label1.Size = new System.Drawing.Size(292, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Business Directory";
+            this.label1.Text = "Business Directory Plus";
             // 
             // groupBox1
             // 
@@ -71,7 +71,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(193, 233);
+            this.button2.Location = new System.Drawing.Point(193, 245);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 69);
             this.button2.TabIndex = 50;
@@ -84,7 +84,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(21, 245);
+            this.button1.Location = new System.Drawing.Point(21, 248);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 66);
             this.button1.TabIndex = 49;
@@ -97,7 +97,7 @@
             this.ViewAndReportbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ViewAndReportbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ViewAndReportbutton.ForeColor = System.Drawing.Color.Blue;
-            this.ViewAndReportbutton.Location = new System.Drawing.Point(191, 142);
+            this.ViewAndReportbutton.Location = new System.Drawing.Point(192, 143);
             this.ViewAndReportbutton.Name = "ViewAndReportbutton";
             this.ViewAndReportbutton.Size = new System.Drawing.Size(134, 68);
             this.ViewAndReportbutton.TabIndex = 48;
@@ -135,7 +135,7 @@
             // 
             this.MemberAddedToGroupbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.MemberAddedToGroupbutton.ForeColor = System.Drawing.Color.Blue;
-            this.MemberAddedToGroupbutton.Location = new System.Drawing.Point(22, 141);
+            this.MemberAddedToGroupbutton.Location = new System.Drawing.Point(22, 142);
             this.MemberAddedToGroupbutton.Name = "MemberAddedToGroupbutton";
             this.MemberAddedToGroupbutton.Size = new System.Drawing.Size(133, 69);
             this.MemberAddedToGroupbutton.TabIndex = 43;
@@ -161,7 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BackgroundImage = global::PhonebookApp.Properties.Resources.BusinessDirectory;
+            this.BackgroundImage = global::PhonebookApp.Properties.Resources.Business_Directory_Plus;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1038, 641);
             this.ControlBox = false;

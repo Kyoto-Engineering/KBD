@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonUpdate));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Updatebutton = new System.Windows.Forms.Button();
-            this.CountrycomboBox = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.PostalCodetextBox = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
@@ -41,6 +37,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.StreettextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Updatebutton = new System.Windows.Forms.Button();
+            this.CountrycomboBox = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.cmbRelationShip = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.unKnownRA = new System.Windows.Forms.CheckBox();
@@ -187,53 +187,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(1082, 549);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 41);
-            this.button2.TabIndex = 23;
-            this.button2.Text = ">>";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // Updatebutton
-            // 
-            this.Updatebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Updatebutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Updatebutton.ForeColor = System.Drawing.Color.Blue;
-            this.Updatebutton.Location = new System.Drawing.Point(1082, 612);
-            this.Updatebutton.Name = "Updatebutton";
-            this.Updatebutton.Size = new System.Drawing.Size(78, 39);
-            this.Updatebutton.TabIndex = 22;
-            this.Updatebutton.Text = "Update";
-            this.Updatebutton.UseVisualStyleBackColor = false;
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
-            // 
-            // CountrycomboBox
-            // 
-            this.CountrycomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CountrycomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CountrycomboBox.FormattingEnabled = true;
-            this.CountrycomboBox.Location = new System.Drawing.Point(203, 30);
-            this.CountrycomboBox.Name = "CountrycomboBox";
-            this.CountrycomboBox.Size = new System.Drawing.Size(238, 30);
-            this.CountrycomboBox.TabIndex = 1;
-            this.CountrycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountrycomboBox_KeyDown);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(6, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(202, 22);
-            this.label14.TabIndex = 96;
-            this.label14.Text = "Country                        :";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.PostalCodetextBox);
@@ -305,6 +258,53 @@
             this.label15.Size = new System.Drawing.Size(147, 19);
             this.label15.TabIndex = 9;
             this.label15.Text = "Street Name            :";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(1082, 549);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(78, 41);
+            this.button2.TabIndex = 23;
+            this.button2.Text = ">>";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // Updatebutton
+            // 
+            this.Updatebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Updatebutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Updatebutton.ForeColor = System.Drawing.Color.Blue;
+            this.Updatebutton.Location = new System.Drawing.Point(1082, 612);
+            this.Updatebutton.Name = "Updatebutton";
+            this.Updatebutton.Size = new System.Drawing.Size(78, 39);
+            this.Updatebutton.TabIndex = 22;
+            this.Updatebutton.Text = "Update";
+            this.Updatebutton.UseVisualStyleBackColor = false;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
+            // 
+            // CountrycomboBox
+            // 
+            this.CountrycomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CountrycomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CountrycomboBox.FormattingEnabled = true;
+            this.CountrycomboBox.Location = new System.Drawing.Point(203, 30);
+            this.CountrycomboBox.Name = "CountrycomboBox";
+            this.CountrycomboBox.Size = new System.Drawing.Size(238, 30);
+            this.CountrycomboBox.TabIndex = 1;
+            this.CountrycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountrycomboBox_KeyDown);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(6, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(202, 22);
+            this.label14.TabIndex = 96;
+            this.label14.Text = "Country                        :";
             // 
             // cmbRelationShip
             // 
@@ -1230,7 +1230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Olive;
+            this.BackColor = System.Drawing.Color.PaleVioletRed;
             this.ClientSize = new System.Drawing.Size(1228, 733);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label11);

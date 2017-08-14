@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportByDistrict));
             this.divisionComboBox = new System.Windows.Forms.ComboBox();
             this.districtComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             // divisionComboBox
             // 
             this.divisionComboBox.FormattingEnabled = true;
-            this.divisionComboBox.Location = new System.Drawing.Point(264, 36);
+            this.divisionComboBox.Location = new System.Drawing.Point(216, 36);
             this.divisionComboBox.Name = "divisionComboBox";
             this.divisionComboBox.Size = new System.Drawing.Size(121, 21);
             this.divisionComboBox.TabIndex = 0;
@@ -49,7 +50,7 @@
             // districtComboBox
             // 
             this.districtComboBox.FormattingEnabled = true;
-            this.districtComboBox.Location = new System.Drawing.Point(264, 79);
+            this.districtComboBox.Location = new System.Drawing.Point(216, 79);
             this.districtComboBox.Name = "districtComboBox";
             this.districtComboBox.Size = new System.Drawing.Size(121, 21);
             this.districtComboBox.TabIndex = 1;
@@ -58,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 44);
+            this.label1.Location = new System.Drawing.Point(148, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 2;
@@ -67,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 87);
+            this.label2.Location = new System.Drawing.Point(153, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 3;
@@ -75,7 +76,7 @@
             // 
             // getButton
             // 
-            this.getButton.Location = new System.Drawing.Point(279, 177);
+            this.getButton.Location = new System.Drawing.Point(231, 208);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 4;
@@ -86,7 +87,7 @@
             // workingRadioButton
             // 
             this.workingRadioButton.AutoSize = true;
-            this.workingRadioButton.Location = new System.Drawing.Point(248, 116);
+            this.workingRadioButton.Location = new System.Drawing.Point(216, 117);
             this.workingRadioButton.Name = "workingRadioButton";
             this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
             this.workingRadioButton.TabIndex = 5;
@@ -97,7 +98,7 @@
             // resedentialRadioButton
             // 
             this.resedentialRadioButton.AutoSize = true;
-            this.resedentialRadioButton.Location = new System.Drawing.Point(248, 140);
+            this.resedentialRadioButton.Location = new System.Drawing.Point(216, 140);
             this.resedentialRadioButton.Name = "resedentialRadioButton";
             this.resedentialRadioButton.Size = new System.Drawing.Size(118, 17);
             this.resedentialRadioButton.TabIndex = 6;
@@ -109,7 +110,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 261);
+            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.ClientSize = new System.Drawing.Size(494, 305);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);
@@ -117,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.districtComboBox);
             this.Controls.Add(this.divisionComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByDistrict";
             this.Text = "ReportByDistrict";
             this.Load += new System.EventHandler(this.ReportByDistrict_Load);

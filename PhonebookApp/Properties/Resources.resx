@@ -124,9 +124,6 @@
   <data name="imgcom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgcom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Business Directory Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Business Directory Plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="business_directory_p6Q_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\business_directory_p6Q_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,5 +135,8 @@
   </data>
   <data name="business_directory_DUm_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\business_directory_DUm_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BusinessDirectoryPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusinessDirectoryPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

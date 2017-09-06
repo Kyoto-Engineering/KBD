@@ -750,6 +750,7 @@
     <None Include="Resources\imgcom.jpg" />
     <None Include="Resources\Business Directory Plus.png" />
     <Content Include="business_directory_plus_53X_icon.ico" />
+    <None Include="Resources\BusinessDirectoryPlus.png" />
     <Content Include="Resources\business_directory_DUm_icon.ico" />
     <Content Include="Resources\business_directory_p6Q_icon.ico" />
     <Content Include="Resources\Logo.png" />

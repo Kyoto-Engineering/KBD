@@ -33,14 +33,14 @@
             this.gretingsCardButton = new System.Windows.Forms.Button();
             this.addressButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PerWithCompanyButton = new System.Windows.Forms.Button();
+            this.CompanyWithEmailButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.TestButton = new System.Windows.Forms.Button();
             this.allAddressButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CompanyWithEmailButton = new System.Windows.Forms.Button();
-            this.PerWithCompanyButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,34 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // PerWithCompanyButton
+            // 
+            this.PerWithCompanyButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.PerWithCompanyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PerWithCompanyButton.ForeColor = System.Drawing.Color.White;
+            this.PerWithCompanyButton.Location = new System.Drawing.Point(385, 194);
+            this.PerWithCompanyButton.Name = "PerWithCompanyButton";
+            this.PerWithCompanyButton.Size = new System.Drawing.Size(172, 65);
+            this.PerWithCompanyButton.TabIndex = 9;
+            this.PerWithCompanyButton.Text = "Persons With Company Email";
+            this.PerWithCompanyButton.UseVisualStyleBackColor = false;
+            this.PerWithCompanyButton.Visible = false;
+            this.PerWithCompanyButton.Click += new System.EventHandler(this.PerWithCompanyButton_Click);
+            // 
+            // CompanyWithEmailButton
+            // 
+            this.CompanyWithEmailButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.CompanyWithEmailButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyWithEmailButton.ForeColor = System.Drawing.Color.White;
+            this.CompanyWithEmailButton.Location = new System.Drawing.Point(199, 194);
+            this.CompanyWithEmailButton.Name = "CompanyWithEmailButton";
+            this.CompanyWithEmailButton.Size = new System.Drawing.Size(165, 65);
+            this.CompanyWithEmailButton.TabIndex = 8;
+            this.CompanyWithEmailButton.Text = "Company With Email";
+            this.CompanyWithEmailButton.UseVisualStyleBackColor = false;
+            this.CompanyWithEmailButton.Visible = false;
+            this.CompanyWithEmailButton.Click += new System.EventHandler(this.CompanyWithEmailButton_Click_1);
             // 
             // button2
             // 
@@ -173,32 +201,6 @@
             this.label1.Size = new System.Drawing.Size(107, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "Reports";
-            // 
-            // CompanyWithEmailButton
-            // 
-            this.CompanyWithEmailButton.BackColor = System.Drawing.Color.CadetBlue;
-            this.CompanyWithEmailButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompanyWithEmailButton.ForeColor = System.Drawing.Color.White;
-            this.CompanyWithEmailButton.Location = new System.Drawing.Point(199, 194);
-            this.CompanyWithEmailButton.Name = "CompanyWithEmailButton";
-            this.CompanyWithEmailButton.Size = new System.Drawing.Size(165, 65);
-            this.CompanyWithEmailButton.TabIndex = 8;
-            this.CompanyWithEmailButton.Text = "Company With Email";
-            this.CompanyWithEmailButton.UseVisualStyleBackColor = false;
-            this.CompanyWithEmailButton.Click += new System.EventHandler(this.CompanyWithEmailButton_Click_1);
-            // 
-            // PerWithCompanyButton
-            // 
-            this.PerWithCompanyButton.BackColor = System.Drawing.Color.CadetBlue;
-            this.PerWithCompanyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PerWithCompanyButton.ForeColor = System.Drawing.Color.White;
-            this.PerWithCompanyButton.Location = new System.Drawing.Point(385, 194);
-            this.PerWithCompanyButton.Name = "PerWithCompanyButton";
-            this.PerWithCompanyButton.Size = new System.Drawing.Size(172, 65);
-            this.PerWithCompanyButton.TabIndex = 9;
-            this.PerWithCompanyButton.Text = "Persons With Company Email";
-            this.PerWithCompanyButton.UseVisualStyleBackColor = false;
-            this.PerWithCompanyButton.Click += new System.EventHandler(this.PerWithCompanyButton_Click);
             // 
             // ReportUI
             // 

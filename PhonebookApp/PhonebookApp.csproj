@@ -188,6 +188,12 @@
       <DependentUpon>EidGreetings.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\SmallGreetingsForResidentialAddCopy.cs">
+      <DependentUpon>SmallGreetingsForResidentialAddCopy.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\EidGreetingsForResidentialAdd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -318,12 +324,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SmallGreetingCard.rpt</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\SmallGreetingsForWorkingAdd.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmallGreetingsForWorkingAdd.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\TestReport.cs">
       <AutoGen>True</AutoGen>
@@ -535,6 +535,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetings.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SmallGreetingsForResidentialAddCopy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SmallGreetingsForResidentialAddCopy.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\EidGreetingsForResidentialAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetingsForResidentialAdd.cs</LastGenOutput>
@@ -617,10 +621,6 @@
     <EmbeddedResource Include="Reports\SmallGreetingCard.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SmallGreetingCard.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\SmallGreetingsForWorkingAdd.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SmallGreetingsForWorkingAdd.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\TestReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

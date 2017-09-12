@@ -27,7 +27,7 @@
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>52</ApplicationRevision>
+    <ApplicationRevision>53</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -188,6 +188,18 @@
       <DependentUpon>EidGreetings.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ListofAllContactsBySpecialization.cs">
+      <DependentUpon>ListofAllContactsBySpecialization.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ListofAllContactsByReligion.cs">
+      <DependentUpon>ListofAllContactsByReligion.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\SmallGreetingsForResidentialAddCopy.cs">
       <DependentUpon>SmallGreetingsForResidentialAddCopy.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -319,11 +331,6 @@
     </Compile>
     <Compile Include="Reports\ReportViewer.Designer.cs">
       <DependentUpon>ReportViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\SmallGreetingCard.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmallGreetingCard.rpt</DependentUpon>
     </Compile>
     <Compile Include="Reports\TestReport.cs">
       <AutoGen>True</AutoGen>
@@ -535,6 +542,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EidGreetings.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListofAllContactsBySpecialization.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListofAllContactsBySpecialization.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListofAllContactsByReligion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListofAllContactsByReligion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SmallGreetingsForResidentialAddCopy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SmallGreetingsForResidentialAddCopy.cs</LastGenOutput>
@@ -617,10 +632,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\SmallGreetingCard.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SmallGreetingCard.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\TestReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

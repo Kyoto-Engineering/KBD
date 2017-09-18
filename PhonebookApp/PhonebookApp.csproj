@@ -212,6 +212,12 @@
     <Compile Include="Reports\ListOfContactByReligion.Designer.cs">
       <DependentUpon>ListOfContactByReligion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ListOfContactbySpecialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ListOfContactbySpecialization.Designer.cs">
+      <DependentUpon>ListOfContactbySpecialization.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SmallGreetingsForResidentialAddCopy.cs">
       <DependentUpon>SmallGreetingsForResidentialAddCopy.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -574,6 +580,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListOfContactByReligion.resx">
       <DependentUpon>ListOfContactByReligion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListOfContactbySpecialization.resx">
+      <DependentUpon>ListOfContactbySpecialization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SmallGreetingsForResidentialAddCopy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

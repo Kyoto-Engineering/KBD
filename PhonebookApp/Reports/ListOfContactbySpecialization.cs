@@ -14,34 +14,33 @@ using CrystalDecisions.Shared;
 
 namespace PhonebookApp.Reports
 {
-    public partial class ListOfContactByReligion : Form
+    public partial class ListOfContactbySpecialization : Form
     {
-
         private SqlConnection con;
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public int relid;
-        public ListOfContactByReligion()
+        public int specid;
+        public ListOfContactbySpecialization()
         {
             InitializeComponent();
         }
 
-        private void ListOfContactByReligion_Load(object sender, EventArgs e)
+        private void ListOfContactbySpecialization_Load(object sender, EventArgs e)
         {
             try
             {
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "SELECT ReligionName FROM Religion ORDER BY ReligionId";
+                string ct = "SELECT Specialization FROM Specializations ORDER BY SpecializationsId";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    religionComboBox.Items.Add(rdr[0]);
+                    speccombo.Items.Add(rdr[0]);
                 }
                 con.Close();
 
@@ -51,27 +50,25 @@ namespace PhonebookApp.Reports
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
 
-        private void religionComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void speccombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (!string.IsNullOrWhiteSpace(religionComboBox.Text))
+            if (!string.IsNullOrWhiteSpace(speccombo.Text))
             {
                 try
                 {
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ctk = "SELECT ReligionId FROM Religion WHERE ReligionName = @d1";
+                    string ctk = "SELECT SpecializationsId FROM Specializations WHERE Specialization = @d1";
 
                     cmd = new SqlCommand(ctk);
                     cmd.Connection = con;
-                    cmd.Parameters.AddWithValue("@d1", religionComboBox.Text);
+                    cmd.Parameters.AddWithValue("@d1", speccombo.Text);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
-                        relid = Convert.ToInt32(rdr["ReligionId"]);
+                        specid = (rdr.GetInt32(0));
 
                     }
 
@@ -100,9 +97,9 @@ namespace PhonebookApp.Reports
 
 
 
-            if (!string.IsNullOrWhiteSpace(religionComboBox.Text))
+            if (!string.IsNullOrWhiteSpace(speccombo.Text))
             {
-                 if (workingRadioButton.Checked)
+                if (workingRadioButton.Checked)
                 {
                     GetWorking();
                     Clear();
@@ -122,8 +119,8 @@ namespace PhonebookApp.Reports
 
         private void Clear()
         {
-            religionComboBox.SelectedIndex = -1;
-            
+            speccombo.SelectedIndex = -1;
+
             workingRadioButton.Checked = false;
         }
 
@@ -142,7 +139,7 @@ namespace PhonebookApp.Reports
             paramField1.Name = "id";
 
             //set the parameter value
-            paramDiscreteValue1.Value = relid;
+            paramDiscreteValue1.Value = specid;
 
             //add the parameter value in the ParameterField object
             paramField1.CurrentValues.Add(paramDiscreteValue1);
@@ -160,7 +157,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            ListofAllContactsByReligion cr = new ListofAllContactsByReligion();
+            ListofAllContactsBySpecialization cr = new ListofAllContactsBySpecialization();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -177,6 +174,6 @@ namespace PhonebookApp.Reports
             this.Visible = true;
         }
 
-        
+        //public object Database { get; set; }
     }
 }

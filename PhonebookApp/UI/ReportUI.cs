@@ -590,7 +590,11 @@ namespace PhonebookApp.UI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            ListOfContactbySpecialization lcs = new ListOfContactbySpecialization();
+            this.Visible = false;
+            lcs.ShowDialog();
+            this.Visible = true;
+
         }
 
       

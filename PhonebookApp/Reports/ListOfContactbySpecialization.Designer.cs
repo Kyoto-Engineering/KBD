@@ -1,6 +1,6 @@
 ﻿namespace PhonebookApp.Reports
 {
-    partial class ListOfContactByReligion
+    partial class ListOfContactbySpecialization
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@
             this.workingRadioButton = new System.Windows.Forms.RadioButton();
             this.getButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.religionComboBox = new System.Windows.Forms.ComboBox();
+            this.speccombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // workingRadioButton
             // 
             this.workingRadioButton.AutoSize = true;
-            this.workingRadioButton.Location = new System.Drawing.Point(220, 126);
+            this.workingRadioButton.Location = new System.Drawing.Point(219, 118);
             this.workingRadioButton.Name = "workingRadioButton";
             this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
             this.workingRadioButton.TabIndex = 9;
@@ -47,7 +47,7 @@
             // 
             // getButton
             // 
-            this.getButton.Location = new System.Drawing.Point(235, 242);
+            this.getButton.Location = new System.Drawing.Point(234, 234);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 8;
@@ -59,22 +59,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(123, 82);
+            this.label2.Location = new System.Drawing.Point(74, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 17);
+            this.label2.Size = new System.Drawing.Size(139, 17);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Religion     :";
+            this.label2.Text = "Specialization     :";
             // 
-            // religionComboBox
+            // speccombo
             // 
-            this.religionComboBox.FormattingEnabled = true;
-            this.religionComboBox.Location = new System.Drawing.Point(220, 79);
-            this.religionComboBox.Name = "religionComboBox";
-            this.religionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.religionComboBox.TabIndex = 6;
-            this.religionComboBox.SelectedIndexChanged += new System.EventHandler(this.religionComboBox_SelectedIndexChanged_1);
+            this.speccombo.FormattingEnabled = true;
+            this.speccombo.Location = new System.Drawing.Point(219, 71);
+            this.speccombo.Name = "speccombo";
+            this.speccombo.Size = new System.Drawing.Size(121, 21);
+            this.speccombo.TabIndex = 6;
+            this.speccombo.SelectedIndexChanged += new System.EventHandler(this.speccombo_SelectedIndexChanged);
             // 
-            // ListOfContactByReligion
+            // ListOfContactbySpecialization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,10 +82,10 @@
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.religionComboBox);
-            this.Name = "ListOfContactByReligion";
-            this.Text = "ListOfContactByReligion";
-            this.Load += new System.EventHandler(this.ListOfContactByReligion_Load);
+            this.Controls.Add(this.speccombo);
+            this.Name = "ListOfContactbySpecialization";
+            this.Text = "ListOfContactbySpecialization";
+            this.Load += new System.EventHandler(this.ListOfContactbySpecialization_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +96,6 @@
         private System.Windows.Forms.RadioButton workingRadioButton;
         private System.Windows.Forms.Button getButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox religionComboBox;
+        private System.Windows.Forms.ComboBox speccombo;
     }
 }

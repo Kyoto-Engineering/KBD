@@ -15,8 +15,8 @@ namespace PhonebookApp.UI
 {
     public partial class Pod : Form
     {
-        private SqlConnection con;
-        private SqlCommand cmd;
+        SqlConnection con;
+        SqlCommand cmd;
         ConnectionString cs = new ConnectionString();
         SqlDataReader rdr;
         public int batchid;
@@ -31,8 +31,33 @@ namespace PhonebookApp.UI
         private void pod_Load(object sender, EventArgs e)
         {
             getbatch();
+            batchldgrd();
 
         }
+
+        private void batchldgrd()
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string qgl = "select BatchId, BatchTime from Batch ";
+                cmd = new SqlCommand(qgl, con);
+                rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dataGridView2.Rows.Clear();
+                while (rdr.Read() == true)
+                {
+                    dataGridView2.Rows.Add(rdr[0], rdr[1]);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
 
         private void getbatch()
         {

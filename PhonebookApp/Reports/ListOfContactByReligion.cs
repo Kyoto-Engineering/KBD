@@ -19,7 +19,7 @@ namespace PhonebookApp.Reports
         private SqlCommand cmd;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public int districtId;
+        public int relid;
         public ListOfContactByReligion()
         {
             InitializeComponent();
@@ -49,46 +49,47 @@ namespace PhonebookApp.Reports
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void religionComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(religionComboBox.Text)) {try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT ReligionId FROM Religion WHERE ReligionName = @d1";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.AddWithValue("@d1", religionComboBox.Text);
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    districtId = Convert.ToInt32(rdr["ReligionId"]);
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-                
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }}
-        }
+       
 
         private void religionComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+            if (!string.IsNullOrWhiteSpace(religionComboBox.Text))
+            {
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ctk = "SELECT ReligionId FROM Religion WHERE ReligionName = @d1";
+
+                    cmd = new SqlCommand(ctk);
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@d1", religionComboBox.Text);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        relid = Convert.ToInt32(rdr["ReligionId"]);
+
+                    }
+
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         

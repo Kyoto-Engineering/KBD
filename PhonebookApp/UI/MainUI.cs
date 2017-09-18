@@ -169,6 +169,14 @@ namespace PhonebookApp.UI
             this.Visible = true; 
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Pod pod = new Pod();
+            pod.ShowDialog();
+            this.Visible = true;
+        }
+
         //private void button2_Click_1(object sender, EventArgs e)
         //{
         //    RemoveFromGroup rfg = new RemoveFromGroup();

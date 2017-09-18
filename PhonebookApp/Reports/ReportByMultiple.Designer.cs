@@ -75,6 +75,7 @@
             this.workingRadioButton.TabStop = true;
             this.workingRadioButton.Text = "Working Address";
             this.workingRadioButton.UseVisualStyleBackColor = true;
+            this.workingRadioButton.CheckedChanged += new System.EventHandler(this.workingRadioButton_CheckedChanged);
             // 
             // resedentialRadioButton
             // 

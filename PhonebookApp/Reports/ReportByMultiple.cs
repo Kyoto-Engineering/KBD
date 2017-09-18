@@ -51,6 +51,8 @@ namespace PhonebookApp.Reports
             }
         }
 
+
+
        
 
         private void districtComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,7 +160,7 @@ namespace PhonebookApp.Reports
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22";
+            with1.DatabaseName = "PhoneBookDBKD22_new";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             EidGreetingsForResidentialAddRel cr = new EidGreetingsForResidentialAddRel();
@@ -207,7 +209,7 @@ namespace PhonebookApp.Reports
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22";
+            with1.DatabaseName = "PhoneBookDBKD22_new";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             EidGreetingsForWorkingAddRel cr = new EidGreetingsForWorkingAddRel();
@@ -225,6 +227,11 @@ namespace PhonebookApp.Reports
 
             f2.ShowDialog();
             this.Visible = true;
+        }
+
+        private void workingRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

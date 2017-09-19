@@ -87,7 +87,7 @@ namespace PhonebookApp.UI
             try {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string q3 = "select DetailsOfBatch.PersonsId, Persons.PersonName, vwFullAddress.CompanyName, vwFullAddress.CDistrict, DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId INNER JOIN vwFullAddress ON DetailsOfBatch.PersonsId = vwFullAddress.PersonsId   where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
+            string q3 = "select distinct DetailsOfBatch.PersonsId, Persons.PersonName, vwFullAddress.CompanyName , (case when exists (select vwFullAddress.CompanyId where vwFullAddress.CompanyId is null) then vwFullAddress.RDistrict else vwFullAddress.CDistrict end) , DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId LEFT OUTER JOIN vwFullAddress ON DetailsOfBatch.PersonsId = vwFullAddress.PersonsId   where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
             cmd = new SqlCommand(q3, con);
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             dataGridView1.Rows.Clear();

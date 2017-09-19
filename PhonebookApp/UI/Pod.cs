@@ -87,14 +87,14 @@ namespace PhonebookApp.UI
             try {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string q3 = "select DetailsOfBatch.PersonsId, Persons.PersonName, DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
+            string q3 = "select DetailsOfBatch.PersonsId, Persons.PersonName, vwFullAddress.CompanyName, vwFullAddress.CDistrict, DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId INNER JOIN vwFullAddress ON DetailsOfBatch.PersonsId = vwFullAddress.PersonsId   where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
             cmd = new SqlCommand(q3, con);
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             dataGridView1.Rows.Clear();
             
             while (rdr.Read() == true)
             {
-                dataGridView1.Rows.Add(rdr[0], rdr[1], rdr[2], rdr[3], rdr[4]);
+                dataGridView1.Rows.Add(rdr[0], rdr[1], rdr[2], rdr[3] ,rdr[4], rdr[5], rdr[6]);
             
             }
                  }
@@ -137,9 +137,12 @@ namespace PhonebookApp.UI
                     DataGridViewRow dr = dataGridView1.CurrentRow;
                     personiddd = Convert.ToInt32(dr.Cells[0].Value.ToString().Trim());
 
-                    textBox1.Text = dr.Cells[0].Value.ToString();
-                    textBox2.Text = dr.Cells[1].Value.ToString();
-                    textBox4.Text = dr.Cells[3].Value.ToString();
+                    recpidtxt.Text = dr.Cells[0].Value.ToString();
+                    rcpnamtxt.Text = dr.Cells[1].Value.ToString();
+                    comtext.Text = dr.Cells[2].Value.ToString();
+                    dtext.Text = dr.Cells[3].Value.ToString();
+                    batnotxt.Text = dr.Cells[5].Value.ToString();
+                    podtxt.Text = dr.Cells[4].Value.ToString();
                 }
 
                 catch (Exception ex)
@@ -156,15 +159,15 @@ namespace PhonebookApp.UI
         
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox3.Text))
+            if (string.IsNullOrEmpty(podtxt.Text))
                 {
                     MessageBox.Show("Select POD");
                 }
-            else if (string.IsNullOrEmpty(textBox2.Text))
+            else if (string.IsNullOrEmpty(rcpnamtxt.Text))
             {
                 MessageBox.Show("Select POD");
             }
-            else if (string.IsNullOrEmpty(textBox1.Text))
+            else if (string.IsNullOrEmpty(recpidtxt.Text))
             {
                 MessageBox.Show("Select POD");
             }
@@ -174,7 +177,7 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string querydone = "update DetailsOfBatch set POD = '" + textBox3.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
+                string querydone = "update DetailsOfBatch set POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
                 cmd = new SqlCommand(querydone, con);
                 cmd.ExecuteScalar();
                 con.Close();
@@ -183,10 +186,10 @@ namespace PhonebookApp.UI
                   dataGridView1.Rows.Clear();
                   dataGridView1.Refresh();
                 gridld();
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
+                recpidtxt.Clear();
+                rcpnamtxt.Clear();
+                podtxt.Clear();
+                batnotxt.Clear();
             
             }
         }

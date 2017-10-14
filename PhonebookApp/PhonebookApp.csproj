@@ -485,6 +485,12 @@
     <Compile Include="UI\PersonDetail.Designer.cs">
       <DependentUpon>PersonDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PersonUnderACompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PersonUnderACompany.Designer.cs">
+      <DependentUpon>PersonUnderACompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -738,6 +744,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PersonDetail.resx">
       <DependentUpon>PersonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PersonUnderACompany.resx">
+      <DependentUpon>PersonUnderACompany.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Pod.resx">
       <DependentUpon>Pod.cs</DependentUpon>

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewAndReport));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PersonUnderACompanyButton = new System.Windows.Forms.Button();
             this.ViewCompanybutton = new System.Windows.Forms.Button();
             this.reportButton = new System.Windows.Forms.Button();
             this.personDetailsButton = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.PersonUnderACompanyButton);
             this.groupBox1.Controls.Add(this.ViewCompanybutton);
             this.groupBox1.Controls.Add(this.reportButton);
             this.groupBox1.Controls.Add(this.personDetailsButton);
@@ -47,6 +49,19 @@
             this.groupBox1.Size = new System.Drawing.Size(423, 269);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // PersonUnderACompanyButton
+            // 
+            this.PersonUnderACompanyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.PersonUnderACompanyButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonUnderACompanyButton.ForeColor = System.Drawing.Color.Blue;
+            this.PersonUnderACompanyButton.Location = new System.Drawing.Point(231, 35);
+            this.PersonUnderACompanyButton.Name = "PersonUnderACompanyButton";
+            this.PersonUnderACompanyButton.Size = new System.Drawing.Size(134, 70);
+            this.PersonUnderACompanyButton.TabIndex = 51;
+            this.PersonUnderACompanyButton.Text = "Person Under A Company";
+            this.PersonUnderACompanyButton.UseVisualStyleBackColor = false;
+            this.PersonUnderACompanyButton.Click += new System.EventHandler(this.PersonUnderACompanyButton_Click);
             // 
             // ViewCompanybutton
             // 
@@ -66,7 +81,7 @@
             this.reportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.reportButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportButton.ForeColor = System.Drawing.Color.Blue;
-            this.reportButton.Location = new System.Drawing.Point(214, 35);
+            this.reportButton.Location = new System.Drawing.Point(231, 144);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(134, 70);
             this.reportButton.TabIndex = 49;
@@ -123,5 +138,6 @@
         private System.Windows.Forms.Button personDetailsButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ViewCompanybutton;
+        private System.Windows.Forms.Button PersonUnderACompanyButton;
     }
 }

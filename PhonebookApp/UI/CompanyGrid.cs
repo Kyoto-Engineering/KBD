@@ -20,6 +20,7 @@ namespace PhonebookApp.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         private SqlDataAdapter sda;
+        public string companyid;
         public CompanyGrid()
         {
             InitializeComponent();
@@ -219,6 +220,11 @@ namespace PhonebookApp.UI
         private void SearchByCompanyIdtextBox_KeyDown(object sender, KeyEventArgs e)
         {
             companyNameSearchtextBox.Clear();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

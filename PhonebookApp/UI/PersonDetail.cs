@@ -313,5 +313,10 @@ namespace PhonebookApp.UI
         {
             SearchPersonNametextBox.Clear();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

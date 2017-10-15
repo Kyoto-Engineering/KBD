@@ -50,5 +50,13 @@ namespace PhonebookApp.UI
             frm.ShowDialog();
             this.Visible = true; ;
         }
+
+        private void PersonUnderACompanyButton_Click(object sender, EventArgs e)
+        {
+            PersonUnderACompany frm = new PersonUnderACompany();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true; ;
+        }
     }
 }

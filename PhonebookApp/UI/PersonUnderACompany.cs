@@ -81,13 +81,11 @@ namespace PhonebookApp.UI
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //personload();
-            try
+            personload();
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+
+            
             //    try
             //    {
             //        DataGridViewRow dr = dataGridView1.CurrentRow;
@@ -187,10 +185,7 @@ namespace PhonebookApp.UI
 
 
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void companyNameSearchtextBox_TextChanged(object sender, EventArgs e)
         {
@@ -242,6 +237,154 @@ namespace PhonebookApp.UI
         {
             FillCompanyDetailsGrid();
             //personload();
+        }
+
+        private void dataGridView2_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow dr = dataGridView2.SelectedRows[0];
+
+                UpdatePersonInfo frm = new UpdatePersonInfo();
+                frm.LoadControls();
+                frm.PersonIdtextBox.Text = dr.Cells[0].Value.ToString();
+                frm.CountrycomboBox.Text = dr.Cells[1].Value.ToString();
+                frm.txtPersonName.Text = dr.Cells[2].Value.ToString();
+                frm.textNickName.Text = string.IsNullOrEmpty(dr.Cells[3].Value.ToString()) ? null : dr.Cells[3].Value.ToString();
+                frm.txtFatherName.Text = string.IsNullOrEmpty(dr.Cells[4].Value.ToString()) ? null : dr.Cells[4].Value.ToString();
+                frm.cmbEmailAddress.Text = string.IsNullOrEmpty(dr.Cells[5].Value.ToString()) ? null : dr.Cells[5].Value.ToString();
+                frm.companyNametextBox.Text = string.IsNullOrEmpty(dr.Cells[6].Value.ToString()) ? null : dr.Cells[6].Value.ToString();
+                frm.cmbJobTitle.Text = string.IsNullOrEmpty(dr.Cells[7].Value.ToString()) ? null : dr.Cells[7].Value.ToString();
+                //frm.GroupNamecomboBox.Text = string.IsNullOrEmpty(dr.Cells[8].Value.ToString()) ? null : dr.Cells[8].Value.ToString();
+                frm.cmbSpecialization.Text = string.IsNullOrEmpty(dr.Cells[8].Value.ToString()) ? null : dr.Cells[8].Value.ToString();
+                frm.cmbProfession.Text = string.IsNullOrEmpty(dr.Cells[9].Value.ToString()) ? null : dr.Cells[9].Value.ToString();
+                frm.cmbEducationalLevel.Text = string.IsNullOrEmpty(dr.Cells[10].Value.ToString()) ? null : dr.Cells[10].Value.ToString();
+                frm.cmbHighestDegree.Text = string.IsNullOrEmpty(dr.Cells[11].Value.ToString()) ? null : dr.Cells[11].Value.ToString();
+                frm.cmbAgeGroup.Text = string.IsNullOrEmpty(dr.Cells[12].Value.ToString()) ? null : dr.Cells[12].Value.ToString();
+                frm.cmbRelationShip.Text = string.IsNullOrEmpty(dr.Cells[13].Value.ToString()) ? null : dr.Cells[13].Value.ToString();
+                frm.txtWebsite.Text = string.IsNullOrEmpty(dr.Cells[14].Value.ToString()) ? null : dr.Cells[14].Value.ToString();
+                frm.txtSkypeId.Text = string.IsNullOrEmpty(dr.Cells[15].Value.ToString()) ? null : dr.Cells[15].Value.ToString();
+                frm.txtWhatsApp.Text = string.IsNullOrEmpty(dr.Cells[16].Value.ToString()) ? null : dr.Cells[16].Value.ToString();
+                frm.txtImmo.Text = string.IsNullOrEmpty(dr.Cells[17].Value.ToString()) ? null : dr.Cells[17].Value.ToString();
+                if (Convert.ToString(dr.Cells[18].Value) != string.Empty)
+                {
+                    byte[] data = (byte[])dr.Cells[18].Value;
+                    MemoryStream ms = new MemoryStream(data);
+                    frm.userPictureBox.Image = Image.FromStream(ms);
+                }
+                else
+                {
+
+                    frm.userPictureBox.Image = null;
+                }
+                if (dr.Cells[1].Value.Equals("Bangladesh"))
+                {
+                    frm.groupBox2.Visible = true;
+                    if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
+                    {
+                        frm.groupBox3.Visible = false;
+                        frm.groupBox7.Visible = true;
+                        frm.groupBox7.Location = new Point(466, 295);
+                    }
+                    else
+                    {
+                        frm.groupBox3.Visible = true;
+                        frm.groupBox3.Location = new Point(466, 290);
+                        frm.groupBox7.Visible = true;
+                        frm.groupBox7.Location = new Point(466, 533);
+
+                        frm.txtWAFlatName.Text = string.IsNullOrEmpty(dr.Cells[33].Value.ToString()) ? null : dr.Cells[33].Value.ToString();
+                        frm.txtWAHouseName.Text = string.IsNullOrEmpty(dr.Cells[34].Value.ToString()) ? null : dr.Cells[34].Value.ToString();
+                        frm.txtWARoadNo.Text = string.IsNullOrEmpty(dr.Cells[35].Value.ToString()) ? null : dr.Cells[35].Value.ToString();
+                        frm.txtWABlock.Text = string.IsNullOrEmpty(dr.Cells[36].Value.ToString()) ? null : dr.Cells[36].Value.ToString();
+                        frm.txtWAArea.Text = string.IsNullOrEmpty(dr.Cells[37].Value.ToString()) ? null : dr.Cells[37].Value.ToString();
+                        frm.txtWAContactNo.Text = string.IsNullOrEmpty(dr.Cells[38].Value.ToString()) ? null : dr.Cells[38].Value.ToString();
+                        frm.LandmarktextBox.Text = string.IsNullOrEmpty(dr.Cells[39].Value.ToString()) ? null : dr.Cells[39].Value.ToString();
+                        frm.WABuildingNametextBox.Text = string.IsNullOrEmpty(dr.Cells[40].Value.ToString()) ? null : dr.Cells[40].Value.ToString();
+                        frm.WARoadNametextBox.Text = string.IsNullOrEmpty(dr.Cells[41].Value.ToString()) ? null : dr.Cells[41].Value.ToString();
+                        frm.WAdivisiontextBox.Text = dr.Cells[42].Value.ToString();
+                        frm.WADistricttextBox.Text = dr.Cells[43].Value.ToString();
+                        frm.WAThanatextBox.Text = dr.Cells[44].Value.ToString();
+                        frm.WAPostOfficetextBox.Text = dr.Cells[45].Value.ToString();
+                        frm.txtWAPostCode.Text = dr.Cells[46].Value.ToString();
+                    }
+                    frm.txtRAFlatNo.Text = string.IsNullOrEmpty(dr.Cells[19].Value.ToString()) ? null : dr.Cells[19].Value.ToString();
+                    frm.txtRAHouseNo.Text = string.IsNullOrEmpty(dr.Cells[20].Value.ToString()) ? null : dr.Cells[20].Value.ToString();
+                    frm.txtRARoadNo.Text = string.IsNullOrEmpty(dr.Cells[21].Value.ToString()) ? null : dr.Cells[21].Value.ToString();
+                    frm.txtRABlock.Text = string.IsNullOrEmpty(dr.Cells[22].Value.ToString()) ? null : dr.Cells[22].Value.ToString();
+                    frm.txtRAArea.Text = string.IsNullOrEmpty(dr.Cells[23].Value.ToString()) ? null : dr.Cells[23].Value.ToString();
+                    frm.txtRAContactNo.Text = string.IsNullOrEmpty(dr.Cells[24].Value.ToString()) ? null : dr.Cells[24].Value.ToString();
+                    frm.buildingNameTextBox.Text = string.IsNullOrEmpty(dr.Cells[25].Value.ToString()) ? null : dr.Cells[25].Value.ToString();
+                    frm.roadNameTextBox.Text = string.IsNullOrEmpty(dr.Cells[26].Value.ToString()) ? null : dr.Cells[26].Value.ToString();
+                    frm.nearestLandMarkTextBox.Text = string.IsNullOrEmpty(dr.Cells[27].Value.ToString()) ? null : dr.Cells[27].Value.ToString();
+                    frm.cmbRADivision.Text = dr.Cells[28].Value.ToString();
+                    frm.cmbRADistrict.Text = dr.Cells[29].Value.ToString();
+                    frm.cmbRAThana.Text = dr.Cells[30].Value.ToString();
+                    frm.cmbRAPost.Text = dr.Cells[31].Value.ToString();
+                    frm.txtRAPostCode.Text = dr.Cells[32].Value.ToString();
+
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(dr.Cells[6].Value.ToString()))
+                    {
+                        frm.groupBox2.Visible = false;
+                        frm.groupBox3.Visible = false;
+                        frm.groupBox6.Visible = true;
+                        frm.groupBox7.Visible = true;
+                        frm.groupBox6.Location = new Point(466, 12);
+                        frm.groupBox7.Location = new Point(466, 155);
+                    }
+                    else
+                    {
+                        frm.groupBox2.Visible = false;
+                        frm.groupBox3.Visible = true;
+                        frm.groupBox6.Visible = true;
+                        frm.groupBox7.Visible = true;
+                        frm.groupBox6.Location = new Point(466, 12);
+                        frm.groupBox3.Location = new Point(466, 155);
+                        frm.groupBox7.Location = new Point(466, 410);
+
+                        frm.txtWAFlatName.Text = string.IsNullOrEmpty(dr.Cells[33].Value.ToString()) ? null : dr.Cells[33].Value.ToString();
+                        frm.txtWAHouseName.Text = string.IsNullOrEmpty(dr.Cells[34].Value.ToString()) ? null : dr.Cells[34].Value.ToString();
+                        frm.txtWARoadNo.Text = string.IsNullOrEmpty(dr.Cells[35].Value.ToString()) ? null : dr.Cells[35].Value.ToString();
+                        frm.txtWABlock.Text = string.IsNullOrEmpty(dr.Cells[36].Value.ToString()) ? null : dr.Cells[36].Value.ToString();
+                        frm.txtWAArea.Text = string.IsNullOrEmpty(dr.Cells[37].Value.ToString()) ? null : dr.Cells[37].Value.ToString();
+                        frm.txtWAContactNo.Text = string.IsNullOrEmpty(dr.Cells[38].Value.ToString()) ? null : dr.Cells[38].Value.ToString();
+                        frm.LandmarktextBox.Text = string.IsNullOrEmpty(dr.Cells[39].Value.ToString()) ? null : dr.Cells[39].Value.ToString();
+                        frm.WABuildingNametextBox.Text = string.IsNullOrEmpty(dr.Cells[40].Value.ToString()) ? null : dr.Cells[40].Value.ToString();
+                        frm.WARoadNametextBox.Text = string.IsNullOrEmpty(dr.Cells[41].Value.ToString()) ? null : dr.Cells[41].Value.ToString();
+                        frm.WAdivisiontextBox.Text = dr.Cells[42].Value.ToString();
+                        frm.WADistricttextBox.Text = dr.Cells[43].Value.ToString();
+                        frm.WAThanatextBox.Text = dr.Cells[44].Value.ToString();
+                        frm.WAPostOfficetextBox.Text = dr.Cells[45].Value.ToString();
+                        frm.txtWAPostCode.Text = dr.Cells[46].Value.ToString();
+                    }
+                    frm.StreettextBox.Text = string.IsNullOrEmpty(dr.Cells[47].Value.ToString()) ? null : dr.Cells[47].Value.ToString();
+                    frm.StatetextBox.Text = string.IsNullOrEmpty(dr.Cells[48].Value.ToString()) ? null : dr.Cells[48].Value.ToString();
+                    frm.PostalCodetextBox.Text = string.IsNullOrEmpty(dr.Cells[49].Value.ToString()) ? null : dr.Cells[49].Value.ToString();
+                }
+
+                frm.BirthdateTimePicker.Text = string.IsNullOrEmpty(dr.Cells[50].Value.ToString()) ? null : dr.Cells[50].Value.ToString();
+                frm.ReligioncomboBox.Text = string.IsNullOrEmpty(dr.Cells[51].Value.ToString()) ? null : dr.Cells[51].Value.ToString();
+                frm.GendercomboBox.Text = string.IsNullOrEmpty(dr.Cells[52].Value.ToString()) ? null : dr.Cells[52].Value.ToString();
+                frm.maritalStatuscomboBox.Text = string.IsNullOrEmpty(dr.Cells[53].Value.ToString()) ? null : dr.Cells[53].Value.ToString();
+                frm.AnniversarydateTimePicker.Text = string.IsNullOrEmpty(dr.Cells[54].Value.ToString()) ? null : dr.Cells[54].Value.ToString();
+                frm.companyId = string.IsNullOrEmpty(dr.Cells[55].Value.ToString()) ? null : dr.Cells[55].Value.ToString();
+                frm.btnInsert.Visible = true;
+                frm.btnInsert.Location = new Point(1045, 540);
+                this.Visible = false;
+                frm.ShowDialog();
+                //SearchPersonNametextBox.Clear();
+                //dataGridView1.Rows.Clear();
+                //FillPersonDetailsGrid();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

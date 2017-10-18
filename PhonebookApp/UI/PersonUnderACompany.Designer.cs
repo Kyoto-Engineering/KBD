@@ -147,28 +147,28 @@
             // SearchByCompanyIdGroupBoxgroupBox
             // 
             this.SearchByCompanyIdGroupBoxgroupBox.Controls.Add(this.SearchByCompanyIdtextBox);
-            this.SearchByCompanyIdGroupBoxgroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyIdGroupBoxgroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.SearchByCompanyIdGroupBoxgroupBox.ForeColor = System.Drawing.Color.OrangeRed;
-            this.SearchByCompanyIdGroupBoxgroupBox.Location = new System.Drawing.Point(355, 45);
+            this.SearchByCompanyIdGroupBoxgroupBox.Location = new System.Drawing.Point(380, 45);
             this.SearchByCompanyIdGroupBoxgroupBox.Name = "SearchByCompanyIdGroupBoxgroupBox";
-            this.SearchByCompanyIdGroupBoxgroupBox.Size = new System.Drawing.Size(178, 63);
+            this.SearchByCompanyIdGroupBoxgroupBox.Size = new System.Drawing.Size(224, 63);
             this.SearchByCompanyIdGroupBoxgroupBox.TabIndex = 8;
             this.SearchByCompanyIdGroupBoxgroupBox.TabStop = false;
             this.SearchByCompanyIdGroupBoxgroupBox.Text = "Search By Company Id";
             // 
             // SearchByCompanyIdtextBox
             // 
-            this.SearchByCompanyIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyIdtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.SearchByCompanyIdtextBox.Location = new System.Drawing.Point(12, 23);
             this.SearchByCompanyIdtextBox.Name = "SearchByCompanyIdtextBox";
-            this.SearchByCompanyIdtextBox.Size = new System.Drawing.Size(155, 29);
+            this.SearchByCompanyIdtextBox.Size = new System.Drawing.Size(195, 29);
             this.SearchByCompanyIdtextBox.TabIndex = 0;
             this.SearchByCompanyIdtextBox.TextChanged += new System.EventHandler(this.SearchByCompanyIdtextBox_TextChanged);
             // 
             // SearchByCompanyNameGroupBox
             // 
             this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
-            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
             this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(17, 44);
             this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
@@ -179,7 +179,7 @@
             // 
             // companyNameSearchtextBox
             // 
-            this.companyNameSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyNameSearchtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.companyNameSearchtextBox.Location = new System.Drawing.Point(26, 23);
             this.companyNameSearchtextBox.Name = "companyNameSearchtextBox";
             this.companyNameSearchtextBox.Size = new System.Drawing.Size(270, 29);
@@ -189,11 +189,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(478, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 33);
+            this.label1.Size = new System.Drawing.Size(376, 33);
             this.label1.TabIndex = 6;
             this.label1.Text = "Person Under A Company";
             // 
@@ -210,11 +210,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(9, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 33);
+            this.label2.Size = new System.Drawing.Size(147, 33);
             this.label2.TabIndex = 7;
             this.label2.Text = "Company";
             // 
@@ -937,11 +937,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(17, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 33);
+            this.label3.Size = new System.Drawing.Size(113, 33);
             this.label3.TabIndex = 8;
             this.label3.Text = "Person";
             // 

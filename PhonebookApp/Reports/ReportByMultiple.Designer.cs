@@ -43,7 +43,7 @@
             this.religionComboBox.Name = "religionComboBox";
             this.religionComboBox.Size = new System.Drawing.Size(121, 21);
             this.religionComboBox.TabIndex = 1;
-            this.religionComboBox.SelectedIndexChanged += new System.EventHandler(this.districtComboBox_SelectedIndexChanged);
+            this.religionComboBox.SelectedIndexChanged += new System.EventHandler(this.workingRadioButton_CheckedChanged);
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(429, 289);
+            this.ClientSize = new System.Drawing.Size(456, 289);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);

@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyCreation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
@@ -94,6 +96,22 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.notApplicableCheckBox = new System.Windows.Forms.CheckBox();
+            this.sameAsCorporatAddCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.fLandmarkTextBox = new System.Windows.Forms.TextBox();
+            this.fZipTextBox = new System.Windows.Forms.TextBox();
+            this.fCityTextBox = new System.Windows.Forms.TextBox();
+            this.fStateTextBox = new System.Windows.Forms.TextBox();
+            this.fStreetTextBox = new System.Windows.Forms.TextBox();
+            this.fApartmentTextBox = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label49 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -130,9 +148,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.notApplicableCheckBox = new System.Windows.Forms.CheckBox();
-            this.sameAsCorporatAddCheckBox = new System.Windows.Forms.CheckBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
@@ -143,12 +158,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label57);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label67);
             this.groupBox1.Controls.Add(this.label66);
@@ -157,17 +175,39 @@
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.groupBox7);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.groupBox1.Location = new System.Drawing.Point(6, 30);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1252, 577);
+            this.groupBox1.Size = new System.Drawing.Size(1252, 619);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.Black;
+            this.label57.Location = new System.Drawing.Point(26, 309);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(83, 24);
+            this.label57.TabIndex = 108;
+            this.label57.Text = "Country";
+            this.label57.Click += new System.EventHandler(this.label57_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(178, 309);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(234, 27);
+            this.comboBox1.TabIndex = 106;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // checkBox1
             // 
@@ -381,6 +421,7 @@
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(235, 29);
             this.EmailtextBox.TabIndex = 5;
+            this.EmailtextBox.TextChanged += new System.EventHandler(this.EmailtextBox_TextChanged);
             this.EmailtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmailtextBox_KeyDown);
             this.EmailtextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailtextBox_Validating);
             // 
@@ -900,6 +941,171 @@
             this.label25.TabIndex = 20;
             this.label25.Text = "Flat or Level#";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.notApplicableCheckBox);
+            this.groupBox4.Controls.Add(this.sameAsCorporatAddCheckBox);
+            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox4.Location = new System.Drawing.Point(625, 245);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(617, 321);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Factory  Address";
+            // 
+            // notApplicableCheckBox
+            // 
+            this.notApplicableCheckBox.AutoSize = true;
+            this.notApplicableCheckBox.Location = new System.Drawing.Point(50, 21);
+            this.notApplicableCheckBox.Name = "notApplicableCheckBox";
+            this.notApplicableCheckBox.Size = new System.Drawing.Size(126, 23);
+            this.notApplicableCheckBox.TabIndex = 0;
+            this.notApplicableCheckBox.Text = "Not Applicable";
+            this.notApplicableCheckBox.UseVisualStyleBackColor = true;
+            this.notApplicableCheckBox.CheckedChanged += new System.EventHandler(this.notApplicableCheckBox_CheckedChanged);
+            // 
+            // sameAsCorporatAddCheckBox
+            // 
+            this.sameAsCorporatAddCheckBox.AutoSize = true;
+            this.sameAsCorporatAddCheckBox.Location = new System.Drawing.Point(378, 14);
+            this.sameAsCorporatAddCheckBox.Name = "sameAsCorporatAddCheckBox";
+            this.sameAsCorporatAddCheckBox.Size = new System.Drawing.Size(214, 23);
+            this.sameAsCorporatAddCheckBox.TabIndex = 0;
+            this.sameAsCorporatAddCheckBox.Text = "Same as Corporate Address";
+            this.sameAsCorporatAddCheckBox.UseVisualStyleBackColor = true;
+            this.sameAsCorporatAddCheckBox.CheckedChanged += new System.EventHandler(this.sameAsCorporatAddCheckBox_CheckedChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.fLandmarkTextBox);
+            this.groupBox7.Controls.Add(this.fZipTextBox);
+            this.groupBox7.Controls.Add(this.fCityTextBox);
+            this.groupBox7.Controls.Add(this.fStateTextBox);
+            this.groupBox7.Controls.Add(this.fStreetTextBox);
+            this.groupBox7.Controls.Add(this.fApartmentTextBox);
+            this.groupBox7.Controls.Add(this.label52);
+            this.groupBox7.Controls.Add(this.label55);
+            this.groupBox7.Controls.Add(this.label54);
+            this.groupBox7.Controls.Add(this.label53);
+            this.groupBox7.Controls.Add(this.label51);
+            this.groupBox7.Controls.Add(this.label50);
+            this.groupBox7.ForeColor = System.Drawing.Color.White;
+            this.groupBox7.Location = new System.Drawing.Point(6, 345);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(620, 274);
+            this.groupBox7.TabIndex = 103;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Foreign Address ";
+            this.groupBox7.Enter += new System.EventHandler(this.groupBox7_Enter);
+            // 
+            // fLandmarkTextBox
+            // 
+            this.fLandmarkTextBox.Location = new System.Drawing.Point(456, 199);
+            this.fLandmarkTextBox.Multiline = true;
+            this.fLandmarkTextBox.Name = "fLandmarkTextBox";
+            this.fLandmarkTextBox.Size = new System.Drawing.Size(149, 43);
+            this.fLandmarkTextBox.TabIndex = 12;
+            // 
+            // fZipTextBox
+            // 
+            this.fZipTextBox.Location = new System.Drawing.Point(455, 148);
+            this.fZipTextBox.Multiline = true;
+            this.fZipTextBox.Name = "fZipTextBox";
+            this.fZipTextBox.Size = new System.Drawing.Size(150, 31);
+            this.fZipTextBox.TabIndex = 11;
+            // 
+            // fCityTextBox
+            // 
+            this.fCityTextBox.Location = new System.Drawing.Point(455, 95);
+            this.fCityTextBox.Multiline = true;
+            this.fCityTextBox.Name = "fCityTextBox";
+            this.fCityTextBox.Size = new System.Drawing.Size(148, 31);
+            this.fCityTextBox.TabIndex = 10;
+            // 
+            // fStateTextBox
+            // 
+            this.fStateTextBox.Location = new System.Drawing.Point(455, 39);
+            this.fStateTextBox.Multiline = true;
+            this.fStateTextBox.Name = "fStateTextBox";
+            this.fStateTextBox.Size = new System.Drawing.Size(148, 40);
+            this.fStateTextBox.TabIndex = 9;
+            this.fStateTextBox.TextChanged += new System.EventHandler(this.fStateTextBox_TextChanged);
+            // 
+            // fStreetTextBox
+            // 
+            this.fStreetTextBox.Location = new System.Drawing.Point(131, 151);
+            this.fStreetTextBox.Multiline = true;
+            this.fStreetTextBox.Name = "fStreetTextBox";
+            this.fStreetTextBox.Size = new System.Drawing.Size(177, 63);
+            this.fStreetTextBox.TabIndex = 8;
+            // 
+            // fApartmentTextBox
+            // 
+            this.fApartmentTextBox.Location = new System.Drawing.Point(131, 51);
+            this.fApartmentTextBox.Multiline = true;
+            this.fApartmentTextBox.Name = "fApartmentTextBox";
+            this.fApartmentTextBox.Size = new System.Drawing.Size(174, 63);
+            this.fApartmentTextBox.TabIndex = 7;
+            this.fApartmentTextBox.TextChanged += new System.EventHandler(this.fApartmentTextBox_TextChanged);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(336, 194);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(78, 38);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "Nearest\r\nLandmark\r\n";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(332, 144);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(114, 19);
+            this.label55.TabIndex = 5;
+            this.label55.Text = "Zip/Postal Code\r\n";
+            this.label55.Click += new System.EventHandler(this.label55_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(330, 102);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(76, 19);
+            this.label54.TabIndex = 4;
+            this.label54.Text = "City/Town";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(330, 44);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(110, 38);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "State/Province/\r\nRegion\r\n";
+            this.label53.Click += new System.EventHandler(this.label53_Click);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(13, 164);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(112, 38);
+            this.label51.TabIndex = 1;
+            this.label51.Text = "Street No\r\n/Street Address\r\n";
+            this.label51.Click += new System.EventHandler(this.label51_Click);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(19, 55);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(108, 38);
+            this.label50.TabIndex = 0;
+            this.label50.Text = "Apartment/\r\nBuilding Name\r\n";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label49);
@@ -939,7 +1145,7 @@
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(7, 297);
+            this.groupBox2.Location = new System.Drawing.Point(7, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(607, 272);
             this.groupBox2.TabIndex = 1;
@@ -1314,41 +1520,6 @@
             this.label17.Text = "Flat or Level#";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.notApplicableCheckBox);
-            this.groupBox4.Controls.Add(this.sameAsCorporatAddCheckBox);
-            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox4.Location = new System.Drawing.Point(625, 245);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(617, 321);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Factory  Address";
-            // 
-            // notApplicableCheckBox
-            // 
-            this.notApplicableCheckBox.AutoSize = true;
-            this.notApplicableCheckBox.Location = new System.Drawing.Point(50, 21);
-            this.notApplicableCheckBox.Name = "notApplicableCheckBox";
-            this.notApplicableCheckBox.Size = new System.Drawing.Size(126, 23);
-            this.notApplicableCheckBox.TabIndex = 0;
-            this.notApplicableCheckBox.Text = "Not Applicable";
-            this.notApplicableCheckBox.UseVisualStyleBackColor = true;
-            this.notApplicableCheckBox.CheckedChanged += new System.EventHandler(this.notApplicableCheckBox_CheckedChanged);
-            // 
-            // sameAsCorporatAddCheckBox
-            // 
-            this.sameAsCorporatAddCheckBox.AutoSize = true;
-            this.sameAsCorporatAddCheckBox.Location = new System.Drawing.Point(378, 14);
-            this.sameAsCorporatAddCheckBox.Name = "sameAsCorporatAddCheckBox";
-            this.sameAsCorporatAddCheckBox.Size = new System.Drawing.Size(214, 23);
-            this.sameAsCorporatAddCheckBox.TabIndex = 0;
-            this.sameAsCorporatAddCheckBox.Text = "Same as Corporate Address";
-            this.sameAsCorporatAddCheckBox.UseVisualStyleBackColor = true;
-            this.sameAsCorporatAddCheckBox.CheckedChanged += new System.EventHandler(this.sameAsCorporatAddCheckBox_CheckedChanged);
-            // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.Olive;
@@ -1369,9 +1540,9 @@
             this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.Navy;
-            this.saveButton.Location = new System.Drawing.Point(584, 615);
+            this.saveButton.Location = new System.Drawing.Point(600, 648);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(118, 71);
+            this.saveButton.Size = new System.Drawing.Size(118, 48);
             this.saveButton.TabIndex = 1;
             this.saveButton.Text = "Register";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -1417,10 +1588,12 @@
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1539,5 +1712,20 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox fApartmentTextBox;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox fLandmarkTextBox;
+        private System.Windows.Forms.TextBox fZipTextBox;
+        private System.Windows.Forms.TextBox fCityTextBox;
+        private System.Windows.Forms.TextBox fStateTextBox;
+        private System.Windows.Forms.TextBox fStreetTextBox;
     }
 }

@@ -53,41 +53,7 @@ namespace PhonebookApp.Reports
 
         private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
 
-
-            if (!string.IsNullOrWhiteSpace(groupComboBox.Text)) {try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "SELECT GroupId FROM [Group]WHERE (GroupName = @d1)";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                cmd.Parameters.AddWithValue("@d1", groupComboBox.Text);
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    GroupId = Convert.ToInt32(rdr["GroupId"]);
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }}
-           
         }
 
       

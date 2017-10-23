@@ -51,47 +51,6 @@ namespace PhonebookApp.Reports
             }
         }
 
-
-
-       
-
-        private void districtComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(religionComboBox.Text)) {try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctk = "SELECT ReligionId FROM Religion WHERE ReligionName = @d1";
-
-                cmd = new SqlCommand(ctk);
-                cmd.Connection = con;
-                cmd.Parameters.AddWithValue("@d1", religionComboBox.Text);
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    districtId = Convert.ToInt32(rdr["ReligionId"]);
-
-                }
-
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-                
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }}
-        }
-
         private void getButton_Click(object sender, EventArgs e)
         {
             getButton.Enabled = false;

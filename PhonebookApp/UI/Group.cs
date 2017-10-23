@@ -12,6 +12,7 @@ using System.Windows.Forms.VisualStyles;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
 using PhonebookApp.Models;
+using PhonebookApp.Reports;
 
 namespace PhonebookApp.UI
 {
@@ -533,6 +534,31 @@ namespace PhonebookApp.UI
         private void CompanySearchtextBox_KeyDown(object sender, KeyEventArgs e)
         {
             PersonSearchtextBox.Clear();
+        }
+
+        private void A4SizeGroupAddressbutton_Click(object sender, EventArgs e)
+        {
+            ReportByGroupforA4 f2 = new ReportByGroupforA4();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void EidGreetingGroupAddressbutton_Click(object sender, EventArgs e)
+        {
+            ReportByGroupforEidGreeting f2 = new ReportByGroupforEidGreeting();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void EnvelopesizeGroupAddressbutton_Click(object sender, EventArgs e)
+        {
+            ReportByGroupforEnvelop f2 = new ReportByGroupforEnvelop();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+
         }
     }
 }

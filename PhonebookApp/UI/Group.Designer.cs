@@ -65,6 +65,9 @@
             this.PersonSearchtextBox = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CompanySearchtextBox = new System.Windows.Forms.TextBox();
+            this.EidGreetingGroupAddressbutton = new System.Windows.Forms.Button();
+            this.EnvelopesizeGroupAddressbutton = new System.Windows.Forms.Button();
+            this.A4SizeGroupAddressbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -304,19 +307,19 @@
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.OliveDrab;
-            this.groupBox2.Location = new System.Drawing.Point(26, 120);
+            this.groupBox2.Location = new System.Drawing.Point(30, 245);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 114);
+            this.groupBox2.Size = new System.Drawing.Size(341, 130);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential Address";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(17, 18);
+            this.richTextBox1.Location = new System.Drawing.Point(17, 26);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(335, 88);
+            this.richTextBox1.Size = new System.Drawing.Size(310, 93);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -325,9 +328,9 @@
             this.groupBox3.Controls.Add(this.richTextBox2);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Red;
-            this.groupBox3.Location = new System.Drawing.Point(26, 249);
+            this.groupBox3.Location = new System.Drawing.Point(26, 404);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(367, 128);
+            this.groupBox3.Size = new System.Drawing.Size(355, 120);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Corporate Address";
@@ -337,7 +340,7 @@
             this.richTextBox2.Location = new System.Drawing.Point(17, 19);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(335, 96);
+            this.richTextBox2.Size = new System.Drawing.Size(327, 95);
             this.richTextBox2.TabIndex = 0;
             this.richTextBox2.Text = "";
             // 
@@ -346,7 +349,7 @@
             this.removeButton.BackColor = System.Drawing.Color.Red;
             this.removeButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.White;
-            this.removeButton.Location = new System.Drawing.Point(312, 513);
+            this.removeButton.Location = new System.Drawing.Point(312, 575);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(81, 53);
             this.removeButton.TabIndex = 13;
@@ -394,12 +397,54 @@
             this.CompanySearchtextBox.TextChanged += new System.EventHandler(this.CompanySearchtextBox_TextChanged);
             this.CompanySearchtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompanySearchtextBox_KeyDown);
             // 
+            // EidGreetingGroupAddressbutton
+            // 
+            this.EidGreetingGroupAddressbutton.BackColor = System.Drawing.Color.CadetBlue;
+            this.EidGreetingGroupAddressbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.EidGreetingGroupAddressbutton.ForeColor = System.Drawing.Color.White;
+            this.EidGreetingGroupAddressbutton.Location = new System.Drawing.Point(261, 78);
+            this.EidGreetingGroupAddressbutton.Name = "EidGreetingGroupAddressbutton";
+            this.EidGreetingGroupAddressbutton.Size = new System.Drawing.Size(110, 65);
+            this.EidGreetingGroupAddressbutton.TabIndex = 16;
+            this.EidGreetingGroupAddressbutton.Text = "Eid Greeting Group Address";
+            this.EidGreetingGroupAddressbutton.UseVisualStyleBackColor = false;
+            this.EidGreetingGroupAddressbutton.Click += new System.EventHandler(this.EidGreetingGroupAddressbutton_Click);
+            // 
+            // EnvelopesizeGroupAddressbutton
+            // 
+            this.EnvelopesizeGroupAddressbutton.BackColor = System.Drawing.Color.CadetBlue;
+            this.EnvelopesizeGroupAddressbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.EnvelopesizeGroupAddressbutton.ForeColor = System.Drawing.Color.White;
+            this.EnvelopesizeGroupAddressbutton.Location = new System.Drawing.Point(137, 78);
+            this.EnvelopesizeGroupAddressbutton.Name = "EnvelopesizeGroupAddressbutton";
+            this.EnvelopesizeGroupAddressbutton.Size = new System.Drawing.Size(106, 65);
+            this.EnvelopesizeGroupAddressbutton.TabIndex = 17;
+            this.EnvelopesizeGroupAddressbutton.Text = "Envelope size Group Address";
+            this.EnvelopesizeGroupAddressbutton.UseVisualStyleBackColor = false;
+            this.EnvelopesizeGroupAddressbutton.Click += new System.EventHandler(this.EnvelopesizeGroupAddressbutton_Click);
+            // 
+            // A4SizeGroupAddressbutton
+            // 
+            this.A4SizeGroupAddressbutton.BackColor = System.Drawing.Color.CadetBlue;
+            this.A4SizeGroupAddressbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.A4SizeGroupAddressbutton.ForeColor = System.Drawing.Color.White;
+            this.A4SizeGroupAddressbutton.Location = new System.Drawing.Point(29, 78);
+            this.A4SizeGroupAddressbutton.Name = "A4SizeGroupAddressbutton";
+            this.A4SizeGroupAddressbutton.Size = new System.Drawing.Size(102, 65);
+            this.A4SizeGroupAddressbutton.TabIndex = 18;
+            this.A4SizeGroupAddressbutton.Text = "A4 Size Group Address";
+            this.A4SizeGroupAddressbutton.UseVisualStyleBackColor = false;
+            this.A4SizeGroupAddressbutton.Click += new System.EventHandler(this.A4SizeGroupAddressbutton_Click);
+            // 
             // Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1235, 703);
+            this.Controls.Add(this.A4SizeGroupAddressbutton);
+            this.Controls.Add(this.EnvelopesizeGroupAddressbutton);
+            this.Controls.Add(this.EidGreetingGroupAddressbutton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.removeButton);
@@ -469,5 +514,8 @@
         private System.Windows.Forms.TextBox PersonSearchtextBox;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox CompanySearchtextBox;
+        private System.Windows.Forms.Button EidGreetingGroupAddressbutton;
+        private System.Windows.Forms.Button EnvelopesizeGroupAddressbutton;
+        private System.Windows.Forms.Button A4SizeGroupAddressbutton;
     }
 }

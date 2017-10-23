@@ -29,8 +29,8 @@ namespace PhonebookApp.UI
         ConnectionString cs = new ConnectionString();
         private SqlDataReader rdr;
         private SqlCommand cmd;
-        public string user_id, fullName, submittedBy, districtIdC, districtIdT, divisionIdC, divisionIdT, thanaIdC, thanaIdC2, thanaIdT, postofficeIdC, postOfficeIdT, userType1;
-        public int companyid, companytypeid, clientTypeId, natureOfClientId, industryCategoryId, addressTypeId1, addressTypeId2, superviserId, bankEmailId, bankCPEmailId;
+        public string user_id, fullName, submittedBy, districtIdC, districtIdT, divisionIdC, divisionIdT, thanaIdC, thanaIdC2, thanaIdT, postofficeIdC, postOfficeIdT, userType1, countryname;
+        public int companyid, companytypeid, clientTypeId, natureOfClientId, industryCategoryId, addressTypeId1, addressTypeId2, superviserId, bankEmailId, bankCPEmailId, countryid;
         public int cdistrict_id, tdistrict_id;
         public CompanyCreation()
         {
@@ -190,6 +190,34 @@ namespace PhonebookApp.UI
             con.Close();
         }
 
+        //Foreign Address SQL
+
+
+        private void SaveForeignAddress()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string Qry = "insert into CompanyForeignAddress (FApartmentC,FStreetC,FStateC,FCityC,FZipcode,FNearestlandmark,CompanyId,CountryId) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+            cmd = new SqlCommand(Qry);
+            cmd.Connection = con;
+
+            cmd.Parameters.Add(new SqlParameter("@d1", string.IsNullOrEmpty(fApartmentTextBox.Text) ? (object)DBNull.Value : fApartmentTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d2", string.IsNullOrEmpty(fStreetTextBox.Text) ? (object)DBNull.Value : fStreetTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d3", string.IsNullOrEmpty(fStateTextBox.Text) ? (object)DBNull.Value : fStateTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d4", string.IsNullOrEmpty(fCityTextBox.Text) ? (object)DBNull.Value : fCityTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d5", string.IsNullOrEmpty(fZipTextBox.Text) ? (object)DBNull.Value : fZipTextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@d6", string.IsNullOrEmpty(fLandmarkTextBox.Text) ? (object)DBNull.Value : fLandmarkTextBox.Text));
+            cmd.Parameters.AddWithValue("@d7",companyid );
+            cmd.Parameters.AddWithValue("@d8",countryid);
+
+
+            cmd.ExecuteScalar();
+            con.Close();
+
+        }
+    
+
+
 
 
 
@@ -223,113 +251,182 @@ namespace PhonebookApp.UI
         //}
 
 
+
+        //
+        /// <summary>
+        /// Validation CONTROL
+        /// </summary>
+        /// <returns></returns>
+
+
+
+
+
         private bool ValidateControlls()
         {
+
             bool validate = true;
 
-            if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
+            //if it is not Bangladesh
+
+            if (comboBox1.Text != "Bangladesh")
             {
-                MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                validate = false;
-                CompanyNameTextBox.Focus();
-            }
 
-            else if (string.IsNullOrEmpty(cmbCompanytype.Text))
-            {
-                MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
 
-                validate = false;
-                cmbCompanytype.Focus();
-            }
-
-            else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
-            {
-                MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                validate = false;
-                IndustryCategorycomboBox.Focus();
-            }
-
-            else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
-            {
-                MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                validate = false;
-                cmbNatureOfClient.Focus();
-            }
-
-            else if (string.IsNullOrEmpty(cDivisionCombo.Text))
-            {
-                MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                validate = false;
-                cDivisionCombo.Focus();
-            }
-            else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
-            {
-                MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                validate = false;
-                cDistCombo.Focus();
-            }
-            else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
-            {
-                MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                validate = false;
-                cThanaCombo.Focus();
-            }
-
-            else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
-            {
-                MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                validate = false;
-                cPostOfficeCombo.Focus();
-            }
-
-            else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
-            {
-                if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
+                if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
                 {
-                    MessageBox.Show(@"Please select factory division", @"Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     validate = false;
-                    tDivisionCombo.Focus();
+                    CompanyNameTextBox.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
+
+                else if (string.IsNullOrEmpty(cmbCompanytype.Text))
                 {
-                    MessageBox.Show(@"Please Select factory district", @"Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     validate = false;
-                    tDistrictCombo.Focus();
+                    cmbCompanytype.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
+
+                else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
                 {
-                    MessageBox.Show(@"Please select factory Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     validate = false;
-                    tThenaCombo.Focus();
+                    IndustryCategorycomboBox.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
+
+                else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
                 {
-                    MessageBox.Show(@"Please Select factory Post Name", @"Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     validate = false;
-                    tPostCombo.Focus();
+                    cmbNatureOfClient.Focus();
                 }
-                else if (checkBox1.Checked && string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    MessageBox.Show(@"Please Write Branch Name", @"Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    validate = false;
-                    textBox1.Focus();
-                }
-            }
-            else if (!ValidateCompany())
-            {
-                validate = false;
+
             }
 
-            return validate;
+
+            else
+            {
+
+                
+
+                if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
+                {
+                    MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    CompanyNameTextBox.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(cmbCompanytype.Text))
+                {
+                    MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    cmbCompanytype.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
+                {
+                    MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    IndustryCategorycomboBox.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
+                {
+                    MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    cmbNatureOfClient.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(cDivisionCombo.Text))
+                {
+                    MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    cDivisionCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(cDistCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cDistCombo.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(cThanaCombo.Text))
+                {
+                    MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cThanaCombo.Focus();
+                }
+
+                else if (string.IsNullOrWhiteSpace(cPostOfficeCombo.Text))
+                {
+                    MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    validate = false;
+                    cPostOfficeCombo.Focus();
+                }
+
+                else if ((notApplicableCheckBox.Checked == false) && (sameAsCorporatAddCheckBox.Checked == false))
+                {
+                    if (string.IsNullOrWhiteSpace(tDivisionCombo.Text))
+                    {
+                        MessageBox.Show(@"Please select factory division", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        tDivisionCombo.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(tDistrictCombo.Text))
+                    {
+                        MessageBox.Show(@"Please Select factory district", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        tDistrictCombo.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(tThenaCombo.Text))
+                    {
+                        MessageBox.Show(@"Please select factory Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        validate = false;
+                        tThenaCombo.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(tPostCombo.Text))
+                    {
+                        MessageBox.Show(@"Please Select factory Post Name", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        tPostCombo.Focus();
+                    }
+                    else if (checkBox1.Checked && string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        MessageBox.Show(@"Please Write Branch Name", @"Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        validate = false;
+                        textBox1.Focus();
+                    }
+                }
+                else if (!ValidateCompany())
+                {
+                    validate = false;
+                }
+            }
+
+                return validate;
+            
         }
+
+
+
+
+
+
+
 
         private bool ValidateCompany()
         {
@@ -367,13 +464,16 @@ namespace PhonebookApp.UI
             address += string.IsNullOrWhiteSpace(cPostCodeTextBox.Text) ? "" : (cPostCodeTextBox.Text + ", ");
             address += string.IsNullOrWhiteSpace(cThanaCombo.Text) ? "" : (cThanaCombo.Text + ", ");
             address += string.IsNullOrWhiteSpace(cDistCombo.Text) ? "" : (cDistCombo.Text);
+           
+            
+            
             foreach (CompanyAddress p in companies)
             {
                 if (p.Company == CompanyNameTextBox.Text && p.Address == address)
                 {
                     MessageBox.Show(@"This Company Exists,Please Input another one" + "\n",
                         "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                     CompanyNameTextBox.Clear();
 
                     con.Close();
@@ -386,47 +486,156 @@ namespace PhonebookApp.UI
             return value;
         }
 
+
+
+
+
+        private bool ValidateControllsForeign()
+        {
+
+            bool validate = true;
+
+                if (string.IsNullOrEmpty(CompanyNameTextBox.Text))
+                {
+                    MessageBox.Show(@"Please Enter Company Name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    CompanyNameTextBox.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(cmbCompanytype.Text))
+                {
+                    MessageBox.Show(@"Please Select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    cmbCompanytype.Focus();
+                }
+
+                else if (string.IsNullOrEmpty(IndustryCategorycomboBox.Text))
+                {
+                    MessageBox.Show(@"Please Select Industry Category", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    validate = false;
+                    IndustryCategorycomboBox.Focus();
+                }
+
+                //else if (string.IsNullOrEmpty(cmbNatureOfClient.Text))
+                //{
+                //    MessageBox.Show(@"Please Select Nature Of Business", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //    validate = false;
+                //    cmbNatureOfClient.Focus();
+                //}
+
+
+                return validate;
+
+        }
+
+
+
+
+
+
+
+
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (ValidateControlls())
+
+            if (comboBox1.Text != "Bangladesh")
             {
-                try
+
+                if (ValidateControllsForeign())
                 {
-                    //1.Corporate Address Applicable  & Tradding Address not Applicable
-                    if (notApplicableCheckBox.Checked)
+                    try
                     {
-                        SaveCompany();
-                        SaveCorporateORTraddingAddress("CorporateAddresses");
-                    }
-                    //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
-                    if (sameAsCorporatAddCheckBox.Checked)
+
+                        
+                            SaveCompany();
+                            SaveForeignAddress();
+
+                            MessageBox.Show("Registration Completed Successfully",
+                                  "Record",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      
+
+
+                        
+                        fApartmentTextBox.Clear();
+                        fStreetTextBox.Clear();
+                        fStateTextBox.Clear();
+                        fCityTextBox.Clear();
+                        fZipTextBox.Clear();
+                        fLandmarkTextBox.Clear();
+
+
+                        comboBox1.ResetText();
+
+                       Reset();
+
+
+
+                    }//try end
+                        
+                    catch (FormatException formatException)
                     {
-                        SaveCompany();
-                        SaveCorporateORTraddingAddress("CorporateAddresses");
-                        SaveCorporateORTraddingAddress("TraddingAddresses");
-
-
-                    }
-                    //3.Corporate Address Applicable  & Tradding Address  Applicable
-                    if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
-                    {
-                        SaveCompany();
-                        SaveCorporateORTraddingAddress("CorporateAddresses");
-                        SaveTraddingAddress();
+                        MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
                     }
 
-                    MessageBox.Show("Registration Completed Successfully",
-                        "Record",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
 
-                }
-                catch (FormatException formatException)
-                {
-                    MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
-                }
+                   
+                }// if (ValidateControllsForeign())
             }
-        }
+
+
+
+                else
+                {
+
+                    if (ValidateControlls())
+                    {
+                        try
+                        {
+                            //1.Corporate Address Applicable  & Tradding Address not Applicable
+                            if (notApplicableCheckBox.Checked)
+                            {
+                                SaveCompany();
+                                SaveCorporateORTraddingAddress("CorporateAddresses");
+                            }
+                            //2.Corporate Address Applicable  & Tradding Address Same as  Corporate Address                                        
+                            if (sameAsCorporatAddCheckBox.Checked)
+                            {
+                                SaveCompany();
+                                SaveCorporateORTraddingAddress("CorporateAddresses");
+                                SaveCorporateORTraddingAddress("TraddingAddresses");
+
+
+                            }
+                            //3.Corporate Address Applicable  & Tradding Address  Applicable
+                            if (sameAsCorporatAddCheckBox.Checked == false && notApplicableCheckBox.Checked == false)
+                            {
+                                SaveCompany();
+                                SaveCorporateORTraddingAddress("CorporateAddresses");
+                                SaveTraddingAddress();
+                            }
+                            MessageBox.Show("Registration Completed Successfully",
+                              "Record",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                          
+                            Reset();
+
+                        }
+                        catch (FormatException formatException)
+                        {
+                            MessageBox.Show("Please Enter Input in Correct Format", formatException.Message);
+                        }
+                    } //end if
+                }// end else
+
+            }
+        
+       
+
 
 
         private void ResetTradingAddress()
@@ -708,7 +917,8 @@ namespace PhonebookApp.UI
             //userType1 = LoginForm.userType;
             //submittedBy = LoginForm.uId.ToString();
 
-
+            countryld();
+            comboBox1.SelectedItem = "Bangladesh";
             user_id = frmLogin.uId.ToString();
 
             FillCompanyType();
@@ -2012,8 +2222,78 @@ namespace PhonebookApp.UI
             {
                 cFlatNoTextBox.Focus();
                 e.Handled = true;
+                
             }
         }
+
+
+        // FOREIGN ADDRESS
+
+
+        private void fApartmentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fApartmentTextBox.Focus();
+                e.Handled = true;
+                
+            }
+        }
+
+        private void fStreetTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fStreetTextBox.Focus();
+                e.Handled = true;
+               
+            }
+        }
+
+        private void fStateTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fStateTextBox.Focus();
+                e.Handled = true;
+                
+            }
+        }
+
+
+        private void fCityTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fCityTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void fZipTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fZipTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void fLandmarkTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fLandmarkTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+
+
+
+
+
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -2025,11 +2305,6 @@ namespace PhonebookApp.UI
                 _with1.FilterIndex = 4;
 
                 openFileDialog1.FileName = "";
-                //if (Image.FromFile(openFileDialog1.FileName).Height != 300)
-                //{
-                //    MessageBox.Show("Height Must Be 300 Pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     if (Image.FromFile(openFileDialog1.FileName).Height != 300)
@@ -2044,16 +2319,12 @@ namespace PhonebookApp.UI
                     }
                     else
                     {
-                        //if (ValidFile(openFileDialog1.FileName, 300, 2176))
-                        //{
+                        
 
                         pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-                        //pictureBrowseButton.Focus();
+                     
                     }
-                    //else
-                    //{
-                    //    MessageBox.Show("Image Size is invalid");
-                    //}
+                   
                 }
             }
             catch (Exception ex)
@@ -2090,6 +2361,113 @@ namespace PhonebookApp.UI
                 textBox1.Visible = false;
                 textBox1.Clear();
             }
+        }
+
+        private void countryld()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qqq = "select CountryName from Countries ";
+            cmd = new SqlCommand(qqq, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+                comboBox1.Items.Add(rdr.GetString(0).ToString());
+            }
+            con.Close();
+
+       
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+               
+
+                if (comboBox1.Text == "Bangladesh")
+                {
+                    groupBox2.Visible = true;
+                    groupBox7.Visible = false;
+                    groupBox4.Visible = true;
+                    groupBox3.Visible = true;
+
+                }
+                else
+                {
+                    groupBox2.Visible = false;
+                    groupBox7.Visible = true;
+                    groupBox4.Visible = false;
+                    groupBox3.Visible = false;
+
+                }
+
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string qqqq = "select CountryId,CountryName from Countries where CountryName = '" + comboBox1.Text + "'";
+                    cmd = new SqlCommand(qqqq, con);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read() == true)
+                    {
+                        countryid = rdr.GetInt32(0);
+                        countryname = rdr.GetString(1);
+
+
+                    }
+
+                   
+
+                   
+
+
+
+                    //comboBox1.DataBindings.Clear();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label53_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label51_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label55_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label57_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fStateTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmailtextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fApartmentTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

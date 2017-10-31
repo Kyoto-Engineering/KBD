@@ -63,6 +63,16 @@ namespace PhonebookApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap banner {
+            get {
+                object obj = ResourceManager.GetObject("banner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap business_directory_DUm_icon {
             get {
                 object obj = ResourceManager.GetObject("business_directory_DUm_icon", resourceCulture);
@@ -86,6 +96,16 @@ namespace PhonebookApp.Properties {
         internal static System.Drawing.Bitmap BusinessDirectory {
             get {
                 object obj = ResourceManager.GetObject("BusinessDirectory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BusinessDirectoryedited {
+            get {
+                object obj = ResourceManager.GetObject("BusinessDirectoryedited", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +143,29 @@ namespace PhonebookApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logowithoutnamarked {
+            get {
+                object obj = ResourceManager.GetObject("Logowithoutnamarked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_up {
             get {
                 object obj = ResourceManager.GetObject("user_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whiteyglossyrectanglebuttonmd {
+            get {
+                object obj = ResourceManager.GetObject("whiteyglossyrectanglebuttonmd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

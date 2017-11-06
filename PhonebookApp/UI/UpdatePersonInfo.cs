@@ -791,7 +791,7 @@ namespace PhonebookApp.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId=@d5,JobTitleId=@d6,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25 where Persons.PersonsId='" +
+                "Update Persons set PersonName=@d1,NickName=@d2,FatherName=@d3,EmailBankId=@d4,CompanyId=@d5,JobTitleId=@d6,SpecializationsId=@d8,ProfessionId=@d9,EducationLevelId=@d10,HighestDegreeId=@d11,AgeGroupId=@d12,RelationShipsId=@d13,Website=@d14,SkypeId=@d15,WhatsAppId=@d16,ImoNumber=@d17,CountryId=@d18,ReligionId=@d19,GenderId=@d20,MaritalStatusId=@d21,DateOfBirth=@d22,MarriageAnniversaryDate=@d23,UserId=@d24,Picture=@d25,Department=@d26 where Persons.PersonsId='" +
                 PersonIdtextBox.Text + "'";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -860,6 +860,9 @@ namespace PhonebookApp.UI
                 cmd.Parameters.Add("@d25", SqlDbType.VarBinary, -1);
                 cmd.Parameters["@d25"].Value = DBNull.Value;
             }
+
+            cmd.Parameters.Add(new SqlParameter("@d26",
+                string.IsNullOrEmpty(department.Text) ? (object)DBNull.Value : department.Text));
             rdr = cmd.ExecuteReader();
             con.Close();
 

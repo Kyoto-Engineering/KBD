@@ -32,6 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonDetail));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lk = new System.Windows.Forms.Label();
+            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SearchByPersonIdtextBox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,12 +94,7 @@
             this.Column54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lk = new System.Windows.Forms.Label();
-            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SearchByPersonIdtextBox = new System.Windows.Forms.TextBox();
+            this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -170,7 +171,8 @@
             this.Column53,
             this.Column54,
             this.Column55,
-            this.Column56});
+            this.Column56,
+            this.Column57});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Olive;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,6 +190,70 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(470, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = " List  of Person  Information";
+            // 
+            // lk
+            // 
+            this.lk.AutoSize = true;
+            this.lk.Location = new System.Drawing.Point(14, 44);
+            this.lk.Name = "lk";
+            this.lk.Size = new System.Drawing.Size(18, 15);
+            this.lk.TabIndex = 3;
+            this.lk.Text = "lg";
+            this.lk.Visible = false;
+            // 
+            // SearchPersonNametextBox
+            // 
+            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPersonNametextBox.Location = new System.Drawing.Point(64, 67);
+            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
+            this.SearchPersonNametextBox.Size = new System.Drawing.Size(221, 26);
+            this.SearchPersonNametextBox.TabIndex = 5;
+            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
+            this.SearchPersonNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchPersonNametextBox_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(89, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Search By Person Name";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.SearchByPersonIdtextBox);
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
+            this.groupBox2.Location = new System.Drawing.Point(294, 41);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(178, 55);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search By Person Id";
+            // 
+            // SearchByPersonIdtextBox
+            // 
+            this.SearchByPersonIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByPersonIdtextBox.Location = new System.Drawing.Point(10, 20);
+            this.SearchByPersonIdtextBox.Name = "SearchByPersonIdtextBox";
+            this.SearchByPersonIdtextBox.Size = new System.Drawing.Size(155, 29);
+            this.SearchByPersonIdtextBox.TabIndex = 0;
+            this.SearchByPersonIdtextBox.TextChanged += new System.EventHandler(this.SearchByPersonIdtextBox_TextChanged);
+            this.SearchByPersonIdtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchByPersonIdtextBox_KeyDown);
             // 
             // Column1
             // 
@@ -527,69 +593,11 @@
             this.Column56.ReadOnly = true;
             this.Column56.Visible = false;
             // 
-            // label1
+            // Column57
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(470, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = " List  of Person  Information";
-            // 
-            // lk
-            // 
-            this.lk.AutoSize = true;
-            this.lk.Location = new System.Drawing.Point(14, 44);
-            this.lk.Name = "lk";
-            this.lk.Size = new System.Drawing.Size(18, 15);
-            this.lk.TabIndex = 3;
-            this.lk.Text = "lg";
-            this.lk.Visible = false;
-            // 
-            // SearchPersonNametextBox
-            // 
-            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchPersonNametextBox.Location = new System.Drawing.Point(64, 67);
-            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
-            this.SearchPersonNametextBox.Size = new System.Drawing.Size(221, 26);
-            this.SearchPersonNametextBox.TabIndex = 5;
-            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
-            this.SearchPersonNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchPersonNametextBox_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(89, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Search By Person Name";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.SearchByPersonIdtextBox);
-            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(294, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(178, 55);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search By Person Id";
-            // 
-            // SearchByPersonIdtextBox
-            // 
-            this.SearchByPersonIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByPersonIdtextBox.Location = new System.Drawing.Point(10, 20);
-            this.SearchByPersonIdtextBox.Name = "SearchByPersonIdtextBox";
-            this.SearchByPersonIdtextBox.Size = new System.Drawing.Size(155, 29);
-            this.SearchByPersonIdtextBox.TabIndex = 0;
-            this.SearchByPersonIdtextBox.TextChanged += new System.EventHandler(this.SearchByPersonIdtextBox_TextChanged);
-            this.SearchByPersonIdtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchByPersonIdtextBox_KeyDown);
+            this.Column57.HeaderText = "Department";
+            this.Column57.Name = "Column57";
+            this.Column57.ReadOnly = true;
             // 
             // PersonDetail
             // 
@@ -685,5 +693,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column54;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column55;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column56;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column57;
     }
 }

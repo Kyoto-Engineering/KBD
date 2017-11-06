@@ -298,7 +298,7 @@ textBox1.Clear();
             con = new SqlConnection(cs.DBConn);
             con.Open();
             String query =
-                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24)" +
+                "insert into Persons(PersonName,NickName,FatherName,EmailBankId,CompanyId,JobTitleId,SpecializationsId,ProfessionId,EducationLevelId,HighestDegreeId,AgeGroupId,RelationShipsId,Website,SkypeId,WhatsAppId,ImoNumber,CountryId,ReligionId,GenderId,MaritalStatusId,DateOfBirth,MarriageAnniversaryDate,UserId,Picture,Department) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25)" +
                 "SELECT CONVERT(int, SCOPE_IDENTITY())";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@d1", txtPersonName.Text);
@@ -349,6 +349,9 @@ textBox1.Clear();
                 cmd.Parameters.Add("@d24", SqlDbType.VarBinary, -1);
                 cmd.Parameters["@d24"].Value = DBNull.Value;
             }
+            cmd.Parameters.Add(new SqlParameter("@d25",
+                string.IsNullOrEmpty(department.Text) ? (object)DBNull.Value : department.Text));
+
             currentPersonId = (int)(cmd.ExecuteScalar());
             con.Close();
 

@@ -32,6 +32,8 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.department = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.CountryCodetextBox2 = new System.Windows.Forms.TextBox();
@@ -188,7 +190,7 @@
             this.btnInsert.Location = new System.Drawing.Point(1045, 540);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 62);
-            this.btnInsert.TabIndex = 24;
+            this.btnInsert.TabIndex = 25;
             this.btnInsert.Text = "Save";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click_1);
@@ -206,6 +208,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label70);
+            this.groupBox1.Controls.Add(this.department);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.CountryCodetextBox2);
@@ -264,6 +268,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.White;
+            this.label70.Location = new System.Drawing.Point(72, 197);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(72, 13);
+            this.label70.TabIndex = 111;
+            this.label70.Text = "Department";
+            // 
+            // department
+            // 
+            this.department.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.department.Location = new System.Drawing.Point(175, 194);
+            this.department.MaxLength = 90;
+            this.department.Name = "department";
+            this.department.Size = new System.Drawing.Size(244, 20);
+            this.department.TabIndex = 8;
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -271,7 +295,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 109;
+            this.textBox1.TabIndex = 5;
             // 
             // button1
             // 
@@ -287,29 +311,29 @@
             // CountryCodetextBox2
             // 
             this.CountryCodetextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox2.Location = new System.Drawing.Point(176, 380);
+            this.CountryCodetextBox2.Location = new System.Drawing.Point(176, 405);
             this.CountryCodetextBox2.Name = "CountryCodetextBox2";
             this.CountryCodetextBox2.ReadOnly = true;
             this.CountryCodetextBox2.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox2.TabIndex = 107;
+            this.CountryCodetextBox2.TabIndex = 18;
             // 
             // CountryCodetextBox
             // 
             this.CountryCodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountryCodetextBox.Location = new System.Drawing.Point(176, 357);
+            this.CountryCodetextBox.Location = new System.Drawing.Point(176, 384);
             this.CountryCodetextBox.Name = "CountryCodetextBox";
             this.CountryCodetextBox.ReadOnly = true;
             this.CountryCodetextBox.Size = new System.Drawing.Size(60, 20);
-            this.CountryCodetextBox.TabIndex = 106;
+            this.CountryCodetextBox.TabIndex = 16;
             // 
             // txtWebsite
             // 
             this.txtWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWebsite.Location = new System.Drawing.Point(181, 406);
+            this.txtWebsite.Location = new System.Drawing.Point(180, 428);
             this.txtWebsite.MaxLength = 200;
             this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(239, 20);
-            this.txtWebsite.TabIndex = 104;
+            this.txtWebsite.TabIndex = 20;
             this.txtWebsite.Visible = false;
             // 
             // label29
@@ -317,7 +341,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(81, 411);
+            this.label29.Location = new System.Drawing.Point(80, 433);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(63, 13);
             this.label29.TabIndex = 105;
@@ -331,7 +355,7 @@
             this.companyNametextBox.Name = "companyNametextBox";
             this.companyNametextBox.ReadOnly = true;
             this.companyNametextBox.Size = new System.Drawing.Size(241, 26);
-            this.companyNametextBox.TabIndex = 103;
+            this.companyNametextBox.TabIndex = 6;
             // 
             // CompanySelectionbutton
             // 
@@ -400,7 +424,7 @@
             this.groupBox7.Location = new System.Drawing.Point(459, 527);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 117);
-            this.groupBox7.TabIndex = 22;
+            this.groupBox7.TabIndex = 24;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Personal Information";
             // 
@@ -414,7 +438,7 @@
             this.maritalStatuscomboBox.Location = new System.Drawing.Point(322, 32);
             this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
             this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 25);
-            this.maritalStatuscomboBox.TabIndex = 4;
+            this.maritalStatuscomboBox.TabIndex = 3;
             this.maritalStatuscomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
             // 
             // ReligioncomboBox
@@ -426,7 +450,7 @@
             this.ReligioncomboBox.Location = new System.Drawing.Point(110, 85);
             this.ReligioncomboBox.Name = "ReligioncomboBox";
             this.ReligioncomboBox.Size = new System.Drawing.Size(193, 25);
-            this.ReligioncomboBox.TabIndex = 3;
+            this.ReligioncomboBox.TabIndex = 2;
             this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
             this.ReligioncomboBox.Leave += new System.EventHandler(this.ReligioncomboBox_Leave);
             // 
@@ -440,7 +464,7 @@
             this.GendercomboBox.Location = new System.Drawing.Point(110, 53);
             this.GendercomboBox.Name = "GendercomboBox";
             this.GendercomboBox.Size = new System.Drawing.Size(193, 25);
-            this.GendercomboBox.TabIndex = 2;
+            this.GendercomboBox.TabIndex = 1;
             this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
             // 
             // label60
@@ -463,7 +487,7 @@
             this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
             this.AnniversarydateTimePicker.ShowCheckBox = true;
             this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 25);
-            this.AnniversarydateTimePicker.TabIndex = 5;
+            this.AnniversarydateTimePicker.TabIndex = 4;
             // 
             // label59
             // 
@@ -485,7 +509,7 @@
             this.BirthdateTimePicker.Name = "BirthdateTimePicker";
             this.BirthdateTimePicker.ShowCheckBox = true;
             this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 25);
-            this.BirthdateTimePicker.TabIndex = 1;
+            this.BirthdateTimePicker.TabIndex = 0;
             // 
             // label56
             // 
@@ -525,7 +549,7 @@
             this.additionalInfobutton.Location = new System.Drawing.Point(1012, 605);
             this.additionalInfobutton.Name = "additionalInfobutton";
             this.additionalInfobutton.Size = new System.Drawing.Size(151, 63);
-            this.additionalInfobutton.TabIndex = 21;
+            this.additionalInfobutton.TabIndex = 23;
             this.additionalInfobutton.Text = "Additional Information";
             this.additionalInfobutton.UseVisualStyleBackColor = false;
             this.additionalInfobutton.Click += new System.EventHandler(this.additionalInfobutton_Click);
@@ -540,6 +564,7 @@
             this.CountrycomboBox.Name = "CountrycomboBox";
             this.CountrycomboBox.Size = new System.Drawing.Size(241, 21);
             this.CountrycomboBox.TabIndex = 1;
+            this.CountrycomboBox.Visible = false;
             this.CountrycomboBox.SelectedIndexChanged += new System.EventHandler(this.CountrycomboBox_SelectedIndexChanged);
             this.CountrycomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountrycomboBox_KeyDown);
             this.CountrycomboBox.Leave += new System.EventHandler(this.CountrycomboBox_Leave);
@@ -554,6 +579,7 @@
             this.label14.Size = new System.Drawing.Size(101, 13);
             this.label14.TabIndex = 96;
             this.label14.Text = "Country Of Res. ";
+            this.label14.Visible = false;
             // 
             // cmbRelationShip
             // 
@@ -561,7 +587,7 @@
             this.cmbRelationShip.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbRelationShip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRelationShip.FormattingEnabled = true;
-            this.cmbRelationShip.Location = new System.Drawing.Point(176, 311);
+            this.cmbRelationShip.Location = new System.Drawing.Point(176, 337);
             this.cmbRelationShip.Name = "cmbRelationShip";
             this.cmbRelationShip.Size = new System.Drawing.Size(241, 21);
             this.cmbRelationShip.TabIndex = 14;
@@ -577,7 +603,7 @@
             this.groupBox2.Location = new System.Drawing.Point(466, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(694, 272);
-            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Residential  Address";
             // 
@@ -632,7 +658,7 @@
             this.groupBox5.Location = new System.Drawing.Point(17, 29);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(661, 243);
-            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             // 
             // nearestLandMarkTextBox
@@ -642,7 +668,7 @@
             this.nearestLandMarkTextBox.MaxLength = 150;
             this.nearestLandMarkTextBox.Name = "nearestLandMarkTextBox";
             this.nearestLandMarkTextBox.Size = new System.Drawing.Size(196, 26);
-            this.nearestLandMarkTextBox.TabIndex = 86;
+            this.nearestLandMarkTextBox.TabIndex = 13;
             // 
             // label64
             // 
@@ -661,7 +687,7 @@
             this.roadNameTextBox.MaxLength = 150;
             this.roadNameTextBox.Name = "roadNameTextBox";
             this.roadNameTextBox.Size = new System.Drawing.Size(179, 26);
-            this.roadNameTextBox.TabIndex = 84;
+            this.roadNameTextBox.TabIndex = 4;
             // 
             // label63
             // 
@@ -680,7 +706,7 @@
             this.buildingNameTextBox.MaxLength = 150;
             this.buildingNameTextBox.Name = "buildingNameTextBox";
             this.buildingNameTextBox.Size = new System.Drawing.Size(179, 26);
-            this.buildingNameTextBox.TabIndex = 82;
+            this.buildingNameTextBox.TabIndex = 2;
             // 
             // label62
             // 
@@ -699,7 +725,7 @@
             this.txtRABlock.MaxLength = 150;
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(179, 26);
-            this.txtRABlock.TabIndex = 4;
+            this.txtRABlock.TabIndex = 5;
             this.txtRABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRABlock_KeyDown);
             // 
             // cmbRAPost
@@ -863,7 +889,7 @@
             this.txtRAArea.MaxLength = 100;
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(196, 26);
-            this.txtRAArea.TabIndex = 5;
+            this.txtRAArea.TabIndex = 12;
             this.txtRAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAArea_KeyDown);
             // 
             // label20
@@ -913,7 +939,7 @@
             this.txtRAHouseNo.MaxLength = 150;
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(179, 26);
-            this.txtRAHouseNo.TabIndex = 2;
+            this.txtRAHouseNo.TabIndex = 1;
             this.txtRAHouseNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAHouseNo_KeyDown);
             // 
             // txtRAFlatNo
@@ -923,7 +949,7 @@
             this.txtRAFlatNo.MaxLength = 150;
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(179, 26);
-            this.txtRAFlatNo.TabIndex = 1;
+            this.txtRAFlatNo.TabIndex = 0;
             this.txtRAFlatNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAFlatNo_KeyDown);
             // 
             // label17
@@ -973,7 +999,7 @@
             this.groupBox3.Location = new System.Drawing.Point(466, 290);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(694, 244);
-            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working  Address";
             // 
@@ -1029,7 +1055,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(172, 22);
-            this.textBox2.TabIndex = 92;
+            this.textBox2.TabIndex = 1;
             // 
             // label10
             // 
@@ -1047,7 +1073,7 @@
             this.WARoadNametextBox.Location = new System.Drawing.Point(451, 193);
             this.WARoadNametextBox.Name = "WARoadNametextBox";
             this.WARoadNametextBox.Size = new System.Drawing.Size(199, 22);
-            this.WARoadNametextBox.TabIndex = 90;
+            this.WARoadNametextBox.TabIndex = 15;
             // 
             // label69
             // 
@@ -1065,7 +1091,7 @@
             this.WABuildingNametextBox.Location = new System.Drawing.Point(451, 163);
             this.WABuildingNametextBox.Name = "WABuildingNametextBox";
             this.WABuildingNametextBox.Size = new System.Drawing.Size(199, 22);
-            this.WABuildingNametextBox.TabIndex = 88;
+            this.WABuildingNametextBox.TabIndex = 14;
             // 
             // label68
             // 
@@ -1084,7 +1110,7 @@
             this.LandmarktextBox.Name = "LandmarktextBox";
             this.LandmarktextBox.ReadOnly = true;
             this.LandmarktextBox.Size = new System.Drawing.Size(171, 22);
-            this.LandmarktextBox.TabIndex = 86;
+            this.LandmarktextBox.TabIndex = 7;
             // 
             // label61
             // 
@@ -1103,7 +1129,7 @@
             this.WAPostOfficetextBox.Name = "WAPostOfficetextBox";
             this.WAPostOfficetextBox.ReadOnly = true;
             this.WAPostOfficetextBox.Size = new System.Drawing.Size(198, 22);
-            this.WAPostOfficetextBox.TabIndex = 85;
+            this.WAPostOfficetextBox.TabIndex = 12;
             // 
             // WAThanatextBox
             // 
@@ -1112,7 +1138,7 @@
             this.WAThanatextBox.Name = "WAThanatextBox";
             this.WAThanatextBox.ReadOnly = true;
             this.WAThanatextBox.Size = new System.Drawing.Size(198, 22);
-            this.WAThanatextBox.TabIndex = 84;
+            this.WAThanatextBox.TabIndex = 11;
             // 
             // WADistricttextBox
             // 
@@ -1121,7 +1147,7 @@
             this.WADistricttextBox.Name = "WADistricttextBox";
             this.WADistricttextBox.ReadOnly = true;
             this.WADistricttextBox.Size = new System.Drawing.Size(198, 22);
-            this.WADistricttextBox.TabIndex = 83;
+            this.WADistricttextBox.TabIndex = 10;
             // 
             // WAdivisiontextBox
             // 
@@ -1130,7 +1156,7 @@
             this.WAdivisiontextBox.Name = "WAdivisiontextBox";
             this.WAdivisiontextBox.ReadOnly = true;
             this.WAdivisiontextBox.Size = new System.Drawing.Size(198, 22);
-            this.WAdivisiontextBox.TabIndex = 82;
+            this.WAdivisiontextBox.TabIndex = 9;
             // 
             // txtWABlock
             // 
@@ -1139,7 +1165,7 @@
             this.txtWABlock.Name = "txtWABlock";
             this.txtWABlock.ReadOnly = true;
             this.txtWABlock.Size = new System.Drawing.Size(172, 22);
-            this.txtWABlock.TabIndex = 4;
+            this.txtWABlock.TabIndex = 5;
             // 
             // label35
             // 
@@ -1219,7 +1245,7 @@
             this.txtWAContactNo.Name = "txtWAContactNo";
             this.txtWAContactNo.ReadOnly = true;
             this.txtWAContactNo.Size = new System.Drawing.Size(171, 22);
-            this.txtWAContactNo.TabIndex = 6;
+            this.txtWAContactNo.TabIndex = 8;
             // 
             // label46
             // 
@@ -1248,7 +1274,7 @@
             this.txtWAPostCode.Name = "txtWAPostCode";
             this.txtWAPostCode.ReadOnly = true;
             this.txtWAPostCode.Size = new System.Drawing.Size(198, 22);
-            this.txtWAPostCode.TabIndex = 11;
+            this.txtWAPostCode.TabIndex = 13;
             // 
             // txtWAArea
             // 
@@ -1257,7 +1283,7 @@
             this.txtWAArea.Name = "txtWAArea";
             this.txtWAArea.ReadOnly = true;
             this.txtWAArea.Size = new System.Drawing.Size(171, 22);
-            this.txtWAArea.TabIndex = 5;
+            this.txtWAArea.TabIndex = 6;
             // 
             // label48
             // 
@@ -1296,7 +1322,7 @@
             this.txtWARoadNo.Name = "txtWARoadNo";
             this.txtWARoadNo.ReadOnly = true;
             this.txtWARoadNo.Size = new System.Drawing.Size(172, 22);
-            this.txtWARoadNo.TabIndex = 3;
+            this.txtWARoadNo.TabIndex = 4;
             // 
             // txtWAHouseName
             // 
@@ -1305,7 +1331,7 @@
             this.txtWAHouseName.Name = "txtWAHouseName";
             this.txtWAHouseName.ReadOnly = true;
             this.txtWAHouseName.Size = new System.Drawing.Size(172, 22);
-            this.txtWAHouseName.TabIndex = 2;
+            this.txtWAHouseName.TabIndex = 3;
             // 
             // txtWAFlatName
             // 
@@ -1314,7 +1340,7 @@
             this.txtWAFlatName.Name = "txtWAFlatName";
             this.txtWAFlatName.ReadOnly = true;
             this.txtWAFlatName.Size = new System.Drawing.Size(172, 22);
-            this.txtWAFlatName.TabIndex = 1;
+            this.txtWAFlatName.TabIndex = 2;
             // 
             // label51
             // 
@@ -1359,11 +1385,11 @@
             // txtImmo
             // 
             this.txtImmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImmo.Location = new System.Drawing.Point(237, 380);
+            this.txtImmo.Location = new System.Drawing.Point(237, 405);
             this.txtImmo.MaxLength = 20;
             this.txtImmo.Name = "txtImmo";
             this.txtImmo.Size = new System.Drawing.Size(182, 20);
-            this.txtImmo.TabIndex = 18;
+            this.txtImmo.TabIndex = 19;
             this.txtImmo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtImmo_KeyDown);
             this.txtImmo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImmo_KeyPress);
             // 
@@ -1372,7 +1398,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(39, 383);
+            this.label13.Location = new System.Drawing.Point(39, 408);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 13);
             this.label13.TabIndex = 88;
@@ -1381,7 +1407,7 @@
             // txtWhatsApp
             // 
             this.txtWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWhatsApp.Location = new System.Drawing.Point(237, 357);
+            this.txtWhatsApp.Location = new System.Drawing.Point(237, 384);
             this.txtWhatsApp.MaxLength = 20;
             this.txtWhatsApp.Name = "txtWhatsApp";
             this.txtWhatsApp.Size = new System.Drawing.Size(182, 20);
@@ -1394,7 +1420,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(38, 360);
+            this.label3.Location = new System.Drawing.Point(38, 387);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 86;
@@ -1438,11 +1464,11 @@
             // txtSkypeId
             // 
             this.txtSkypeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSkypeId.Location = new System.Drawing.Point(176, 335);
+            this.txtSkypeId.Location = new System.Drawing.Point(176, 361);
             this.txtSkypeId.MaxLength = 200;
             this.txtSkypeId.Name = "txtSkypeId";
             this.txtSkypeId.Size = new System.Drawing.Size(242, 20);
-            this.txtSkypeId.TabIndex = 16;
+            this.txtSkypeId.TabIndex = 15;
             this.txtSkypeId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSkypeId_KeyDown);
             // 
             // label31
@@ -1450,7 +1476,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(80, 338);
+            this.label31.Location = new System.Drawing.Point(80, 364);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(61, 13);
             this.label31.TabIndex = 77;
@@ -1472,7 +1498,7 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(63, 317);
+            this.label28.Location = new System.Drawing.Point(63, 343);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(81, 13);
             this.label28.TabIndex = 71;
@@ -1505,7 +1531,7 @@
             this.cmbProfession.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbProfession.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProfession.FormattingEnabled = true;
-            this.cmbProfession.Location = new System.Drawing.Point(176, 218);
+            this.cmbProfession.Location = new System.Drawing.Point(176, 241);
             this.cmbProfession.Name = "cmbProfession";
             this.cmbProfession.Size = new System.Drawing.Size(241, 21);
             this.cmbProfession.TabIndex = 10;
@@ -1519,7 +1545,7 @@
             this.cmbSpecialization.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSpecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSpecialization.FormattingEnabled = true;
-            this.cmbSpecialization.Location = new System.Drawing.Point(176, 195);
+            this.cmbSpecialization.Location = new System.Drawing.Point(176, 218);
             this.cmbSpecialization.Name = "cmbSpecialization";
             this.cmbSpecialization.Size = new System.Drawing.Size(241, 21);
             this.cmbSpecialization.TabIndex = 9;
@@ -1533,7 +1559,7 @@
             this.cmbAgeGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbAgeGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAgeGroup.FormattingEnabled = true;
-            this.cmbAgeGroup.Location = new System.Drawing.Point(176, 288);
+            this.cmbAgeGroup.Location = new System.Drawing.Point(176, 314);
             this.cmbAgeGroup.Name = "cmbAgeGroup";
             this.cmbAgeGroup.Size = new System.Drawing.Size(241, 21);
             this.cmbAgeGroup.TabIndex = 13;
@@ -1547,7 +1573,7 @@
             this.cmbHighestDegree.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbHighestDegree.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHighestDegree.FormattingEnabled = true;
-            this.cmbHighestDegree.Location = new System.Drawing.Point(176, 265);
+            this.cmbHighestDegree.Location = new System.Drawing.Point(176, 291);
             this.cmbHighestDegree.Name = "cmbHighestDegree";
             this.cmbHighestDegree.Size = new System.Drawing.Size(241, 21);
             this.cmbHighestDegree.TabIndex = 12;
@@ -1561,7 +1587,7 @@
             this.cmbEducationalLevel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbEducationalLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducationalLevel.FormattingEnabled = true;
-            this.cmbEducationalLevel.Location = new System.Drawing.Point(176, 242);
+            this.cmbEducationalLevel.Location = new System.Drawing.Point(176, 268);
             this.cmbEducationalLevel.Name = "cmbEducationalLevel";
             this.cmbEducationalLevel.Size = new System.Drawing.Size(241, 21);
             this.cmbEducationalLevel.TabIndex = 11;
@@ -1574,7 +1600,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(75, 293);
+            this.label8.Location = new System.Drawing.Point(75, 319);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 61;
@@ -1585,7 +1611,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(48, 270);
+            this.label7.Location = new System.Drawing.Point(48, 296);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 13);
             this.label7.TabIndex = 60;
@@ -1596,7 +1622,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(35, 247);
+            this.label6.Location = new System.Drawing.Point(35, 273);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 59;
@@ -1607,7 +1633,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(79, 222);
+            this.label5.Location = new System.Drawing.Point(79, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 58;
@@ -1618,7 +1644,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(60, 199);
+            this.label4.Location = new System.Drawing.Point(60, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 57;
@@ -1690,7 +1716,7 @@
             this.groupBox6.Location = new System.Drawing.Point(466, 539);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(540, 129);
-            this.groupBox6.TabIndex = 23;
+            this.groupBox6.TabIndex = 25;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Address For Foreigner";
             // 
@@ -1942,6 +1968,8 @@
         private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox department;
     }
 }
 

@@ -251,12 +251,6 @@
     <Compile Include="Reports\ReportByGroupforEnvelop.Designer.cs">
       <DependentUpon>ReportByGroupforEnvelop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\SmallGreetingsForResidentialAddCopy.cs">
-      <DependentUpon>SmallGreetingsForResidentialAddCopy.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Reports\EidGreetingsForResidentialAdd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -639,10 +633,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportByGroupforEnvelop.resx">
       <DependentUpon>ReportByGroupforEnvelop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\SmallGreetingsForResidentialAddCopy.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SmallGreetingsForResidentialAddCopy.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EidGreetingsForResidentialAdd.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

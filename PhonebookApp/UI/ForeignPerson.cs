@@ -40,31 +40,6 @@ namespace PhonebookApp.UI
         {
             InitializeComponent();
         }
-
-        private void GendercomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select GenderId from Gender  where  Gender.GenderName='" + GendercomboBox.Text + "' ";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-
-                if (rdr.Read())
-                {
-
-                    genderId = Convert.ToInt64(rdr["GenderId"]);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         public void FillReligion()
         {
             try
@@ -173,7 +148,7 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select GenderId from Gender  where  Gender.GenderName='" + GendercomboBox.Text + "' ";
+                string ct = "select MaritalStatusId from MaritalStatus  where  MaritalStatus.MaritalStatusName='" + maritalStatuscomboBox.Text + "' ";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -181,7 +156,9 @@ namespace PhonebookApp.UI
                 if (rdr.Read())
                 {
 
-                    genderId = Convert.ToInt64(rdr["GenderId"]);
+                   maritalStatusId = rdr.GetInt32(0) ;
+                   
+
                 }
                 con.Close();
             }
@@ -313,5 +290,77 @@ namespace PhonebookApp.UI
         {
 
         }
+
+        private void additionalInfobutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ForeignPerson_Load(object sender, EventArgs e)
+        {
+            maritalcomboload();
+            GendercomboBoxLoad();
+            ReligioncomboBoxLoad();
+
+        }
+
+        private void maritalcomboload()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qry = "select MaritalStatusName from MaritalStatus";
+            cmd = new SqlCommand(qry, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+
+                maritalStatuscomboBox.Items.Add(rdr.GetString(0));
+            
+            }
+
+            con.Close();
+
+        }
+
+
+        private void GendercomboBoxLoad()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qry = "select GenderName from Gender";
+            cmd = new SqlCommand(qry, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+
+                GendercomboBox.Items.Add(rdr.GetString(0));
+
+            }
+
+            con.Close();
+
+        }
+
+        private void ReligioncomboBoxLoad()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qry = "select ReligionName from Religion";
+            cmd = new SqlCommand(qry, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+
+                ReligioncomboBox.Items.Add(rdr.GetString(0));
+
+            }
+
+            con.Close();
+
+        }
+
+
+
+
     }
 }

@@ -74,7 +74,6 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.additionalInfobutton = new System.Windows.Forms.Button();
             this.ForeignSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -327,7 +326,7 @@
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox7.Location = new System.Drawing.Point(482, 384);
+            this.groupBox7.Location = new System.Drawing.Point(580, 384);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(565, 165);
             this.groupBox7.TabIndex = 138;
@@ -370,7 +369,7 @@
             this.GendercomboBox.Name = "GendercomboBox";
             this.GendercomboBox.Size = new System.Drawing.Size(193, 25);
             this.GendercomboBox.TabIndex = 1;
-            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.GendercomboBox_SelectedIndexChanged);
+            this.GendercomboBox.SelectedIndexChanged += new System.EventHandler(this.maritalStatuscomboBox_SelectedIndexChanged);
             // 
             // label60
             // 
@@ -577,24 +576,12 @@
             this.label50.TabIndex = 0;
             this.label50.Text = "Apartment/\r\nBuilding Name\r\n";
             // 
-            // additionalInfobutton
-            // 
-            this.additionalInfobutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.additionalInfobutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.additionalInfobutton.ForeColor = System.Drawing.Color.Blue;
-            this.additionalInfobutton.Location = new System.Drawing.Point(1064, 470);
-            this.additionalInfobutton.Name = "additionalInfobutton";
-            this.additionalInfobutton.Size = new System.Drawing.Size(151, 63);
-            this.additionalInfobutton.TabIndex = 140;
-            this.additionalInfobutton.Text = "Additional Information";
-            this.additionalInfobutton.UseVisualStyleBackColor = false;
-            // 
             // ForeignSave
             // 
             this.ForeignSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ForeignSave.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeignSave.ForeColor = System.Drawing.Color.Blue;
-            this.ForeignSave.Location = new System.Drawing.Point(1097, 405);
+            this.ForeignSave.Location = new System.Drawing.Point(1007, 580);
             this.ForeignSave.Name = "ForeignSave";
             this.ForeignSave.Size = new System.Drawing.Size(118, 62);
             this.ForeignSave.TabIndex = 141;
@@ -746,7 +733,6 @@
             this.Controls.Add(this.textFatherNameForeign);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.additionalInfobutton);
             this.Controls.Add(this.ForeignSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox7);
@@ -776,6 +762,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ForeignPerson";
             this.Text = "ForeignPerson";
+            this.Load += new System.EventHandler(this.ForeignPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -833,7 +820,6 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Button additionalInfobutton;
         private System.Windows.Forms.Button ForeignSave;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

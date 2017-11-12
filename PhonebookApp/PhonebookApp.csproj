@@ -27,7 +27,7 @@
     <PublisherName>IT Department, Kyoto Engineering &amp; Automation Ltd.</PublisherName>
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationRevision>64</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -207,6 +207,12 @@
       <DependentUpon>EnvelopForWorkingAddGroup.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EnvelopSizeForeignPersonalAddressDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnvelopSizeForeignPersonalAddressDetails.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ListofAllContactsBySpecialization.cs">
@@ -426,6 +432,18 @@
     <Compile Include="UI\EmailSelectionGrid.designer.cs">
       <DependentUpon>EmailSelectionGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ForeignCompanySelectionGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ForeignCompanySelectionGrid.Designer.cs">
+      <DependentUpon>ForeignCompanySelectionGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ForeignPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ForeignPerson.Designer.cs">
+      <DependentUpon>ForeignPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -611,6 +629,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EnvelopForWorkingAddGroup.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EnvelopSizeForeignPersonalAddressDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EnvelopSizeForeignPersonalAddressDetails.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListofAllContactsBySpecialization.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListofAllContactsBySpecialization.cs</LastGenOutput>
@@ -737,6 +759,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\EmailSelectionGrid.resx">
       <DependentUpon>EmailSelectionGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ForeignCompanySelectionGrid.resx">
+      <DependentUpon>ForeignCompanySelectionGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ForeignPerson.resx">
+      <DependentUpon>ForeignPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>

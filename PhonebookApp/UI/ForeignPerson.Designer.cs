@@ -38,14 +38,14 @@
             this.textNickNameForeign = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.cmbSpecialization = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.PassportNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPersonNameForeign = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ContactNumber = new System.Windows.Forms.Label();
+            this.textPassportNoForeign = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
@@ -55,13 +55,12 @@
             this.ReligioncomboBox = new System.Windows.Forms.ComboBox();
             this.GendercomboBox = new System.Windows.Forms.ComboBox();
             this.label60 = new System.Windows.Forms.Label();
-            this.AnniversarydateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label59 = new System.Windows.Forms.Label();
             this.BirthdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.fLandmarkTextBox = new System.Windows.Forms.TextBox();
             this.fZipTextBox = new System.Windows.Forms.TextBox();
             this.fCityTextBox = new System.Windows.Forms.TextBox();
@@ -83,11 +82,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtWebSiteForeign = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.textContactNumberForeignPerson = new System.Windows.Forms.TextBox();
+            this.textNationalityForeign = new System.Windows.Forms.TextBox();
+            this.Nationality = new System.Windows.Forms.Label();
             this.textdepartment = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -186,16 +186,16 @@
             this.cmbSpecialization.Size = new System.Drawing.Size(242, 21);
             this.cmbSpecialization.TabIndex = 118;
             // 
-            // label5
+            // PassportNo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(50, 368);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 125;
-            this.label5.Text = "Passport No";
+            this.PassportNo.AutoSize = true;
+            this.PassportNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PassportNo.ForeColor = System.Drawing.Color.Black;
+            this.PassportNo.Location = new System.Drawing.Point(50, 368);
+            this.PassportNo.Name = "PassportNo";
+            this.PassportNo.Size = new System.Drawing.Size(76, 13);
+            this.PassportNo.TabIndex = 125;
+            this.PassportNo.Text = "Passport No";
             // 
             // label4
             // 
@@ -250,25 +250,25 @@
             this.label1.TabIndex = 121;
             this.label1.Text = "Person Name          ";
             // 
-            // label3
+            // ContactNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(28, 431);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 133;
-            this.label3.Text = "Contact Number";
+            this.ContactNumber.AutoSize = true;
+            this.ContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContactNumber.ForeColor = System.Drawing.Color.Black;
+            this.ContactNumber.Location = new System.Drawing.Point(28, 431);
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.Size = new System.Drawing.Size(98, 13);
+            this.ContactNumber.TabIndex = 133;
+            this.ContactNumber.Text = "Contact Number";
             // 
-            // textBox2
+            // textPassportNoForeign
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(156, 365);
-            this.textBox2.MaxLength = 90;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(241, 20);
-            this.textBox2.TabIndex = 132;
+            this.textPassportNoForeign.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPassportNoForeign.Location = new System.Drawing.Point(156, 365);
+            this.textPassportNoForeign.MaxLength = 90;
+            this.textPassportNoForeign.Name = "textPassportNoForeign";
+            this.textPassportNoForeign.Size = new System.Drawing.Size(241, 20);
+            this.textPassportNoForeign.TabIndex = 132;
             // 
             // label67
             // 
@@ -319,16 +319,14 @@
             this.groupBox7.Controls.Add(this.ReligioncomboBox);
             this.groupBox7.Controls.Add(this.GendercomboBox);
             this.groupBox7.Controls.Add(this.label60);
-            this.groupBox7.Controls.Add(this.AnniversarydateTimePicker);
-            this.groupBox7.Controls.Add(this.label59);
             this.groupBox7.Controls.Add(this.BirthdateTimePicker);
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox7.Location = new System.Drawing.Point(580, 384);
+            this.groupBox7.Location = new System.Drawing.Point(551, 384);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(565, 165);
+            this.groupBox7.Size = new System.Drawing.Size(654, 134);
             this.groupBox7.TabIndex = 138;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Personal Information";
@@ -340,7 +338,7 @@
             this.maritalStatuscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.maritalStatuscomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maritalStatuscomboBox.FormattingEnabled = true;
-            this.maritalStatuscomboBox.Location = new System.Drawing.Point(340, 50);
+            this.maritalStatuscomboBox.Location = new System.Drawing.Point(448, 37);
             this.maritalStatuscomboBox.Name = "maritalStatuscomboBox";
             this.maritalStatuscomboBox.Size = new System.Drawing.Size(190, 25);
             this.maritalStatuscomboBox.TabIndex = 3;
@@ -352,9 +350,9 @@
             this.ReligioncomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ReligioncomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReligioncomboBox.FormattingEnabled = true;
-            this.ReligioncomboBox.Location = new System.Drawing.Point(120, 105);
+            this.ReligioncomboBox.Location = new System.Drawing.Point(448, 89);
             this.ReligioncomboBox.Name = "ReligioncomboBox";
-            this.ReligioncomboBox.Size = new System.Drawing.Size(193, 25);
+            this.ReligioncomboBox.Size = new System.Drawing.Size(188, 25);
             this.ReligioncomboBox.TabIndex = 2;
             this.ReligioncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReligioncomboBox_SelectedIndexChanged);
             // 
@@ -365,7 +363,7 @@
             this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GendercomboBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GendercomboBox.FormattingEnabled = true;
-            this.GendercomboBox.Location = new System.Drawing.Point(120, 71);
+            this.GendercomboBox.Location = new System.Drawing.Point(120, 91);
             this.GendercomboBox.Name = "GendercomboBox";
             this.GendercomboBox.Size = new System.Drawing.Size(193, 25);
             this.GendercomboBox.TabIndex = 1;
@@ -375,33 +373,11 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(367, 31);
+            this.label60.Location = new System.Drawing.Point(336, 41);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(106, 19);
             this.label60.TabIndex = 18;
             this.label60.Text = "Marital Status";
-            // 
-            // AnniversarydateTimePicker
-            // 
-            this.AnniversarydateTimePicker.Checked = false;
-            this.AnniversarydateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.AnniversarydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AnniversarydateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AnniversarydateTimePicker.Location = new System.Drawing.Point(340, 98);
-            this.AnniversarydateTimePicker.Name = "AnniversarydateTimePicker";
-            this.AnniversarydateTimePicker.ShowCheckBox = true;
-            this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 25);
-            this.AnniversarydateTimePicker.TabIndex = 4;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(338, 78);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(195, 19);
-            this.label59.TabIndex = 16;
-            this.label59.Text = "Marriage Anniversary Date";
             // 
             // BirthdateTimePicker
             // 
@@ -419,7 +395,7 @@
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(35, 109);
+            this.label56.Location = new System.Drawing.Point(374, 94);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(63, 17);
             this.label56.TabIndex = 13;
@@ -429,7 +405,7 @@
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(33, 75);
+            this.label57.Location = new System.Drawing.Point(30, 94);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(57, 17);
             this.label57.TabIndex = 11;
@@ -447,6 +423,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.fLandmarkTextBox);
             this.groupBox1.Controls.Add(this.fZipTextBox);
             this.groupBox1.Controls.Add(this.fCityTextBox);
@@ -463,22 +441,30 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(551, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(609, 274);
+            this.groupBox1.Size = new System.Drawing.Size(654, 301);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Foreign Address ";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(129, 253);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(511, 30);
+            this.textBox1.TabIndex = 13;
+            // 
             // fLandmarkTextBox
             // 
-            this.fLandmarkTextBox.Location = new System.Drawing.Point(456, 199);
+            this.fLandmarkTextBox.Location = new System.Drawing.Point(490, 187);
             this.fLandmarkTextBox.Multiline = true;
             this.fLandmarkTextBox.Name = "fLandmarkTextBox";
-            this.fLandmarkTextBox.Size = new System.Drawing.Size(149, 43);
+            this.fLandmarkTextBox.Size = new System.Drawing.Size(150, 43);
             this.fLandmarkTextBox.TabIndex = 12;
             // 
             // fZipTextBox
             // 
-            this.fZipTextBox.Location = new System.Drawing.Point(455, 148);
+            this.fZipTextBox.Location = new System.Drawing.Point(490, 121);
             this.fZipTextBox.Multiline = true;
             this.fZipTextBox.Name = "fZipTextBox";
             this.fZipTextBox.Size = new System.Drawing.Size(150, 31);
@@ -486,15 +472,15 @@
             // 
             // fCityTextBox
             // 
-            this.fCityTextBox.Location = new System.Drawing.Point(455, 95);
+            this.fCityTextBox.Location = new System.Drawing.Point(128, 203);
             this.fCityTextBox.Multiline = true;
             this.fCityTextBox.Name = "fCityTextBox";
-            this.fCityTextBox.Size = new System.Drawing.Size(148, 31);
+            this.fCityTextBox.Size = new System.Drawing.Size(198, 31);
             this.fCityTextBox.TabIndex = 10;
             // 
             // fStateTextBox
             // 
-            this.fStateTextBox.Location = new System.Drawing.Point(455, 39);
+            this.fStateTextBox.Location = new System.Drawing.Point(488, 44);
             this.fStateTextBox.Multiline = true;
             this.fStateTextBox.Name = "fStateTextBox";
             this.fStateTextBox.Size = new System.Drawing.Size(148, 40);
@@ -502,25 +488,25 @@
             // 
             // fStreetTextBox
             // 
-            this.fStreetTextBox.Location = new System.Drawing.Point(129, 154);
+            this.fStreetTextBox.Location = new System.Drawing.Point(129, 123);
             this.fStreetTextBox.Multiline = true;
             this.fStreetTextBox.Name = "fStreetTextBox";
-            this.fStreetTextBox.Size = new System.Drawing.Size(177, 63);
+            this.fStreetTextBox.Size = new System.Drawing.Size(197, 57);
             this.fStreetTextBox.TabIndex = 8;
             // 
             // fApartmentTextBox
             // 
-            this.fApartmentTextBox.Location = new System.Drawing.Point(131, 51);
+            this.fApartmentTextBox.Location = new System.Drawing.Point(128, 36);
             this.fApartmentTextBox.Multiline = true;
             this.fApartmentTextBox.Name = "fApartmentTextBox";
-            this.fApartmentTextBox.Size = new System.Drawing.Size(174, 63);
+            this.fApartmentTextBox.Size = new System.Drawing.Size(198, 63);
             this.fApartmentTextBox.TabIndex = 7;
             // 
             // label52
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label52.Location = new System.Drawing.Point(375, 203);
+            this.label52.Location = new System.Drawing.Point(393, 191);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(71, 34);
             this.label52.TabIndex = 6;
@@ -530,7 +516,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label55.Location = new System.Drawing.Point(338, 157);
+            this.label55.Location = new System.Drawing.Point(378, 129);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(108, 17);
             this.label55.TabIndex = 5;
@@ -540,7 +526,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label54.Location = new System.Drawing.Point(370, 102);
+            this.label54.Location = new System.Drawing.Point(18, 209);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(69, 17);
             this.label54.TabIndex = 4;
@@ -550,7 +536,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label53.Location = new System.Drawing.Point(344, 44);
+            this.label53.Location = new System.Drawing.Point(380, 47);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(104, 34);
             this.label53.TabIndex = 3;
@@ -560,7 +546,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label51.Location = new System.Drawing.Point(13, 164);
+            this.label51.Location = new System.Drawing.Point(13, 133);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(106, 34);
             this.label51.TabIndex = 1;
@@ -570,7 +556,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label50.Location = new System.Drawing.Point(19, 55);
+            this.label50.Location = new System.Drawing.Point(19, 48);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(99, 34);
             this.label50.TabIndex = 0;
@@ -581,9 +567,9 @@
             this.ForeignSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ForeignSave.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeignSave.ForeColor = System.Drawing.Color.Blue;
-            this.ForeignSave.Location = new System.Drawing.Point(1007, 580);
+            this.ForeignSave.Location = new System.Drawing.Point(1020, 574);
             this.ForeignSave.Name = "ForeignSave";
-            this.ForeignSave.Size = new System.Drawing.Size(118, 62);
+            this.ForeignSave.Size = new System.Drawing.Size(139, 62);
             this.ForeignSave.TabIndex = 141;
             this.ForeignSave.Text = "Save";
             this.ForeignSave.UseVisualStyleBackColor = false;
@@ -654,7 +640,6 @@
             this.txtWebSiteForeign.Name = "txtWebSiteForeign";
             this.txtWebSiteForeign.Size = new System.Drawing.Size(241, 20);
             this.txtWebSiteForeign.TabIndex = 147;
-            this.txtWebSiteForeign.Visible = false;
             // 
             // label29
             // 
@@ -666,36 +651,35 @@
             this.label29.Size = new System.Drawing.Size(63, 13);
             this.label29.TabIndex = 148;
             this.label29.Text = "Web Site ";
-            this.label29.Visible = false;
             // 
-            // textBox6
+            // textContactNumberForeignPerson
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(157, 428);
-            this.textBox6.MaxLength = 90;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(241, 20);
-            this.textBox6.TabIndex = 151;
+            this.textContactNumberForeignPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textContactNumberForeignPerson.Location = new System.Drawing.Point(157, 428);
+            this.textContactNumberForeignPerson.MaxLength = 90;
+            this.textContactNumberForeignPerson.Name = "textContactNumberForeignPerson";
+            this.textContactNumberForeignPerson.Size = new System.Drawing.Size(241, 20);
+            this.textContactNumberForeignPerson.TabIndex = 151;
             // 
-            // textBox7
+            // textNationalityForeign
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(158, 397);
-            this.textBox7.MaxLength = 90;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(241, 20);
-            this.textBox7.TabIndex = 153;
+            this.textNationalityForeign.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNationalityForeign.Location = new System.Drawing.Point(158, 397);
+            this.textNationalityForeign.MaxLength = 90;
+            this.textNationalityForeign.Name = "textNationalityForeign";
+            this.textNationalityForeign.Size = new System.Drawing.Size(241, 20);
+            this.textNationalityForeign.TabIndex = 153;
             // 
-            // label10
+            // Nationality
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(56, 400);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 13);
-            this.label10.TabIndex = 152;
-            this.label10.Text = "Nationality";
+            this.Nationality.AutoSize = true;
+            this.Nationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nationality.ForeColor = System.Drawing.Color.Black;
+            this.Nationality.Location = new System.Drawing.Point(56, 400);
+            this.Nationality.Name = "Nationality";
+            this.Nationality.Size = new System.Drawing.Size(67, 13);
+            this.Nationality.TabIndex = 152;
+            this.Nationality.Text = "Nationality";
             // 
             // textdepartment
             // 
@@ -717,15 +701,25 @@
             this.label70.TabIndex = 131;
             this.label70.Text = "Department";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(21, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Country";
+            // 
             // ForeignPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1227, 655);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textNationalityForeign);
+            this.Controls.Add(this.Nationality);
+            this.Controls.Add(this.textContactNumberForeignPerson);
             this.Controls.Add(this.txtWebSiteForeign);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.textMotherNameForeign);
@@ -740,8 +734,8 @@
             this.Controls.Add(this.label67);
             this.Controls.Add(this.label66);
             this.Controls.Add(this.label65);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ContactNumber);
+            this.Controls.Add(this.textPassportNoForeign);
             this.Controls.Add(this.label70);
             this.Controls.Add(this.textdepartment);
             this.Controls.Add(this.textBoxEmailForeign);
@@ -753,7 +747,7 @@
             this.Controls.Add(this.textNickNameForeign);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.cmbSpecialization);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.PassportNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPersonNameForeign);
             this.Controls.Add(this.label9);
@@ -784,14 +778,14 @@
         private System.Windows.Forms.TextBox textNickNameForeign;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cmbSpecialization;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label PassportNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPersonNameForeign;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label ContactNumber;
+        private System.Windows.Forms.TextBox textPassportNoForeign;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label65;
@@ -801,8 +795,6 @@
         private System.Windows.Forms.ComboBox ReligioncomboBox;
         private System.Windows.Forms.ComboBox GendercomboBox;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.DateTimePicker AnniversarydateTimePicker;
-        private System.Windows.Forms.Label label59;
         private System.Windows.Forms.DateTimePicker BirthdateTimePicker;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
@@ -829,10 +821,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtWebSiteForeign;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textContactNumberForeignPerson;
+        private System.Windows.Forms.TextBox textNationalityForeign;
+        private System.Windows.Forms.Label Nationality;
         private System.Windows.Forms.TextBox textdepartment;
         private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

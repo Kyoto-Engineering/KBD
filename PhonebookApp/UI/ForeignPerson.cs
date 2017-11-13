@@ -170,7 +170,105 @@ namespace PhonebookApp.UI
 
         private void ForeignSaveClick(object sender, EventArgs e)
         {
+            {
+                SqlParameter p;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                String query =
+                    "insert into ForeignPerson (FPersonName,Fpersonnickname,FFathersName,FMothersName,EmailBankId,Fwebsite,ReligionId, CompanyId,  GenderId, JobTitleId,SpecializationsId,MaritalStatusId, DateOfBirth,UserId,Picture, FcontactNum, FDepartment, PassportNo, Nationality) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19)" +
+                    "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@d1", txtPersonNameForeign.Text);
+                cmd.Parameters.Add(new SqlParameter("@d2",
+                    string.IsNullOrEmpty(textNickNameForeign.Text) ? (object)DBNull.Value : textNickNameForeign.Text));
+                cmd.Parameters.Add(new SqlParameter("@d3",
+                    string.IsNullOrEmpty(textFatherNameForeign.Text) ? (object)DBNull.Value : textFatherNameForeign.Text));
+                cmd.Parameters.Add(new SqlParameter("@d4",
+                    string.IsNullOrEmpty(textMotherNameForeign.Text) ? (object)DBNull.Value : textMotherNameForeign.Text));
 
+                cmd.Parameters.AddWithValue("@d5", (object)bankEmailId ?? DBNull.Value);
+                cmd.Parameters.Add(new SqlParameter("@d6",
+                    string.IsNullOrEmpty(txtWebSiteForeign.Text) ? (object)DBNull.Value : txtWebSiteForeign.Text));
+
+                cmd.Parameters.AddWithValue("@d7", (object)religionId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d8", (object)companyId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d9", (object)genderId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d10", (object)jobTitleId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d11", (object)specializationId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@d12", (object)maritalStatusId ?? DBNull.Value);
+                cmd.Parameters.Add(new SqlParameter("@d13",
+                    !BirthdateTimePicker.Checked ? (object)DBNull.Value : BirthdateTimePicker.Value.Date));
+                cmd.Parameters.AddWithValue("@d14", nUserId);
+
+
+                if (userPictureBox.Image != null)
+                {
+                    MemoryStream ms = new MemoryStream();
+                    Bitmap bmpImage = new Bitmap(userPictureBox.Image);
+                    bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] data = ms.GetBuffer();
+                    p = new SqlParameter("@d15", SqlDbType.VarBinary);
+                    p.Value = data;
+                    cmd.Parameters.Add(p);
+                }
+                else
+                {
+                    cmd.Parameters.Add("@d15", SqlDbType.VarBinary, -1);
+                    cmd.Parameters["@d15"].Value = DBNull.Value;
+                }
+
+                cmd.Parameters.Add(new SqlParameter("@d16",
+                    string.IsNullOrEmpty(textContactNumberForeignPerson.Text) ? (object)DBNull.Value : textContactNumberForeignPerson.Text));
+                
+                cmd.Parameters.Add(new SqlParameter("@d17",
+                    string.IsNullOrEmpty(textdepartment.Text) ? (object)DBNull.Value : textdepartment.Text));
+                
+
+                
+                cmd.Parameters.Add(new SqlParameter("@d18",
+                    string.IsNullOrEmpty(textPassportNoForeign.Text) ? (object)DBNull.Value : textPassportNoForeign.Text));
+                
+                cmd.Parameters.Add(new SqlParameter("@d19",
+                    string.IsNullOrEmpty(textNationalityForeign.Text) ? (object)DBNull.Value : textNationalityForeign.Text));
+
+                
+                
+                    
+
+
+
+                //string.IsNullOrEmpty(textNationalityForeign.Text) ? (object)DBNull.Value : textNationalityForeign.Text));
+                //cmd.Parameters.AddWithValue("@d8", (object)professionId ?? DBNull.Value);
+
+                //cmd.Parameters.AddWithValue("@d9", (object)educationLevelId ?? DBNull.Value);
+                //cmd.Parameters.AddWithValue("@d10", (object)highestDegreeId ?? DBNull.Value);
+                //cmd.Parameters.AddWithValue("@d11", (object)ageGroupId ?? DBNull.Value);
+                //cmd.Parameters.AddWithValue("@d12", (object)relationshipId ?? DBNull.Value);
+                //cmd.Parameters.Add(new SqlParameter("@d13",
+                    //string.IsNullOrEmpty(txtWebsite.Text) ? (object)DBNull.Value : txtWebsite.Text));
+                //cmd.Parameters.Add(new SqlParameter("@d14",
+                    //string.IsNullOrEmpty(txtSkypeId.Text) ? (object)DBNull.Value : txtSkypeId.Text));
+                //cmd.Parameters.Add(new SqlParameter("@d15",
+                    //string.IsNullOrEmpty(txtWhatsApp.Text) ? (object)DBNull.Value : txtWhatsApp.Text));
+                //cmd.Parameters.Add(new SqlParameter("@d16",
+                    //string.IsNullOrEmpty(txtImmo.Text) ? (object)DBNull.Value : txtImmo.Text));
+                //cmd.Parameters.AddWithValue("@d17", (object)countryid ?? DBNull.Value);
+                
+                
+                
+                
+                //cmd.Parameters.Add(new SqlParameter("@d18",
+                    //!AnniversarydateTimePicker.Checked ? (object)DBNull.Value : AnniversarydateTimePicker.Value.Date));
+                
+               
+                //cmd.Parameters.Add(new SqlParameter("@d25",
+                    //string.IsNullOrEmpty(department.Text) ? (object)DBNull.Value : department.Text));
+
+                currentPersonId = (int)(cmd.ExecuteScalar());
+                con.Close();
+                MessageBox.Show("Shalak ekta Chor Marmu","Successful",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+            }
         }
 
         private void userPictureBox_Click(object sender, EventArgs e)
@@ -243,7 +341,7 @@ namespace PhonebookApp.UI
 
         private void CompanySelectionbutton_Click(object sender, EventArgs e)
         {
-            using (var form = new CompanySelectionGrid())
+            using (var form = new ForeignCompanySelectionGrid())
             {
                 this.Visible = false;
                 var result = form.ShowDialog();
@@ -259,14 +357,21 @@ namespace PhonebookApp.UI
                     SqlConnection con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct2 =
-                        "SELECT Company.CompanyName, CompanyForeignAddress.FApartmentC, CompanyForeignAddress.FStreetC, CompanyForeignAddress.FCityC, CompanyForeignAddress.FZipcode,CompanyForeignAddress.FNearestlandmark      FROM Company INNER JOIN CompanyForeignAddress ON Company.CompanyId = CompanyForeignAddress.CompanyId where Company.CompanyId='" +
+                        "SELECT Company.CompanyName, CompanyForeignAddress.FApartmentC, CompanyForeignAddress.FStreetC,CompanyForeignAddress.FStateC, CompanyForeignAddress.FCityC, CompanyForeignAddress.FZipcode,CompanyForeignAddress.FNearestlandmark , Countries.CountryName     FROM Company INNER JOIN CompanyForeignAddress ON Company.CompanyId = CompanyForeignAddress.CompanyId INNER JOIN Countries ON Countries.CountryId = CompanyForeignAddress.CountryId where Company.CompanyId='" +
                         companyId + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
                     {
-                        this.textBox2.Text = rdr["Branch"].ToString();
-                        
+                        this.fApartmentTextBox.Text = rdr["FApartmentC"].ToString();
+                        this.fStreetTextBox.Text = rdr["FStreetC"].ToString();
+                        this.fStateTextBox.Text = rdr["FStateC"].ToString();
+                        this.fCityTextBox.Text = rdr["FCityC"].ToString();
+                        this.fZipTextBox.Text = rdr["FZipcode"].ToString();
+                        this.fLandmarkTextBox.Text = rdr["FNearestlandmark"].ToString();
+                        this.textBox1.Text = rdr["CountryName"].ToString();
+
+
                     }
                     if ((rdr != null))
                     {
@@ -301,8 +406,50 @@ namespace PhonebookApp.UI
             maritalcomboload();
             GendercomboBoxLoad();
             ReligioncomboBoxLoad();
+            jobtitlecomboload();
+            Specializationcomboload();
+            nUserId = frmLogin.uId.ToString();
 
         }
+
+
+        private void jobtitlecomboload()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qry = "select JobTitleName from JobTitle";
+            cmd = new SqlCommand(qry, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+
+                cmbJobTitleForeign.Items.Add(rdr.GetString(0));
+
+            }
+
+            con.Close();
+
+        }
+
+        private void Specializationcomboload()
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qry = "select Specialization from Specializations";
+            cmd = new SqlCommand(qry, con);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read() == true)
+            {
+
+                cmbSpecialization.Items.Add(rdr.GetString(0));
+
+            }
+
+            con.Close();
+
+        }
+
+
 
         private void maritalcomboload()
         {

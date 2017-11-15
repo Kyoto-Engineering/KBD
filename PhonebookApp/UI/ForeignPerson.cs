@@ -266,7 +266,7 @@ namespace PhonebookApp.UI
 
                 currentPersonId = (int)(cmd.ExecuteScalar());
                 con.Close();
-                MessageBox.Show("Shalak ekta Chor Marmu","Successful",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Saved successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
         }

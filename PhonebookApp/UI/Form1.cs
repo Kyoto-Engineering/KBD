@@ -2963,6 +2963,21 @@ textBox1.Clear();
             }
         }
 
+        private void BirthdateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPersonName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AnniversarydateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 

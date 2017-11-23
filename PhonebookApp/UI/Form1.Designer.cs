@@ -421,7 +421,7 @@
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Location = new System.Drawing.Point(459, 527);
+            this.groupBox7.Location = new System.Drawing.Point(464, 537);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(547, 117);
             this.groupBox7.TabIndex = 24;
@@ -488,6 +488,7 @@
             this.AnniversarydateTimePicker.ShowCheckBox = true;
             this.AnniversarydateTimePicker.Size = new System.Drawing.Size(193, 25);
             this.AnniversarydateTimePicker.TabIndex = 4;
+            this.AnniversarydateTimePicker.ValueChanged += new System.EventHandler(this.AnniversarydateTimePicker_ValueChanged);
             // 
             // label59
             // 
@@ -510,6 +511,7 @@
             this.BirthdateTimePicker.ShowCheckBox = true;
             this.BirthdateTimePicker.Size = new System.Drawing.Size(193, 25);
             this.BirthdateTimePicker.TabIndex = 0;
+            this.BirthdateTimePicker.ValueChanged += new System.EventHandler(this.BirthdateTimePicker_ValueChanged);
             // 
             // label56
             // 
@@ -1669,6 +1671,7 @@
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(240, 20);
             this.txtPersonName.TabIndex = 2;
+            this.txtPersonName.TextChanged += new System.EventHandler(this.txtPersonName_TextChanged);
             this.txtPersonName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPersonName_KeyDown);
             // 
             // label9

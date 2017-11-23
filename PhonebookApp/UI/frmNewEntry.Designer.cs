@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewEntry));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SearchCompanybutton = new System.Windows.Forms.Button();
             this.SearchContactbutton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,32 @@
             this.groupBox1.Size = new System.Drawing.Size(546, 220);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Yellow;
+            this.button3.Location = new System.Drawing.Point(380, 131);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(146, 69);
+            this.button3.TabIndex = 42;
+            this.button3.Text = "Search Foreign Contact";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(380, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 69);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "New Foreign Contact";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // SearchCompanybutton
             // 
@@ -116,31 +142,6 @@
             this.label1.Size = new System.Drawing.Size(142, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "New Entry";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(380, 36);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 69);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "New Foreign Contact";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Yellow;
-            this.button3.Location = new System.Drawing.Point(380, 131);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 69);
-            this.button3.TabIndex = 42;
-            this.button3.Text = "Search Foreign Contact";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // frmNewEntry
             // 

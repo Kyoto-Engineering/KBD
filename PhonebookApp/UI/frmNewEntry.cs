@@ -59,5 +59,14 @@ namespace PhonebookApp.UI
             frm.ShowDialog();
             this.Visible = true; 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            ForeignPerson frmX = new ForeignPerson();
+            this.Visible = false;
+            frmX.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

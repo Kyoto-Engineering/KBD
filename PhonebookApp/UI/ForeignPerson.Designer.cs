@@ -60,6 +60,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.fLandmarkTextBox = new System.Windows.Forms.TextBox();
             this.fZipTextBox = new System.Windows.Forms.TextBox();
@@ -87,7 +88,6 @@
             this.Nationality = new System.Windows.Forms.Label();
             this.textdepartment = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -143,6 +143,7 @@
             this.cmbJobTitleForeign.Name = "cmbJobTitleForeign";
             this.cmbJobTitleForeign.Size = new System.Drawing.Size(239, 21);
             this.cmbJobTitleForeign.TabIndex = 116;
+            this.cmbJobTitleForeign.SelectedIndexChanged += new System.EventHandler(this.cmbJobTitleForeign_SelectedIndexChanged);
             // 
             // label30
             // 
@@ -185,6 +186,7 @@
             this.cmbSpecialization.Name = "cmbSpecialization";
             this.cmbSpecialization.Size = new System.Drawing.Size(242, 21);
             this.cmbSpecialization.TabIndex = 118;
+            this.cmbSpecialization.SelectedIndexChanged += new System.EventHandler(this.cmbSpecialization_SelectedIndexChanged);
             // 
             // PassportNo
             // 
@@ -446,6 +448,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Foreign Address ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(21, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Country";
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(129, 253);
@@ -700,16 +712,6 @@
             this.label70.Size = new System.Drawing.Size(72, 13);
             this.label70.TabIndex = 131;
             this.label70.Text = "Department";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(21, 260);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Country";
             // 
             // ForeignPerson
             // 

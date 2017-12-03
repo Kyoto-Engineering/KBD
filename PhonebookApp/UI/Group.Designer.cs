@@ -68,6 +68,8 @@
             this.EidGreetingGroupAddressbutton = new System.Windows.Forms.Button();
             this.EnvelopesizeGroupAddressbutton = new System.Windows.Forms.Button();
             this.A4SizeGroupAddressbutton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.LOIforK8DSbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -436,12 +438,40 @@
             this.A4SizeGroupAddressbutton.UseVisualStyleBackColor = false;
             this.A4SizeGroupAddressbutton.Click += new System.EventHandler(this.A4SizeGroupAddressbutton_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(227, 158);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 65);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "LOI for Automated Traffic Light";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LOIforK8DSbutton
+            // 
+            this.LOIforK8DSbutton.BackColor = System.Drawing.Color.CadetBlue;
+            this.LOIforK8DSbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.LOIforK8DSbutton.ForeColor = System.Drawing.Color.White;
+            this.LOIforK8DSbutton.Location = new System.Drawing.Point(68, 158);
+            this.LOIforK8DSbutton.Name = "LOIforK8DSbutton";
+            this.LOIforK8DSbutton.Size = new System.Drawing.Size(127, 65);
+            this.LOIforK8DSbutton.TabIndex = 21;
+            this.LOIforK8DSbutton.Text = "LOI for K8DS";
+            this.LOIforK8DSbutton.UseVisualStyleBackColor = false;
+            this.LOIforK8DSbutton.Click += new System.EventHandler(this.LOIforK8DSbutton_Click);
+            // 
             // Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1235, 703);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LOIforK8DSbutton);
             this.Controls.Add(this.A4SizeGroupAddressbutton);
             this.Controls.Add(this.EnvelopesizeGroupAddressbutton);
             this.Controls.Add(this.EidGreetingGroupAddressbutton);
@@ -517,5 +547,7 @@
         private System.Windows.Forms.Button EidGreetingGroupAddressbutton;
         private System.Windows.Forms.Button EnvelopesizeGroupAddressbutton;
         private System.Windows.Forms.Button A4SizeGroupAddressbutton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LOIforK8DSbutton;
     }
 }

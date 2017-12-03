@@ -267,7 +267,7 @@ namespace PhonebookApp.UI
                 currentPersonId = (int)(cmd.ExecuteScalar());
                 con.Close();
                 MessageBox.Show("Saved successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                
             }
         }
 
@@ -504,6 +504,34 @@ namespace PhonebookApp.UI
 
             con.Close();
 
+        }
+
+        private void cmbJobTitleForeign_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qq = "select JobTitleId from JobTitle where JobTitleName = '" + cmbJobTitleForeign.Text + "'";
+            cmd = new SqlCommand(qq,con);
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                jobTitleId = rdr.GetInt32(0);
+            }
+            con.Close();
+        }
+
+        private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string qq = "select SpecializationsId from Specializations where Specialization = '" + cmbSpecialization.Text + "'";
+            cmd = new SqlCommand(qq, con);
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                specializationId = rdr.GetInt32(0);
+            }
+            con.Close();
         }
 
 

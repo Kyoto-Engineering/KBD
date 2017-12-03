@@ -560,6 +560,22 @@ namespace PhonebookApp.UI
             this.Visible = true;
 
         }
+
+        private void LOIforK8DSbutton_Click(object sender, EventArgs e)
+        {
+            LOIforK8DSUI f2 = new LOIforK8DSUI();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NewLOIforAutomatedTrafficLightUI f2 = new NewLOIforAutomatedTrafficLightUI();
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
 

@@ -421,6 +421,12 @@
     <Compile Include="UI\CompanySelectionGrid.Designer.cs">
       <DependentUpon>CompanySelectionGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DispatchUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DispatchUI.Designer.cs">
+      <DependentUpon>DispatchUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\EducationLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -530,6 +536,12 @@
     </Compile>
     <Compile Include="UI\MainUI.Designer.cs">
       <DependentUpon>MainUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ManageGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ManageGroup.Designer.cs">
+      <DependentUpon>ManageGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PersonDetail.cs">
       <SubType>Form</SubType>
@@ -761,6 +773,9 @@
     <EmbeddedResource Include="UI\CompanySelectionGrid.resx">
       <DependentUpon>CompanySelectionGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DispatchUI.resx">
+      <DependentUpon>DispatchUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\EducationLevel.resx">
       <DependentUpon>EducationLevel.cs</DependentUpon>
     </EmbeddedResource>
@@ -819,6 +834,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManageGroup.resx">
+      <DependentUpon>ManageGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PersonDetail.resx">
       <DependentUpon>PersonDetail.cs</DependentUpon>

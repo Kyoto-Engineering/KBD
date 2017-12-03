@@ -155,10 +155,7 @@ namespace PhonebookApp.UI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Batch frmb = new Batch();
-            this.Visible = false;
-            frmb.ShowDialog();
-            this.Visible = true; 
+            
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -171,9 +168,24 @@ namespace PhonebookApp.UI
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Managebutton_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            ManageGroup frm = new ManageGroup();
             this.Visible = false;
-            Pod pod = new Pod();
-            pod.ShowDialog();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            //this.Hide();
+            DispatchUI frm = new DispatchUI();
+            this.Visible = false;
+            frm.ShowDialog();
             this.Visible = true;
         }
 

@@ -19,17 +19,24 @@ namespace PhonebookApp.UI
 
         private void ManageGroupsbutton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            frmManageGroups frm = new frmManageGroups();
+            RemoveFromGroup rfg = new RemoveFromGroup();
             this.Visible = false;
-            frm.ShowDialog();
-            this.Visible = true;
+            rfg.ShowDialog();
+            this.Visible = true; 
         }
 
         private void MemberAddedToGroupbutton_Click(object sender, EventArgs e)
         {
             //this.Hide();
             Group frm = new Group();
+            this.Visible = false;
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void NewGroupCreationbutton_Click(object sender, EventArgs e)
+        {
+            GroupCreation frm = new GroupCreation();
             this.Visible = false;
             frm.ShowDialog();
             this.Visible = true;

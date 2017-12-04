@@ -32,6 +32,7 @@ namespace PhonebookApp.UI
         {
             getbatch();
             batchldgrd();
+            getReason();
 
         }
 
@@ -57,6 +58,38 @@ namespace PhonebookApp.UI
             }
            
         }
+
+
+        private void getReason()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "SELECT UndeleverReason FROM [UndeleveredProduct] ORDER BY UndeleverID";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    ReasoncomboBox.Items.Add(rdr[0]);
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+
+
+
 
 
         private void getbatch()
@@ -159,39 +192,105 @@ namespace PhonebookApp.UI
         
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(podtxt.Text))
+            if (notdeliverecheckBox.Checked)
+            {
+                if (string.IsNullOrEmpty(podtxt.Text))
                 {
                     MessageBox.Show("Select POD");
                 }
-            else if (string.IsNullOrEmpty(rcpnamtxt.Text))
-            {
-                MessageBox.Show("Select POD");
-            }
-            else if (string.IsNullOrEmpty(recpidtxt.Text))
-            {
-                MessageBox.Show("Select POD");
-            }
+                else if (string.IsNullOrEmpty(rcpnamtxt.Text))
+                {
+                    MessageBox.Show("Select POD");
+                }
+                else if (string.IsNullOrEmpty(recpidtxt.Text))
+                {
+                    MessageBox.Show("Select POD");
+                }
 
-            else 
-            {
+                else
+                {
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string querydone = "update DetailsOfBatch set POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
-                cmd = new SqlCommand(querydone, con);
-                cmd.ExecuteScalar();
-                con.Close();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string querydone = "update DetailsOfBatch set  ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "', POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
+                    cmd = new SqlCommand(querydone, con);
+                    cmd.ExecuteScalar();
+                    con.Close();
 
-                MessageBox.Show("POD Taken");
-                  dataGridView1.Rows.Clear();
-                  dataGridView1.Refresh();
-                gridld();
-                recpidtxt.Clear();
-                rcpnamtxt.Clear();
-                podtxt.Clear();
-                batnotxt.Clear();
-            
+                    MessageBox.Show("POD Taken");
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    gridld();
+                    recpidtxt.Clear();
+                    rcpnamtxt.Clear();
+                    podtxt.Clear();
+                    batnotxt.Clear();
+
+                }
+
             }
+            else
+            {
+                if (string.IsNullOrEmpty(podtxt.Text))
+                {
+                    MessageBox.Show("Select POD");
+                }
+                else if (string.IsNullOrEmpty(rcpnamtxt.Text))
+                {
+                    MessageBox.Show("Select POD");
+                }
+                else if (string.IsNullOrEmpty(recpidtxt.Text))
+                {
+                    MessageBox.Show("Select POD");
+                }
+
+                else
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string querydone = "update DetailsOfBatch set  ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "',POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
+                    cmd = new SqlCommand(querydone, con);
+                    cmd.ExecuteScalar();
+                    con.Close();
+
+                    MessageBox.Show("POD Taken");
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    gridld();
+                    recpidtxt.Clear();
+                    rcpnamtxt.Clear();
+                    podtxt.Clear();
+                    batnotxt.Clear();
+
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (notdeliverecheckBox.Checked)
+            {
+                Reasonlabel.Visible = true;
+                ReasoncomboBox.Visible = true;
+            }
+            else
+            {
+                ReasoncomboBox.Visible = false;
+                Reasonlabel.Visible = false;
+              // Reasonlabel.Clear();
+               //ReasoncomboBox.Clear();
+            }
+        }
+
+        private void ReasoncomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
        

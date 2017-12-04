@@ -42,6 +42,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ReceivedbytextBox = new System.Windows.Forms.TextBox();
+            this.ReasoncomboBox = new System.Windows.Forms.ComboBox();
+            this.Reasonlabel = new System.Windows.Forms.Label();
+            this.notdeliverecheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtext = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -157,9 +162,15 @@
             this.label1.Size = new System.Drawing.Size(110, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Recepient ID :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.ReceivedbytextBox);
+            this.groupBox3.Controls.Add(this.ReasoncomboBox);
+            this.groupBox3.Controls.Add(this.Reasonlabel);
+            this.groupBox3.Controls.Add(this.notdeliverecheckBox);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.dtext);
             this.groupBox3.Controls.Add(this.label5);
@@ -173,16 +184,66 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.recpidtxt);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(709, 272);
+            this.groupBox3.Location = new System.Drawing.Point(709, 178);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(380, 340);
+            this.groupBox3.Size = new System.Drawing.Size(380, 434);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(156, 257);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 19);
+            this.label7.TabIndex = 111;
+            this.label7.Text = "Received By :";
+            // 
+            // ReceivedbytextBox
+            // 
+            this.ReceivedbytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReceivedbytextBox.Location = new System.Drawing.Point(158, 279);
+            this.ReceivedbytextBox.Name = "ReceivedbytextBox";
+            this.ReceivedbytextBox.Size = new System.Drawing.Size(145, 22);
+            this.ReceivedbytextBox.TabIndex = 110;
+            // 
+            // ReasoncomboBox
+            // 
+            this.ReasoncomboBox.FormattingEnabled = true;
+            this.ReasoncomboBox.Location = new System.Drawing.Point(148, 333);
+            this.ReasoncomboBox.Name = "ReasoncomboBox";
+            this.ReasoncomboBox.Size = new System.Drawing.Size(213, 21);
+            this.ReasoncomboBox.TabIndex = 109;
+            this.ReasoncomboBox.Visible = false;
+            this.ReasoncomboBox.SelectedIndexChanged += new System.EventHandler(this.ReasoncomboBox_SelectedIndexChanged);
+            // 
+            // Reasonlabel
+            // 
+            this.Reasonlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reasonlabel.Location = new System.Drawing.Point(19, 333);
+            this.Reasonlabel.Name = "Reasonlabel";
+            this.Reasonlabel.Size = new System.Drawing.Size(123, 19);
+            this.Reasonlabel.TabIndex = 108;
+            this.Reasonlabel.Text = "Reason :";
+            this.Reasonlabel.Visible = false;
+            // 
+            // notdeliverecheckBox
+            // 
+            this.notdeliverecheckBox.AutoSize = true;
+            this.notdeliverecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notdeliverecheckBox.Location = new System.Drawing.Point(148, 307);
+            this.notdeliverecheckBox.Name = "notdeliverecheckBox";
+            this.notdeliverecheckBox.Size = new System.Drawing.Size(188, 20);
+            this.notdeliverecheckBox.TabIndex = 106;
+            this.notdeliverecheckBox.Text = "Courier is not delivered";
+            this.notdeliverecheckBox.UseVisualStyleBackColor = true;
+            this.notdeliverecheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 175);
+            this.label6.Location = new System.Drawing.Point(24, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 19);
             this.label6.TabIndex = 16;
@@ -200,7 +261,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 140);
+            this.label5.Location = new System.Drawing.Point(21, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 19);
             this.label5.TabIndex = 14;
@@ -238,7 +299,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(159, 273);
+            this.button1.Location = new System.Drawing.Point(178, 374);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 42);
             this.button1.TabIndex = 10;
@@ -249,16 +310,16 @@
             // podtxt
             // 
             this.podtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.podtxt.Location = new System.Drawing.Point(129, 245);
+            this.podtxt.Location = new System.Drawing.Point(158, 230);
             this.podtxt.Name = "podtxt";
-            this.podtxt.Size = new System.Drawing.Size(139, 22);
+            this.podtxt.Size = new System.Drawing.Size(145, 22);
             this.podtxt.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(128, 213);
+            this.label3.Location = new System.Drawing.Point(154, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 19);
             this.label3.TabIndex = 8;
@@ -384,5 +445,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.ComboBox ReasoncomboBox;
+        private System.Windows.Forms.Label Reasonlabel;
+        private System.Windows.Forms.CheckBox notdeliverecheckBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox ReceivedbytextBox;
     }
 }

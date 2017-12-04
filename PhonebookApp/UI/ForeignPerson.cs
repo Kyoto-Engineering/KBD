@@ -11,9 +11,12 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using PhonebookApp.DbGateway;
 using PhonebookApp.LogInUI;
 using PhonebookApp.Models;
+using PhonebookApp.Reports;
 using PhonebookApp.UI;
 using QRCoder;
 
@@ -58,6 +61,7 @@ namespace PhonebookApp.UI
                 }
                 ReligioncomboBox.Items.Add("Not In The List");
                 con.Close();
+                
             }
             catch (Exception ex)
             {
@@ -106,6 +110,7 @@ namespace PhonebookApp.UI
                             ReligioncomboBox.Items.Clear();
                             FillReligion();
                             ReligioncomboBox.SelectedText = inputReligion;
+                            
 
                         }
                         catch (Exception ex)
@@ -133,6 +138,7 @@ namespace PhonebookApp.UI
                         religionId = Convert.ToInt64(rdr["ReligionId"]);
                     }
                     con.Close();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -161,6 +167,7 @@ namespace PhonebookApp.UI
 
                 }
                 con.Close();
+                
             }
             catch (Exception ex)
             {
@@ -266,9 +273,11 @@ namespace PhonebookApp.UI
 
                 currentPersonId = (int)(cmd.ExecuteScalar());
                 con.Close();
+                
                 MessageBox.Show("Saved successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
             }
+            clearPersonForm();
         }
 
         private void userPictureBox_Click(object sender, EventArgs e)
@@ -311,6 +320,7 @@ namespace PhonebookApp.UI
                     //    MessageBox.Show("Image Size is invalid");
                     //}
                 }
+                
             }
             catch (Exception ex)
             {
@@ -337,6 +347,7 @@ namespace PhonebookApp.UI
                 }
                 this.Visible = true;
             }
+            
         }
 
         private void CompanySelectionbutton_Click(object sender, EventArgs e)
@@ -384,6 +395,7 @@ namespace PhonebookApp.UI
                 }
                 this.Visible = true;
             }
+            
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -518,6 +530,7 @@ namespace PhonebookApp.UI
                 jobTitleId = rdr.GetInt32(0);
             }
             con.Close();
+            
         }
 
         private void cmbSpecialization_SelectedIndexChanged(object sender, EventArgs e)
@@ -532,9 +545,158 @@ namespace PhonebookApp.UI
                 specializationId = rdr.GetInt32(0);
             }
             con.Close();
+            
         }
 
+        private void clearPersonForm()
+        {
+            txtPersonNameForeign.Clear();
+            textNickNameForeign.Clear();
+            textFatherNameForeign.Clear();
+            textMotherNameForeign.Clear();
+            textBoxEmailForeign.Clear();
+            companyNametextBox.Clear();
+            txtWebSiteForeign.Clear();
+            cmbJobTitleForeign.Items.Clear();
+            maritalcomboload();
+            GendercomboBox.Items.Clear();
+            ReligioncomboBox.Items.Clear();
+            fApartmentTextBox.Clear();
+            fStreetTextBox.Clear();
+            fCityTextBox.Clear();
+            textBox1.Clear();
+            fStateTextBox.Clear();
+            fZipTextBox.Clear();
+            fLandmarkTextBox.Clear();
 
+
+
+
+            
+           
+            
+            
+            //LOAD
+
+            //ForeignPerson_Load();
+            jobtitlecomboload();
+            Specializationcomboload();
+            maritalcomboload();
+            GendercomboBoxLoad();
+            ReligioncomboBoxLoad();
+            
+
+        }
+
+        private void Envelopbutton_Click(object sender, EventArgs e)
+        {
+            //creating an object of ParameterField class
+            //ParameterField paramField = new ParameterField();
+
+            //creating an object of ParameterFields class
+            //ParameterFields paramFields = new ParameterFields();
+
+            //creating an object of ParameterDiscreteValue class
+            //ParameterDiscreteValue paramDiscreteValue = new ParameterDiscreteValue();
+
+            //set the parameter field name
+            //paramField.Name = "GroupName";
+
+            //set the parameter value
+            // paramDiscreteValue.Value = x;
+
+            //add the parameter value in the ParameterField object
+            //paramField.CurrentValues.Add(paramDiscreteValue);
+
+            //add the parameter in the ParameterFields object
+            //paramFields.Add(paramField);
+
+            //set the parameterfield information in the crystal report
+
+
+
+            ReportViewer f2 = new ReportViewer();
+            TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
+            TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
+            ConnectionInfo reportConInfo = new ConnectionInfo();
+            Tables tables = default(Tables);
+            //	Table table = default(Table);
+            var with1 = reportConInfo;
+            with1.ServerName = "tcp:KyotoServer,49172";
+            with1.DatabaseName = "PhoneBookDBKD22_Fariha";
+            with1.UserID = "sa";
+            with1.Password = "SystemAdministrator";
+            EnvelopSizeForeignPersonalAddressDetails cr = new EnvelopSizeForeignPersonalAddressDetails();
+            tables = cr.Database.Tables;
+            foreach (Table table in tables)
+            {
+                reportLogonInfo = table.LogOnInfo;
+                reportLogonInfo.ConnectionInfo = reportConInfo;
+                table.ApplyLogOnInfo(reportLogonInfo);
+            }
+            //f2.crystalReportViewer1.ParameterFieldInfo = paramFields;
+            //set the parameterfield information in the crystal report
+            f2.crystalReportViewer1.ReportSource = cr;
+            this.Visible = false;
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            {
+                //creating an object of ParameterField class
+                //ParameterField paramField = new ParameterField();
+
+                //creating an object of ParameterFields class
+                //ParameterFields paramFields = new ParameterFields();
+
+                //creating an object of ParameterDiscreteValue class
+                //ParameterDiscreteValue paramDiscreteValue = new ParameterDiscreteValue();
+
+                //set the parameter field name
+                //paramField.Name = "GroupName";
+
+                //set the parameter value
+                // paramDiscreteValue.Value = x;
+
+                //add the parameter value in the ParameterField object
+                //paramField.CurrentValues.Add(paramDiscreteValue);
+
+                //add the parameter in the ParameterFields object
+                //paramFields.Add(paramField);
+
+                //set the parameterfield information in the crystal report
+
+
+
+                ReportViewer f2 = new ReportViewer();
+                TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
+                TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
+                ConnectionInfo reportConInfo = new ConnectionInfo();
+                Tables tables = default(Tables);
+                //	Table table = default(Table);
+                var with1 = reportConInfo;
+                with1.ServerName = "tcp:KyotoServer,49172";
+                with1.DatabaseName = "PhoneBookDBKD22_Fariha";
+                with1.UserID = "sa";
+                with1.Password = "SystemAdministrator";
+                ForeignPersonalAddressDetailsEidGreetings cr = new ForeignPersonalAddressDetailsEidGreetings();
+                tables = cr.Database.Tables;
+                foreach (Table table in tables)
+                {
+                    reportLogonInfo = table.LogOnInfo;
+                    reportLogonInfo.ConnectionInfo = reportConInfo;
+                    table.ApplyLogOnInfo(reportLogonInfo);
+                }
+                //f2.crystalReportViewer1.ParameterFieldInfo = paramFields;
+                //set the parameterfield information in the crystal report
+                f2.crystalReportViewer1.ReportSource = cr;
+                this.Visible = false;
+                f2.ShowDialog();
+                this.Visible = true;
+            }
+        }
 
 
     }

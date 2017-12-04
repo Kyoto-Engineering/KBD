@@ -45,9 +45,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(222, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(446, 31);
+            this.label1.Size = new System.Drawing.Size(462, 31);
             this.label1.TabIndex = 3;
-            this.label1.Text = " List  of Foreign Person  Information";
+            this.label1.Text = " List  of Overseas Person  Information";
             // 
             // SearchPersonNametextBox
             // 
@@ -64,9 +64,9 @@
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(42, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(209, 19);
+            this.label2.Size = new System.Drawing.Size(220, 19);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Search By Foreign Person Name";
+            this.label2.Text = "Search By Overseas Person Name";
             // 
             // groupBox2
             // 
@@ -78,7 +78,7 @@
             this.groupBox2.Size = new System.Drawing.Size(232, 59);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search By Foreign Person Id";
+            this.groupBox2.Text = "Search By Overseas Person Id";
             // 
             // SearchByPersonIdtextBox
             // 
@@ -96,7 +96,7 @@
             this.CompanySelectiongroupBox.Size = new System.Drawing.Size(910, 256);
             this.CompanySelectiongroupBox.TabIndex = 9;
             this.CompanySelectiongroupBox.TabStop = false;
-            this.CompanySelectiongroupBox.Text = "Foreign Person Selection (Existing Person)";
+            this.CompanySelectiongroupBox.Text = "Overseas Person Selection (Existing Person)";
             // 
             // ForeignPersonSelectionUI
             // 

@@ -88,9 +88,13 @@
             this.Nationality = new System.Windows.Forms.Label();
             this.textdepartment = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
+            this.ViewandPrint = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Envelopbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.ViewandPrint.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxEmailForeign
@@ -326,7 +330,7 @@
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox7.Location = new System.Drawing.Point(551, 384);
+            this.groupBox7.Location = new System.Drawing.Point(551, 361);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(654, 134);
             this.groupBox7.TabIndex = 138;
@@ -441,12 +445,12 @@
             this.groupBox1.Controls.Add(this.label50);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(551, 65);
+            this.groupBox1.Location = new System.Drawing.Point(551, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(654, 301);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Foreign Address ";
+            this.groupBox1.Text = "Overseas Address ";
             // 
             // label3
             // 
@@ -579,9 +583,9 @@
             this.ForeignSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ForeignSave.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeignSave.ForeColor = System.Drawing.Color.Blue;
-            this.ForeignSave.Location = new System.Drawing.Point(1020, 574);
+            this.ForeignSave.Location = new System.Drawing.Point(1080, 501);
             this.ForeignSave.Name = "ForeignSave";
-            this.ForeignSave.Size = new System.Drawing.Size(139, 62);
+            this.ForeignSave.Size = new System.Drawing.Size(125, 42);
             this.ForeignSave.TabIndex = 141;
             this.ForeignSave.Text = "Save";
             this.ForeignSave.UseVisualStyleBackColor = false;
@@ -592,11 +596,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(284, -1);
+            this.label11.Location = new System.Drawing.Point(384, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(431, 31);
+            this.label11.Size = new System.Drawing.Size(447, 31);
             this.label11.TabIndex = 142;
-            this.label11.Text = "Foreign Person Details Information";
+            this.label11.Text = "Overseas Person Details Information";
             // 
             // openFileDialog1
             // 
@@ -713,12 +717,51 @@
             this.label70.TabIndex = 131;
             this.label70.Text = "Department";
             // 
+            // ViewandPrint
+            // 
+            this.ViewandPrint.Controls.Add(this.button3);
+            this.ViewandPrint.Controls.Add(this.Envelopbutton);
+            this.ViewandPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ViewandPrint.Location = new System.Drawing.Point(551, 556);
+            this.ViewandPrint.Name = "ViewandPrint";
+            this.ViewandPrint.Size = new System.Drawing.Size(508, 80);
+            this.ViewandPrint.TabIndex = 154;
+            this.ViewandPrint.TabStop = false;
+            this.ViewandPrint.Text = "View And Print";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Blue;
+            this.button3.Location = new System.Drawing.Point(262, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(175, 50);
+            this.button3.TabIndex = 156;
+            this.button3.Text = "Greeting Card";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Envelopbutton
+            // 
+            this.Envelopbutton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Envelopbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Envelopbutton.ForeColor = System.Drawing.Color.Blue;
+            this.Envelopbutton.Location = new System.Drawing.Point(53, 25);
+            this.Envelopbutton.Name = "Envelopbutton";
+            this.Envelopbutton.Size = new System.Drawing.Size(169, 50);
+            this.Envelopbutton.TabIndex = 155;
+            this.Envelopbutton.Text = "Envelop Size";
+            this.Envelopbutton.UseVisualStyleBackColor = false;
+            this.Envelopbutton.Click += new System.EventHandler(this.Envelopbutton_Click);
+            // 
             // ForeignPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1227, 655);
+            this.Controls.Add(this.ViewandPrint);
             this.Controls.Add(this.textNationalityForeign);
             this.Controls.Add(this.Nationality);
             this.Controls.Add(this.textContactNumberForeignPerson);
@@ -764,6 +807,7 @@
             this.groupBox7.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.ViewandPrint.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -830,5 +874,8 @@
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox ViewandPrint;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Envelopbutton;
     }
 }

@@ -50,9 +50,9 @@
             this.ForeignCompanySelectionForm.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeignCompanySelectionForm.Location = new System.Drawing.Point(167, 28);
             this.ForeignCompanySelectionForm.Name = "ForeignCompanySelectionForm";
-            this.ForeignCompanySelectionForm.Size = new System.Drawing.Size(403, 31);
+            this.ForeignCompanySelectionForm.Size = new System.Drawing.Size(414, 31);
             this.ForeignCompanySelectionForm.TabIndex = 3;
-            this.ForeignCompanySelectionForm.Text = "Foreign Company Selection Form";
+            this.ForeignCompanySelectionForm.Text = "Overseas Company Selection Form";
             // 
             // SearchByCompanyNameGroupBox
             // 

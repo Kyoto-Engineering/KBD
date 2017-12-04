@@ -216,6 +216,12 @@
       <DependentUpon>EnvelopSizeForeignPersonalAddressDetails.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ForeignPersonalAddressDetailsEidGreetings.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ForeignPersonalAddressDetailsEidGreetings.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ListofAllContactsBySpecialization.cs">
       <DependentUpon>ListofAllContactsBySpecialization.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -672,6 +678,10 @@
     <EmbeddedResource Include="Reports\EnvelopSizeForeignPersonalAddressDetails.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EnvelopSizeForeignPersonalAddressDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ForeignPersonalAddressDetailsEidGreetings.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ForeignPersonalAddressDetailsEidGreetings.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListofAllContactsBySpecialization.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

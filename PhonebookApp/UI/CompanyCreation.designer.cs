@@ -996,7 +996,7 @@
             this.groupBox7.Size = new System.Drawing.Size(620, 274);
             this.groupBox7.TabIndex = 103;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Foreign Address ";
+            this.groupBox7.Text = "Overseas Address ";
             this.groupBox7.Enter += new System.EventHandler(this.groupBox7_Enter);
             // 
             // fLandmarkTextBox

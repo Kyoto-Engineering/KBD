@@ -199,7 +199,7 @@ namespace PhonebookApp.Reports
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22_Fariha";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             LOIforKBDS cr = new LOIforKBDS();
@@ -249,7 +249,7 @@ namespace PhonebookApp.Reports
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22_Fariha";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             LOIforKBDS cr = new LOIforKBDS();

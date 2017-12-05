@@ -798,7 +798,7 @@ textBox1.Clear();
                 {
                     cmbJobTitle.Items.Add(rdr[0]);
                 }
-                cmbJobTitle.Items.Add("Not In The List");
+                //cmbJobTitle.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -823,7 +823,7 @@ textBox1.Clear();
                 {
                     cmbAgeGroup.Items.Add(rdr[0]);
                 }
-                cmbAgeGroup.Items.Add("Not In The List");
+                //cmbAgeGroup.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -847,7 +847,7 @@ textBox1.Clear();
                 {
                     cmbHighestDegree.Items.Add(rdr[0]);
                 }
-                cmbHighestDegree.Items.Add("Not In The List");
+                //cmbHighestDegree.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -871,7 +871,7 @@ textBox1.Clear();
                 {
                     cmbEducationalLevel.Items.Add(rdr[0]);
                 }
-                cmbEducationalLevel.Items.Add("Not In The List");
+               // cmbEducationalLevel.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -896,7 +896,7 @@ textBox1.Clear();
                 {
                     cmbProfession.Items.Add(rdr[0]);
                 }
-                cmbProfession.Items.Add("Not In The List");
+               // cmbProfession.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -920,7 +920,7 @@ textBox1.Clear();
                 {
                     cmbSpecialization.Items.Add(rdr[0]);
                 }
-                cmbSpecialization.Items.Add("Not In The List");
+                //cmbSpecialization.Items.Add("Not In The List");
                 con.Close();
             }
             catch (Exception ex)
@@ -1073,7 +1073,7 @@ textBox1.Clear();
                 {
                     cmbRelationShip.Items.Add(rdr.GetValue(0).ToString());
                 }
-                cmbRelationShip.Items.Add("Not In The List");
+                //cmbRelationShip.Items.Add("Not In The List");
             }
             catch (Exception ex)
             {

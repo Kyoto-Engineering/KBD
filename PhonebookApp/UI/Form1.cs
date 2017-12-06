@@ -911,7 +911,7 @@ textBox1.Clear();
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Specializations.Specialization) from Specializations  order by Specializations.SpecializationsId";
+                string ct = "select RTRIM(Specializations.Specialization) from Specializations  where Specializations.Specialization is not null ";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();

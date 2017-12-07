@@ -28,7 +28,7 @@
     <MinimumRequiredVersion>1.0.0.31</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>70</ApplicationRevision>
+    <ApplicationRevision>72</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -246,6 +246,12 @@
     <Compile Include="Reports\ListOfContactbySpecialization.Designer.cs">
       <DependentUpon>ListOfContactbySpecialization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\LOIforAutomatedTrafficLightWhite.cs">
+      <DependentUpon>LOIforAutomatedTrafficLightWhite.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\LOIforAutomatedTrafficLight.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,6 +260,12 @@
     </Compile>
     <Compile Include="Reports\LOIforK8DSUI.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LOIforKBDSWhite.cs">
+      <DependentUpon>LOIforKBDSWhite.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\LOIforKBDS.cs">
       <AutoGen>True</AutoGen>
@@ -697,12 +709,20 @@
     <EmbeddedResource Include="Reports\ListOfContactbySpecialization.resx">
       <DependentUpon>ListOfContactbySpecialization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LOIforAutomatedTrafficLightWhite.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LOIforAutomatedTrafficLightWhite.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\LOIforAutomatedTrafficLight.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LOIforAutomatedTrafficLight.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\LOIforK8DSUI.resx">
       <DependentUpon>LOIforK8DSUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LOIforKBDSWhite.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LOIforKBDSWhite.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\LOIforKBDS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

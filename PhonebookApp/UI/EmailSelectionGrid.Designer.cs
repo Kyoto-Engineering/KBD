@@ -52,7 +52,7 @@
             this.CompanySelectiongroupBox.Controls.Add(this.dataGridView1);
             this.CompanySelectiongroupBox.Location = new System.Drawing.Point(33, 155);
             this.CompanySelectiongroupBox.Name = "CompanySelectiongroupBox";
-            this.CompanySelectiongroupBox.Size = new System.Drawing.Size(336, 340);
+            this.CompanySelectiongroupBox.Size = new System.Drawing.Size(370, 340);
             this.CompanySelectiongroupBox.TabIndex = 0;
             this.CompanySelectiongroupBox.TabStop = false;
             this.CompanySelectiongroupBox.Text = "Email Selection";
@@ -62,7 +62,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -74,7 +73,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(299, 291);
+            this.dataGridView1.Size = new System.Drawing.Size(320, 293);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -96,7 +95,7 @@
             // 
             this.SearchByCompanyNameGroupBox.Controls.Add(this.companyNameSearchtextBox);
             this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
+            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.Black;
             this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(34, 81);
             this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
             this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);
@@ -107,19 +106,19 @@
             // companyNameSearchtextBox
             // 
             this.companyNameSearchtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyNameSearchtextBox.Location = new System.Drawing.Point(26, 23);
+            this.companyNameSearchtextBox.Location = new System.Drawing.Point(13, 25);
             this.companyNameSearchtextBox.Name = "companyNameSearchtextBox";
-            this.companyNameSearchtextBox.Size = new System.Drawing.Size(323, 29);
+            this.companyNameSearchtextBox.Size = new System.Drawing.Size(339, 29);
             this.companyNameSearchtextBox.TabIndex = 0;
             this.companyNameSearchtextBox.TextChanged += new System.EventHandler(this.companyNameSearchtextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(220, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 31);
+            this.label1.Size = new System.Drawing.Size(307, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Company Selection Form";
             // 
@@ -128,6 +127,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(444, 168);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(275, 327);
@@ -138,9 +138,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 88);
+            this.label2.Location = new System.Drawing.Point(6, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(42, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Email";
             // 
@@ -156,10 +156,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 85);
+            this.textBox1.Location = new System.Drawing.Point(44, 85);
             this.textBox1.MaxLength = 90;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(225, 22);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
@@ -168,8 +168,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(779, 509);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(767, 509);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchByCompanyNameGroupBox);

@@ -37,7 +37,7 @@
             // workingRadioButton
             // 
             this.workingRadioButton.AutoSize = true;
-            this.workingRadioButton.Location = new System.Drawing.Point(219, 118);
+            this.workingRadioButton.Location = new System.Drawing.Point(219, 117);
             this.workingRadioButton.Name = "workingRadioButton";
             this.workingRadioButton.Size = new System.Drawing.Size(106, 17);
             this.workingRadioButton.TabIndex = 9;
@@ -47,12 +47,14 @@
             // 
             // getButton
             // 
+            this.getButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.getButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getButton.Location = new System.Drawing.Point(234, 234);
             this.getButton.Name = "getButton";
-            this.getButton.Size = new System.Drawing.Size(75, 23);
+            this.getButton.Size = new System.Drawing.Size(91, 29);
             this.getButton.TabIndex = 8;
             this.getButton.Text = "GET";
-            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.UseVisualStyleBackColor = false;
             this.getButton.Click += new System.EventHandler(this.getButton_Click);
             // 
             // label2
@@ -70,7 +72,7 @@
             this.speccombo.FormattingEnabled = true;
             this.speccombo.Location = new System.Drawing.Point(219, 71);
             this.speccombo.Name = "speccombo";
-            this.speccombo.Size = new System.Drawing.Size(121, 21);
+            this.speccombo.Size = new System.Drawing.Size(196, 21);
             this.speccombo.TabIndex = 6;
             this.speccombo.SelectedIndexChanged += new System.EventHandler(this.speccombo_SelectedIndexChanged);
             // 
@@ -78,6 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(525, 361);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);

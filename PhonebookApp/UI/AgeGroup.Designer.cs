@@ -39,11 +39,11 @@
             // lblCategoryName
             // 
             this.lblCategoryName.AutoSize = true;
-            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryName.ForeColor = System.Drawing.Color.White;
+            this.lblCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.ForeColor = System.Drawing.Color.Black;
             this.lblCategoryName.Location = new System.Drawing.Point(36, 19);
             this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(100, 22);
+            this.lblCategoryName.Size = new System.Drawing.Size(96, 20);
             this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Age Group";
             // 
@@ -68,12 +68,12 @@
             // 
             // btnSaveAgeGroup
             // 
-            this.btnSaveAgeGroup.BackColor = System.Drawing.Color.Lime;
-            this.btnSaveAgeGroup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAgeGroup.ForeColor = System.Drawing.Color.Blue;
+            this.btnSaveAgeGroup.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveAgeGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAgeGroup.ForeColor = System.Drawing.Color.Black;
             this.btnSaveAgeGroup.Location = new System.Drawing.Point(306, 173);
             this.btnSaveAgeGroup.Name = "btnSaveAgeGroup";
-            this.btnSaveAgeGroup.Size = new System.Drawing.Size(124, 70);
+            this.btnSaveAgeGroup.Size = new System.Drawing.Size(124, 42);
             this.btnSaveAgeGroup.TabIndex = 1;
             this.btnSaveAgeGroup.Text = "Save ";
             this.btnSaveAgeGroup.UseVisualStyleBackColor = false;
@@ -83,8 +83,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(502, 277);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(502, 239);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveAgeGroup);

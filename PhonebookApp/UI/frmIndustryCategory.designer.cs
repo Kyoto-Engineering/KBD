@@ -46,16 +46,16 @@
             this.groupBox1.Controls.Add(this.txtIndustryCategory);
             this.groupBox1.Controls.Add(this.saveButton);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(108, 32);
+            this.groupBox1.Location = new System.Drawing.Point(12, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 141);
+            this.groupBox1.Size = new System.Drawing.Size(687, 141);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtIndustryCategory
             // 
             this.txtIndustryCategory.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIndustryCategory.Location = new System.Drawing.Point(195, 36);
+            this.txtIndustryCategory.Location = new System.Drawing.Point(342, 32);
             this.txtIndustryCategory.MaxLength = 200;
             this.txtIndustryCategory.Name = "txtIndustryCategory";
             this.txtIndustryCategory.Size = new System.Drawing.Size(268, 29);
@@ -63,12 +63,12 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.saveButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.Blue;
-            this.saveButton.Location = new System.Drawing.Point(342, 82);
+            this.saveButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.Black;
+            this.saveButton.Location = new System.Drawing.Point(489, 80);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(121, 42);
+            this.saveButton.Size = new System.Drawing.Size(121, 33);
             this.saveButton.TabIndex = 1;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 39);
+            this.label1.Location = new System.Drawing.Point(144, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 22);
             this.label1.TabIndex = 0;
@@ -87,21 +87,20 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(4, 179);
+            this.groupBox2.Location = new System.Drawing.Point(12, 179);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(605, 294);
+            this.groupBox2.Size = new System.Drawing.Size(687, 294);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(60, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(586, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(592, 262);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -114,8 +113,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(613, 472);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(750, 472);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

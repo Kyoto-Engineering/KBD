@@ -39,10 +39,10 @@
             // lblCategoryName
             // 
             this.lblCategoryName.AutoSize = true;
-            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryName.Location = new System.Drawing.Point(36, 32);
             this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(149, 22);
+            this.lblCategoryName.Size = new System.Drawing.Size(145, 20);
             this.lblCategoryName.TabIndex = 4;
             this.lblCategoryName.Text = "Profession Name";
             // 
@@ -52,7 +52,7 @@
             this.txtProfessionName.Location = new System.Drawing.Point(22, 31);
             this.txtProfessionName.MaxLength = 90;
             this.txtProfessionName.Name = "txtProfessionName";
-            this.txtProfessionName.Size = new System.Drawing.Size(367, 29);
+            this.txtProfessionName.Size = new System.Drawing.Size(445, 29);
             this.txtProfessionName.TabIndex = 1;
             this.txtProfessionName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProfessionName_KeyDown);
             // 
@@ -61,18 +61,18 @@
             this.groupBox1.Controls.Add(this.txtProfessionName);
             this.groupBox1.Location = new System.Drawing.Point(31, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(408, 89);
+            this.groupBox1.Size = new System.Drawing.Size(491, 89);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSaveProfession
             // 
-            this.btnSaveProfession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnSaveProfession.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveProfession.ForeColor = System.Drawing.Color.Blue;
-            this.btnSaveProfession.Location = new System.Drawing.Point(306, 186);
+            this.btnSaveProfession.BackColor = System.Drawing.Color.White;
+            this.btnSaveProfession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveProfession.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveProfession.Location = new System.Drawing.Point(397, 189);
             this.btnSaveProfession.Name = "btnSaveProfession";
-            this.btnSaveProfession.Size = new System.Drawing.Size(124, 70);
+            this.btnSaveProfession.Size = new System.Drawing.Size(101, 36);
             this.btnSaveProfession.TabIndex = 1;
             this.btnSaveProfession.Text = "Save ";
             this.btnSaveProfession.UseVisualStyleBackColor = false;
@@ -82,8 +82,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(482, 296);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.ClientSize = new System.Drawing.Size(574, 290);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveProfession);

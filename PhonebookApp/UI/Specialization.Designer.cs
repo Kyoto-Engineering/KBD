@@ -39,10 +39,10 @@
             // lblCategoryName
             // 
             this.lblCategoryName.AutoSize = true;
-            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryName.Location = new System.Drawing.Point(19, 13);
             this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(123, 22);
+            this.lblCategoryName.Size = new System.Drawing.Size(139, 24);
             this.lblCategoryName.TabIndex = 4;
             this.lblCategoryName.Text = "Specialization";
             // 
@@ -67,12 +67,12 @@
             // 
             // btnSaveSpecialization
             // 
-            this.btnSaveSpecialization.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnSaveSpecialization.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSpecialization.ForeColor = System.Drawing.Color.Blue;
+            this.btnSaveSpecialization.BackColor = System.Drawing.Color.White;
+            this.btnSaveSpecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSpecialization.ForeColor = System.Drawing.Color.Black;
             this.btnSaveSpecialization.Location = new System.Drawing.Point(305, 166);
             this.btnSaveSpecialization.Name = "btnSaveSpecialization";
-            this.btnSaveSpecialization.Size = new System.Drawing.Size(124, 70);
+            this.btnSaveSpecialization.Size = new System.Drawing.Size(72, 32);
             this.btnSaveSpecialization.TabIndex = 1;
             this.btnSaveSpecialization.Text = "Save ";
             this.btnSaveSpecialization.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(476, 255);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);

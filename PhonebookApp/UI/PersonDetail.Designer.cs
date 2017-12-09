@@ -32,12 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonDetail));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lk = new System.Windows.Forms.Label();
-            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SearchByPersonIdtextBox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +89,12 @@
             this.Column55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lk = new System.Windows.Forms.Label();
+            this.SearchPersonNametextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SearchByPersonIdtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -113,7 +113,6 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.BurlyWood;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -181,7 +180,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dataGridView1.Location = new System.Drawing.Point(19, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -190,70 +189,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(470, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = " List  of Person  Information";
-            // 
-            // lk
-            // 
-            this.lk.AutoSize = true;
-            this.lk.Location = new System.Drawing.Point(14, 44);
-            this.lk.Name = "lk";
-            this.lk.Size = new System.Drawing.Size(18, 15);
-            this.lk.TabIndex = 3;
-            this.lk.Text = "lg";
-            this.lk.Visible = false;
-            // 
-            // SearchPersonNametextBox
-            // 
-            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchPersonNametextBox.Location = new System.Drawing.Point(64, 67);
-            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
-            this.SearchPersonNametextBox.Size = new System.Drawing.Size(221, 26);
-            this.SearchPersonNametextBox.TabIndex = 5;
-            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
-            this.SearchPersonNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchPersonNametextBox_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(89, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Search By Person Name";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.SearchByPersonIdtextBox);
-            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(294, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(178, 55);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search By Person Id";
-            // 
-            // SearchByPersonIdtextBox
-            // 
-            this.SearchByPersonIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByPersonIdtextBox.Location = new System.Drawing.Point(10, 20);
-            this.SearchByPersonIdtextBox.Name = "SearchByPersonIdtextBox";
-            this.SearchByPersonIdtextBox.Size = new System.Drawing.Size(155, 29);
-            this.SearchByPersonIdtextBox.TabIndex = 0;
-            this.SearchByPersonIdtextBox.TextChanged += new System.EventHandler(this.SearchByPersonIdtextBox_TextChanged);
-            this.SearchByPersonIdtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchByPersonIdtextBox_KeyDown);
             // 
             // Column1
             // 
@@ -599,11 +534,75 @@
             this.Column57.Name = "Column57";
             this.Column57.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(470, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(320, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = " List  of Person\'s  Information";
+            // 
+            // lk
+            // 
+            this.lk.AutoSize = true;
+            this.lk.Location = new System.Drawing.Point(14, 44);
+            this.lk.Name = "lk";
+            this.lk.Size = new System.Drawing.Size(18, 15);
+            this.lk.TabIndex = 3;
+            this.lk.Text = "lg";
+            this.lk.Visible = false;
+            // 
+            // SearchPersonNametextBox
+            // 
+            this.SearchPersonNametextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPersonNametextBox.Location = new System.Drawing.Point(64, 67);
+            this.SearchPersonNametextBox.Name = "SearchPersonNametextBox";
+            this.SearchPersonNametextBox.Size = new System.Drawing.Size(221, 26);
+            this.SearchPersonNametextBox.TabIndex = 5;
+            this.SearchPersonNametextBox.TextChanged += new System.EventHandler(this.SearchPersonNametextBox_TextChanged);
+            this.SearchPersonNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchPersonNametextBox_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(60, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Search By Person Name";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.SearchByPersonIdtextBox);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(294, 41);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(178, 55);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search By Person Id";
+            // 
+            // SearchByPersonIdtextBox
+            // 
+            this.SearchByPersonIdtextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByPersonIdtextBox.Location = new System.Drawing.Point(10, 20);
+            this.SearchByPersonIdtextBox.Name = "SearchByPersonIdtextBox";
+            this.SearchByPersonIdtextBox.Size = new System.Drawing.Size(155, 29);
+            this.SearchByPersonIdtextBox.TabIndex = 0;
+            this.SearchByPersonIdtextBox.TextChanged += new System.EventHandler(this.SearchByPersonIdtextBox_TextChanged);
+            this.SearchByPersonIdtextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchByPersonIdtextBox_KeyDown);
+            // 
             // PersonDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSalmon;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1303, 620);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.SearchPersonNametextBox);

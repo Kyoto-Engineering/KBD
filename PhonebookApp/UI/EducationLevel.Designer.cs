@@ -39,10 +39,10 @@
             // lblCategoryName
             // 
             this.lblCategoryName.AutoSize = true;
-            this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryName.Location = new System.Drawing.Point(40, 28);
             this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(195, 22);
+            this.lblCategoryName.Size = new System.Drawing.Size(188, 20);
             this.lblCategoryName.TabIndex = 0;
             this.lblCategoryName.Text = "Education Level Name";
             // 
@@ -67,12 +67,12 @@
             // 
             // btnSaveEducationLevel
             // 
-            this.btnSaveEducationLevel.BackColor = System.Drawing.Color.Lime;
-            this.btnSaveEducationLevel.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveEducationLevel.ForeColor = System.Drawing.Color.Blue;
-            this.btnSaveEducationLevel.Location = new System.Drawing.Point(310, 182);
+            this.btnSaveEducationLevel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveEducationLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveEducationLevel.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveEducationLevel.Location = new System.Drawing.Point(346, 177);
             this.btnSaveEducationLevel.Name = "btnSaveEducationLevel";
-            this.btnSaveEducationLevel.Size = new System.Drawing.Size(124, 70);
+            this.btnSaveEducationLevel.Size = new System.Drawing.Size(97, 30);
             this.btnSaveEducationLevel.TabIndex = 1;
             this.btnSaveEducationLevel.Text = "Save ";
             this.btnSaveEducationLevel.UseVisualStyleBackColor = false;
@@ -82,8 +82,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ClientSize = new System.Drawing.Size(487, 307);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(487, 245);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSaveEducationLevel);

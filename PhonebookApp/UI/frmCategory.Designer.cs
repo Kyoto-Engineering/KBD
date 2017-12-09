@@ -40,7 +40,7 @@
             // 
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryName.Location = new System.Drawing.Point(55, 17);
+            this.lblCategoryName.Location = new System.Drawing.Point(33, 83);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(139, 22);
             this.lblCategoryName.TabIndex = 0;
@@ -52,18 +52,18 @@
             this.txtCategoryName.Location = new System.Drawing.Point(22, 31);
             this.txtCategoryName.MaxLength = 90;
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(367, 29);
+            this.txtCategoryName.Size = new System.Drawing.Size(370, 29);
             this.txtCategoryName.TabIndex = 1;
             this.txtCategoryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCategoryName_KeyDown);
             // 
             // btnSaveCategory
             // 
-            this.btnSaveCategory.BackColor = System.Drawing.Color.Lime;
-            this.btnSaveCategory.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveCategory.ForeColor = System.Drawing.Color.Blue;
-            this.btnSaveCategory.Location = new System.Drawing.Point(325, 171);
+            this.btnSaveCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveCategory.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveCategory.Location = new System.Drawing.Point(492, 168);
             this.btnSaveCategory.Name = "btnSaveCategory";
-            this.btnSaveCategory.Size = new System.Drawing.Size(124, 70);
+            this.btnSaveCategory.Size = new System.Drawing.Size(102, 40);
             this.btnSaveCategory.TabIndex = 2;
             this.btnSaveCategory.Text = "Save ";
             this.btnSaveCategory.UseVisualStyleBackColor = false;
@@ -72,9 +72,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtCategoryName);
-            this.groupBox1.Location = new System.Drawing.Point(50, 55);
+            this.groupBox1.Location = new System.Drawing.Point(178, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(408, 89);
+            this.groupBox1.Size = new System.Drawing.Size(416, 89);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -82,8 +82,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(511, 283);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(644, 263);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblCategoryName);
             this.Controls.Add(this.btnSaveCategory);

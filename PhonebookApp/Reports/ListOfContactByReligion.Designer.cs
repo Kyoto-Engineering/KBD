@@ -47,12 +47,14 @@
             // 
             // getButton
             // 
+            this.getButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.getButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getButton.Location = new System.Drawing.Point(235, 242);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 8;
             this.getButton.Text = "GET";
-            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.UseVisualStyleBackColor = false;
             this.getButton.Click += new System.EventHandler(this.getButton_Click);
             // 
             // label2
@@ -78,6 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(525, 361);
             this.Controls.Add(this.workingRadioButton);
             this.Controls.Add(this.getButton);

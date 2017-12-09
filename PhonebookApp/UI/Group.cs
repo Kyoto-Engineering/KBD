@@ -576,6 +576,14 @@ namespace PhonebookApp.UI
             f2.ShowDialog();
             this.Visible = true;
         }
+
+        private void LOIforKBDbutton_Click(object sender, EventArgs e)
+        {
+            LOIforKBD f3 = new LOIforKBD();
+            this.Visible = false;
+            f3.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
 

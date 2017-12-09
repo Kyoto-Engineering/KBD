@@ -67,20 +67,23 @@ namespace PhonebookApp.Reports
             // 
             // getButton
             // 
+            this.getButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.getButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getButton.Location = new System.Drawing.Point(203, 215);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
             this.getButton.TabIndex = 14;
             this.getButton.Text = "GET";
-            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.UseVisualStyleBackColor = false;
             this.getButton.Click += new System.EventHandler(this.getButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 80);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(42, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(95, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "Group Name";
             // 
@@ -95,7 +98,7 @@ namespace PhonebookApp.Reports
             // 
             // LOIforK8DSUI
             // 
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(504, 314);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);

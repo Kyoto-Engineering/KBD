@@ -36,9 +36,9 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchByCompanyNameGroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.NewComCreationButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.CompanySelectiongroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SearchByCompanyNameGroupBox.SuspendLayout();
@@ -47,6 +47,7 @@
             // CompanySelectiongroupBox
             // 
             this.CompanySelectiongroupBox.Controls.Add(this.dataGridView1);
+            this.CompanySelectiongroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanySelectiongroupBox.Location = new System.Drawing.Point(33, 155);
             this.CompanySelectiongroupBox.Name = "CompanySelectiongroupBox";
             this.CompanySelectiongroupBox.Size = new System.Drawing.Size(726, 340);
@@ -59,7 +60,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -101,36 +101,14 @@
             // SearchByCompanyNameGroupBox
             // 
             this.SearchByCompanyNameGroupBox.Controls.Add(this.textBox1);
-            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.OrangeRed;
+            this.SearchByCompanyNameGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchByCompanyNameGroupBox.ForeColor = System.Drawing.Color.Black;
             this.SearchByCompanyNameGroupBox.Location = new System.Drawing.Point(34, 81);
             this.SearchByCompanyNameGroupBox.Name = "SearchByCompanyNameGroupBox";
             this.SearchByCompanyNameGroupBox.Size = new System.Drawing.Size(369, 63);
             this.SearchByCompanyNameGroupBox.TabIndex = 1;
             this.SearchByCompanyNameGroupBox.TabStop = false;
             this.SearchByCompanyNameGroupBox.Text = "Search By Company Name";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Company Selection Form";
-            // 
-            // NewComCreationButton
-            // 
-            this.NewComCreationButton.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.NewComCreationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewComCreationButton.Location = new System.Drawing.Point(499, 81);
-            this.NewComCreationButton.Name = "NewComCreationButton";
-            this.NewComCreationButton.Size = new System.Drawing.Size(123, 52);
-            this.NewComCreationButton.TabIndex = 3;
-            this.NewComCreationButton.Text = "New Company Creation";
-            this.NewComCreationButton.UseVisualStyleBackColor = false;
-            this.NewComCreationButton.Click += new System.EventHandler(this.NewComCreationButton_Click);
             // 
             // textBox1
             // 
@@ -140,11 +118,33 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(220, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Company Selection Form";
+            // 
+            // NewComCreationButton
+            // 
+            this.NewComCreationButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NewComCreationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewComCreationButton.Location = new System.Drawing.Point(499, 81);
+            this.NewComCreationButton.Name = "NewComCreationButton";
+            this.NewComCreationButton.Size = new System.Drawing.Size(123, 52);
+            this.NewComCreationButton.TabIndex = 3;
+            this.NewComCreationButton.Text = "New Company Creation";
+            this.NewComCreationButton.UseVisualStyleBackColor = false;
+            this.NewComCreationButton.Click += new System.EventHandler(this.NewComCreationButton_Click);
+            // 
             // CompanySelectionGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(779, 509);
             this.Controls.Add(this.NewComCreationButton);
             this.Controls.Add(this.label1);

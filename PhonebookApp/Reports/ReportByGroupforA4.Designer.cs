@@ -60,6 +60,7 @@
             // 
             // getButton
             // 
+            this.getButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getButton.Location = new System.Drawing.Point(226, 210);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(75, 23);
@@ -90,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(512, 305);
             this.Controls.Add(this.resedentialRadioButton);
             this.Controls.Add(this.workingRadioButton);

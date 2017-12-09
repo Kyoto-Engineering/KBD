@@ -35,12 +35,12 @@
             // 
             // InsertPOD
             // 
-            this.InsertPOD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.InsertPOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertPOD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.InsertPOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertPOD.ForeColor = System.Drawing.Color.Black;
-            this.InsertPOD.Location = new System.Drawing.Point(257, 87);
+            this.InsertPOD.Location = new System.Drawing.Point(219, 79);
             this.InsertPOD.Name = "InsertPOD";
-            this.InsertPOD.Size = new System.Drawing.Size(148, 66);
+            this.InsertPOD.Size = new System.Drawing.Size(148, 59);
             this.InsertPOD.TabIndex = 53;
             this.InsertPOD.Text = "Insert POD";
             this.InsertPOD.UseVisualStyleBackColor = false;
@@ -48,12 +48,12 @@
             // 
             // BatchCreation
             // 
-            this.BatchCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BatchCreation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BatchCreation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BatchCreation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BatchCreation.ForeColor = System.Drawing.Color.Black;
-            this.BatchCreation.Location = new System.Drawing.Point(58, 83);
+            this.BatchCreation.Location = new System.Drawing.Point(34, 79);
             this.BatchCreation.Name = "BatchCreation";
-            this.BatchCreation.Size = new System.Drawing.Size(134, 74);
+            this.BatchCreation.Size = new System.Drawing.Size(160, 59);
             this.BatchCreation.TabIndex = 52;
             this.BatchCreation.Text = "Batch Creation\r\n";
             this.BatchCreation.UseVisualStyleBackColor = false;
@@ -61,12 +61,12 @@
             // 
             // CourierManagement
             // 
-            this.CourierManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.CourierManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CourierManagement.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CourierManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CourierManagement.ForeColor = System.Drawing.Color.Black;
-            this.CourierManagement.Location = new System.Drawing.Point(456, 83);
+            this.CourierManagement.Location = new System.Drawing.Point(411, 79);
             this.CourierManagement.Name = "CourierManagement";
-            this.CourierManagement.Size = new System.Drawing.Size(142, 70);
+            this.CourierManagement.Size = new System.Drawing.Size(142, 59);
             this.CourierManagement.TabIndex = 54;
             this.CourierManagement.Text = "Courier Management";
             this.CourierManagement.UseVisualStyleBackColor = false;
@@ -75,8 +75,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(627, 275);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(627, 235);
             this.Controls.Add(this.CourierManagement);
             this.Controls.Add(this.InsertPOD);
             this.Controls.Add(this.BatchCreation);

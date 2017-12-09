@@ -171,7 +171,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            LOIforKBDSWhite cr = new LOIforKBDSWhite();
+            EnvelopForWorkingAddGroup cr = new EnvelopForWorkingAddGroup();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {

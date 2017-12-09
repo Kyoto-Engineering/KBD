@@ -50,16 +50,16 @@
             this.groupBox1.Controls.Add(this.Categorybutton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(122, 100);
+            this.groupBox1.Location = new System.Drawing.Point(12, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(513, 301);
+            this.groupBox1.Size = new System.Drawing.Size(718, 241);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // buttonAgeGroup
             // 
-            this.buttonAgeGroup.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonAgeGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgeGroup.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonAgeGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgeGroup.ForeColor = System.Drawing.Color.Black;
             this.buttonAgeGroup.Location = new System.Drawing.Point(54, 122);
             this.buttonAgeGroup.Name = "buttonAgeGroup";
@@ -71,8 +71,8 @@
             // 
             // buttonProfession
             // 
-            this.buttonProfession.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonProfession.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProfession.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonProfession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProfession.ForeColor = System.Drawing.Color.Black;
             this.buttonProfession.Location = new System.Drawing.Point(276, 48);
             this.buttonProfession.Name = "buttonProfession";
@@ -84,8 +84,8 @@
             // 
             // buttonSpecialization
             // 
-            this.buttonSpecialization.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonSpecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSpecialization.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSpecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSpecialization.ForeColor = System.Drawing.Color.Black;
             this.buttonSpecialization.Location = new System.Drawing.Point(54, 48);
             this.buttonSpecialization.Name = "buttonSpecialization";
@@ -97,10 +97,10 @@
             // 
             // buttonJobTitle
             // 
-            this.buttonJobTitle.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJobTitle.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJobTitle.ForeColor = System.Drawing.Color.Black;
-            this.buttonJobTitle.Location = new System.Drawing.Point(276, 122);
+            this.buttonJobTitle.Location = new System.Drawing.Point(475, 51);
             this.buttonJobTitle.Name = "buttonJobTitle";
             this.buttonJobTitle.Size = new System.Drawing.Size(183, 62);
             this.buttonJobTitle.TabIndex = 44;
@@ -110,10 +110,10 @@
             // 
             // buttonEducationLevel
             // 
-            this.buttonEducationLevel.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonEducationLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEducationLevel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonEducationLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEducationLevel.ForeColor = System.Drawing.Color.Black;
-            this.buttonEducationLevel.Location = new System.Drawing.Point(276, 198);
+            this.buttonEducationLevel.Location = new System.Drawing.Point(276, 122);
             this.buttonEducationLevel.Name = "buttonEducationLevel";
             this.buttonEducationLevel.Size = new System.Drawing.Size(183, 66);
             this.buttonEducationLevel.TabIndex = 43;
@@ -123,12 +123,12 @@
             // 
             // Categorybutton
             // 
-            this.Categorybutton.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.Categorybutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Categorybutton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Categorybutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Categorybutton.ForeColor = System.Drawing.Color.Black;
-            this.Categorybutton.Location = new System.Drawing.Point(54, 199);
+            this.Categorybutton.Location = new System.Drawing.Point(475, 119);
             this.Categorybutton.Name = "Categorybutton";
-            this.Categorybutton.Size = new System.Drawing.Size(204, 65);
+            this.Categorybutton.Size = new System.Drawing.Size(183, 65);
             this.Categorybutton.TabIndex = 42;
             this.Categorybutton.Text = "Category";
             this.Categorybutton.UseVisualStyleBackColor = false;
@@ -137,11 +137,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(234, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 33);
+            this.label1.Size = new System.Drawing.Size(237, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Create New Values";
             // 
@@ -149,8 +149,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(728, 522);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(793, 350);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

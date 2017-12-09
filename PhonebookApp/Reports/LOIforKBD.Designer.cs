@@ -72,7 +72,7 @@
             this.groupcomboBox.FormattingEnabled = true;
             this.groupcomboBox.Location = new System.Drawing.Point(146, 52);
             this.groupcomboBox.Name = "groupcomboBox";
-            this.groupcomboBox.Size = new System.Drawing.Size(271, 21);
+            this.groupcomboBox.Size = new System.Drawing.Size(296, 21);
             this.groupcomboBox.TabIndex = 3;
             this.groupcomboBox.SelectedIndexChanged += new System.EventHandler(this.groupcomboBox_SelectedIndexChanged);
             // 
@@ -93,13 +93,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(504, 295);
+            this.ClientSize = new System.Drawing.Size(539, 285);
             this.Controls.Add(this.getbutton);
             this.Controls.Add(this.groupcomboBox);
             this.Controls.Add(this.Group);
             this.Controls.Add(this.ResidentioalradioButton);
             this.Controls.Add(this.workingradioButton);
             this.Name = "LOIforKBD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOIforKBD";
             this.Load += new System.EventHandler(this.LOIforKBD_Load);
             this.ResumeLayout(false);

@@ -255,11 +255,23 @@
     <Compile Include="Reports\LOIforK8DSUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\LOIforKBD2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOIforKBD2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\LOIforKBDS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LOIforKBDS.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\LOIforKBDUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LOIforKBDUI.Designer.cs">
+      <DependentUpon>LOIforKBDUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\NewLOIforAutomatedTrafficLightUI.cs">
       <SubType>Form</SubType>
@@ -704,9 +716,16 @@
     <EmbeddedResource Include="Reports\LOIforK8DSUI.resx">
       <DependentUpon>LOIforK8DSUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LOIforKBD2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LOIforKBD2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\LOIforKBDS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LOIforKBDS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LOIforKBDUI.resx">
+      <DependentUpon>LOIforKBDUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NewLOIforAutomatedTrafficLightUI.resx">
       <DependentUpon>NewLOIforAutomatedTrafficLightUI.cs</DependentUpon>

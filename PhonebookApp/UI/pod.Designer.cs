@@ -32,13 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.batchcombo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -63,6 +56,16 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReasonOfNotDelivered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DELResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceivedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -102,47 +105,15 @@
             this.Column9,
             this.Column4,
             this.Column3,
-            this.Column5});
+            this.Column5,
+            this.ReasonOfNotDelivered,
+            this.DELResult,
+            this.ReceivedBy});
             this.dataGridView1.Location = new System.Drawing.Point(18, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(649, 310);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Person Id";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Recipient Name";
-            this.Column2.Name = "Column2";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Company Name";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "District";
-            this.Column9.Name = "Column9";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "POD";
-            this.Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Batch Number";
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Batch Date";
-            this.Column5.Name = "Column5";
             // 
             // groupBox2
             // 
@@ -234,9 +205,9 @@
             this.notdeliverecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notdeliverecheckBox.Location = new System.Drawing.Point(148, 307);
             this.notdeliverecheckBox.Name = "notdeliverecheckBox";
-            this.notdeliverecheckBox.Size = new System.Drawing.Size(188, 20);
+            this.notdeliverecheckBox.Size = new System.Drawing.Size(172, 20);
             this.notdeliverecheckBox.TabIndex = 106;
-            this.notdeliverecheckBox.Text = "Courier is not delivered";
+            this.notdeliverecheckBox.Text = "Courier not delivered";
             this.notdeliverecheckBox.UseVisualStyleBackColor = true;
             this.notdeliverecheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -384,6 +355,57 @@
             this.Column7.HeaderText = "Batch Date";
             this.Column7.Name = "Column7";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Person Id";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Recipient Name";
+            this.Column2.Name = "Column2";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Company Name";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "District";
+            this.Column9.Name = "Column9";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "POD";
+            this.Column4.Name = "Column4";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Batch Number";
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Batch Date";
+            this.Column5.Name = "Column5";
+            // 
+            // ReasonOfNotDelivered
+            // 
+            this.ReasonOfNotDelivered.HeaderText = "Reason Of Not Delivered";
+            this.ReasonOfNotDelivered.Name = "ReasonOfNotDelivered";
+            this.ReasonOfNotDelivered.Width = 150;
+            // 
+            // DELResult
+            // 
+            this.DELResult.HeaderText = "DEL Result";
+            this.DELResult.Name = "DELResult";
+            // 
+            // ReceivedBy
+            // 
+            this.ReceivedBy.HeaderText = "Received By";
+            this.ReceivedBy.Name = "ReceivedBy";
+            // 
             // Pod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,13 +458,6 @@
         private System.Windows.Forms.TextBox dtext;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox comtext;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.ComboBox ReasoncomboBox;
@@ -450,5 +465,15 @@
         private System.Windows.Forms.CheckBox notdeliverecheckBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ReceivedbytextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReasonOfNotDelivered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DELResult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceivedBy;
     }
 }

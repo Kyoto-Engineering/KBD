@@ -447,16 +447,16 @@ namespace PhonebookApp.UI
         {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string qry = "select Specialization from Specializations";
-            cmd = new SqlCommand(qry, con);
+            string ct = "select RTRIM(Specializations.Specialization) from Specializations  where Specializations.Specialization is not null ";
+            cmd = new SqlCommand(ct);
+            cmd.Connection = con;
             rdr = cmd.ExecuteReader();
-            while (rdr.Read() == true)
+
+            while (rdr.Read())
             {
-
-                cmbSpecialization.Items.Add(rdr.GetString(0));
-
+                cmbSpecialization.Items.Add(rdr[0]);
             }
-
+            //cmbSpecialization.Items.Add("Not In The List");
             con.Close();
 
         }

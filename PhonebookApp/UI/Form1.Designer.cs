@@ -259,7 +259,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox6);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(14, 33);
             this.groupBox1.Name = "groupBox1";
@@ -383,7 +383,7 @@
             this.label66.AutoSize = true;
             this.label66.Location = new System.Drawing.Point(28, 473);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(289, 24);
+            this.label66.Size = new System.Drawing.Size(260, 24);
             this.label66.TabIndex = 100;
             this.label66.Text = "Size Must Be 300 by 300 Pixel";
             // 
@@ -392,7 +392,7 @@
             this.label65.AutoSize = true;
             this.label65.Location = new System.Drawing.Point(138, 451);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(147, 24);
+            this.label65.Size = new System.Drawing.Size(133, 24);
             this.label65.TabIndex = 99;
             this.label65.Text = "Upload Picture";
             // 
@@ -614,7 +614,7 @@
             this.unKnownRA.AutoSize = true;
             this.unKnownRA.Location = new System.Drawing.Point(254, 14);
             this.unKnownRA.Name = "unKnownRA";
-            this.unKnownRA.Size = new System.Drawing.Size(116, 28);
+            this.unKnownRA.Size = new System.Drawing.Size(109, 28);
             this.unKnownRA.TabIndex = 87;
             this.unKnownRA.Text = "Unknown";
             this.unKnownRA.UseVisualStyleBackColor = true;

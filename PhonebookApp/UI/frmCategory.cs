@@ -33,7 +33,7 @@ namespace PhonebookApp.UI
             if (!string.IsNullOrEmpty(categoryName))
             {
                 String str = "server=KYOTO-PC12;database=PhonebookDB;user=sa;password=System@kyoto";
-                String qry="insert into tblCategory(Categoryname) values('"+ categoryName +"')";
+                String qry = "insert into IndustryCategorys(IndustryCategory) values('" + categoryName + "')";
                 try
                     {
                         SqlConnection conn = new SqlConnection(str);
@@ -74,7 +74,7 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select CategoryName from Category where CategoryName='" + txtCategoryName.Text + "'";
+                string ct = "select IndustryCategory from IndustryCategorys where IndustryCategory='" + txtCategoryName.Text + "'";
 
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
@@ -96,7 +96,7 @@ namespace PhonebookApp.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string query = "insert into Category(CategoryName, UserId, DateAndTime) values(@d1,@d2,@d3)";
+                string query = "insert into IndustryCategorys(IndustryCategory, CreatedByUId, CreatedDTime) values(@d1,@d2,@d3)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", txtCategoryName.Text);
                 cmd.Parameters.AddWithValue("@d2", user_id);

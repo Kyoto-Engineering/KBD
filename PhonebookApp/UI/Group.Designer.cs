@@ -194,14 +194,14 @@
             // 
             // listView
             // 
-            this.listView.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.listView.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.listView.ForeColor = System.Drawing.Color.Black;
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.Location = new System.Drawing.Point(421, 456);
@@ -450,7 +450,6 @@
             this.button1.TabIndex = 22;
             this.button1.Text = "LOI for Automated Traffic Light";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LOIforK8DSbutton
@@ -464,7 +463,6 @@
             this.LOIforK8DSbutton.TabIndex = 21;
             this.LOIforK8DSbutton.Text = "LOI for K8DS";
             this.LOIforK8DSbutton.UseVisualStyleBackColor = false;
-            this.LOIforK8DSbutton.Visible = false;
             this.LOIforK8DSbutton.Click += new System.EventHandler(this.LOIforK8DSbutton_Click);
             // 
             // LOIforKBDbutton
@@ -478,7 +476,6 @@
             this.LOIforKBDbutton.TabIndex = 23;
             this.LOIforKBDbutton.Text = "LOI for KBD";
             this.LOIforKBDbutton.UseVisualStyleBackColor = false;
-            this.LOIforKBDbutton.Visible = false;
             this.LOIforKBDbutton.Click += new System.EventHandler(this.LOIforKBDbutton_Click);
             // 
             // Group

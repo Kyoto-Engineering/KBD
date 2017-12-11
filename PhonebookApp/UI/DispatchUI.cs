@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PhonebookApp.Reports;
 
 namespace PhonebookApp.UI
 {
@@ -30,6 +31,14 @@ namespace PhonebookApp.UI
             this.Visible = false;
             Pod pod = new Pod();
             pod.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void batchreportbutton_Click(object sender, EventArgs e)
+        {
+            ReportByBatch f2 = new ReportByBatch();
+            this.Visible = false;
+            f2.ShowDialog();
             this.Visible = true;
         }
     }

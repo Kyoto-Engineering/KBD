@@ -47,9 +47,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(404, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 31);
+            this.label1.Size = new System.Drawing.Size(402, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Business Directory Plus";
+            this.label1.Text = "Business Directory Enterprise";
             // 
             // groupBox1
             // 

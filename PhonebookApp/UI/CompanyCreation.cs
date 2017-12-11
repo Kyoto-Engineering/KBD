@@ -815,36 +815,19 @@ namespace PhonebookApp.UI
         {
             try
             {
-                if (cmbCompanytype.Text != "Government Authority")
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct = "select RTRIM(GovtCompanyTypeName) from GovtCompanyType order by GovtCompanyTypeId desc";
-                    cmd = new SqlCommand(ct);
-                    cmd.Connection = con;
-                    rdr = cmd.ExecuteReader();
 
-                    while (rdr.Read())
-                    {
-                        cmbNatureOfClient.Items.Add(rdr[0]);
-                    }
-                    con.Close(); 
-                }
-                else
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct = "select RTRIM(CompanyNature) from NatureOfCompanies order by NatureOfCompanyId desc";
-                    cmd = new SqlCommand(ct);
-                    cmd.Connection = con;
-                    rdr = cmd.ExecuteReader();
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select RTRIM(CompanyNature) from NatureOfCompanies order by NatureOfCompanyId desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
 
-                    while (rdr.Read())
-                    {
-                        cmbNatureOfClient.Items.Add(rdr[0]);
-                    }
-                    con.Close();  
+                while (rdr.Read())
+                {
+                    cmbNatureOfClient.Items.Add(rdr[0]);
                 }
+                con.Close();
 
             }
             catch (Exception ex)
@@ -854,14 +837,11 @@ namespace PhonebookApp.UI
         }
 
 
-
-
-
         public void FillIndustryCategory()
         {
             try
             {
-                
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select RTRIM(IndustryCategory) from IndustryCategorys order by IndustryCategoryId desc";

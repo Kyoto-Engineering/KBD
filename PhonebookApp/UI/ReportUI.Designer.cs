@@ -53,12 +53,13 @@
             this.letterOfIntroductionButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.letterOfIntroductionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letterOfIntroductionButton.ForeColor = System.Drawing.Color.Black;
-            this.letterOfIntroductionButton.Location = new System.Drawing.Point(16, 31);
+            this.letterOfIntroductionButton.Location = new System.Drawing.Point(16, 217);
             this.letterOfIntroductionButton.Name = "letterOfIntroductionButton";
             this.letterOfIntroductionButton.Size = new System.Drawing.Size(161, 62);
             this.letterOfIntroductionButton.TabIndex = 0;
             this.letterOfIntroductionButton.Text = "Letter Of Introduction";
             this.letterOfIntroductionButton.UseVisualStyleBackColor = false;
+            this.letterOfIntroductionButton.Visible = false;
             this.letterOfIntroductionButton.Click += new System.EventHandler(this.letterOfIntroductionButton_Click);
             // 
             // gretingsCardButton
@@ -180,11 +181,11 @@
             this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(203, 214);
+            this.button2.Location = new System.Drawing.Point(16, 28);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 65);
             this.button2.TabIndex = 7;
-            this.button2.Text = "Batch Report";
+            this.button2.Text = "Courier Batch";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

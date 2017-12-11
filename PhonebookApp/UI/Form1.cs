@@ -382,7 +382,8 @@ textBox1.Clear();
                 cmbJobTitle.Focus();
             }
 
-            else if (CountrycomboBox.Text == "Bangladesh")
+            else if (CountrycomboBox.Text == "Bangladesh" +
+                     "")
             {
 
                 if (unKnownRA.Checked == false)

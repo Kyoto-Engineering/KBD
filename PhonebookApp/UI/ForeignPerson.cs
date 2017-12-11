@@ -623,7 +623,7 @@ namespace PhonebookApp.UI
             //	Table table = default(Table);
             var with1 = reportConInfo;
             with1.ServerName = "tcp:KyotoServer,49172";
-            with1.DatabaseName = "PhoneBookDBKD22_try_Spe";
+            with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
             EnvelopSizeForeignPersonalAddressDetails cr = new EnvelopSizeForeignPersonalAddressDetails();
@@ -678,7 +678,7 @@ namespace PhonebookApp.UI
                 //	Table table = default(Table);
                 var with1 = reportConInfo;
                 with1.ServerName = "tcp:KyotoServer,49172";
-                with1.DatabaseName = "PhoneBookDBKD22_try_Spe";
+                with1.DatabaseName = "PhoneBookDBKD22";
                 with1.UserID = "sa";
                 with1.Password = "SystemAdministrator";
                 ForeignPersonalAddressDetailsEidGreetings cr = new ForeignPersonalAddressDetailsEidGreetings();

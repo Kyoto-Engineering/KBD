@@ -34,7 +34,7 @@ namespace PhonebookApp.Reports
 
             if (!string.IsNullOrWhiteSpace(batchIdCombobox.Text))
             {
-                if (PortraitRadioButton.Checked)
+                if (BatchReportforSuccessfulLetter.Checked)
                 {
                     GetPortrait();
                     Clear();
@@ -44,6 +44,12 @@ namespace PhonebookApp.Reports
                     GetLandscape();
                     Clear();
                 }
+                else if (missingradioButton.Checked)
+                {
+                    Getmissing();
+                    Clear();
+                }
+                    
                 else
                 {
                     MessageBox.Show(@"Please Choose an Option");
@@ -60,8 +66,9 @@ namespace PhonebookApp.Reports
         private void Clear()
         {
             batchIdCombobox.SelectedIndex = -1;
-            PortraitRadioButton.Checked = false;
+            BatchReportforSuccessfulLetter.Checked = false;
             LandscapeRadioButton.Checked = false;
+            missingradioButton.Checked = false;
         }
         private void GetPortrait()
         {
@@ -75,7 +82,7 @@ namespace PhonebookApp.Reports
             ParameterDiscreteValue paramDiscreteValue1 = new ParameterDiscreteValue();
 
             //set the parameter field name
-            paramField1.Name = "BatchNum";
+            paramField1.Name = "BatchId";
 
             //set the parameter value
             paramDiscreteValue1.Value = batchIdCombobox.Text;
@@ -96,7 +103,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportnCopy cr = new BatchReportnCopy();
+            BatchReportL cr = new BatchReportL();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -145,7 +152,57 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportL cr = new BatchReportL();
+            BatchReportUnSuccessfull cr = new BatchReportUnSuccessfull();
+            tables = cr.Database.Tables;
+            foreach (Table table in tables)
+            {
+                reportLogonInfo = table.LogOnInfo;
+                reportLogonInfo.ConnectionInfo = reportConInfo;
+                table.ApplyLogOnInfo(reportLogonInfo);
+            }
+
+            f2.crystalReportViewer1.ParameterFieldInfo = paramFields1;
+            f2.crystalReportViewer1.ReportSource = cr;
+            this.Visible = false;
+
+            f2.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void Getmissing()
+        {
+            ParameterField paramField1 = new ParameterField();
+
+
+            //creating an object of ParameterFields class
+            ParameterFields paramFields1 = new ParameterFields();
+
+            //creating an object of ParameterDiscreteValue class
+            ParameterDiscreteValue paramDiscreteValue1 = new ParameterDiscreteValue();
+
+            //set the parameter field name
+            paramField1.Name = "BatchId";
+
+            //set the parameter value
+            paramDiscreteValue1.Value = batchIdCombobox.Text;
+
+            //add the parameter value in the ParameterField object
+            paramField1.CurrentValues.Add(paramDiscreteValue1);
+
+            //add the parameter in the ParameterFields object
+            paramFields1.Add(paramField1);
+            ReportViewer f2 = new ReportViewer();
+            TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
+            TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
+            ConnectionInfo reportConInfo = new ConnectionInfo();
+            Tables tables = default(Tables);
+            //	Table table = default(Table);
+            var with1 = reportConInfo;
+            with1.ServerName = "tcp:KyotoServer,49172";
+            with1.DatabaseName = "PhoneBookDBKD22";
+            with1.UserID = "sa";
+            with1.Password = "SystemAdministrator";
+            BatchReportNoPODNum cr = new BatchReportNoPODNum();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -193,6 +250,21 @@ namespace PhonebookApp.Reports
         }
 
         private void PortraitRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void missingradioButton_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void missingradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReportByBatch_Click(object sender, EventArgs e)
         {
 
         }

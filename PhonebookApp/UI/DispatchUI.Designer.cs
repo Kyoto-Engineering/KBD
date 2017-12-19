@@ -39,7 +39,7 @@
             this.InsertPOD.BackColor = System.Drawing.Color.WhiteSmoke;
             this.InsertPOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertPOD.ForeColor = System.Drawing.Color.Black;
-            this.InsertPOD.Location = new System.Drawing.Point(293, 68);
+            this.InsertPOD.Location = new System.Drawing.Point(345, 68);
             this.InsertPOD.Name = "InsertPOD";
             this.InsertPOD.Size = new System.Drawing.Size(159, 59);
             this.InsertPOD.TabIndex = 53;
@@ -52,7 +52,7 @@
             this.BatchCreation.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BatchCreation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BatchCreation.ForeColor = System.Drawing.Color.Black;
-            this.BatchCreation.Location = new System.Drawing.Point(66, 68);
+            this.BatchCreation.Location = new System.Drawing.Point(77, 68);
             this.BatchCreation.Name = "BatchCreation";
             this.BatchCreation.Size = new System.Drawing.Size(160, 59);
             this.BatchCreation.TabIndex = 52;
@@ -65,7 +65,7 @@
             this.CourierManagement.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CourierManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CourierManagement.ForeColor = System.Drawing.Color.Black;
-            this.CourierManagement.Location = new System.Drawing.Point(66, 144);
+            this.CourierManagement.Location = new System.Drawing.Point(77, 144);
             this.CourierManagement.Name = "CourierManagement";
             this.CourierManagement.Size = new System.Drawing.Size(160, 59);
             this.CourierManagement.TabIndex = 54;
@@ -77,11 +77,11 @@
             this.batchreportbutton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.batchreportbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.batchreportbutton.ForeColor = System.Drawing.Color.Black;
-            this.batchreportbutton.Location = new System.Drawing.Point(293, 144);
+            this.batchreportbutton.Location = new System.Drawing.Point(345, 144);
             this.batchreportbutton.Name = "batchreportbutton";
             this.batchreportbutton.Size = new System.Drawing.Size(159, 59);
             this.batchreportbutton.TabIndex = 55;
-            this.batchreportbutton.Text = "Print Batch";
+            this.batchreportbutton.Text = "Print";
             this.batchreportbutton.UseVisualStyleBackColor = false;
             this.batchreportbutton.Click += new System.EventHandler(this.batchreportbutton_Click);
             // 

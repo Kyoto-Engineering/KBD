@@ -364,7 +364,7 @@ namespace PhonebookApp.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ReportByBatch f2=new ReportByBatch();
+            BatchPrint f2 = new BatchPrint();
             this.Visible = false;
             f2.ShowDialog();
             this.Visible = true;

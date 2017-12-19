@@ -162,6 +162,12 @@
       <DependentUpon>BarCode.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\BatchReportnCopy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BatchReportnCopy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\BatchReportUnSuccessfull.cs">
       <DependentUpon>BatchReportUnSuccessfull.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -174,8 +180,8 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\BatchReportnCopy.cs">
-      <DependentUpon>BatchReportnCopy.rpt</DependentUpon>
+    <Compile Include="Reports\BatchReportnCopyCan.cs">
+      <DependentUpon>BatchReportnCopyCan.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -453,6 +459,12 @@
     <Compile Include="UI\Batch.Designer.cs">
       <DependentUpon>Batch.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\BatchPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BatchPrint.Designer.cs">
+      <DependentUpon>BatchPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Company.cs" />
     <Compile Include="UI\CompanyCreation.cs">
       <SubType>Form</SubType>
@@ -667,6 +679,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BarCode.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BatchReportnCopy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BatchReportnCopy.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BatchReportUnSuccessfull.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BatchReportUnSuccessfull.cs</LastGenOutput>
@@ -675,9 +691,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BatchReportNoPODNum.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\BatchReportnCopy.rpt">
+    <EmbeddedResource Include="Reports\BatchReportnCopyCan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BatchReportnCopy.cs</LastGenOutput>
+      <LastGenOutput>BatchReportnCopyCan.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BatchReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -847,6 +863,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Batch.resx">
       <DependentUpon>Batch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BatchPrint.resx">
+      <DependentUpon>BatchPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CompanyCreation.resx">
       <DependentUpon>CompanyCreation.cs</DependentUpon>

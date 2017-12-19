@@ -41,7 +41,7 @@
             // 
             this.getButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.getButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getButton.Location = new System.Drawing.Point(236, 178);
+            this.getButton.Location = new System.Drawing.Point(236, 197);
             this.getButton.Name = "getButton";
             this.getButton.Size = new System.Drawing.Size(74, 23);
             this.getButton.TabIndex = 0;
@@ -52,28 +52,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(140, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(106, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.Size = new System.Drawing.Size(89, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Batch Id   :";
             // 
             // batchIdCombobox
             // 
             this.batchIdCombobox.FormattingEnabled = true;
-            this.batchIdCombobox.Location = new System.Drawing.Point(211, 22);
+            this.batchIdCombobox.Location = new System.Drawing.Point(192, 41);
             this.batchIdCombobox.Name = "batchIdCombobox";
-            this.batchIdCombobox.Size = new System.Drawing.Size(175, 21);
+            this.batchIdCombobox.Size = new System.Drawing.Size(194, 21);
             this.batchIdCombobox.TabIndex = 2;
             this.batchIdCombobox.SelectedIndexChanged += new System.EventHandler(this.batchIdCombobox_SelectedIndexChanged);
             // 
             // BatchReportforSuccessfulLetter
             // 
             this.BatchReportforSuccessfulLetter.AutoSize = true;
-            this.BatchReportforSuccessfulLetter.Location = new System.Drawing.Point(198, 60);
+            this.BatchReportforSuccessfulLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BatchReportforSuccessfulLetter.Location = new System.Drawing.Point(173, 83);
             this.BatchReportforSuccessfulLetter.Name = "BatchReportforSuccessfulLetter";
-            this.BatchReportforSuccessfulLetter.Size = new System.Drawing.Size(188, 17);
+            this.BatchReportforSuccessfulLetter.Size = new System.Drawing.Size(226, 20);
             this.BatchReportforSuccessfulLetter.TabIndex = 3;
             this.BatchReportforSuccessfulLetter.TabStop = true;
             this.BatchReportforSuccessfulLetter.Text = "Batch Report for Successful Letter";
@@ -83,9 +84,10 @@
             // LandscapeRadioButton
             // 
             this.LandscapeRadioButton.AutoSize = true;
-            this.LandscapeRadioButton.Location = new System.Drawing.Point(198, 93);
+            this.LandscapeRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LandscapeRadioButton.Location = new System.Drawing.Point(173, 116);
             this.LandscapeRadioButton.Name = "LandscapeRadioButton";
-            this.LandscapeRadioButton.Size = new System.Drawing.Size(200, 17);
+            this.LandscapeRadioButton.Size = new System.Drawing.Size(241, 20);
             this.LandscapeRadioButton.TabIndex = 4;
             this.LandscapeRadioButton.TabStop = true;
             this.LandscapeRadioButton.Text = "Batch Report for Unsuccessful Letter";
@@ -94,9 +96,10 @@
             // missingradioButton
             // 
             this.missingradioButton.AutoSize = true;
-            this.missingradioButton.Location = new System.Drawing.Point(198, 128);
+            this.missingradioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.missingradioButton.Location = new System.Drawing.Point(173, 151);
             this.missingradioButton.Name = "missingradioButton";
-            this.missingradioButton.Size = new System.Drawing.Size(171, 17);
+            this.missingradioButton.Size = new System.Drawing.Size(207, 20);
             this.missingradioButton.TabIndex = 5;
             this.missingradioButton.TabStop = true;
             this.missingradioButton.Text = "Batch Report for Missing Letter";
@@ -118,6 +121,7 @@
             this.Controls.Add(this.getButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByBatch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportByBatch";
             this.Load += new System.EventHandler(this.ReportByBatch_Load);
             this.Click += new System.EventHandler(this.ReportByBatch_Click);

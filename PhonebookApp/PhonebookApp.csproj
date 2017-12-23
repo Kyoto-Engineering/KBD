@@ -162,10 +162,28 @@
       <DependentUpon>BarCode.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\BatchPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BatchPrint.Designer.cs">
+      <DependentUpon>BatchPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BatchReportLSort.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BatchReportLSort.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\BatchReportnCopy.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BatchReportnCopy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BatchReportNoPODNumSort.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BatchReportNoPODNumSort.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\BatchReportUnSuccessfull.cs">
@@ -196,6 +214,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BatchReportL.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BatchReportUnSuccessfullSort.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BatchReportUnSuccessfullSort.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\CompanyDetails.cs">
@@ -459,12 +483,6 @@
     <Compile Include="UI\Batch.Designer.cs">
       <DependentUpon>Batch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\BatchPrint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\BatchPrint.Designer.cs">
-      <DependentUpon>BatchPrint.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Company.cs" />
     <Compile Include="UI\CompanyCreation.cs">
       <SubType>Form</SubType>
@@ -679,9 +697,20 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BarCode.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BatchPrint.resx">
+      <DependentUpon>BatchPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BatchReportLSort.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BatchReportLSort.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BatchReportnCopy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BatchReportnCopy.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BatchReportNoPODNumSort.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BatchReportNoPODNumSort.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BatchReportUnSuccessfull.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -702,6 +731,10 @@
     <EmbeddedResource Include="Reports\BatchReportL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BatchReportL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BatchReportUnSuccessfullSort.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BatchReportUnSuccessfullSort.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CompanyDetails.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -863,9 +896,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Batch.resx">
       <DependentUpon>Batch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\BatchPrint.resx">
-      <DependentUpon>BatchPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CompanyCreation.resx">
       <DependentUpon>CompanyCreation.cs</DependentUpon>

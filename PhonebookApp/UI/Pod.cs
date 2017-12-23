@@ -120,14 +120,14 @@ namespace PhonebookApp.UI
             try {
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            string q3 = "select distinct DetailsOfBatch.PersonsId, Persons.PersonName, vwFullAddress.CompanyName , (case when exists (select vwFullAddress.CompanyId where vwFullAddress.CompanyId is null) then vwFullAddress.RDistrict else vwFullAddress.CDistrict end) , DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime,DetailsOfBatch.ReasonOfnotDelivered , DetailsOfBatch.DELResult,DetailsOfBatch.ReceivedBy FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId LEFT OUTER JOIN vwFullAddress ON DetailsOfBatch.PersonsId = vwFullAddress.PersonsId  where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
+            string q3 = "select distinct DetailsOfBatch.PersonsId, Persons.PersonName, vwFullAddress.CompanyName , (case when exists (select vwFullAddress.CompanyId where vwFullAddress.CompanyId is null) then vwFullAddress.RDistrict else vwFullAddress.CDistrict end) , DetailsOfBatch.POD, Batch.BatchId, Batch.BatchTime,DetailsOfBatch.ReasonOfnotDelivered , DetailsOfBatch.DELResult,DetailsOfBatch.ReceivedBy,DetailsOfBatch.DeliveryDate FROM  DetailsOfBatch INNER JOIN Persons ON DetailsOfBatch.PersonsId = Persons.PersonsId RIGHT OUTER JOIN Batch ON DetailsOfBatch.BatchId = Batch.BatchId LEFT OUTER JOIN vwFullAddress ON DetailsOfBatch.PersonsId = vwFullAddress.PersonsId  where DetailsOfBatch.BatchId = '" + batchid + "' order by DetailsOfBatch.PersonsId asc  ";
             cmd = new SqlCommand(q3, con);
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             dataGridView1.Rows.Clear();
             
             while (rdr.Read() == true)
             {
-                dataGridView1.Rows.Add(rdr[0], rdr[1], rdr[2], rdr[3] ,rdr[4], rdr[5], rdr[6],rdr[7],rdr[8],rdr[9]);
+                dataGridView1.Rows.Add(rdr[0], rdr[1], rdr[2], rdr[3] ,rdr[4], rdr[5], rdr[6],rdr[7],rdr[8],rdr[9],rdr[10]);
             
             }
                  }
@@ -212,7 +212,7 @@ namespace PhonebookApp.UI
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string querydone = "update DetailsOfBatch set  DELResult = '" + "NO" + "',ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "', POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
+                    string querydone = "update DetailsOfBatch set  DELResult = '" + "NO" + "',ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "', POD = '" + podtxt.Text + "', DeliveryDate = '" + deliverydate.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
                     cmd = new SqlCommand(querydone, con);
                     cmd.ExecuteScalar();
                     con.Close();
@@ -249,7 +249,7 @@ namespace PhonebookApp.UI
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string querydone = "update DetailsOfBatch set DELResult = '" + "Yes" + "', ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "',POD = '" + podtxt.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
+                    string querydone = "update DetailsOfBatch set DELResult = '" + "Yes" + "', ReceivedBy = '" + ReceivedbytextBox.Text + "',ReasonOfnotDelivered = '" + ReasoncomboBox.Text + "',POD = '" + podtxt.Text + "', DeliveryDate = '" + deliverydate.Text + "' where BatchId = '" + batchid + "' AND PersonsId = '" + personiddd + "' ";
                     cmd = new SqlCommand(querydone, con);
                     cmd.ExecuteScalar();
                     con.Close();

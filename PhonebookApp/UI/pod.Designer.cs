@@ -56,6 +56,8 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.deliverydate = new System.Windows.Forms.DateTimePicker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +68,7 @@
             this.ReasonOfNotDelivered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DELResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceivedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliverDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -79,7 +82,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.batchcombo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(773, 22);
+            this.groupBox1.Location = new System.Drawing.Point(850, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(233, 103);
             this.groupBox1.TabIndex = 1;
@@ -108,10 +111,11 @@
             this.Column5,
             this.ReasonOfNotDelivered,
             this.DELResult,
-            this.ReceivedBy});
+            this.ReceivedBy,
+            this.DeliverDate});
             this.dataGridView1.Location = new System.Drawing.Point(18, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(649, 310);
+            this.dataGridView1.Size = new System.Drawing.Size(715, 310);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -119,9 +123,9 @@
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(30, 272);
+            this.groupBox2.Location = new System.Drawing.Point(30, 280);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(673, 340);
+            this.groupBox2.Size = new System.Drawing.Size(739, 340);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
@@ -137,6 +141,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.deliverydate);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.ReceivedbytextBox);
             this.groupBox3.Controls.Add(this.ReasoncomboBox);
@@ -155,9 +161,9 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.recpidtxt);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(709, 178);
+            this.groupBox3.Location = new System.Drawing.Point(786, 178);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(380, 434);
+            this.groupBox3.Size = new System.Drawing.Size(380, 445);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
@@ -165,7 +171,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(156, 257);
+            this.label7.Location = new System.Drawing.Point(146, 246);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 19);
             this.label7.TabIndex = 111;
@@ -174,7 +180,7 @@
             // ReceivedbytextBox
             // 
             this.ReceivedbytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReceivedbytextBox.Location = new System.Drawing.Point(158, 279);
+            this.ReceivedbytextBox.Location = new System.Drawing.Point(146, 268);
             this.ReceivedbytextBox.Name = "ReceivedbytextBox";
             this.ReceivedbytextBox.Size = new System.Drawing.Size(145, 22);
             this.ReceivedbytextBox.TabIndex = 110;
@@ -182,7 +188,7 @@
             // ReasoncomboBox
             // 
             this.ReasoncomboBox.FormattingEnabled = true;
-            this.ReasoncomboBox.Location = new System.Drawing.Point(148, 333);
+            this.ReasoncomboBox.Location = new System.Drawing.Point(144, 363);
             this.ReasoncomboBox.Name = "ReasoncomboBox";
             this.ReasoncomboBox.Size = new System.Drawing.Size(213, 21);
             this.ReasoncomboBox.TabIndex = 109;
@@ -192,7 +198,7 @@
             // Reasonlabel
             // 
             this.Reasonlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reasonlabel.Location = new System.Drawing.Point(19, 333);
+            this.Reasonlabel.Location = new System.Drawing.Point(23, 363);
             this.Reasonlabel.Name = "Reasonlabel";
             this.Reasonlabel.Size = new System.Drawing.Size(123, 19);
             this.Reasonlabel.TabIndex = 108;
@@ -203,7 +209,7 @@
             // 
             this.notdeliverecheckBox.AutoSize = true;
             this.notdeliverecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notdeliverecheckBox.Location = new System.Drawing.Point(148, 307);
+            this.notdeliverecheckBox.Location = new System.Drawing.Point(144, 337);
             this.notdeliverecheckBox.Name = "notdeliverecheckBox";
             this.notdeliverecheckBox.Size = new System.Drawing.Size(172, 20);
             this.notdeliverecheckBox.TabIndex = 106;
@@ -270,7 +276,7 @@
             this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(178, 374);
+            this.button1.Location = new System.Drawing.Point(178, 393);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 42);
             this.button1.TabIndex = 10;
@@ -281,7 +287,7 @@
             // podtxt
             // 
             this.podtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.podtxt.Location = new System.Drawing.Point(158, 230);
+            this.podtxt.Location = new System.Drawing.Point(148, 219);
             this.podtxt.Name = "podtxt";
             this.podtxt.Size = new System.Drawing.Size(145, 22);
             this.podtxt.TabIndex = 9;
@@ -290,7 +296,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(154, 208);
+            this.label3.Location = new System.Drawing.Point(144, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 19);
             this.label3.TabIndex = 8;
@@ -355,6 +361,25 @@
             this.Column7.HeaderText = "Batch Date";
             this.Column7.Name = "Column7";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(19, 307);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 16);
+            this.label8.TabIndex = 112;
+            this.label8.Text = "Delivery Date :";
+            // 
+            // deliverydate
+            // 
+            this.deliverydate.CustomFormat = "dd-MM-yyyy";
+            this.deliverydate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.deliverydate.Location = new System.Drawing.Point(145, 307);
+            this.deliverydate.Name = "deliverydate";
+            this.deliverydate.Size = new System.Drawing.Size(103, 20);
+            this.deliverydate.TabIndex = 113;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Person Id";
@@ -406,6 +431,11 @@
             this.ReceivedBy.HeaderText = "Received By";
             this.ReceivedBy.Name = "ReceivedBy";
             // 
+            // DeliverDate
+            // 
+            this.DeliverDate.HeaderText = "Delivery Date";
+            this.DeliverDate.Name = "DeliverDate";
+            // 
             // Pod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +443,7 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImage = global::PhonebookApp.Properties.Resources.BusinessDirectory;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1124, 635);
+            this.ClientSize = new System.Drawing.Size(1198, 635);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -465,6 +495,8 @@
         private System.Windows.Forms.CheckBox notdeliverecheckBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ReceivedbytextBox;
+        private System.Windows.Forms.DateTimePicker deliverydate;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
@@ -475,5 +507,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReasonOfNotDelivered;
         private System.Windows.Forms.DataGridViewTextBoxColumn DELResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceivedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeliverDate;
     }
 }

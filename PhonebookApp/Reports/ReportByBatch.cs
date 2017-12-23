@@ -103,7 +103,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportL cr = new BatchReportL();
+            BatchReportLSort cr = new BatchReportLSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -152,7 +152,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportUnSuccessfull cr = new BatchReportUnSuccessfull();
+            BatchReportUnSuccessfullSort cr = new BatchReportUnSuccessfullSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -181,7 +181,7 @@ namespace PhonebookApp.Reports
             ParameterDiscreteValue paramDiscreteValue1 = new ParameterDiscreteValue();
 
             //set the parameter field name
-            paramField1.Name = "BatchId";
+            paramField1.Name = "Batch Id";
 
             //set the parameter value
             paramDiscreteValue1.Value = batchIdCombobox.Text;
@@ -202,7 +202,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportNoPODNum cr = new BatchReportNoPODNum();
+            BatchReportNoPODNumSort cr = new BatchReportNoPODNumSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -271,7 +271,7 @@ namespace PhonebookApp.Reports
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ReportViewer f2 = new ReportViewer();
+            /*ReportViewer f2 = new ReportViewer();
             TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
             TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
             ConnectionInfo reportConInfo = new ConnectionInfo();
@@ -282,7 +282,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportNoPODNum cr = new BatchReportNoPODNum();
+            BatchReportNoPODNumSort cr = new BatchReportNoPODNumSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -297,10 +297,13 @@ namespace PhonebookApp.Reports
 
             f2.ShowDialog();
             this.Visible = true;
+             */
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            /*
             ReportViewer f2 = new ReportViewer();
             TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
             TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
@@ -312,7 +315,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportUnSuccessfull cr = new BatchReportUnSuccessfull();
+            BatchReportUnSuccessfullSort cr = new BatchReportUnSuccessfullSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -327,11 +330,15 @@ namespace PhonebookApp.Reports
 
             f2.ShowDialog();
             this.Visible = true;
+             * 
+             */
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ReportViewer f2 = new ReportViewer();
+            
+            /*
+             * ReportViewer f2 = new ReportViewer();
             TableLogOnInfos reportLogonInfos = new TableLogOnInfos();
             TableLogOnInfo reportLogonInfo = new TableLogOnInfo();
             ConnectionInfo reportConInfo = new ConnectionInfo();
@@ -342,7 +349,7 @@ namespace PhonebookApp.Reports
             with1.DatabaseName = "PhoneBookDBKD22";
             with1.UserID = "sa";
             with1.Password = "SystemAdministrator";
-            BatchReportL cr = new BatchReportL();
+            BatchReportLSort cr = new BatchReportLSort();
             tables = cr.Database.Tables;
             foreach (Table table in tables)
             {
@@ -357,6 +364,12 @@ namespace PhonebookApp.Reports
 
             f2.ShowDialog();
             this.Visible = true;
+             */
+        }
+
+        private void LandscapeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
